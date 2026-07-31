@@ -216,6 +216,60 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
   .manual-nav{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}
   .checker-header{flex-direction:column;align-items:flex-start}
 }
+
+/* ==================== 素材库对比工具 ==================== */
+.compare-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:200;display:none;align-items:center;justify-content:center;padding:12px}
+.compare-overlay.active{display:flex}
+.compare-modal{background:var(--bg-card);border-radius:var(--radius-lg);width:100%;max-width:700px;max-height:85vh;overflow-y:auto;box-shadow:var(--shadow-hover);display:flex;flex-direction:column}
+.compare-modal-header{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--bg-card);z-index:2}
+.compare-modal-header h3{font-size:var(--font-lg);color:var(--text-primary)}
+.compare-modal-body{padding:16px;flex:1;overflow-y:auto}
+.compare-selects{display:flex;gap:12px;margin-bottom:16px;align-items:center}
+.compare-selects select{flex:1;padding:8px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm)}
+.compare-selects .vs{font-size:var(--font-md);color:var(--accent);font-weight:700;flex-shrink:0}
+.compare-table{width:100%;border-collapse:collapse;font-size:var(--font-xs)}
+.compare-table th{background:var(--bg-input);padding:8px;text-align:left;border:1px solid var(--border);font-weight:600;color:var(--text-secondary);width:80px}
+.compare-table td{padding:8px;border:1px solid var(--border);color:var(--text-primary);vertical-align:top}
+.compare-table td:first-of-type{background:rgba(232,115,138,0.05)}
+.compare-table td:nth-of-type(2){background:rgba(91,155,213,0.05)}
+
+/* ==================== 章节模板库 ==================== */
+.template-card{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px;cursor:pointer;transition:all 0.2s}
+.template-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(232,115,138,0.1)}
+.template-card .tpl-name{font-size:var(--font-md);font-weight:600;color:var(--text-primary);margin-bottom:4px}
+.template-card .tpl-desc{font-size:var(--font-xs);color:var(--text-muted);margin-bottom:6px}
+.template-card .tpl-meta{display:flex;gap:8px;flex-wrap:wrap}
+.template-card .tpl-tag{font-size:var(--font-xs);padding:2px 6px;border-radius:8px;background:var(--bg-input);color:var(--text-secondary)}
+
+/* ==================== 风控急救包 ==================== */
+.risk-input{width:100%;min-height:120px;padding:10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm);resize:vertical;font-family:inherit;line-height:1.6}
+.risk-result{margin-top:12px}
+.risk-item{background:#fef2f2;border-left:3px solid #ef4444;padding:10px 12px;border-radius:0 var(--radius) var(--radius) 0;margin:8px 0}
+.risk-item .risk-word{font-weight:600;color:#dc2626;font-size:var(--font-sm)}
+.risk-item .risk-suggest{color:#059669;font-size:var(--font-xs);margin-top:4px}
+.risk-safe{background:#d1fae5;border-left:3px solid #059669;padding:10px 12px;border-radius:0 var(--radius) var(--radius) 0;margin:8px 0;color:#065f46;font-size:var(--font-sm)}
+
+/* ==================== 钩子生成器 ==================== */
+.hook-gen-selects{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.hook-gen-selects select{padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm)}
+.hook-result{background:#1e293b;color:#e2e8f0;padding:14px;border-radius:var(--radius);font-size:var(--font-xs);line-height:1.7;margin-top:12px;white-space:pre-wrap;position:relative}
+
+/* ==================== 反转检测仪 ==================== */
+.reversal-input{width:100%;min-height:100px;padding:10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm);resize:vertical;font-family:inherit;line-height:1.6;margin-bottom:8px}
+.reversal-score{display:flex;gap:12px;margin:12px 0}
+.reversal-score-item{flex:1;background:var(--bg-input);border-radius:var(--radius);padding:10px;text-align:center}
+.reversal-score-item .score-val{font-size:var(--font-xl);font-weight:700}
+.reversal-score-item .score-label{font-size:var(--font-xs);color:var(--text-muted);margin-top:4px}
+
+/* ==================== 运营工具箱 ==================== */
+.op-step{display:flex;align-items:center;gap:8px;padding:8px;background:var(--bg-input);border-radius:6px;margin:4px 0;cursor:pointer;transition:all 0.2s}
+.op-step:hover{background:var(--accent-dim)}
+.op-step .step-check{width:20px;height:20px;border:2px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
+.op-step.done .step-check{background:var(--success);border-color:var(--success);color:#fff}
+.op-step.done .step-text{text-decoration:line-through;color:var(--text-muted)}
+.op-step .step-text{flex:1;font-size:var(--font-xs);color:var(--text-primary)}
+.three-sec-input{width:100%;min-height:100px;padding:10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm);resize:vertical;font-family:inherit;line-height:1.6;margin-bottom:8px}
+.three-sec-result{margin-top:8px}
 </style>
 </head>
 <body>
@@ -566,6 +620,7 @@ function renderMaterials() {
           <button class="btn btn-sm btn-primary" onclick="addMaterial('${currentLibrary}')">+ 添加</button>
           <button class="btn btn-sm btn-success" onclick="autoFillMaterials()">一键填入</button>
           <button class="btn btn-sm btn-accent" onclick="openSnapModal()" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border:none">📷 截图识别</button>
+          <button class="btn btn-sm btn-secondary" onclick="openCompareModal()" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);color:#fff;border:none">📊 对比</button>
           <button class="btn btn-sm btn-secondary" onclick="exportLibraryCSV('${currentLibrary}')">导出CSV</button>
         </div>
         ${tableHtml}
@@ -973,6 +1028,7 @@ function renderWorkshop() {
     html += `
       <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
         <button class="btn btn-sm btn-primary" onclick="addChapter()">+ 添加章节</button>
+        <button class="btn btn-sm btn-secondary" onclick="openTemplateModal()" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);color:#fff;border:none">📝 模板</button>
         <button class="btn btn-sm btn-success" onclick="analyzeProject()">分析</button>
         <button class="btn btn-sm btn-secondary" onclick="exportProjectCSV()">导出CSV</button>
       </div>
@@ -1730,6 +1786,22 @@ const MANUAL_DATA = {
         ]
       }
     ]
+  },
+  'risk-control': {
+    name: '🛡️ 风控急救包',
+    interactive: 'risk-control'
+  },
+  'hook-generator': {
+    name: '🎣 钩子生成器',
+    interactive: 'hook-generator'
+  },
+  'reversal-detector': {
+    name: '🔄 反转检测仪',
+    interactive: 'reversal-detector'
+  },
+  'operation-toolkit': {
+    name: '🧰 运营工具箱',
+    interactive: 'operation-toolkit'
   }
 };
 
@@ -2141,6 +2213,20 @@ function renderManual() {
         }
         contentHtml += '</div>';
       });
+    }
+
+    // ====== 交互式模块 ======
+    if (data.interactive === 'risk-control') {
+      contentHtml += renderRiskControl();
+    }
+    if (data.interactive === 'hook-generator') {
+      contentHtml += renderHookGenerator();
+    }
+    if (data.interactive === 'reversal-detector') {
+      contentHtml += renderReversalDetector();
+    }
+    if (data.interactive === 'operation-toolkit') {
+      contentHtml += renderOperationToolkit();
     }
 
     contentHtml += '</div>'; // close manual-section
@@ -3151,6 +3237,296 @@ function confirmSnapResults() {
   renderMaterials();
 }
 
+// ==================== 素材库对比工具 ====================
+const LIBRARY_COMPARE_DATA = {
+  'hot_meme': { core: '社会热点→故事素材', feature: '梗+改编方向+风险', transform: '去时效性、加人设冲突', frequency: '每章1.2个', risk: '法律红线+时效衰减', confusion: '和冲突素材混淆：热梗重传播性，冲突重对抗性' },
+  'conflict': { core: '推动剧情发展', feature: '矛盾+利益+情感对抗', transform: '强化人设动机、多线并行', frequency: '每章1.5层', risk: '避免为冲突而冲突', confusion: '和反转混淆：冲突是过程，反转是结果' },
+  'hook': { core: '抓住读者注意力', feature: '悬念+引爆点+信息差', transform: '埋设自然、回收及时', frequency: '每章2个', risk: '钩子不回收=烂尾', confusion: '和反转混淆：钩子是引子，反转是结果' },
+  'reversal': { core: '制造认知冲击', feature: '铺垫+误导+真相揭露', transform: '伏笔≥3处、误导自然', frequency: '每3章1次', risk: '反转突兀=读者弃书', confusion: '和钩子混淆：反转是结果，钩子是引子' },
+  'character': { core: '建立人物辨识度', feature: '人设标签+矛盾特质+成长弧', transform: '避免脸谱化、加矛盾特质', frequency: '每章提及', risk: 'OOC(人设崩塌)', confusion: '和情绪素材混淆：人设是身份，情绪是反应' },
+  'scene': { core: '构建沉浸式场景', feature: '地点+氛围+视觉焦点', transform: '五感描写、动静结合', frequency: '每章1-2个', risk: '场景描写过多拖节奏', confusion: '和景色素材混淆：场景重情节功能，景色重氛围' },
+  'legal_risk': { core: '规避法律风险', feature: '法律条款+触发条件+改编方案', transform: '模糊具体细节、虚构化', frequency: '涉及即用', risk: '不处理=被举报下架', confusion: '独立分类，无易混淆' },
+  'vocabulary': { core: '提升文笔质量', feature: '精准用词+分类标签', transform: '结合场景使用', frequency: '每章5-10个', risk: '过度堆砌=矫情', confusion: '和金句混淆：词汇是词，金句是句' },
+  'emotion': { core: '控制读者情绪节奏', feature: '情绪类型+强度+适用场景', transform: '情绪曲线波动设计', frequency: '每章1个峰值', risk: '情绪平淡=弃书', confusion: '和人设混淆：情绪是反应，人设是身份' },
+  'scenery': { core: '渲染氛围与意境', feature: '时空坐标+光影+动态元素', transform: '情景交融、以景衬情', frequency: '每章0.5个', risk: '纯写景无情节=注水', confusion: '和场景混淆：景色重氛围，场景重功能' },
+  'action': { core: '增强画面动感', feature: '主动作+连锁反应+节奏值', transform: '动词精准、节奏快慢交替', frequency: '每章1-2个', risk: '动作过多=武侠小说', confusion: '和场景混淆：动作重动态，场景重静态' },
+  'dialogue': { core: '传递信息与冲突', feature: '台词+潜台词+功能标签', transform: '言外之意、省略关键信息', frequency: '每章3-5句', risk: '对话水字数=注水', confusion: '和金句混淆：对话是对话，金句是独白' },
+  'quote': { core: '制造记忆点与传播', feature: '金句+类型+适用场景', transform: '精炼、有哲理感或情感冲击', frequency: '每章0.5个', risk: '金句过多=油腻', confusion: '和词汇混淆：金句是句，词汇是词' }
+};
+
+function openCompareModal() {
+  var overlay = document.getElementById('compare-overlay');
+  if (overlay) overlay.remove();
+  overlay = document.createElement('div');
+  overlay.className = 'compare-overlay active';
+  overlay.id = 'compare-overlay';
+  var opts = '';
+  for (var k in LIBRARY_CONFIG) {
+    opts += '<option value="' + k + '">' + LIBRARY_CONFIG[k].icon + ' ' + LIBRARY_CONFIG[k].name + '</option>';
+  }
+  overlay.innerHTML = '<div class="compare-modal"><div class="compare-modal-header"><h3>📊 素材库对比</h3><button class="snap-modal-close" onclick="closeCompareModal()">×</button></div><div class="compare-modal-body"><div class="compare-selects"><select id="cmp-lib1">' + opts + '</select><span class="vs">VS</span><select id="cmp-lib2">' + opts + '</select></div><button class="btn btn-primary" style="width:100%;margin-bottom:12px" onclick="runCompare()">开始对比</button><div id="cmp-result"></div></div></div>';
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeCompareModal(); });
+  // Default select second one different
+  document.getElementById('cmp-lib2').selectedIndex = 1;
+}
+
+function closeCompareModal() {
+  var o = document.getElementById('compare-overlay');
+  if (o) o.remove();
+}
+
+function runCompare() {
+  var lib1 = document.getElementById('cmp-lib1').value;
+  var lib2 = document.getElementById('cmp-lib2').value;
+  var d1 = LIBRARY_COMPARE_DATA[lib1] || {};
+  var d2 = LIBRARY_COMPARE_DATA[lib2] || {};
+  var n1 = LIBRARY_CONFIG[lib1] ? LIBRARY_CONFIG[lib1].name : lib1;
+  var n2 = LIBRARY_CONFIG[lib2] ? LIBRARY_CONFIG[lib2].name : lib2;
+  var dims = [
+    ['core', '核心目的'], ['feature', '内容特征'], ['transform', '改造要点'],
+    ['frequency', '应用频率'], ['risk', '风险控制'], ['confusion', '易混淆点']
+  ];
+  var html = '<table class="compare-table"><thead><tr><th>维度</th><th>' + n1 + '</th><th>' + n2 + '</th></tr></thead><tbody>';
+  dims.forEach(function(d) {
+    html += '<tr><th>' + d[1] + '</th><td>' + (d1[d[0]] || '-') + '</td><td>' + (d2[d[0]] || '-') + '</td></tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById('cmp-result').innerHTML = html;
+}
+
+// ==================== 章节模板库 ====================
+const CHAPTER_TEMPLATES = [
+  { type: '铺垫章', name: '铺垫章·世界观搭建', desc: '用于故事开篇，建立世界观和人设基础', wordCount: 3000, sceneCount: 2, hookType: '悬念', emotion: 3, event: '主角登场+核心矛盾初现+世界观展示' },
+  { type: '发展章', name: '发展章·冲突升级', desc: '矛盾逐步升级，钩子密集埋设', wordCount: 3500, sceneCount: 3, hookType: '转折', emotion: 5, event: '外部冲突升级+人设矛盾爆发+关键道具出现' },
+  { type: '高潮章', name: '高潮章·爆点释放', desc: '多重冲突集中爆发，反转揭露', wordCount: 4000, sceneCount: 4, hookType: '转折', emotion: 9, event: '三重压力集中+核爆级反转+情绪顶点' },
+  { type: '缓冲章', name: '缓冲章·情感呼吸', desc: '高潮后冷却，伏笔暗埋', wordCount: 2500, sceneCount: 1, hookType: '情绪', emotion: 4, event: '日常互动+隐性伏笔+情感铺垫' }
+];
+
+function openTemplateModal() {
+  var overlay = document.getElementById('template-overlay');
+  if (overlay) overlay.remove();
+  overlay = document.createElement('div');
+  overlay.className = 'compare-overlay active';
+  overlay.id = 'template-overlay';
+  var cards = '';
+  CHAPTER_TEMPLATES.forEach(function(t, i) {
+    cards += '<div class="template-card" onclick="applyTemplate(' + i + ')"><div class="tpl-name">' + t.name + '</div><div class="tpl-desc">' + t.desc + '</div><div class="tpl-meta"><span class="tpl-tag">字数:' + t.wordCount + '</span><span class="tpl-tag">场景:' + t.sceneCount + '</span><span class="tpl-tag">钩子:' + t.hookType + '</span><span class="tpl-tag">情绪:' + t.emotion + '</span></div><div style="margin-top:6px;font-size:var(--font-xs);color:var(--accent)">点击套用此模板 →</div></div>';
+  });
+  overlay.innerHTML = '<div class="compare-modal" style="max-width:500px"><div class="compare-modal-header"><h3>📝 章节模板库</h3><button class="snap-modal-close" onclick="closeTemplateModal()">×</button></div><div class="compare-modal-body">' + cards + '<div style="font-size:var(--font-xs);color:var(--text-muted);text-align:center;margin-top:8px">套用后会自动添加一章到当前项目</div></div></div>';
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeTemplateModal(); });
+}
+
+function closeTemplateModal() {
+  var o = document.getElementById('template-overlay');
+  if (o) o.remove();
+}
+
+function applyTemplate(idx) {
+  var t = CHAPTER_TEMPLATES[idx];
+  var projects = getProjects();
+  if (currentProject === null || !projects[currentProject]) {
+    showToast('请先打开一个项目');
+    return;
+  }
+  var p = projects[currentProject];
+  if (!p.chapters) p.chapters = [];
+  p.chapters.push({
+    name: t.type + '·第' + (p.chapters.length + 1) + '章',
+    event: t.event,
+    wordCount: t.wordCount,
+    sceneCount: t.sceneCount,
+    hookType: t.hookType,
+    emotion: t.emotion
+  });
+  saveProjects(projects);
+  closeTemplateModal();
+  showToast('已套用「' + t.name + '」');
+  renderWorkshop();
+}
+
+// ==================== 晋江风控急救包 ====================
+const RISK_WORDS = [
+  { word: '出轨', suggest: '改为「情感偏移」或「精神暧昧」，实体行为用「深夜未归」「手机密码更换」等侧面暗示' },
+  { word: '婚外情', suggest: '改为「平行关系」或「双重生活」，模糊婚姻状态' },
+  { word: '师生恋', suggest: '改为「毕业后的师生重逢」或「离职后的关系转变」，确保非在职期间' },
+  { word: '性骚扰', suggest: '改为「全息投影骚扰假象」或「AI模拟骚扰场景」，用科幻设定替代' },
+  { word: '自杀', suggest: '改为「消失」或「进入休眠舱」，避免直接描写自杀方式' },
+  { word: '自残', suggest: '改为「训练受伤」或「实验事故伤痕」' },
+  { word: '毒品', suggest: '改为「违禁药剂」或「实验性神经抑制剂」' },
+  { word: '赌博', suggest: '改为「竞技押注」或「虚拟资产博弈」' },
+  { word: '暴力', suggest: '改为「能量冲击」或「能力对抗」，弱化血腥描写' },
+  { word: '家暴', suggest: '改为「家庭冷暴力」或「精神控制」，避免肢体暴力描写' },
+  { word: '强奸', suggest: '完全避免，改为「强制记忆植入」或「意识入侵」，用科幻概念替代' },
+  { word: '未成年', suggest: '确保所有角色≥18岁，改为「大学生」或「初入职场」' },
+  { word: '政治', suggest: '架空世界观，虚构政权名称，避免映射现实' },
+  { word: '警察', suggest: '改为「安全署探员」或「执法者」，虚构机构名称' },
+  { word: '政府', suggest: '改为「联邦议会」或「联合管理局」，架空设定' },
+  { word: '宗教', suggest: '改为「信仰体系」或「精神学派」，避免映射真实宗教' },
+  { word: '真实品牌', suggest: '改为虚构品牌名，如「星咖」替代「星巴克」' },
+  { word: '真人姓名', suggest: '全部改为虚构姓名，避免谐音' }
+];
+
+function renderRiskControl() {
+  return '<div class="manual-card"><h5>🛡️ 敏感内容检测与转化</h5><p style="margin-bottom:8px">粘贴你可能敏感的描写内容，系统自动检测并给出安全转化方案：</p><textarea class="risk-input" id="risk-input" placeholder="例如：女主发现丈夫出轨，和闺蜜在咖啡店哭诉..."></textarea><button class="btn btn-primary" style="margin-top:8px" onclick="checkRisk()">🔍 一键检测</button><div class="risk-result" id="risk-result"></div></div>';
+}
+
+function checkRisk() {
+  var text = document.getElementById('risk-input').value;
+  if (!text.trim()) { showToast('请输入内容'); return; }
+  var found = [];
+  RISK_WORDS.forEach(function(rw) {
+    if (text.indexOf(rw.word) >= 0) {
+      found.push(rw);
+    }
+  });
+  var html = '';
+  if (found.length === 0) {
+    html = '<div class="risk-safe">✅ 未检测到敏感词，内容安全！</div>';
+  } else {
+    html = '<div style="font-size:var(--font-sm);color:#dc2626;margin-bottom:8px">⚠️ 检测到 ' + found.length + ' 个敏感词：</div>';
+    found.forEach(function(f) {
+      html += '<div class="risk-item"><span class="risk-word">「' + f.word + '」</span><div class="risk-suggest">💡 转化建议：' + f.suggest + '</div><button class="btn btn-sm btn-secondary" style="margin-top:4px;font-size:10px" onclick="copyToClipboard(\'' + f.suggest.replace(/'/g, "\\'") + '\')">📋 复制建议</button></div>';
+    });
+  }
+  document.getElementById('risk-result').innerHTML = html;
+}
+
+// ==================== 钩子生成器 ====================
+function renderHookGenerator() {
+  var genres = ['现言', '古言', '悬疑', '科幻', '奇幻', '职场', '婚恋'];
+  var hooks = ['悬念钩', '转折钩', '情绪钩', '信息钩', '身份反转钩', '物品悬念钩', '台词悬念钩'];
+  var html = '<div class="manual-card"><h5>🎣 钩子提示词生成器</h5><p style="margin-bottom:8px">选择题材和钩子类型，生成ChatGPT提示词：</p><div class="hook-gen-selects">';
+  html += '<select id="hook-genre">' + genres.map(function(g) { return '<option>' + g + '</option>'; }).join('') + '</select>';
+  html += '<select id="hook-type">' + hooks.map(function(h) { return '<option>' + h + '</option>'; }).join('') + '</select>';
+  html += '</div><input type="text" id="hook-keyword" placeholder="输入关键词（可选，如：铜镜、契约、记忆）" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm);margin-bottom:8px">';
+  html += '<button class="btn btn-primary" style="width:100%" onclick="genHookPrompt()">生成提示词</button><div id="hook-gen-result"></div></div>';
+  return html;
+}
+
+function genHookPrompt() {
+  var genre = document.getElementById('hook-genre').value;
+  var hookType = document.getElementById('hook-type').value;
+  var keyword = document.getElementById('hook-keyword').value.trim();
+  var prompt = '你是一个' + genre + '小说的钩子设计专家。请帮我设计一个「' + hookType + '」。\n\n';
+  prompt += '要求：\n1. 钩子必须让读者产生强烈的「然后呢？」冲动\n2. 钩子需要能在3章内回收或埋下5章以上的长线\n3. 结合以下关键词：' + (keyword || '自由发挥') + '\n';
+  prompt += '4. 输出3个不同方案，每个方案包含：\n   - 钩子内容（2-3句话）\n   - 埋设位置（章节末3行）\n   - 回收方式（即时/长线）\n   - 情绪冲击力（1-10分）\n';
+  prompt += '5. 参考' + genre + '题材的经典钩子模式\n6. 确保钩子符合晋江审核标准\n\n请直接输出3个方案，不要解释。';
+  var html = '<div class="hook-result">' + prompt + '<button class="btn btn-sm btn-secondary" style="position:absolute;top:8px;right:8px;font-size:10px" onclick="copyToClipboard(document.getElementById(\\'hook-prompt-text\\').textContent)">📋 复制</button><div id="hook-prompt-text" style="display:none">' + prompt + '</div></div>';
+  document.getElementById('hook-gen-result').innerHTML = html;
+}
+
+// ==================== 反转检测仪 ====================
+function renderReversalDetector() {
+  return '<div class="manual-card"><h5>🔄 反转合理性检测</h5><p style="margin-bottom:8px">输入反转前的铺垫情节和反转后的结果，检测反转是否突兀：</p><label style="font-size:var(--font-xs);color:var(--text-secondary)">反转前的铺垫情节：</label><textarea class="reversal-input" id="rev-setup" placeholder="例如：男主多次在深夜接到神秘电话，打火机上刻着LY两个字母..."></textarea><label style="font-size:var(--font-xs);color:var(--text-secondary)">反转后的结果：</label><textarea class="reversal-input" id="rev-twist" placeholder="例如：男主其实是被植入了别人记忆的克隆人..."></textarea><button class="btn btn-primary" onclick="detectReversal()">🔍 检测反转合理性</button><div id="rev-result"></div></div>';
+}
+
+function detectReversal() {
+  var setup = document.getElementById('rev-setup').value.trim();
+  var twist = document.getElementById('rev-twist').value.trim();
+  if (!setup || !twist) { showToast('请填写两个文本框'); return; }
+  // Analyze setup for foreshadowing keywords
+  var foreshadowKws = ['暗示', '伏笔', '异常', '奇怪', '不对', '然而', '突然', '莫名', '似乎', '仿佛', '隐约', '竟然', '原来', '其实', '不料', '意外'];
+  var clueCount = 0;
+  foreshadowKws.forEach(function(kw) { if (setup.indexOf(kw) >= 0) clueCount++; });
+  // Check keyword overlap between setup and twist
+  var setupChars = setup.split('');
+  var overlap = 0;
+  var twistChars = {};
+  for (var i = 0; i < twist.length; i++) { twistChars[twist[i]] = true; }
+  for (var i = 0; i < setupChars.length; i++) { if (twistChars[setupChars[i]] && setupChars[i].match(/[\u4e00-\u9fa5]/)) overlap++; }
+  var setupScore = Math.min(100, clueCount * 20 + Math.min(40, Math.floor(overlap / 5)));
+  var twistScore = Math.max(0, 100 - Math.abs(80 - setupScore));
+  var issues = [];
+  if (clueCount < 3) issues.push('铺垫中伏笔关键词不足3处（当前' + clueCount + '处），建议增加暗示性描写');
+  if (overlap < 10) issues.push('铺垫与反转的关键词重合度低，建议在铺垫中埋入与反转相关的核心词汇');
+  if (setup.length < 50) issues.push('铺垫文本过短，建议至少100字以上的伏笔描写');
+  if (issues.length === 0) issues.push('反转铺垫充分，伏笔密度达标！');
+  var level = setupScore >= 70 ? '✅ 合格' : setupScore >= 40 ? '⚠️ 需加强' : '❌ 突兀';
+  var html = '<div class="reversal-score"><div class="reversal-score-item"><div class="score-val" style="color:' + (setupScore >= 70 ? '#059669' : setupScore >= 40 ? '#d97706' : '#dc2626') + '">' + setupScore + '</div><div class="score-label">铺垫充分度</div></div><div class="reversal-score-item"><div class="score-val" style="color:' + (twistScore >= 70 ? '#059669' : '#d97706') + '">' + twistScore + '</div><div class="score-label">反转自然度</div></div><div class="reversal-score-item"><div class="score-val" style="color:var(--accent)">' + level + '</div><div class="score-label">综合评价</div></div></div>';
+  html += '<div class="manual-card" style="margin-top:8px"><h5>改进建议</h5>';
+  issues.forEach(function(iss) { html += '<div style="font-size:var(--font-xs);color:var(--text-secondary);margin:4px 0;padding:4px 8px;background:var(--bg-input);border-radius:4px">' + iss + '</div>'; });
+  html += '</div>';
+  document.getElementById('rev-result').innerHTML = html;
+}
+
+// ==================== 运营工具箱 ====================
+function renderOperationToolkit() {
+  var fanSteps = ['在读者群发掘3-5个活跃粉丝', '私信感谢打赏TOP10读者', '给核心粉丝寄手写信（成本＜5元/份）', '发起"打赏换角色命名权"活动', '在粉丝群发起"老书打赏换新书预告"', '用同一批Beta读者审核两本书', '建立粉丝等级体系（打赏金额对应头衔）', '每月固定一天"读者互动日"'];
+  var fanKey = 'lyz_fan_steps';
+  var fanDone = JSON.parse(localStorage.getItem(fanKey) || '[]');
+  var html = '<div class="manual-card"><h5>👥 粉丝头子养成计划</h5><p style="margin-bottom:8px">点击勾选已完成的步骤：</p>';
+  fanSteps.forEach(function(s, i) {
+    var done = fanDone.indexOf(i) >= 0;
+    html += '<div class="op-step' + (done ? ' done' : '') + '" onclick="toggleOpStep(\'' + fanKey + '\',' + i + ',this)"><div class="step-check">' + (done ? '✓' : '') + '</div><div class="step-text">' + s + '</div></div>';
+  });
+  html += '</div>';
+  // 盗文反击
+  html += '<div class="manual-card"><h5>🛡️ 盗文反击话术生成</h5><p style="margin-bottom:8px">输入你的书名，生成举报话术：</p><input type="text" id="piracy-book" placeholder="输入书名" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm);margin-bottom:8px"><button class="btn btn-primary" onclick="genPiracyScript()">生成举报话术</button><div id="piracy-result"></div></div>';
+  // 推荐位交换
+  html += '<div class="manual-card"><h5>📊 推荐位交换策略</h5><p style="margin-bottom:8px">输入你的数据，生成交换建议：</p><input type="number" id="swap-subs" placeholder="你的均订数" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);font-size:var(--font-sm);margin-bottom:4px"><input type="number" id="swap-target" placeholder="对方均订数" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);font-size:var(--font-sm);margin-bottom:8px"><button class="btn btn-primary" onclick="genSwapAdvice()">生成交换建议</button><div id="swap-result"></div></div>';
+  // 三秒法则
+  html += '<div class="manual-card"><h5>⏱️ 章节末三秒法则检查</h5><p style="margin-bottom:8px">粘贴章节最后3行，检查是否满足三秒法则（最后3行必留钩）：</p><textarea class="three-sec-input" id="three-sec-input" placeholder="粘贴章节末尾文本..."></textarea><button class="btn btn-primary" onclick="checkThreeSec()">检查</button><div class="three-sec-result" id="three-sec-result"></div></div>';
+  return html;
+}
+
+function toggleOpStep(key, idx, el) {
+  var done = JSON.parse(localStorage.getItem(key) || '[]');
+  var pos = done.indexOf(idx);
+  if (pos >= 0) { done.splice(pos, 1); el.classList.remove('done'); el.querySelector('.step-check').textContent = ''; }
+  else { done.push(idx); el.classList.add('done'); el.querySelector('.step-check').textContent = '✓'; }
+  localStorage.setItem(key, JSON.stringify(done));
+}
+
+function genPiracyScript() {
+  var book = document.getElementById('piracy-book').value.trim() || '我的作品';
+  var script = '尊敬的平台管理员：\n\n您好！我是小说《' + book + '》的原创作者，该书在晋江文学城独家连载。现发现贵平台存在未经授权的转载内容，侵犯了本人的信息网络传播权。\n\n请贵平台在收到本通知后24小时内删除上述侵权内容，否则本人将保留追究法律责任的权利。\n\n作者笔名：[你的笔名]\n原创首发平台：晋江文学城\n侵权链接：[粘贴盗版链接]\n\n感谢配合！';
+  var html = '<div class="hook-result">' + script + '<button class="btn btn-sm btn-secondary" style="position:absolute;top:8px;right:8px;font-size:10px" onclick="copyToClipboard(document.getElementById(\\'piracy-text\\').textContent)">📋 复制</button><div id="piracy-text" style="display:none">' + script + '</div></div>';
+  document.getElementById('piracy-result').innerHTML = html;
+}
+
+function genSwapAdvice() {
+  var mySubs = parseInt(document.getElementById('swap-subs').value) || 0;
+  var targetSubs = parseInt(document.getElementById('swap-target').value) || 0;
+  if (mySubs === 0 || targetSubs === 0) { showToast('请输入两个数据'); return; }
+  var ratio = targetSubs / mySubs;
+  var advice = '';
+  if (ratio <= 1.5) {
+    advice = '✅ 数据匹配度较高，可以直接交换推荐位。\n建议：互相在章节末推荐对方作品，承诺3天曝光期。';
+  } else if (ratio <= 3) {
+    advice = '⚠️ 对方数据明显高于你，需要额外补偿。\n建议：你提供2个推荐位换对方1个，或承诺帮对方做读者引流（如在粉丝群推荐）。';
+  } else if (ratio <= 5) {
+    advice = '❌ 数据差距过大，直接交换可能被拒。\n建议：先帮对方免费推荐1周，积累人情后再提出交换。或联系数据更接近的作者。';
+  } else {
+    advice = '❌ 数据差距过大，不建议直接交换。\n建议：先提升自身数据到均订' + Math.ceil(targetSubs * 0.5) + '以上再考虑交换。';
+  }
+  var html = '<div class="manual-tip" style="margin-top:8px"><p style="white-space:pre-wrap">' + advice + '</p></div>';
+  document.getElementById('swap-result').innerHTML = html;
+}
+
+function checkThreeSec() {
+  var text = document.getElementById('three-sec-input').value.trim();
+  if (!text) { showToast('请输入内容'); return; }
+  var lines = text.split(/\n+/).filter(function(l) { return l.trim(); });
+  var lastLines = lines.slice(-3);
+  var hookKws = ['突然', '不料', '然而', '就在这时', '但是', '谁知', '没想到', '竟然', '原来', '恰在此时', '偏偏', '轰然', '猛地', '赫然', '陡然'];
+  var questionMarks = (text.match(/[？?]/g) || []).length;
+  var ellipsis = (text.match(/…|\.\.\./g) || []).length;
+  var hookCount = 0;
+  lastLines.forEach(function(l) { hookKws.forEach(function(kw) { if (l.indexOf(kw) >= 0) hookCount++; }); });
+  var score = hookCount * 25 + questionMarks * 15 + ellipsis * 15;
+  score = Math.min(100, score);
+  var pass = score >= 30 && lastLines.length >= 1;
+  var html = '';
+  if (pass) {
+    html = '<div class="risk-safe">✅ 通过！最后' + lastLines.length + '行有' + hookCount + '个钩子信号，符合三秒法则。\n最后行："' + lastLines[lastLines.length - 1].substring(0, 40) + (lastLines[lastLines.length - 1].length > 40 ? '...' : '') + '"</div>';
+  } else {
+    html = '<div class="risk-item"><span class="risk-word">⚠️ 未通过三秒法则</span><div class="risk-suggest">建议在最后3行加入：悬念词（突然/然而/就在这时）、问号或省略号，制造"然后呢？"的冲动。\n\n参考模板："当指纹按在合同第五条款时，整个工坊的灯突然熄灭——那正是母亲去世的时辰。"</div></div>';
+  }
+  document.getElementById('three-sec-result').innerHTML = html;
+}
+
 // ==================== Expose to Global Scope (for onclick handlers) ====================
 window.addMaterial = addMaterial;
 window.editMaterial = editMaterial;
@@ -3196,6 +3572,19 @@ window.saveBaseFormula = saveBaseFormula;
 window.goToWorkshop = goToWorkshop;
 window.updateTracker = updateTracker;
 window.renderMaterialTools = renderMaterialTools;
+window.openCompareModal = openCompareModal;
+window.closeCompareModal = closeCompareModal;
+window.runCompare = runCompare;
+window.openTemplateModal = openTemplateModal;
+window.closeTemplateModal = closeTemplateModal;
+window.applyTemplate = applyTemplate;
+window.checkRisk = checkRisk;
+window.genHookPrompt = genHookPrompt;
+window.detectReversal = detectReversal;
+window.toggleOpStep = toggleOpStep;
+window.genPiracyScript = genPiracyScript;
+window.genSwapAdvice = genSwapAdvice;
+window.checkThreeSec = checkThreeSec;
 // currentProject is a module-level variable that needs to be settable from onclick
 Object.defineProperty(window, 'currentProject', {
   get: function() { return currentProject; },
