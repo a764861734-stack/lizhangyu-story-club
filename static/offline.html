@@ -1666,13 +1666,14 @@ function analyzeTextStory(text) {
   
   // 反转检测
   const reversalKws = ['但是', '然而', '没想到', '竟然', '原来', '反转', '真相', '秘密', '其实'];
-  reversalKws.forEach(function(kw) {
+  for (let ri = 0; ri < reversalKws.length; ri++) {
+    const kw = reversalKws[ri];
     if (text.includes(kw)) {
       categories.push({category: '猎奇与反转', story_type: '情节反转', score: 55});
       keywords.push(kw);
       break;
     }
-  });
+  }
   
   // 场景检测
   const sceneKws = ['法庭', '医院', '婚礼', '葬礼', '办公室', '深夜', '餐厅', '学校', '地铁', '机场', '雨中', '海边', '咖啡', '酒吧'];
