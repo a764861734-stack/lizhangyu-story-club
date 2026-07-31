@@ -148,7 +148,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 }
 
 /* ==================== 工作手册 ==================== */
-.manual-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;padding:8px;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border)}
+.manual-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;padding:8px;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border);position:sticky;top:50px;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
 .manual-nav-btn{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg-input);color:var(--text-secondary);font-size:var(--font-xs);cursor:pointer;transition:all 0.2s;white-space:nowrap}
 .manual-nav-btn:hover,.manual-nav-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .manual-section{margin-bottom:16px}
@@ -1271,8 +1271,6 @@ function renderDashboard() {
 }
 
 // ==================== 工作手册 Tab ====================
-let currentManualSection = 'core-goals';
-
 const MANUAL_DATA = {
   'core-goals': {
     name: '🎯 核心目标',
@@ -1543,14 +1541,7 @@ const MANUAL_DATA = {
     sections: [
       {
         title: '四维协同作战图',
-        code: `热梗(HG-004)
-↓ 提供世界观基石
-冲突(CT-612)
-→ 激活钩子(HZ-240723-01)
-↓ 输送情绪能量
-反转(FZ-240701-01)
-← 调用法律风险(FL-005)
-↑ 完成认知闭环`
+        code: '热梗(HG-004)\n↓ 提供世界观基石\n冲突(CT-612)\n→ 激活钩子(HZ-240723-01)\n↓ 输送情绪能量\n反转(FZ-240701-01)\n← 调用法律风险(FL-005)\n↑ 完成认知闭环'
       },
       {
         title: '每章3000字需完成以下指标',
@@ -1690,10 +1681,7 @@ const MANUAL_DATA = {
     sections: [
       {
         title: '基础配置公式',
-        code: `热梗量 = 1.2个/章（含跨章持续生效梗）
-冲突量 = 1.5层/章（主冲突+次冲突/人设冲突）
-钩子量 = 2个/章（1即时钩+1长线钩）
-反转量 = 0.3个/章（每3章完成1次完整反转）`
+        code: '热梗量 = 1.2个/章（含跨章持续生效梗）\n冲突量 = 1.5层/章（主冲突+次冲突/人设冲突）\n钩子量 = 2个/章（1即时钩+1长线钩）\n反转量 = 0.3个/章（每3章完成1次完整反转）'
       }
     ]
   },
@@ -1702,15 +1690,7 @@ const MANUAL_DATA = {
     sections: [
       {
         title: '晋江章节质量评估算法（简化版）',
-        code: `def chapter_quality(hot, conflict, hook, reversal):
-    # 基准值: 热梗1.2 冲突1.5 钩子2 反转0.3
-    score = (hot/1.2)*30 + (conflict/1.5)*30 + (hook/2)*25 + (reversal/0.3)*15
-    if score >= 90: return "S级爆款预备"
-    elif score >= 75: return "A级优质章节"
-    elif score >= 60: return "B级合格线"
-    else: return "C级需修改"
-
-print(chapter_quality(1.5, 2, 3, 0.5))  # 输出：S级爆款预备`
+        code: 'def chapter_quality(hot, conflict, hook, reversal):\n    # 基准值: 热梗1.2 冲突1.5 钩子2 反转0.3\n    score = (hot/1.2)*30 + (conflict/1.5)*30 + (hook/2)*25 + (reversal/0.3)*15\n    if score >= 90: return "S级爆款预备"\n    elif score >= 75: return "A级优质章节"\n    elif score >= 60: return "B级合格线"\n    else: return "C级需修改"\n\nprint(chapter_quality(1.5, 2, 3, 0.5))  # 输出：S级爆款预备'
       },
       {
         title: '数据化写作助手',
@@ -1723,74 +1703,560 @@ print(chapter_quality(1.5, 2, 3, 0.5))  # 输出：S级爆款预备`
   }
 };
 
-function renderManual() {
-  const container = document.getElementById('tab-manual');
-  
-  let navHtml = '<div class="manual-nav">';
-  for (const key in MANUAL_DATA) {
-    navHtml += `<button class="manual-nav-btn${currentManualSection === key ? ' active' : ''}" onclick="switchManualSection('${key}')">${MANUAL_DATA[key].name}</button>`;
+// ==================== 工作手册导航 ====================
+function scrollToSection(key) {
+  var el = document.getElementById('manual-sect-' + key);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-  navHtml += '</div>';
-  
-  let contentHtml = '';
-  const data = MANUAL_DATA[currentManualSection];
-  if (data) {
-    data.sections.forEach(sec => {
-      contentHtml += `<div class="manual-section">
-        <div class="manual-section-title">${sec.title}</div>`;
-      
-      if (sec.items) {
-        contentHtml += '<div class="manual-card"><ul>';
-        sec.items.forEach(item => {
-          contentHtml += `<li>${item}</li>`;
-        });
-        contentHtml += '</ul></div>';
-      }
-      
-      if (sec.subsections) {
-        sec.subsections.forEach(sub => {
-          contentHtml += `<div class="manual-subsection"><h4>${sub.title}</h4><div class="manual-card"><ul>`;
-          sub.items.forEach(item => {
-            contentHtml += `<li>${item}</li>`;
-          });
-          contentHtml += '</ul></div></div>';
-        });
-      }
-      
-      if (sec.table) {
-        contentHtml += '<div class="manual-card"><table class="manual-table"><thead><tr>';
-        sec.table.headers.forEach(h => {
-          contentHtml += `<th>${h}</th>`;
-        });
-        contentHtml += '</tr></thead><tbody>';
-        sec.table.rows.forEach(row => {
-          contentHtml += '<tr>';
-          row.forEach(cell => {
-            contentHtml += `<td>${cell}</td>`;
-          });
-          contentHtml += '</tr>';
-        });
-        contentHtml += '</tbody></table></div>';
-      }
-      
-      if (sec.code) {
-        contentHtml += `<div class="manual-formula">${sec.code}</div>`;
-      }
-      
-      if (sec.note) {
-        contentHtml += `<div class="manual-highlight"><p>${sec.note.replace(/\n/g, '<br>')}</p></div>`;
-      }
-      
-      contentHtml += '</div>';
-    });
-  }
-  
-  container.innerHTML = navHtml + contentHtml;
+  document.querySelectorAll('.manual-nav-btn').forEach(function(b) { b.classList.remove('active'); });
+  var btn = document.querySelector('.manual-nav-btn[data-key="' + key + '"]');
+  if (btn) btn.classList.add('active');
 }
 
-function switchManualSection(key) {
-  currentManualSection = key;
+function getDailyCheckKey() {
+  var d = new Date();
+  return 'lyz_daily_check_' + d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() { showToast('已复制到剪贴板'); }).catch(function() { showToast('复制失败'); });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showToast('已复制到剪贴板'); } catch(e) { showToast('复制失败'); }
+    ta.remove();
+  }
+}
+
+// ==================== 工作手册渲染 ====================
+function renderManual() {
+  var container = document.getElementById('tab-manual');
+
+  // 导航栏
+  var navHtml = '<div class="manual-nav">';
+  for (var key in MANUAL_DATA) {
+    navHtml += '<button class="manual-nav-btn" data-key="' + key + '" onclick="scrollToSection(\'' + key + '\')">' + MANUAL_DATA[key].name + '</button>';
+  }
+  navHtml += '</div>';
+
+  var contentHtml = '';
+
+  // 遍历所有分类，一次性渲染
+  for (var mkey in MANUAL_DATA) {
+    var data = MANUAL_DATA[mkey];
+    contentHtml += '<div id="manual-sect-' + mkey + '" class="manual-section">';
+    contentHtml += '<div class="manual-section-title">' + data.name + '</div>';
+
+    // ====== 核心目标：可编辑 ======
+    if (mkey === 'core-goals') {
+      var goals = JSON.parse(localStorage.getItem('lyz_core_goals') || 'null');
+      var defaults = [
+        '8. 利用完本优势实现高频率爆更（日更1.5万字）',
+        '9. 通过存稿控制剧情节奏，刺激订阅与打赏',
+        '10. 同步推进版权变现（影视/出版）'
+      ];
+      if (!goals) goals = defaults;
+      contentHtml += '<div class="manual-card"><div style="font-size:var(--font-sm);color:var(--text-secondary);margin-bottom:8px">点击可编辑你的核心目标：</div>';
+      goals.forEach(function(g, i) {
+        contentHtml += '<div style="margin:6px 0"><input type="text" value="' + g.replace(/"/g, '&quot;') + '" onchange="saveCoreGoal(' + i + ',this.value)" style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;background:var(--bg-input);font-size:var(--font-xs);color:var(--text-primary)"></div>';
+      });
+      contentHtml += '</div>';
+    }
+
+    // ====== 每日计划表：打卡 ======
+    else if (mkey === 'daily-plan') {
+      var checkKey = getDailyCheckKey();
+      var checks = JSON.parse(localStorage.getItem(checkKey) || '{}');
+      var totalItems = 0;
+      var doneItems = 0;
+      data.sections.forEach(function(sec) {
+        sec.items.forEach(function() { totalItems++; });
+      });
+      for (var ck in checks) { if (checks[ck]) doneItems++; }
+      var pct = totalItems > 0 ? Math.round(doneItems / totalItems * 100) : 0;
+
+      contentHtml += '<div class="manual-card" style="margin-bottom:10px">';
+      contentHtml += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">';
+      contentHtml += '<span style="font-size:var(--font-sm);font-weight:600;color:var(--accent)">今日完成率：' + doneItems + '/' + totalItems + '（' + pct + '%）</span>';
+      contentHtml += '<button class="btn btn-sm btn-secondary" onclick="dailyCheckAll()" style="font-size:var(--font-xs)">全选/取消</button>';
+      contentHtml += '</div>';
+      contentHtml += '<div class="checker-bar"><div class="checker-bar-fill" style="width:' + pct + '%;background:linear-gradient(90deg,#4caf93,#5b9bd5)"></div></div>';
+      contentHtml += '</div>';
+
+      data.sections.forEach(function(sec, si) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sec.title + '</h4><div class="manual-card">';
+        sec.items.forEach(function(item, ii) {
+          var idx = si + '_' + ii;
+          var checked = checks[idx] ? 'checked' : '';
+          contentHtml += '<div style="display:flex;align-items:flex-start;gap:8px;margin:4px 0;padding:4px;border-radius:4px' + (checks[idx] ? ';background:rgba(76,175,147,0.08)' : '') + '">';
+          contentHtml += '<input type="checkbox" ' + checked + ' onchange="dailyCheck(\'' + idx + '\',this.checked)" style="margin-top:3px;accent-color:var(--success);flex-shrink:0">';
+          contentHtml += '<span style="font-size:var(--font-xs);color:var(--text-secondary);line-height:1.6' + (checks[idx] ? ';text-decoration:line-through;opacity:0.6' : '') + '">' + item + '</span>';
+          contentHtml += '</div>';
+        });
+        contentHtml += '</div></div>';
+      });
+    }
+
+    // ====== 订阅量暴增技巧：复制按钮 ======
+    else if (mkey === 'growth-tips') {
+      data.sections.forEach(function(sec) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sec.title + '</h4><div class="manual-card"><ul>';
+        sec.items.forEach(function(item) {
+          if (sec.title.indexOf('话术') >= 0) {
+            contentHtml += '<li style="margin:6px 0">' + item + ' <button class="btn btn-sm btn-secondary" onclick="copyToClipboard(\'' + item.replace(/'/g, "\\'").replace(/"/g, '&quot;') + '\')" style="font-size:10px;margin-left:4px">📋 复制</button></li>';
+          } else {
+            contentHtml += '<li>' + item + '</li>';
+          }
+        });
+        contentHtml += '</ul></div></div>';
+      });
+    }
+
+    // ====== 防盗文实操：复制按钮 ======
+    else if (mkey === 'anti-piracy') {
+      data.sections.forEach(function(sec) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sec.title + '</h4><div class="manual-card"><ul>';
+        sec.items.forEach(function(item) {
+          if (sec.title.indexOf('话术') >= 0) {
+            contentHtml += '<li style="margin:6px 0">' + item + ' <button class="btn btn-sm btn-secondary" onclick="copyToClipboard(\'' + item.replace(/'/g, "\\'").replace(/"/g, '&quot;') + '\')" style="font-size:10px;margin-left:4px">📋 复制</button></li>';
+          } else {
+            contentHtml += '<li>' + item + '</li>';
+          }
+        });
+        contentHtml += '</ul></div></div>';
+      });
+    }
+
+    // ====== 致命陷阱：纯文字 ======
+    else if (mkey === 'pitfalls') {
+      data.sections.forEach(function(sec) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sec.title + '</h4><div class="manual-card"><ul>';
+        sec.items.forEach(function(item) { contentHtml += '<li>' + item + '</li>'; });
+        contentHtml += '</ul></div></div>';
+      });
+    }
+
+    // ====== 阶段目标与收入对照表：进度追踪 ======
+    else if (mkey === 'income-table') {
+      var progress = JSON.parse(localStorage.getItem('lyz_income_progress') || '{}');
+      var doneCount = 0;
+      var totalCount = 0;
+      data.sections.forEach(function(sec) {
+        if (sec.table) {
+          sec.table.rows.forEach(function(row, ri) {
+            totalCount++;
+            if (progress['row_' + ri] === 'done') doneCount++;
+          });
+        }
+      });
+      var progressPct = totalCount > 0 ? Math.round(doneCount / totalCount * 100) : 0;
+      contentHtml += '<div class="manual-card" style="margin-bottom:10px"><div style="font-size:var(--font-sm);font-weight:600;color:var(--accent);margin-bottom:6px">阶段完成：' + doneCount + '/' + totalCount + '（' + progressPct + '%）</div><div class="checker-bar"><div class="checker-bar-fill" style="width:' + progressPct + '%;background:linear-gradient(90deg,#f0ad4e,#e8738a)"></div></div></div>';
+
+      data.sections.forEach(function(sec) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sec.title + '</h4>';
+        if (sec.table) {
+          contentHtml += '<div class="manual-card"><table class="manual-table"><thead><tr>';
+          sec.table.headers.forEach(function(h) { contentHtml += '<th>' + h + '</th>'; });
+          contentHtml += '<th style="width:90px">状态</th></tr></thead><tbody>';
+          sec.table.rows.forEach(function(row, ri) {
+            contentHtml += '<tr>';
+            row.forEach(function(cell) { contentHtml += '<td>' + cell + '</td>'; });
+            var st = progress['row_' + ri] || 'pending';
+            contentHtml += '<td><select onchange="saveIncomeProgress(' + ri + ',this.value)" style="width:100%;padding:4px;border:1px solid var(--border);border-radius:4px;background:var(--bg-input);font-size:var(--font-xs);color:var(--text-primary)">';
+            contentHtml += '<option value="pending" ' + (st === 'pending' ? 'selected' : '') + '>未开始</option>';
+            contentHtml += '<option value="doing" ' + (st === 'doing' ? 'selected' : '') + '>进行中</option>';
+            contentHtml += '<option value="done" ' + (st === 'done' ? 'selected' : '') + '>已完成</option>';
+            contentHtml += '</select></td></tr>';
+          });
+          contentHtml += '</tbody></table></div>';
+        }
+        if (sec.items) {
+          contentHtml += '<div class="manual-card"><ul>';
+          sec.items.forEach(function(item) { contentHtml += '<li>' + item + '</li>'; });
+          contentHtml += '</ul></div>';
+        }
+        contentHtml += '</div>';
+      });
+    }
+
+    // ====== 写作辅助：情绪值输入器 + 订阅预测计算器 ======
+    else if (mkey === 'writing-assist') {
+      // 黑匣子写作法 + 情绪值输入器
+      contentHtml += '<div class="manual-subsection"><h4>黑匣子写作法</h4><div class="manual-card"><ul>';
+      data.sections[0].items.forEach(function(item) { contentHtml += '<li>' + item + '</li>'; });
+      contentHtml += '</ul>';
+      // 情绪值输入器
+      var emoData = JSON.parse(localStorage.getItem('lyz_emotion_input') || '{}');
+      contentHtml += '<div style="margin-top:10px;padding:10px;background:var(--bg-input);border-radius:var(--radius)">';
+      contentHtml += '<div style="font-size:var(--font-xs);font-weight:600;color:var(--text-primary);margin-bottom:6px">📝 章节情绪值记录器</div>';
+      contentHtml += '<div style="display:flex;gap:6px;margin-bottom:6px"><input type="text" id="emo-chapter" placeholder="章节名" value="' + (emoData.lastChapter || '') + '" style="flex:1;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:var(--font-xs)"><select id="emo-type" style="padding:4px;border:1px solid var(--border);border-radius:4px;font-size:var(--font-xs)"><option ' + (emoData.lastType === '爽' ? 'selected' : '') + '>爽</option><option ' + (emoData.lastType === '虐' ? 'selected' : '') + '>虐</option><option ' + (emoData.lastType === '甜' ? 'selected' : '') + '>甜</option></select><input type="number" id="emo-value" min="0" max="10" placeholder="0-10" value="' + (emoData.lastValue || '') + '" style="width:60px;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:var(--font-xs)"><button class="btn btn-sm btn-primary" onclick="saveEmotionRecord()" style="font-size:var(--font-xs)">记录</button></div>';
+      var emoHistory = JSON.parse(localStorage.getItem('lyz_emotion_history') || '[]');
+      if (emoHistory.length > 0) {
+        contentHtml += '<div style="font-size:var(--font-xs);color:var(--text-muted);margin-top:4px">最近记录：';
+        emoHistory.slice(-5).forEach(function(r) {
+          var color = r.type === '爽' ? '#059669' : r.type === '虐' ? '#dc2626' : '#d97706';
+          contentHtml += ' <span style="color:' + color + '">' + r.chapter + '(' + r.type + r.value + ')</span>';
+        });
+        contentHtml += '</div>';
+      }
+      contentHtml += '</div></div></div>';
+
+      // 数据监控 + 订阅预测计算器
+      contentHtml += '<div class="manual-subsection"><h4>数据监控</h4><div class="manual-card"><ul>';
+      data.sections[1].items.forEach(function(item) { contentHtml += '<li>' + item + '</li>'; });
+      contentHtml += '</ul>';
+      // 订阅预测计算器
+      var calcData = JSON.parse(localStorage.getItem('lyz_sub_calc') || '{}');
+      contentHtml += '<div style="margin-top:10px;padding:10px;background:var(--bg-input);border-radius:var(--radius)">';
+      contentHtml += '<div style="font-size:var(--font-xs);font-weight:600;color:var(--text-primary);margin-bottom:6px">💰 订阅预测计算器</div>';
+      contentHtml += '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px">';
+      contentHtml += '<input type="number" id="sub-favorites" placeholder="收藏数" value="' + (calcData.favorites || '') + '" oninput="calcSubRevenue()" style="flex:1;min-width:80px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:var(--font-xs)">';
+      contentHtml += '<input type="number" id="sub-rate" placeholder="转化率%" value="' + (calcData.rate || '10') + '" oninput="calcSubRevenue()" style="flex:1;min-width:60px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:var(--font-xs)">';
+      contentHtml += '<input type="number" id="sub-price" placeholder="千字价格(分)" value="' + (calcData.price || '3') + '" oninput="calcSubRevenue()" style="flex:1;min-width:80px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:var(--font-xs)">';
+      contentHtml += '<input type="number" id="sub-words" placeholder="日更字数" value="' + (calcData.words || '9000') + '" oninput="calcSubRevenue()" style="flex:1;min-width:80px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:var(--font-xs)">';
+      contentHtml += '</div>';
+      contentHtml += '<div id="sub-result" style="font-size:var(--font-sm);font-weight:600;color:var(--accent)">输入数据查看预估月收入</div>';
+      contentHtml += '<div style="font-size:var(--font-xs);color:var(--text-muted);margin-top:4px">公式：收藏数 × 转化率% × 千字价格(元) × 日更字数/1000 × 30天</div>';
+      contentHtml += '</div></div></div>';
+
+      // 素材库
+      contentHtml += '<div class="manual-subsection"><h4>素材库</h4><div class="manual-card"><ul>';
+      data.sections[2].items.forEach(function(item) { contentHtml += '<li>' + item + '</li>'; });
+      contentHtml += '</ul></div></div>';
+    }
+
+    // ====== 效率工具包：复制提示词 ======
+    else if (mkey === 'toolkit') {
+      data.sections.forEach(function(sec) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sec.title + '</h4><div class="manual-card"><ul>';
+        sec.items.forEach(function(item) {
+          if (item.indexOf('ChatGPT') >= 0 || item.indexOf('提示词') >= 0) {
+            var promptText = item.replace(/^.*：/, '');
+            contentHtml += '<li style="margin:6px 0">' + item + ' <button class="btn btn-sm btn-secondary" onclick="copyToClipboard(\'' + promptText.replace(/'/g, "\\'").replace(/"/g, '&quot;') + '\')" style="font-size:10px;margin-left:4px">📋 复制提示词</button></li>';
+          } else {
+            contentHtml += '<li>' + item + '</li>';
+          }
+        });
+        contentHtml += '</ul></div></div>';
+      });
+    }
+
+    // ====== 章节元素配置检查表：交互式计算器 ======
+    else if (mkey === 'chapter-check') {
+      // 四维协同作战图
+      contentHtml += '<div class="manual-formula">' + data.sections[0].code + '</div>';
+
+      // 指标说明
+      data.sections[1].subsections.forEach(function(sub) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sub.title + '</h4><div class="manual-card"><ul>';
+        sub.items.forEach(function(item) { contentHtml += '<li>' + item + '</li>'; });
+        contentHtml += '</ul></div></div>';
+      });
+
+      // 交互式计算器
+      var cc = JSON.parse(localStorage.getItem('lyz_chapter_calc') || '{}');
+      contentHtml += '<div class="manual-card" style="margin-top:10px;border:2px solid var(--accent);background:linear-gradient(135deg,#fff,#fef3c7)">';
+      contentHtml += '<div style="font-size:var(--font-md);font-weight:700;color:var(--accent);margin-bottom:8px">📊 章节质量评分器</div>';
+      contentHtml += '<div style="font-size:var(--font-xs);color:var(--text-muted);margin-bottom:8px">基准值：热梗1.2 / 冲突1.5 / 钩子2 / 反转0.3</div>';
+      contentHtml += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+      contentHtml += '<div><label style="font-size:var(--font-xs);color:var(--text-secondary)">🔥 热梗数</label><input type="number" id="cc-hot" value="' + (cc.hot || '') + '" oninput="calcChapterScore()" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:var(--font-sm)" step="0.1" placeholder="1.2"></div>';
+      contentHtml += '<div><label style="font-size:var(--font-xs);color:var(--text-secondary)">⚡ 冲突层数</label><input type="number" id="cc-conflict" value="' + (cc.conflict || '') + '" oninput="calcChapterScore()" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:var(--font-sm)" step="0.1" placeholder="1.5"></div>';
+      contentHtml += '<div><label style="font-size:var(--font-xs);color:var(--text-secondary)">🪝 钩子数</label><input type="number" id="cc-hook" value="' + (cc.hook || '') + '" oninput="calcChapterScore()" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:var(--font-sm)" step="0.1" placeholder="2"></div>';
+      contentHtml += '<div><label style="font-size:var(--font-xs);color:var(--text-secondary)">🔄 反转数</label><input type="number" id="cc-reversal" value="' + (cc.reversal || '') + '" oninput="calcChapterScore()" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:var(--font-sm)" step="0.1" placeholder="0.3"></div>';
+      contentHtml += '</div>';
+      contentHtml += '<div id="cc-result" style="margin-top:10px;padding:10px;border-radius:6px;text-align:center;background:var(--bg-input)"><span style="font-size:var(--font-xs);color:var(--text-muted)">输入数值查看评分</span></div>';
+      contentHtml += '</div>';
+    }
+
+    // ====== 章节类型特化模型：表格 + 输入框 ======
+    else if (mkey === 'chapter-types') {
+      data.sections.forEach(function(sec) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sec.title + '</h4>';
+        if (sec.table) {
+          contentHtml += '<div class="manual-card"><table class="manual-table"><thead><tr>';
+          sec.table.headers.forEach(function(h) { contentHtml += '<th>' + h + '</th>'; });
+          contentHtml += '<th style="width:70px">实际值</th></tr></thead><tbody>';
+          sec.table.rows.forEach(function(row, ri) {
+            contentHtml += '<tr>';
+            row.forEach(function(cell) { contentHtml += '<td>' + cell + '</td>'; });
+            var ctData = JSON.parse(localStorage.getItem('lyz_chapter_type_input') || '{}');
+            var ctKey = sec.title.substring(0, 3) + '_' + ri;
+            contentHtml += '<td><input type="number" value="' + (ctData[ctKey] || '') + '" onchange="saveChapterTypeInput(\'' + ctKey + '\',this.value)" step="0.1" style="width:100%;padding:4px;border:1px solid var(--border);border-radius:4px;background:var(--bg-input);font-size:var(--font-xs);text-align:center"></td>';
+            contentHtml += '</tr>';
+          });
+          contentHtml += '</tbody></table></div>';
+        }
+        if (sec.note) {
+          contentHtml += '<div class="manual-highlight"><p>' + sec.note.replace(/\n/g, '<br>') + '</p></div>';
+        }
+        contentHtml += '</div>';
+      });
+    }
+
+    // ====== 写作进度追踪表：跳转按钮 ======
+    else if (mkey === 'writing-tracker') {
+      data.sections.forEach(function(sec) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sec.title + '</h4>';
+        if (sec.items) {
+          contentHtml += '<div class="manual-card"><ul>';
+          sec.items.forEach(function(item) { contentHtml += '<li>' + item + '</li>'; });
+          contentHtml += '</ul></div>';
+        }
+        if (sec.table) {
+          contentHtml += '<div class="manual-card"><table class="manual-table"><thead><tr>';
+          sec.table.headers.forEach(function(h) { contentHtml += '<th>' + h + '</th>'; });
+          contentHtml += '</tr></thead><tbody>';
+          sec.table.rows.forEach(function(row) {
+            contentHtml += '<tr>';
+            row.forEach(function(cell) { contentHtml += '<td>' + cell + '</td>'; });
+            contentHtml += '</tr>';
+          });
+          contentHtml += '</tbody></table></div>';
+        }
+        contentHtml += '</div>';
+      });
+      contentHtml += '<div class="manual-card" style="text-align:center;padding:16px"><button class="btn btn-primary" onclick="goToWorkshop()" style="font-size:var(--font-sm);padding:8px 20px">🔧 前往拆解工坊填写追踪表</button></div>';
+    }
+
+    // ====== 晋江特供增强包：纯文字 ======
+    else if (mkey === 'jinji-special') {
+      data.sections.forEach(function(sec) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sec.title + '</h4><div class="manual-card"><ul>';
+        sec.items.forEach(function(item) { contentHtml += '<li>' + item + '</li>'; });
+        contentHtml += '</ul></div></div>';
+      });
+    }
+
+    // ====== 基础配置公式：可视化对比条 ======
+    else if (mkey === 'base-formula') {
+      contentHtml += '<div class="manual-formula">' + data.sections[0].code + '</div>';
+      var bfData = JSON.parse(localStorage.getItem('lyz_base_formula') || '{}');
+      var bfLabels = [
+        { key: 'hot', label: '🔥 热梗', base: 1.2, unit: '个/章' },
+        { key: 'conflict', label: '⚡ 冲突', base: 1.5, unit: '层/章' },
+        { key: 'hook', label: '🪝 钩子', base: 2, unit: '个/章' },
+        { key: 'reversal', label: '🔄 反转', base: 0.3, unit: '个/章' }
+      ];
+      contentHtml += '<div class="manual-card" style="margin-top:10px"><div style="font-size:var(--font-sm);font-weight:600;color:var(--accent);margin-bottom:8px">📊 实际值 vs 基准值对比</div>';
+      bfLabels.forEach(function(bf) {
+        var actual = parseFloat(bfData[bf.key]) || 0;
+        var pct = Math.min(100, actual / bf.base * 100);
+        var color = actual >= bf.base ? '#059669' : actual >= bf.base * 0.7 ? '#d97706' : '#dc2626';
+        contentHtml += '<div style="margin:8px 0">';
+        contentHtml += '<div style="display:flex;justify-content:space-between;font-size:var(--font-xs);margin-bottom:2px"><span style="color:var(--text-secondary)">' + bf.label + '</span><span style="color:var(--text-muted)">基准 ' + bf.base + bf.unit + '</span></div>';
+        contentHtml += '<div style="display:flex;align-items:center;gap:6px">';
+        contentHtml += '<div class="checker-bar" style="flex:1"><div class="checker-bar-fill" style="width:' + pct + '%;background:' + color + '"></div></div>';
+        contentHtml += '<input type="number" value="' + (actual || '') + '" onchange="saveBaseFormula(\'' + bf.key + '\',this.value)" step="0.1" style="width:50px;padding:3px;border:1px solid var(--border);border-radius:4px;font-size:var(--font-xs);text-align:center">';
+        contentHtml += '</div>';
+        contentHtml += '<div style="font-size:10px;color:' + color + ';margin-top:2px">' + (actual > 0 ? (actual >= bf.base ? '✓ 达标（' + Math.round(pct) + '%）' : '未达标（' + Math.round(pct) + '%）') : '') + '</div>';
+        contentHtml += '</div>';
+      });
+      contentHtml += '</div>';
+    }
+
+    // ====== 核心执行技术：交互式计算器 ======
+    else if (mkey === 'execute-tech') {
+      contentHtml += '<div class="manual-formula">' + data.sections[0].code + '</div>';
+      data.sections[1].items.forEach(function(item) {
+        contentHtml += '<div class="manual-card"><ul><li>' + item + '</li></ul></div>';
+      });
+      // 计算器（和 chapter-check 共用）
+      contentHtml += '<div class="manual-card" style="margin-top:10px;border:2px solid var(--accent-blue);background:var(--accent-blue-light)">';
+      contentHtml += '<div style="font-size:var(--font-md);font-weight:700;color:var(--accent-blue);margin-bottom:8px">⚡ 章节质量快速计算器</div>';
+      contentHtml += '<div style="font-size:var(--font-xs);color:var(--text-muted);margin-bottom:8px">公式：(热梗/1.2)×30 + (冲突/1.5)×30 + (钩子/2)×25 + (反转/0.3)×15</div>';
+      contentHtml += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+      contentHtml += '<div><label style="font-size:var(--font-xs);color:var(--text-secondary)">🔥 热梗</label><input type="number" id="et-hot" oninput="calcExecScore()" step="0.1" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:var(--font-sm)" placeholder="1.2"></div>';
+      contentHtml += '<div><label style="font-size:var(--font-xs);color:var(--text-secondary)">⚡ 冲突</label><input type="number" id="et-conflict" oninput="calcExecScore()" step="0.1" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:var(--font-sm)" placeholder="1.5"></div>';
+      contentHtml += '<div><label style="font-size:var(--font-xs);color:var(--text-secondary)">🪝 钩子</label><input type="number" id="et-hook" oninput="calcExecScore()" step="0.1" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:var(--font-sm)" placeholder="2"></div>';
+      contentHtml += '<div><label style="font-size:var(--font-xs);color:var(--text-secondary)">🔄 反转</label><input type="number" id="et-reversal" oninput="calcExecScore()" step="0.1" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:var(--font-sm)" placeholder="0.3"></div>';
+      contentHtml += '</div>';
+      contentHtml += '<div id="et-result" style="margin-top:10px;padding:10px;border-radius:6px;text-align:center;background:var(--bg-input)"><span style="font-size:var(--font-xs);color:var(--text-muted)">输入数值查看评分</span></div>';
+      contentHtml += '</div>';
+    }
+
+    // ====== 默认渲染（通用） ======
+    else {
+      data.sections.forEach(function(sec) {
+        contentHtml += '<div class="manual-subsection"><h4>' + sec.title + '</h4>';
+        if (sec.items) {
+          contentHtml += '<div class="manual-card"><ul>';
+          sec.items.forEach(function(item) { contentHtml += '<li>' + item + '</li>'; });
+          contentHtml += '</ul></div>';
+        }
+        if (sec.table) {
+          contentHtml += '<div class="manual-card"><table class="manual-table"><thead><tr>';
+          sec.table.headers.forEach(function(h) { contentHtml += '<th>' + h + '</th>'; });
+          contentHtml += '</tr></thead><tbody>';
+          sec.table.rows.forEach(function(row) {
+            contentHtml += '<tr>';
+            row.forEach(function(cell) { contentHtml += '<td>' + cell + '</td>'; });
+            contentHtml += '</tr>';
+          });
+          contentHtml += '</tbody></table></div>';
+        }
+        if (sec.code) {
+          contentHtml += '<div class="manual-formula">' + sec.code + '</div>';
+        }
+        if (sec.note) {
+          contentHtml += '<div class="manual-highlight"><p>' + sec.note.replace(/\n/g, '<br>') + '</p></div>';
+        }
+        contentHtml += '</div>';
+      });
+    }
+
+    contentHtml += '</div>'; // close manual-section
+  }
+
+  container.innerHTML = navHtml + contentHtml;
+
+  // 初始化计算器
+  setTimeout(function() { calcChapterScore(); calcSubRevenue(); }, 100);
+}
+
+// ==================== 工作手册交互函数 ====================
+function saveCoreGoal(idx, value) {
+  var goals = JSON.parse(localStorage.getItem('lyz_core_goals') || '[]');
+  goals[idx] = value;
+  localStorage.setItem('lyz_core_goals', JSON.stringify(goals));
+  showToast('已保存');
+}
+
+function dailyCheck(idx, checked) {
+  var key = getDailyCheckKey();
+  var checks = JSON.parse(localStorage.getItem(key) || '{}');
+  checks[idx] = checked;
+  localStorage.setItem(key, JSON.stringify(checks));
   renderManual();
+}
+
+function dailyCheckAll() {
+  var key = getDailyCheckKey();
+  var checks = JSON.parse(localStorage.getItem(key) || '{}');
+  var allChecked = true;
+  var data = MANUAL_DATA['daily-plan'];
+  data.sections.forEach(function(sec, si) {
+    sec.items.forEach(function(item, ii) {
+      var idx = si + '_' + ii;
+      if (!checks[idx]) allChecked = false;
+    });
+  });
+  data.sections.forEach(function(sec, si) {
+    sec.items.forEach(function(item, ii) {
+      var idx = si + '_' + ii;
+      checks[idx] = !allChecked;
+    });
+  });
+  localStorage.setItem(key, JSON.stringify(checks));
+  renderManual();
+}
+
+function saveIncomeProgress(rowIdx, value) {
+  var progress = JSON.parse(localStorage.getItem('lyz_income_progress') || '{}');
+  progress['row_' + rowIdx] = value;
+  localStorage.setItem('lyz_income_progress', JSON.stringify(progress));
+  renderManual();
+}
+
+function saveEmotionRecord() {
+  var chapter = document.getElementById('emo-chapter').value.trim();
+  var type = document.getElementById('emo-type').value;
+  var value = document.getElementById('emo-value').value;
+  if (!chapter || !value) { showToast('请填写章节名和情绪值'); return; }
+  var history = JSON.parse(localStorage.getItem('lyz_emotion_history') || '[]');
+  history.push({ chapter: chapter, type: type, value: value, time: new Date().toISOString() });
+  if (history.length > 100) history = history.slice(-100);
+  localStorage.setItem('lyz_emotion_history', JSON.stringify(history));
+  localStorage.setItem('lyz_emotion_input', JSON.stringify({ lastChapter: chapter, lastType: type, lastValue: value }));
+  showToast('已记录 ' + chapter + ' 情绪值');
+  renderManual();
+}
+
+function calcSubRevenue() {
+  var fav = parseFloat(document.getElementById('sub-favorites') ? document.getElementById('sub-favorites').value : 0) || 0;
+  var rate = parseFloat(document.getElementById('sub-rate') ? document.getElementById('sub-rate').value : 0) || 0;
+  var price = parseFloat(document.getElementById('sub-price') ? document.getElementById('sub-price').value : 0) || 0;
+  var words = parseFloat(document.getElementById('sub-words') ? document.getElementById('sub-words').value : 0) || 0;
+  // 存储输入
+  localStorage.setItem('lyz_sub_calc', JSON.stringify({ favorites: fav, rate: rate, price: price, words: words }));
+  // 计算：收藏数 × 转化率% × 千字价格(元) × 日更字数/1000 × 30天
+  var monthlyRev = fav * (rate / 100) * (price / 100) * (words / 1000) * 30;
+  var el = document.getElementById('sub-result');
+  if (el) {
+    if (fav > 0 && rate > 0 && price > 0 && words > 0) {
+      el.innerHTML = '预估月收入：<span style="font-size:var(--font-xl);color:var(--success)">' + Math.round(monthlyRev) + '</span> 元<br><span style="font-size:var(--font-xs);color:var(--text-muted)">日均：' + Math.round(monthlyRev / 30) + ' 元</span>';
+    } else {
+      el.textContent = '输入数据查看预估月收入';
+    }
+  }
+}
+
+function calcChapterScore() {
+  var hot = parseFloat(document.getElementById('cc-hot') ? document.getElementById('cc-hot').value : 0) || 0;
+  var conflict = parseFloat(document.getElementById('cc-conflict') ? document.getElementById('cc-conflict').value : 0) || 0;
+  var hook = parseFloat(document.getElementById('cc-hook') ? document.getElementById('cc-hook').value : 0) || 0;
+  var reversal = parseFloat(document.getElementById('cc-reversal') ? document.getElementById('cc-reversal').value : 0) || 0;
+  localStorage.setItem('lyz_chapter_calc', JSON.stringify({ hot: hot, conflict: conflict, hook: hook, reversal: reversal }));
+  var el = document.getElementById('cc-result');
+  if (!el) return;
+  if (hot > 0 || conflict > 0 || hook > 0 || reversal > 0) {
+    var score = Math.round((hot / 1.2) * 30 + (conflict / 1.5) * 30 + (hook / 2) * 25 + (reversal / 0.3) * 15);
+    var level, color;
+    if (score >= 90) { level = 'S级爆款预备'; color = '#059669'; }
+    else if (score >= 75) { level = 'A级优质章节'; color = '#2563eb'; }
+    else if (score >= 60) { level = 'B级合格线'; color = '#d97706'; }
+    else { level = 'C级需修改'; color = '#dc2626'; }
+    el.innerHTML = '<div style="font-size:var(--font-xxl);font-weight:700;color:' + color + '">' + score + '</div><div style="font-size:var(--font-md);font-weight:600;color:' + color + '">' + level + '</div>';
+  } else {
+    el.innerHTML = '<span style="font-size:var(--font-xs);color:var(--text-muted)">输入数值查看评分</span>';
+  }
+}
+
+function calcExecScore() {
+  var hot = parseFloat(document.getElementById('et-hot') ? document.getElementById('et-hot').value : 0) || 0;
+  var conflict = parseFloat(document.getElementById('et-conflict') ? document.getElementById('et-conflict').value : 0) || 0;
+  var hook = parseFloat(document.getElementById('et-hook') ? document.getElementById('et-hook').value : 0) || 0;
+  var reversal = parseFloat(document.getElementById('et-reversal') ? document.getElementById('et-reversal').value : 0) || 0;
+  var el = document.getElementById('et-result');
+  if (!el) return;
+  if (hot > 0 || conflict > 0 || hook > 0 || reversal > 0) {
+    var score = Math.round((hot / 1.2) * 30 + (conflict / 1.5) * 30 + (hook / 2) * 25 + (reversal / 0.3) * 15);
+    var level, color;
+    if (score >= 90) { level = 'S级爆款预备'; color = '#059669'; }
+    else if (score >= 75) { level = 'A级优质章节'; color = '#2563eb'; }
+    else if (score >= 60) { level = 'B级合格线'; color = '#d97706'; }
+    else { level = 'C级需修改'; color = '#dc2626'; }
+    el.innerHTML = '<div style="font-size:var(--font-xxl);font-weight:700;color:' + color + '">' + score + '</div><div style="font-size:var(--font-md);font-weight:600;color:' + color + '">' + level + '</div>';
+  } else {
+    el.innerHTML = '<span style="font-size:var(--font-xs);color:var(--text-muted)">输入数值查看评分</span>';
+  }
+}
+
+function saveChapterTypeInput(key, value) {
+  var data = JSON.parse(localStorage.getItem('lyz_chapter_type_input') || '{}');
+  data[key] = value;
+  localStorage.setItem('lyz_chapter_type_input', JSON.stringify(data));
+  showToast('已保存');
+}
+
+function saveBaseFormula(key, value) {
+  var data = JSON.parse(localStorage.getItem('lyz_base_formula') || '{}');
+  data[key] = value;
+  localStorage.setItem('lyz_base_formula', JSON.stringify(data));
+  renderManual();
+}
+
+function goToWorkshop() {
+  document.querySelectorAll('.bottom-nav .nav-item').forEach(function(n) { n.classList.remove('active'); });
+  document.querySelectorAll('.bottom-nav .nav-item').forEach(function(n) {
+    if (n.dataset.tab === 'workshop') n.classList.add('active');
+  });
+  document.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+  document.getElementById('tab-workshop').classList.add('active');
+  renderWorkshop();
 }
 
 // ==================== 章节元素配置检查器 ====================
@@ -2678,8 +3144,21 @@ window.toggleSnapResult = toggleSnapResult;
 window.removeSnapResult = removeSnapResult;
 window.editSnapResult = editSnapResult;
 window.confirmSnapResults = confirmSnapResults;
-window.switchManualSection = switchManualSection;
+window.scrollToSection = scrollToSection;
+window.getDailyCheckKey = getDailyCheckKey;
+window.copyToClipboard = copyToClipboard;
 window.renderManual = renderManual;
+window.saveCoreGoal = saveCoreGoal;
+window.dailyCheck = dailyCheck;
+window.dailyCheckAll = dailyCheckAll;
+window.saveIncomeProgress = saveIncomeProgress;
+window.saveEmotionRecord = saveEmotionRecord;
+window.calcSubRevenue = calcSubRevenue;
+window.calcChapterScore = calcChapterScore;
+window.calcExecScore = calcExecScore;
+window.saveChapterTypeInput = saveChapterTypeInput;
+window.saveBaseFormula = saveBaseFormula;
+window.goToWorkshop = goToWorkshop;
 window.updateTracker = updateTracker;
 window.renderMaterialTools = renderMaterialTools;
 // currentProject is a module-level variable that needs to be settable from onclick
