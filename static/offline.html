@@ -487,6 +487,7 @@ let materialPage = 1;
 const PAGE_SIZE = 10;
 
 function renderMaterials() {
+  try {
   const container = document.getElementById('tab-materials');
   const materials = getMaterials();
 
@@ -592,6 +593,13 @@ function renderMaterials() {
       materialPage = 1;
       renderMaterials();
     });
+  }
+  } catch(e) {
+    console.error('renderMaterials error:', e);
+    // 清除可能的损坏缓存
+    localStorage.removeItem(STORAGE_KEY_MATERIALS);
+    showToast('素材库数据异常，已自动重置，请刷新页面');
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">数据加载出错，请刷新页面重试</div>';
   }
 }
 
@@ -1239,6 +1247,7 @@ function exportProjectCSV() {
 
 // ==================== Dashboard Tab ====================
 function renderDashboard() {
+  try {
   const container = document.getElementById('tab-dashboard');
   const hotspots = getFlatHotspots();
   const materials = getMaterials();
@@ -1285,6 +1294,10 @@ function renderDashboard() {
   `;
 
   container.innerHTML = html;
+  } catch(e) {
+    console.error('renderDashboard error:', e);
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">数据加载出错，请刷新页面重试</div>';
+  }
 }
 
 // ==================== 工作手册 Tab ====================
