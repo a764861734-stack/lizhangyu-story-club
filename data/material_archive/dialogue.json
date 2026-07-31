@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "name": "对话库",
+    "version": "1.0",
+    "total": 6,
+    "updated_at": "2026-07-31T09:12:20.116142"
+  },
+  "items": [
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_1_抵抗者2026实机演示",
+      "source_title": "抵抗者2026实机演示",
+      "created_at": "2026-07-31T09:10:52.685901",
+      "updated_at": "2026-07-31T09:10:52.685902",
+      "surface_dialogue": "游戏武器体验官冒头[OK]\n孩子们是的\n我负责监督枪械手感[脱单doge]",
+      "conflict_type": "社会讨论",
+      "information_density": "高",
+      "source_chapter": "抵抗者2026实机演示",
+      "id": "5843ddff-8bf6-4c22-8f1f-a100f11c4600",
+      "code": "DH-2026-001"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_2_小时候看不懂，长大后已是局中人",
+      "source_title": "小时候看不懂，长大后已是局中人",
+      "created_at": "2026-07-31T09:10:52.687409",
+      "updated_at": "2026-07-31T09:10:52.687410",
+      "surface_dialogue": "本来以为你要狗熊岭顶级智斗，你给我来升华煽情，你这不是耍俺吗",
+      "conflict_type": "社会讨论",
+      "information_density": "中",
+      "source_chapter": "小时候看不懂，长大后已是局中人",
+      "id": "40d27171-6952-490b-b6a2-4d1498f77d95",
+      "code": "DH-2026-002"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_3_挑战从东北徒步到西藏( 十倍速1小时5分",
+      "source_title": "挑战从东北徒步到西藏( 十倍速1小时5分版）",
+      "created_at": "2026-07-31T09:10:52.688918",
+      "updated_at": "2026-07-31T09:10:52.688919",
+      "surface_dialogue": "挑战从床上到门口拿外卖，不得不做，这件事情足以危及我的生命👍",
+      "conflict_type": "社会讨论",
+      "information_density": "中",
+      "source_chapter": "挑战从东北徒步到西藏( 十倍速1小时5分版）",
+      "id": "de4fcff4-bbf4-4f30-b326-bf6603bc7f40",
+      "code": "DH-2026-003"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_4_【独家】《将夜》第16集 永字八法【4月",
+      "source_title": "【独家】《将夜》第16集 永字八法【4月国创】",
+      "created_at": "2026-07-31T09:10:52.690561",
+      "updated_at": "2026-07-31T09:10:52.690564",
+      "surface_dialogue": "简大家打过招呼，待遇就是不一样啊[doge]",
+      "conflict_type": "社会讨论",
+      "information_density": "中",
+      "source_chapter": "【独家】《将夜》第16集 永字八法【4月国创】",
+      "id": "10f6cb78-d354-45d8-9f30-8dc357483c38",
+      "code": "DH-2026-004"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_5_【世界杯终局之战 续集】复仇者，冲锋！",
+      "source_title": "【世界杯终局之战 续集】复仇者，冲锋！",
+      "created_at": "2026-07-31T09:10:52.692298",
+      "updated_at": "2026-07-31T09:10:52.692300",
+      "surface_dialogue": "奶奶滴！为什么不说！？[生气][生气][生气]",
+      "conflict_type": "社会讨论",
+      "information_density": "中",
+      "source_chapter": "【世界杯终局之战 续集】复仇者，冲锋！",
+      "id": "4dbb2ebf-1fef-4cf1-8ea6-b84ccb349117",
+      "code": "DH-2026-005"
+    },
+    {
+      "code": "DH-2025-001",
+      "conflict_type": "职场PUA",
+      "surface_dialogue": "你的潜力还没完全释放",
+      "subtext": "你不配要求加薪/我需要廉价劳动力",
+      "action_anchor": "指尖规律敲击桌沿",
+      "tone_mark": "句尾升调32%",
+      "information_density": "高密度否定词",
+      "power_relation": "支配→服从",
+      "source_chapter": "《未生》Vol.4",
+      "id": "b0cbad0d-c604-4c12-918a-5c3e4ef95ce7",
+      "created_at": "2026-07-31T09:12:20.116133",
+      "updated_at": "2026-07-31T09:12:20.116139"
+    }
+  ]
+}

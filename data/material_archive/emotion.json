@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "name": "情绪库",
+    "version": "1.0",
+    "total": 3,
+    "updated_at": "2026-07-31T09:12:20.110889"
+  },
+  "items": [
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "微博_38_婚外胚胎事件患癌妻子愤怒发声",
+      "source_title": "婚外胚胎事件患癌妻子愤怒发声",
+      "created_at": "2026-07-31T09:10:52.669137",
+      "updated_at": "2026-07-31T09:10:52.669139",
+      "core_emotion": "复杂情绪",
+      "intensity_level": "20.0",
+      "suitable_scene": "婚外胚胎事件患癌妻子愤怒发声",
+      "case_source": "微博",
+      "id": "b61aea75-f4dd-47ec-8d5a-2fed62755a7f",
+      "code": "QX-2026-001"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_8_古罗马离谱习俗——两千年前的古罗马，开放",
+      "source_title": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。",
+      "created_at": "2026-07-31T09:10:52.671004",
+      "updated_at": "2026-07-31T09:10:52.671006",
+      "core_emotion": "震惊/好奇",
+      "intensity_level": "10.0",
+      "suitable_scene": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。",
+      "case_source": "B站",
+      "id": "2b53b8e8-9d41-4d37-8a44-ae3c93257778",
+      "code": "QX-2026-002"
+    },
+    {
+      "code": "QX-2025-001",
+      "core_emotion": "幸存者愧疚",
+      "intensity_level": "7.2",
+      "physiological_reaction": "无意识啃指甲至渗血/胃部钝痛",
+      "micro_expression_code": "ME-203",
+      "behavior_mapping": "反复擦拭餐具",
+      "dialogue_feature": "每句话尾音下沉",
+      "suitable_scene": "灾难后重逢",
+      "taboo_misuse": "避免用于职场场景",
+      "case_source": "《追风筝的人》",
+      "id": "cb0b6327-5cb3-4c0b-9bb4-eb6726337a2c",
+      "created_at": "2026-07-31T09:12:20.110878",
+      "updated_at": "2026-07-31T09:12:20.110886"
+    }
+  ]
+}

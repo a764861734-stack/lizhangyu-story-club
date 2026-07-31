@@ -1,0 +1,93 @@
+{
+  "hot_meme": {
+    "name": "热梗素材库",
+    "group": "story_core",
+    "icon": "🔥",
+    "total": 2,
+    "updated_at": "2026-07-31T09:11:56.889776"
+  },
+  "conflict": {
+    "name": "冲突素材库",
+    "group": "story_core",
+    "icon": "⚡",
+    "total": 1,
+    "updated_at": "2026-07-31T09:12:20.095886"
+  },
+  "hook": {
+    "name": "钩子素材库",
+    "group": "story_core",
+    "icon": "🪝",
+    "total": 5,
+    "updated_at": "2026-07-31T09:12:20.096884"
+  },
+  "reversal": {
+    "name": "反转素材库",
+    "group": "story_core",
+    "icon": "🔄",
+    "total": 9,
+    "updated_at": "2026-07-31T09:12:20.102015"
+  },
+  "character": {
+    "name": "人设基因库",
+    "group": "character_scene",
+    "icon": "👤",
+    "total": 27,
+    "updated_at": "2026-07-31T09:12:20.103630"
+  },
+  "scene": {
+    "name": "场景库",
+    "group": "character_scene",
+    "icon": "🎬",
+    "total": 1,
+    "updated_at": "2026-07-31T09:12:20.105428"
+  },
+  "legal_risk": {
+    "name": "法律风险库",
+    "group": "writing_technique",
+    "icon": "⚖️",
+    "total": 2,
+    "updated_at": "2026-07-31T09:12:20.106916"
+  },
+  "vocabulary": {
+    "name": "词汇库",
+    "group": "writing_technique",
+    "icon": "📝",
+    "total": 8,
+    "updated_at": "2026-07-31T09:12:20.108907"
+  },
+  "emotion": {
+    "name": "情绪库",
+    "group": "writing_technique",
+    "icon": "💭",
+    "total": 3,
+    "updated_at": "2026-07-31T09:12:20.110889"
+  },
+  "scenery": {
+    "name": "景色库",
+    "group": "writing_technique",
+    "icon": "🏞️",
+    "total": 1,
+    "updated_at": "2026-07-31T09:12:20.112673"
+  },
+  "action": {
+    "name": "动作库",
+    "group": "writing_technique",
+    "icon": "🏃",
+    "total": 9,
+    "updated_at": "2026-07-31T09:12:20.114325"
+  },
+  "dialogue": {
+    "name": "对话库",
+    "group": "writing_technique",
+    "icon": "💬",
+    "total": 6,
+    "updated_at": "2026-07-31T09:12:20.116142"
+  },
+  "quote": {
+    "name": "金句库",
+    "group": "writing_technique",
+    "icon": "💎",
+    "total": 6,
+    "updated_at": "2026-07-31T09:12:20.117175"
+  }
+}

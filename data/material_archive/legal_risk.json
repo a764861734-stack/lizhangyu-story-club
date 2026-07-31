@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "name": "法律风险库",
+    "version": "1.0",
+    "total": 2,
+    "updated_at": "2026-07-31T09:12:20.106916"
+  },
+  "items": [
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "微博_12_丈夫和第三者胚胎是婚姻耻辱",
+      "source_title": "丈夫和第三者胚胎是婚姻耻辱",
+      "created_at": "2026-07-31T09:10:52.657129",
+      "updated_at": "2026-07-31T09:10:52.657131",
+      "risk_type": "婚姻纠纷",
+      "legal_basis": "民法典相关",
+      "trigger_condition": "丈夫和第三者胚胎是婚姻耻辱",
+      "reality_prototype": "丈夫和第三者胚胎是婚姻耻辱",
+      "adaptation_plan": "建议将具体法律细节模糊化处理",
+      "suitable_plot": "丈夫和第三者胚胎是婚姻耻辱",
+      "id": "3dadd033-16cf-461a-8da1-9f9377e894ad",
+      "code": "FL-2026-001"
+    },
+    {
+      "code": "FL-2025-001",
+      "risk_type": "隐婚协议",
+      "legal_basis": "民法典第1042条",
+      "trigger_condition": "被第三方获取公证文件",
+      "consequence_severity": "★★★★☆",
+      "reality_prototype": "某顶流离婚财产冻结案",
+      "adaptation_plan": "改为「元宇宙战略合作」",
+      "prevention_measure": "用虚拟货币结算补偿金",
+      "dramatic_technique": "添加「违约触发AI伴侣觉醒」条款",
+      "id": "6e1ed0af-c288-4fb3-bff1-292ff116ef32",
+      "created_at": "2026-07-31T09:12:20.106908",
+      "updated_at": "2026-07-31T09:12:20.106913"
+    }
+  ]
+}

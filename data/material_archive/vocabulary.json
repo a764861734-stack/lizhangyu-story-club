@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "name": "词汇库",
+    "version": "1.0",
+    "total": 8,
+    "updated_at": "2026-07-31T09:12:20.108907"
+  },
+  "items": [
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "微博_12_丈夫和第三者胚胎是婚姻耻辱",
+      "source_title": "丈夫和第三者胚胎是婚姻耻辱",
+      "created_at": "2026-07-31T09:10:52.659052",
+      "updated_at": "2026-07-31T09:10:52.659054",
+      "core_word": "婚姻",
+      "category": "情感冲突",
+      "suitable_genre": "现言, 婚恋, 家庭伦理",
+      "id": "3f756037-4e7f-4ed9-9a36-5d662ccec433",
+      "code": "CH-2026-001"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "微博_34_6旬老人坚持地中海饮食3个月瘦37斤",
+      "source_title": "6旬老人坚持地中海饮食3个月瘦37斤",
+      "created_at": "2026-07-31T09:10:52.660708",
+      "updated_at": "2026-07-31T09:10:52.660709",
+      "core_word": "老人",
+      "category": "猎奇与反转",
+      "suitable_genre": "悬疑, 幻言, 奇幻, 现言",
+      "id": "2f454816-b011-4755-8912-979716d639c1",
+      "code": "CH-2026-002"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_8_古罗马离谱习俗——两千年前的古罗马，开放",
+      "source_title": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。",
+      "created_at": "2026-07-31T09:10:52.662402",
+      "updated_at": "2026-07-31T09:10:52.662403",
+      "core_word": "离谱",
+      "category": "猎奇与反转",
+      "suitable_genre": "悬疑, 幻言, 奇幻, 现言",
+      "id": "debfee8e-db11-4b9d-9d8c-6e8dedd432c2",
+      "code": "CH-2026-003"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_9_孩子们，出了社会可没人惯着你",
+      "source_title": "孩子们，出了社会可没人惯着你",
+      "created_at": "2026-07-31T09:10:52.663547",
+      "updated_at": "2026-07-31T09:10:52.663548",
+      "core_word": "孩子",
+      "category": "猎奇与反转",
+      "suitable_genre": "悬疑, 幻言, 奇幻, 现言",
+      "id": "09ed7202-f1c4-46e6-8583-9f3aac7c7c2e",
+      "code": "CH-2026-004"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_13_罕见龙卷风突袭，他3分钟内同时失去了父母",
+      "source_title": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当",
+      "created_at": "2026-07-31T09:10:52.665112",
+      "updated_at": "2026-07-31T09:10:52.665113",
+      "core_word": "罕见",
+      "category": "社会冲突",
+      "suitable_genre": "现言, 职场, 商战, 悬疑, 悬疑, 幻言, 奇幻, 现言",
+      "id": "80d52e49-4182-46cf-ab8f-54cb9d1a6861",
+      "code": "CH-2026-005"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_15_21岁小伙60万彩礼娶00后女生，2个月",
+      "source_title": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！",
+      "created_at": "2026-07-31T09:10:52.666106",
+      "updated_at": "2026-07-31T09:10:52.666107",
+      "core_word": "没想到",
+      "category": "情感冲突",
+      "suitable_genre": "现言, 婚恋, 家庭伦理, 悬疑, 幻言, 奇幻, 现言",
+      "id": "f36d1af7-362d-4804-b261-9bab76325d18",
+      "code": "CH-2026-006"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_19_和解剖了4000具尸体的法医，一起看了影",
+      "source_title": "和解剖了4000具尸体的法医，一起看了影片中的尸体...",
+      "created_at": "2026-07-31T09:10:52.667247",
+      "updated_at": "2026-07-31T09:10:52.667248",
+      "core_word": "死亡",
+      "category": "猎奇与反转",
+      "suitable_genre": "悬疑, 幻言, 奇幻, 现言",
+      "id": "21cbcfa2-08bf-4b43-a008-00ce39ce5b4f",
+      "code": "CH-2026-007"
+    },
+    {
+      "code": "CH-2025-001",
+      "category": "感官词汇",
+      "sub_category": "视觉",
+      "core_word": "彩绘玻璃窗",
+      "intensity": "5",
+      "synesthesia_example": "阳光在彩绘玻璃上碎裂成圣痕",
+      "suitable_genre": "现实主义",
+      "related_emotion": "疏离感",
+      "source_reference": "《沙丘》",
+      "id": "f1322a8b-15fa-4021-aa32-6ca676c76d5f",
+      "created_at": "2026-07-31T09:12:20.108882",
+      "updated_at": "2026-07-31T09:12:20.108902"
+    }
+  ]
+}

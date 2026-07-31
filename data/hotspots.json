@@ -1,0 +1,3085 @@
+{
+  "微博": [
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 0,
+      "title": "欧足联决定抵制世界杯",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E6%AC%A7%E8%B6%B3%E8%81%94%E5%86%B3%E5%AE%9A%E6%8A%B5%E5%88%B6%E4%B8%96%E7%95%8C%E6%9D%AF",
+      "content": "欧足联决定抵制世界杯",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.200737",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 1,
+      "title": "凤囚凰 古偶烂片史上难以逾越的高峰",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%87%A4%E5%9B%9A%E5%87%B0%20%E5%8F%A4%E5%81%B6%E7%83%82%E7%89%87%E5%8F%B2%E4%B8%8A%E9%9A%BE%E4%BB%A5%E9%80%BE%E8%B6%8A%E7%9A%84%E9%AB%98%E5%B3%B0",
+      "content": "凤囚凰 古偶烂片史上难以逾越的高峰",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.200801",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 2,
+      "title": "长江十年行",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E9%95%BF%E6%B1%9F%E5%8D%81%E5%B9%B4%E8%A1%8C",
+      "content": "长江十年行",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.200826",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 3,
+      "title": "马斯克最新预言来了",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E9%A9%AC%E6%96%AF%E5%85%8B%E6%9C%80%E6%96%B0%E9%A2%84%E8%A8%80%E6%9D%A5%E4%BA%86",
+      "content": "马斯克最新预言来了",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.200847",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 4,
+      "title": "女子做检查时身亡丈夫称麻醉师玩手机",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%A5%B3%E5%AD%90%E5%81%9A%E6%A3%80%E6%9F%A5%E6%97%B6%E8%BA%AB%E4%BA%A1%E4%B8%88%E5%A4%AB%E7%A7%B0%E9%BA%BB%E9%86%89%E5%B8%88%E7%8E%A9%E6%89%8B%E6%9C%BA",
+      "content": "女子做检查时身亡丈夫称麻醉师玩手机",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.200870",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 5,
+      "title": "豆包究竟见过多少人的糗事",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E8%B1%86%E5%8C%85%E7%A9%B6%E7%AB%9F%E8%A7%81%E8%BF%87%E5%A4%9A%E5%B0%91%E4%BA%BA%E7%9A%84%E7%B3%97%E4%BA%8B",
+      "content": "豆包究竟见过多少人的糗事",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.200895",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 6,
+      "title": "医生称多囊卵巢综合征名字害惨女性",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%8C%BB%E7%94%9F%E7%A7%B0%E5%A4%9A%E5%9B%8A%E5%8D%B5%E5%B7%A2%E7%BB%BC%E5%90%88%E5%BE%81%E5%90%8D%E5%AD%97%E5%AE%B3%E6%83%A8%E5%A5%B3%E6%80%A7",
+      "content": "医生称多囊卵巢综合征名字害惨女性",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.200920",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 7,
+      "title": "莲子切开里面有个小娃娃",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E8%8E%B2%E5%AD%90%E5%88%87%E5%BC%80%E9%87%8C%E9%9D%A2%E6%9C%89%E4%B8%AA%E5%B0%8F%E5%A8%83%E5%A8%83",
+      "content": "莲子切开里面有个小娃娃",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.200944",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 8,
+      "title": "陈伟霆九门老九门出场对比",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E9%99%88%E4%BC%9F%E9%9C%86%E4%B9%9D%E9%97%A8%E8%80%81%E4%B9%9D%E9%97%A8%E5%87%BA%E5%9C%BA%E5%AF%B9%E6%AF%94",
+      "content": "陈伟霆九门老九门出场对比",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.200965",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 9,
+      "title": "吴宜泽6比5墨菲",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%90%B4%E5%AE%9C%E6%B3%BD6%E6%AF%945%E5%A2%A8%E8%8F%B2",
+      "content": "吴宜泽6比5墨菲",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.200995",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 10,
+      "title": "女子被公公强奸丈夫称父亲喝醉了",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%A5%B3%E5%AD%90%E8%A2%AB%E5%85%AC%E5%85%AC%E5%BC%BA%E5%A5%B8%E4%B8%88%E5%A4%AB%E7%A7%B0%E7%88%B6%E4%BA%B2%E5%96%9D%E9%86%89%E4%BA%86",
+      "content": "女子被公公强奸丈夫称父亲喝醉了",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201016",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 11,
+      "title": "连云港火灾母女坠楼",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E8%BF%9E%E4%BA%91%E6%B8%AF%E7%81%AB%E7%81%BE%E6%AF%8D%E5%A5%B3%E5%9D%A0%E6%A5%BC",
+      "content": "连云港火灾母女坠楼",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201039",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 12,
+      "title": "丈夫和第三者胚胎是婚姻耻辱",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E4%B8%88%E5%A4%AB%E5%92%8C%E7%AC%AC%E4%B8%89%E8%80%85%E8%83%9A%E8%83%8E%E6%98%AF%E5%A9%9A%E5%A7%BB%E8%80%BB%E8%BE%B1",
+      "content": "丈夫和第三者胚胎是婚姻耻辱",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201060",
+      "story_analysis": {
+        "story_categories": [
+          {
+            "category": "情感冲突",
+            "description": "婆媳、彩礼、出轨、扶弟魔、原生家庭之痛",
+            "matched_keywords": [
+              "婚姻"
+            ],
+            "story_type": "现言, 婚恋, 家庭伦理",
+            "weight": 3
+          }
+        ],
+        "matched_keywords": [
+          "婚姻"
+        ],
+        "story_score": 35,
+        "emotion_density": 0.0,
+        "is_story_worthy": true,
+        "story_type": "现言, 婚恋, 家庭伦理"
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果主角是受害者，TA会怎样反击？",
+        "如果主角是施害者，TA的动机是什么？",
+        "如果这场冲突发生在大结局前夜呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 13,
+      "title": "迪丽热巴张碧晨的妆都是金鹤龙化的",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4%E5%BC%A0%E7%A2%A7%E6%99%A8%E7%9A%84%E5%A6%86%E9%83%BD%E6%98%AF%E9%87%91%E9%B9%A4%E9%BE%99%E5%8C%96%E7%9A%84",
+      "content": "迪丽热巴张碧晨的妆都是金鹤龙化的",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201082",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 14,
+      "title": "刘耀文瘦成这样",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%88%98%E8%80%80%E6%96%87%E7%98%A6%E6%88%90%E8%BF%99%E6%A0%B7",
+      "content": "刘耀文瘦成这样",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201104",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 15,
+      "title": "小米澎程N90价格",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%B0%8F%E7%B1%B3%E6%BE%8E%E7%A8%8BN90%E4%BB%B7%E6%A0%BC",
+      "content": "小米澎程N90价格",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201123",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 16,
+      "title": "显卡全面封仓",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E6%98%BE%E5%8D%A1%E5%85%A8%E9%9D%A2%E5%B0%81%E4%BB%93",
+      "content": "显卡全面封仓",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201142",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 17,
+      "title": "中际旭创股东减持公告",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E4%B8%AD%E9%99%85%E6%97%AD%E5%88%9B%E8%82%A1%E4%B8%9C%E5%87%8F%E6%8C%81%E5%85%AC%E5%91%8A",
+      "content": "中际旭创股东减持公告",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201161",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 18,
+      "title": "九门爆开",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E4%B9%9D%E9%97%A8%E7%88%86%E5%BC%80",
+      "content": "九门爆开",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201181",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 19,
+      "title": "宋威龙 热巴姐你好像提前放扇子了",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%AE%8B%E5%A8%81%E9%BE%99%20%E7%83%AD%E5%B7%B4%E5%A7%90%E4%BD%A0%E5%A5%BD%E5%83%8F%E6%8F%90%E5%89%8D%E6%94%BE%E6%89%87%E5%AD%90%E4%BA%86",
+      "content": "宋威龙 热巴姐你好像提前放扇子了",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201200",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 20,
+      "title": "建议大家不要活在朋友圈",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%BB%BA%E8%AE%AE%E5%A4%A7%E5%AE%B6%E4%B8%8D%E8%A6%81%E6%B4%BB%E5%9C%A8%E6%9C%8B%E5%8F%8B%E5%9C%88",
+      "content": "建议大家不要活在朋友圈",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201222",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 21,
+      "title": "你甚至可以看到植物打人",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E4%BD%A0%E7%94%9A%E8%87%B3%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%A4%8D%E7%89%A9%E6%89%93%E4%BA%BA",
+      "content": "你甚至可以看到植物打人",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201243",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 22,
+      "title": "腾讯因为没有文档文化无法蒸馏",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E8%85%BE%E8%AE%AF%E5%9B%A0%E4%B8%BA%E6%B2%A1%E6%9C%89%E6%96%87%E6%A1%A3%E6%96%87%E5%8C%96%E6%97%A0%E6%B3%95%E8%92%B8%E9%A6%8F",
+      "content": "腾讯因为没有文档文化无法蒸馏",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201263",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 23,
+      "title": "吵架后从18楼跳下女子称很后悔",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%90%B5%E6%9E%B6%E5%90%8E%E4%BB%8E18%E6%A5%BC%E8%B7%B3%E4%B8%8B%E5%A5%B3%E5%AD%90%E7%A7%B0%E5%BE%88%E5%90%8E%E6%82%94",
+      "content": "吵架后从18楼跳下女子称很后悔",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201285",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 24,
+      "title": "迪丽热巴嘉人CEO合照",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4%E5%98%89%E4%BA%BACEO%E5%90%88%E7%85%A7",
+      "content": "迪丽热巴嘉人CEO合照",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201313",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 25,
+      "title": "白玉兰自己也在回味",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E7%99%BD%E7%8E%89%E5%85%B0%E8%87%AA%E5%B7%B1%E4%B9%9F%E5%9C%A8%E5%9B%9E%E5%91%B3",
+      "content": "白玉兰自己也在回味",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201333",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 26,
+      "title": "泰国部长称不欢迎给他人造成损害的游客",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E6%B3%B0%E5%9B%BD%E9%83%A8%E9%95%BF%E7%A7%B0%E4%B8%8D%E6%AC%A2%E8%BF%8E%E7%BB%99%E4%BB%96%E4%BA%BA%E9%80%A0%E6%88%90%E6%8D%9F%E5%AE%B3%E7%9A%84%E6%B8%B8%E5%AE%A2",
+      "content": "泰国部长称不欢迎给他人造成损害的游客",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201355",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 27,
+      "title": "王橹杰杀了一颗苹果",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E7%8E%8B%E6%A9%B9%E6%9D%B0%E6%9D%80%E4%BA%86%E4%B8%80%E9%A2%97%E8%8B%B9%E6%9E%9C",
+      "content": "王橹杰杀了一颗苹果",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201379",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 28,
+      "title": "披荆斩棘阵容",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E6%8A%AB%E8%8D%86%E6%96%A9%E6%A3%98%E9%98%B5%E5%AE%B9",
+      "content": "披荆斩棘阵容",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201398",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 29,
+      "title": "宇树科技股票发行安排",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%AE%87%E6%A0%91%E7%A7%91%E6%8A%80%E8%82%A1%E7%A5%A8%E5%8F%91%E8%A1%8C%E5%AE%89%E6%8E%92",
+      "content": "宇树科技股票发行安排",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201416",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 30,
+      "title": "美国吸毒女子像虫子一样在地上蠕动",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E7%BE%8E%E5%9B%BD%E5%90%B8%E6%AF%92%E5%A5%B3%E5%AD%90%E5%83%8F%E8%99%AB%E5%AD%90%E4%B8%80%E6%A0%B7%E5%9C%A8%E5%9C%B0%E4%B8%8A%E8%A0%95%E5%8A%A8",
+      "content": "美国吸毒女子像虫子一样在地上蠕动",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201437",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 31,
+      "title": "男生每天躺玩手机超5小时无法走路",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E7%94%B7%E7%94%9F%E6%AF%8F%E5%A4%A9%E8%BA%BA%E7%8E%A9%E6%89%8B%E6%9C%BA%E8%B6%855%E5%B0%8F%E6%97%B6%E6%97%A0%E6%B3%95%E8%B5%B0%E8%B7%AF",
+      "content": "男生每天躺玩手机超5小时无法走路",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201460",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 32,
+      "title": "曝BLG联系不到Bin",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E6%9B%9DBLG%E8%81%94%E7%B3%BB%E4%B8%8D%E5%88%B0Bin",
+      "content": "曝BLG联系不到Bin",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201482",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 33,
+      "title": "吴雅婷 我没有蹭王栎鑫热度",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%90%B4%E9%9B%85%E5%A9%B7%20%E6%88%91%E6%B2%A1%E6%9C%89%E8%B9%AD%E7%8E%8B%E6%A0%8E%E9%91%AB%E7%83%AD%E5%BA%A6",
+      "content": "吴雅婷 我没有蹭王栎鑫热度",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201501",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 34,
+      "title": "6旬老人坚持地中海饮食3个月瘦37斤",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=6%E6%97%AC%E8%80%81%E4%BA%BA%E5%9D%9A%E6%8C%81%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A5%AE%E9%A3%9F3%E4%B8%AA%E6%9C%88%E7%98%A637%E6%96%A4",
+      "content": "6旬老人坚持地中海饮食3个月瘦37斤",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201523",
+      "story_analysis": {
+        "story_categories": [
+          {
+            "category": "猎奇与反转",
+            "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转",
+            "matched_keywords": [
+              "老人"
+            ],
+            "story_type": "悬疑, 幻言, 奇幻, 现言",
+            "weight": 2
+          }
+        ],
+        "matched_keywords": [
+          "老人"
+        ],
+        "story_score": 25,
+        "emotion_density": 0.0,
+        "is_story_worthy": true,
+        "story_type": "悬疑, 幻言, 奇幻, 现言"
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 35,
+      "title": "小米澎程N70",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%B0%8F%E7%B1%B3%E6%BE%8E%E7%A8%8BN70",
+      "content": "小米澎程N70",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201541",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 36,
+      "title": "日元全线飙升",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E6%97%A5%E5%85%83%E5%85%A8%E7%BA%BF%E9%A3%99%E5%8D%87",
+      "content": "日元全线飙升",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201560",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 37,
+      "title": "尹新月 赵丽颖",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%B0%B9%E6%96%B0%E6%9C%88%20%E8%B5%B5%E4%B8%BD%E9%A2%96",
+      "content": "尹新月 赵丽颖",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201579",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 38,
+      "title": "婚外胚胎事件患癌妻子愤怒发声",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%A9%9A%E5%A4%96%E8%83%9A%E8%83%8E%E4%BA%8B%E4%BB%B6%E6%82%A3%E7%99%8C%E5%A6%BB%E5%AD%90%E6%84%A4%E6%80%92%E5%8F%91%E5%A3%B0",
+      "content": "婚外胚胎事件患癌妻子愤怒发声",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201597",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 20,
+        "emotion_density": 2.0,
+        "is_story_worthy": true,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 39,
+      "title": "日元",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E6%97%A5%E5%85%83",
+      "content": "日元",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201620",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 40,
+      "title": "吴谨言曾说墨雨云间是自己的救命稻草",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%90%B4%E8%B0%A8%E8%A8%80%E6%9B%BE%E8%AF%B4%E5%A2%A8%E9%9B%A8%E4%BA%91%E9%97%B4%E6%98%AF%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%91%E5%91%BD%E7%A8%BB%E8%8D%89",
+      "content": "吴谨言曾说墨雨云间是自己的救命稻草",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201799",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 41,
+      "title": "超强台风白海豚最新路径公布",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E8%B6%85%E5%BC%BA%E5%8F%B0%E9%A3%8E%E7%99%BD%E6%B5%B7%E8%B1%9A%E6%9C%80%E6%96%B0%E8%B7%AF%E5%BE%84%E5%85%AC%E5%B8%83",
+      "content": "超强台风白海豚最新路径公布",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201824",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 42,
+      "title": "多囊卵巢综合征为什么要更名",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%A4%9A%E5%9B%8A%E5%8D%B5%E5%B7%A2%E7%BB%BC%E5%90%88%E5%BE%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9B%B4%E5%90%8D",
+      "content": "多囊卵巢综合征为什么要更名",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201845",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 43,
+      "title": "BLG经理否认Bin失联",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=BLG%E7%BB%8F%E7%90%86%E5%90%A6%E8%AE%A4Bin%E5%A4%B1%E8%81%94",
+      "content": "BLG经理否认Bin失联",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201867",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 44,
+      "title": "Meta大跌9%",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=Meta%E5%A4%A7%E8%B7%8C9%25",
+      "content": "Meta大跌9%",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201892",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 45,
+      "title": "八仙",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E5%85%AB%E4%BB%99",
+      "content": "八仙",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201911",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 46,
+      "title": "男子带猫打针暴打猫咪大闹医院",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E7%94%B7%E5%AD%90%E5%B8%A6%E7%8C%AB%E6%89%93%E9%92%88%E6%9A%B4%E6%89%93%E7%8C%AB%E5%92%AA%E5%A4%A7%E9%97%B9%E5%8C%BB%E9%99%A2",
+      "content": "男子带猫打针暴打猫咪大闹医院",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201928",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 47,
+      "title": "肖战在钦天监有人啊",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E8%82%96%E6%88%98%E5%9C%A8%E9%92%A6%E5%A4%A9%E7%9B%91%E6%9C%89%E4%BA%BA%E5%95%8A",
+      "content": "肖战在钦天监有人啊",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201949",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 48,
+      "title": "王腾买了小米N90Max",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E7%8E%8B%E8%85%BE%E4%B9%B0%E4%BA%86%E5%B0%8F%E7%B1%B3N90Max",
+      "content": "王腾买了小米N90Max",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.201969",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "微博",
+      "section": "热搜榜",
+      "rank": 49,
+      "title": "曝刑警荣誉是宋威龙的首部正剧",
+      "heat": "",
+      "category": "",
+      "hot_type": "日常热点",
+      "url": "https://s.weibo.com/weibo?q=%E6%9B%9D%E5%88%91%E8%AD%A6%E8%8D%A3%E8%AA%89%E6%98%AF%E5%AE%8B%E5%A8%81%E9%BE%99%E7%9A%84%E9%A6%96%E9%83%A8%E6%AD%A3%E5%89%A7",
+      "content": "曝刑警荣誉是宋威龙的首部正剧",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.202008",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 4,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    }
+  ],
+  "知乎热榜": [],
+  "知乎日报": [
+    {
+      "platform": "知乎日报",
+      "section": "知乎日报",
+      "rank": 1,
+      "title": "一直拍打蚊子不让蚊子落地，让它只能一直飞，蚊子会累死吗？",
+      "heat": "",
+      "category": "",
+      "hot_type": "深度报道",
+      "url": "https://daily.zhihu.com/story/9791570",
+      "content": "艾比斯 · 1 分钟阅读",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.667505",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 7,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "知乎日报",
+      "section": "知乎日报",
+      "rank": 2,
+      "title": "如果塔里木河最终流入大海的话长度将会如何？",
+      "heat": "",
+      "category": "",
+      "hot_type": "深度报道",
+      "url": "https://daily.zhihu.com/story/9791575",
+      "content": "宁南左侯 · 3 分钟阅读",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.667563",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 7,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "知乎日报",
+      "section": "知乎日报",
+      "rank": 3,
+      "title": "黄鳝泥鳅这种在国内被视为滋补佳肴的淡水生物，为啥在西方餐桌上几乎绝迹？是文化不同还是口味差异？",
+      "heat": "",
+      "category": "",
+      "hot_type": "深度报道",
+      "url": "https://daily.zhihu.com/story/9791576",
+      "content": "执戟郎 · 3 分钟阅读",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.667588",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 7,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "知乎日报",
+      "section": "知乎日报",
+      "rank": 4,
+      "title": "瞎扯 · 如何正确地吐槽",
+      "heat": "",
+      "category": "",
+      "hot_type": "深度报道",
+      "url": "https://daily.zhihu.com/story/9791583",
+      "content": "VOL.3957",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:00.667630",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 7,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    }
+  ],
+  "B站": [
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 1,
+      "title": "抵抗者2026实机演示",
+      "heat": "播放7198697",
+      "category": "单机游戏",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1rW326hEKe",
+      "content": "在那黑暗岁月，我们早已习惯生离死别。\n侵略者的铁蹄踏碎山河，每一寸土地燃烧。\n我们是驰骋在林海雪原，不屈的抗联；\n我们是隐谧在绝境的孤岛，永不消逝的电波；\n我们是翻腾在运河的波涛，快意恩仇的尖刀；\n我们是屹立在太行之巅，血肉筑起的长城。\n拿起武器，我们是抵抗者！",
+      "top_comments": [
+        "[7745赞] 游戏武器体验官冒头[OK]\n孩子们是的\n我负责监督枪械手感[脱单doge]",
+        "[3629赞] 老使命召唤的剧情模式是值得借鉴的，我觉得像使命召唤没什么丢人的，大大方方做。游戏性和叙事最优先，不犯错误的红线保证就行了。为了思想表达而放弃游戏性才是舍本逐末，希望制作组可以保持良好的心态，不被外界声音影响。",
+        "[1818赞] 游戏发售后，使用风灵月影的玩家：",
+        "[1509赞] 视频结尾枪上的标志应该是日本菊花纹章\n\n绝大多数为日本陆军生产的制式枪械上都有菊花纹章。这枚十六瓣八重表菊纹是天皇的个人徽记，出现在枪上代表该枪属于天皇本人，是士兵被“神赐”的武器。\n\n伪满洲国的兵工厂为日军生产的武器也可能有这样的标志。",
+        "[1559赞] 建议不要听评论区有些一眼没玩过游戏的建议[汤圆]我不想一个优品游戏改成四不像"
+      ],
+      "aid": "117002660480326",
+      "fetch_time": "2026-07-31T08:00:00.852722",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 2,
+      "title": "小时候看不懂，长大后已是局中人",
+      "heat": "播放1124669",
+      "category": "影视剪辑",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1qh3W6bEqf",
+      "content": "二十万粉庆贺！正巧用上了二十年这个意向，这几个月一直都在碰壁，还好一直有人私信鼓励我，获益良多也重新振作了精神，所以用这个视频表达感谢，素材也是应粉丝要求而做，希望二十年后，我还在大家身旁。观众朋友们看得开心哦！\n\n写一封信 将我的想法都记下\n等老了慢慢看\n简单的日子 正要感受好时光\n全都拿来珍藏\n人生的阶段 所有口味都品尝\n是快乐或遗憾\n不必去追赶 正在奔跑的时光\n心安便是寻常",
+      "top_comments": [
+        "[89赞] 本来以为你要狗熊岭顶级智斗，你给我来升华煽情，你这不是耍俺吗",
+        "[26赞] 拍拍拍拍你妹 打开评论区全是合影 远方传来风笛",
+        "[88赞] 依旧高质视频配低质评论[微笑]",
+        "[77赞] 20年后估计蹦蹦 涂涂还有萝卜头已经似了[doge]",
+        "[128赞] 知道这张图的应该都老了吧[doge]"
+      ],
+      "aid": "117006015662986",
+      "fetch_time": "2026-07-31T08:00:01.358509",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 3,
+      "title": "挑战从东北徒步到西藏( 十倍速1小时5分版）",
+      "heat": "播放3372854",
+      "category": "出行",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1c4326hEkj",
+      "content": "",
+      "top_comments": [
+        "[919赞] 挑战从床上到门口拿外卖，不得不做，这件事情足以危及我的生命👍",
+        "[235赞] 这就是互联网最初的样子，连角马都能上网发视频",
+        "[2657赞] be like：",
+        "[4427赞] 你去护送文成公主和亲",
+        "[2772赞] 挑战下楼扔掉偷偷点的外卖盒"
+      ],
+      "aid": "117002559558901",
+      "fetch_time": "2026-07-31T08:00:01.809168",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 4,
+      "title": "【独家】《将夜》第16集 永字八法【4月国创】",
+      "heat": "播放948385",
+      "category": "国产动画",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1fn3J6SEWw",
+      "content": "每周四中午11:00，bilibili独家呈现。",
+      "top_comments": [
+        "[104赞] 简大家打过招呼，待遇就是不一样啊[doge]",
+        "[11赞] 这么精彩，精良的国漫，希望有续作",
+        "[69赞] 我好像也看懂了，就是脑子晕乎乎的，先午睡一会再说～[吃瓜]",
+        "[29赞] 现在大家都知道练好字的重要性了吧",
+        "[23赞] 在这我提一嘴，桑桑真可爱捏"
+      ],
+      "aid": "117004388337351",
+      "fetch_time": "2026-07-31T08:00:02.301806",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 5,
+      "title": "【世界杯终局之战 续集】复仇者，冲锋！",
+      "heat": "播放1637001",
+      "category": "鬼畜剧场",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1Dc3H63EUh",
+      "content": "感谢观众姥爷们对上一期视频的喜爱\n本期视频秉持着观众们的期待，耗时7天打磨终于完成，希望各位观众姥爷看个开心！\n对了，不要忘记给Up一键三连哦，让up回回血，感谢支持！\n\nPS.其实up是意大利球迷，看世界杯纯属隔岸观火。\n视频内容仅是根据up看世界杯上发生的趣事和个人感受进行的胡乱改编，并没有针对谁或谁家粉丝，如果您看视频感到冒犯，您可以...下单购买一个up的道歉视频~~~\n\n世界杯鬼畜系列到此结束，咱们四年后有缘再更新这个系列啦！",
+      "top_comments": [
+        "[41赞] 奶奶滴！为什么不说！？[生气][生气][生气]",
+        "[17赞] 虽然对梅西无感，但也不喜欢 C罗，你这夹带私货太明显",
+        "[104赞] 提议把阿根廷阵容里面放一些中国球迷",
+        "[183赞] [藏狐][藏狐][藏狐]",
+        "[6赞] 蓝白眼里是不是就只有两类球迷，一边是蓝白粉丝，一边是C罗粉丝？"
+      ],
+      "aid": "117005445242123",
+      "fetch_time": "2026-07-31T08:00:02.773443",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 4,
+        "emotion_density": 0.42,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 6,
+      "title": "奇怪的玩具工厂 第五章 Part2，结局",
+      "heat": "播放1509749",
+      "category": "单机游戏",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1DT3x6XEYv",
+      "content": "奇怪的玩具工厂 第五章 Part2 结局\n⛔请勿相信其他任何自称是我（鲤鱼Ace）的言论或求助\n⛔我不会在任何社交平台上创建官方社群或添加好友\n⛔请勿相信由人为模仿或人工智能生成关于我（鲤鱼Ace）的任何内容\n⛔内容仅供娱乐，与现实中任何事件无关，请勿代入并联想，请勿模仿\n⛔未经授权，禁止转载",
+      "top_comments": [],
+      "aid": "117007106180437",
+      "fetch_time": "2026-07-31T08:00:03.238717",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 7,
+      "title": "《灰境行者》全新预告丨PC测试定档9月",
+      "heat": "播放2181199",
+      "category": "GMV",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1kx326wErM",
+      "content": "去年首曝时，我们展示了《灰境行者》的PvP玩法——猎杀发育，夺宝对决。\n今天新预告片中，大家会看到“微恐宇宙”中一套独立的玩法模式——三人合作PvE。\n此外，大家最关心的——《灰境行者》首次PC测试将于今年9月正式开启，测试报名通道也会在8月下旬开放。欢迎各位行者来到灰境，享受战斗。\n* 游戏处于研发阶段，展示内容不代表游戏最终品质。",
+      "top_comments": [],
+      "aid": "117002576466119",
+      "fetch_time": "2026-07-31T08:00:03.238839",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 8,
+      "title": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。",
+      "heat": "播放1506780",
+      "category": "出行",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1iAKb6xEEV",
+      "content": "",
+      "top_comments": [],
+      "aid": "116957160546174",
+      "fetch_time": "2026-07-31T08:00:03.238891",
+      "story_analysis": {
+        "story_categories": [
+          {
+            "category": "猎奇与反转",
+            "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转",
+            "matched_keywords": [
+              "离谱"
+            ],
+            "story_type": "悬疑, 幻言, 奇幻, 现言",
+            "weight": 2
+          }
+        ],
+        "matched_keywords": [
+          "离谱"
+        ],
+        "story_score": 35,
+        "emotion_density": 1.0,
+        "is_story_worthy": true,
+        "story_type": "悬疑, 幻言, 奇幻, 现言"
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 9,
+      "title": "孩子们，出了社会可没人惯着你",
+      "heat": "播放2115455",
+      "category": "鬼畜调教",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1gL3z6dEAQ",
+      "content": "出了社会可没人惯着你！牢大说他要惯着你！",
+      "top_comments": [],
+      "aid": "116998415720051",
+      "fetch_time": "2026-07-31T08:00:03.238917",
+      "story_analysis": {
+        "story_categories": [
+          {
+            "category": "猎奇与反转",
+            "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转",
+            "matched_keywords": [
+              "孩子"
+            ],
+            "story_type": "悬疑, 幻言, 奇幻, 现言",
+            "weight": 2
+          }
+        ],
+        "matched_keywords": [
+          "孩子"
+        ],
+        "story_score": 25,
+        "emotion_density": 0.0,
+        "is_story_worthy": true,
+        "story_type": "悬疑, 幻言, 奇幻, 现言"
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 10,
+      "title": "手绘469张！还原EVA主题曲",
+      "heat": "播放1536385",
+      "category": "绘画",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1aP326jEi8",
+      "content": "感谢观看~o(〃'▽'〃)o\n手绘469张\n耗时20天\nBgm 残酷な天使のテーゼ",
+      "top_comments": [],
+      "aid": "117002878394204",
+      "fetch_time": "2026-07-31T08:00:03.238935",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 11,
+      "title": "当所有人随机获得英雄联盟的一个技能...【AI全民制作人】",
+      "heat": "播放591381",
+      "category": "影视杂谈",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1rw316ZEmM",
+      "content": "燃起来了！",
+      "top_comments": [],
+      "aid": "117003280981615",
+      "fetch_time": "2026-07-31T08:00:03.238963",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 12,
+      "title": "【花小烙】游隼：地球上俯冲速度最快的“鸟中战斗机”是如何炼成的？",
+      "heat": "播放640045",
+      "category": "科学科普",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1UFge6qEty",
+      "content": "作为俯冲时速可达389公里的地球“速度之王”，游隼是如何做到的？",
+      "top_comments": [],
+      "aid": "116973635771902",
+      "fetch_time": "2026-07-31T08:00:03.238997",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 13,
+      "title": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当",
+      "heat": "播放573715",
+      "category": "社会",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1mu3W6CEZz",
+      "content": "罕见龙卷风突袭，今年营收有望过亿的公司被夷为平地……湖北老板3分钟内同时失去了父母和家当，在他感觉撑不下去时，公司2天内绝境重生。",
+      "top_comments": [],
+      "aid": "117006183434197",
+      "fetch_time": "2026-07-31T08:00:03.239026",
+      "story_analysis": {
+        "story_categories": [
+          {
+            "category": "社会冲突",
+            "description": "职场不公、法律判决、行业潜规则、阶层差异",
+            "matched_keywords": [
+              "老板"
+            ],
+            "story_type": "现言, 职场, 商战, 悬疑",
+            "weight": 3
+          },
+          {
+            "category": "猎奇与反转",
+            "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转",
+            "matched_keywords": [
+              "罕见"
+            ],
+            "story_type": "悬疑, 幻言, 奇幻, 现言",
+            "weight": 2
+          }
+        ],
+        "matched_keywords": [
+          "罕见",
+          "老板"
+        ],
+        "story_score": 60,
+        "emotion_density": 0.0,
+        "is_story_worthy": true,
+        "story_type": "现言, 职场, 商战, 悬疑, 悬疑, 幻言, 奇幻, 现言"
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果主角是那个被不公对待的人，TA会怎么反抗？",
+        "如果主角是施压方，TA的弱点在哪里？",
+        "如果主角掌握了关键证据，TA会用还是不用？",
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 14,
+      "title": "在课堂上搞笑被抓了",
+      "heat": "播放808372",
+      "category": "搞笑",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1aj3n6GEyE",
+      "content": "真是一条荆棘之路啊",
+      "top_comments": [],
+      "aid": "117003784355863",
+      "fetch_time": "2026-07-31T08:00:03.239056",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 15,
+      "title": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！",
+      "heat": "播放767663",
+      "category": "社科·法律·心理",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1fS3p64EhA",
+      "content": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人",
+      "top_comments": [],
+      "aid": "117006669977144",
+      "fetch_time": "2026-07-31T08:00:03.239077",
+      "story_analysis": {
+        "story_categories": [
+          {
+            "category": "情感冲突",
+            "description": "婆媳、彩礼、出轨、扶弟魔、原生家庭之痛",
+            "matched_keywords": [
+              "彩礼"
+            ],
+            "story_type": "现言, 婚恋, 家庭伦理",
+            "weight": 3
+          },
+          {
+            "category": "猎奇与反转",
+            "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转",
+            "matched_keywords": [
+              "没想到",
+              "凶手"
+            ],
+            "story_type": "悬疑, 幻言, 奇幻, 现言",
+            "weight": 2
+          }
+        ],
+        "matched_keywords": [
+          "没想到",
+          "彩礼",
+          "凶手"
+        ],
+        "story_score": 65,
+        "emotion_density": 0.0,
+        "is_story_worthy": true,
+        "story_type": "现言, 婚恋, 家庭伦理, 悬疑, 幻言, 奇幻, 现言"
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果主角是受害者，TA会怎样反击？",
+        "如果主角是施害者，TA的动机是什么？",
+        "如果这场冲突发生在大结局前夜呢？",
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 16,
+      "title": "跨次元空间改造大作战！MC搭子闯关途中触及盲区⚡能顺利通关吗？",
+      "heat": "播放2686968",
+      "category": "单机游戏",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1kpgQ6yEhB",
+      "content": "乐高®夏日玩乐挑战综艺《暑假玩成时》MC篇正片上线！\n@史蒂猪 StevenPig、芊芊老猫的日常 联手改造方块世界~\n开局遇上地狱级方块谜题，资深老玩家当场一脸懵题？\n玩乐搭子默契配合，交换脑洞拆解层层趣味关卡，稳步通关！\n爆笑懵圈、协作解谜、创意改造名场面接连上演……\n速来一键解锁方块改造闯关全过程~\n你最喜欢本期节目中的哪个改造物？在评论区分享吧~",
+      "top_comments": [],
+      "aid": "116968401143254",
+      "fetch_time": "2026-07-31T08:00:03.239109",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 4,
+        "emotion_density": 0.48,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 17,
+      "title": "化身Superman！摩托老哥解锁新技能",
+      "heat": "播放5603325",
+      "category": "汽车生活",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1XU3z6AEQi",
+      "content": "",
+      "top_comments": [],
+      "aid": "116998331828432",
+      "fetch_time": "2026-07-31T08:00:03.239164",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 18,
+      "title": "《非霸凌不可吗》",
+      "heat": "播放2557631",
+      "category": "搞笑",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1G93r6qEbU",
+      "content": "-",
+      "top_comments": [],
+      "aid": "117001318041228",
+      "fetch_time": "2026-07-31T08:00:03.239185",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 19,
+      "title": "和解剖了4000具尸体的法医，一起看了影片中的尸体...",
+      "heat": "播放7824529",
+      "category": "影视杂谈",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1QEgZ6rEGj",
+      "content": "在各种影视作品中，我们经常会看到各种各样的凶杀案和尸体，但影片中对于“死亡”的呈现，和现实中的情况真的一样吗？这一次，我们请到了法医刘良老师来和我们一起拉片，看看这些影视作品中的“尸体”……如果你对这期节目感兴趣，请多多支持我们，并把视频分享给你的朋友们一起看看！\n*本期内容涉及法医专业知识，部分画面及讲述内容可能导致不适，请谨慎观看。",
+      "top_comments": [],
+      "aid": "116990547072747",
+      "fetch_time": "2026-07-31T08:00:03.239202",
+      "story_analysis": {
+        "story_categories": [
+          {
+            "category": "猎奇与反转",
+            "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转",
+            "matched_keywords": [
+              "死亡"
+            ],
+            "story_type": "悬疑, 幻言, 奇幻, 现言",
+            "weight": 2
+          }
+        ],
+        "matched_keywords": [
+          "死亡"
+        ],
+        "story_score": 25,
+        "emotion_density": 0.0,
+        "is_story_worthy": true,
+        "story_type": "悬疑, 幻言, 奇幻, 现言"
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "B站",
+      "section": "热门",
+      "rank": 20,
+      "title": "这扳机纪律你就学吧",
+      "heat": "播放762405",
+      "category": "单机游戏",
+      "hot_type": "视频热点",
+      "url": "https://www.bilibili.com/video/BV1RK3t6wEH1",
+      "content": "",
+      "top_comments": [],
+      "aid": "117008230257897",
+      "fetch_time": "2026-07-31T08:00:03.239246",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    }
+  ],
+  "抖音": [
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 1,
+      "title": "解放军两次警告日方不能自称海军",
+      "heat": "11854272",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E8%A7%A3%E6%94%BE%E5%86%9B%E4%B8%A4%E6%AC%A1%E8%AD%A6%E5%91%8A%E6%97%A5%E6%96%B9%E4%B8%8D%E8%83%BD%E8%87%AA%E7%A7%B0%E6%B5%B7%E5%86%9B",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738030",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 2,
+      "title": "吴宜泽6:5战胜墨菲",
+      "heat": "11706367",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%90%B4%E5%AE%9C%E6%B3%BD6%3A5%E6%88%98%E8%83%9C%E5%A2%A8%E8%8F%B2",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738118",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 3,
+      "title": "规模以上文化企业营收同比增长",
+      "heat": "11503590",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E8%A7%84%E6%A8%A1%E4%BB%A5%E4%B8%8A%E6%96%87%E5%8C%96%E4%BC%81%E4%B8%9A%E8%90%A5%E6%94%B6%E5%90%8C%E6%AF%94%E5%A2%9E%E9%95%BF",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738153",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 4,
+      "title": "我的暑期限定solotrip",
+      "heat": "11098441",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E6%88%91%E7%9A%84%E6%9A%91%E6%9C%9F%E9%99%90%E5%AE%9Asolotrip",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738187",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 5,
+      "title": "洛阳的大盘鸡把我香迷糊了",
+      "heat": "10522667",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E6%B4%9B%E9%98%B3%E7%9A%84%E5%A4%A7%E7%9B%98%E9%B8%A1%E6%8A%8A%E6%88%91%E9%A6%99%E8%BF%B7%E7%B3%8A%E4%BA%86",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738217",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 6,
+      "title": "当彝族元素走进日常穿搭",
+      "heat": "10443292",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%BD%93%E5%BD%9D%E6%97%8F%E5%85%83%E7%B4%A0%E8%B5%B0%E8%BF%9B%E6%97%A5%E5%B8%B8%E7%A9%BF%E6%90%AD",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738247",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 7,
+      "title": "赵心童淘汰罗伯逊晋级半决赛",
+      "heat": "9293069",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E8%B5%B5%E5%BF%83%E7%AB%A5%E6%B7%98%E6%B1%B0%E7%BD%97%E4%BC%AF%E9%80%8A%E6%99%8B%E7%BA%A7%E5%8D%8A%E5%86%B3%E8%B5%9B",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738277",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 8,
+      "title": "韩国股市上演极端行情",
+      "heat": "9187986",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E9%9F%A9%E5%9B%BD%E8%82%A1%E5%B8%82%E4%B8%8A%E6%BC%94%E6%9E%81%E7%AB%AF%E8%A1%8C%E6%83%85",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738306",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 9,
+      "title": "九江文旅主打一个听劝",
+      "heat": "9185169",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E4%B9%9D%E6%B1%9F%E6%96%87%E6%97%85%E4%B8%BB%E6%89%93%E4%B8%80%E4%B8%AA%E5%90%AC%E5%8A%9D",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738337",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 10,
+      "title": "Hyrox成都站我来啦",
+      "heat": "9181374",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/Hyrox%E6%88%90%E9%83%BD%E7%AB%99%E6%88%91%E6%9D%A5%E5%95%A6",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738369",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 11,
+      "title": "柯洁回应再夺王中王争霸赛冠军",
+      "heat": "9144660",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E6%9F%AF%E6%B4%81%E5%9B%9E%E5%BA%94%E5%86%8D%E5%A4%BA%E7%8E%8B%E4%B8%AD%E7%8E%8B%E4%BA%89%E9%9C%B8%E8%B5%9B%E5%86%A0%E5%86%9B",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738399",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 12,
+      "title": "宇树科技8月10日开启申购",
+      "heat": "9044017",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%AE%87%E6%A0%91%E7%A7%91%E6%8A%808%E6%9C%8810%E6%97%A5%E5%BC%80%E5%90%AF%E7%94%B3%E8%B4%AD",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738430",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 13,
+      "title": "多方回应智驾小蓝灯被禁用",
+      "heat": "9039109",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%A4%9A%E6%96%B9%E5%9B%9E%E5%BA%94%E6%99%BA%E9%A9%BE%E5%B0%8F%E8%93%9D%E7%81%AF%E8%A2%AB%E7%A6%81%E7%94%A8",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738461",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 14,
+      "title": "俄宣布恰索夫亚尔战役终结",
+      "heat": "9008972",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E4%BF%84%E5%AE%A3%E5%B8%83%E6%81%B0%E7%B4%A2%E5%A4%AB%E4%BA%9A%E5%B0%94%E6%88%98%E5%BD%B9%E7%BB%88%E7%BB%93",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738491",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 15,
+      "title": "小米澎程发布会",
+      "heat": "8975716",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%B0%8F%E7%B1%B3%E6%BE%8E%E7%A8%8B%E5%8F%91%E5%B8%83%E4%BC%9A",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738520",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 16,
+      "title": "八月要走上坡路了",
+      "heat": "8169665",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%85%AB%E6%9C%88%E8%A6%81%E8%B5%B0%E4%B8%8A%E5%9D%A1%E8%B7%AF%E4%BA%86",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738547",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 17,
+      "title": "天才女友定档0802",
+      "heat": "7924051",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%A4%A9%E6%89%8D%E5%A5%B3%E5%8F%8B%E5%AE%9A%E6%A1%A30802",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738574",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 18,
+      "title": "九门三寸钉小狗探险",
+      "heat": "7805669",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E4%B9%9D%E9%97%A8%E4%B8%89%E5%AF%B8%E9%92%89%E5%B0%8F%E7%8B%97%E6%8E%A2%E9%99%A9",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738602",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 19,
+      "title": "台风白海豚或直奔浙江沿海",
+      "heat": "7786695",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%8F%B0%E9%A3%8E%E7%99%BD%E6%B5%B7%E8%B1%9A%E6%88%96%E7%9B%B4%E5%A5%94%E6%B5%99%E6%B1%9F%E6%B2%BF%E6%B5%B7",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738629",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 20,
+      "title": "我在等紧身裤时代回归",
+      "heat": "7752409",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E6%88%91%E5%9C%A8%E7%AD%89%E7%B4%A7%E8%BA%AB%E8%A3%A4%E6%97%B6%E4%BB%A3%E5%9B%9E%E5%BD%92",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738659",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 21,
+      "title": "人生几何能够得到知己",
+      "heat": "7743010",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E4%BA%BA%E7%94%9F%E5%87%A0%E4%BD%95%E8%83%BD%E5%A4%9F%E5%BE%97%E5%88%B0%E7%9F%A5%E5%B7%B1",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738685",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 22,
+      "title": "小苹果阿姨的家迎来大改造",
+      "heat": "7718199",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%B0%8F%E8%8B%B9%E6%9E%9C%E9%98%BF%E5%A7%A8%E7%9A%84%E5%AE%B6%E8%BF%8E%E6%9D%A5%E5%A4%A7%E6%94%B9%E9%80%A0",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738713",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 23,
+      "title": "蜘蛛侠崭新之日皮影海报",
+      "heat": "7715315",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E8%9C%98%E8%9B%9B%E4%BE%A0%E5%B4%AD%E6%96%B0%E4%B9%8B%E6%97%A5%E7%9A%AE%E5%BD%B1%E6%B5%B7%E6%8A%A5",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738741",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 24,
+      "title": "二十届五中全会10月召开",
+      "heat": "7706179",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E4%BA%8C%E5%8D%81%E5%B1%8A%E4%BA%94%E4%B8%AD%E5%85%A8%E4%BC%9A10%E6%9C%88%E5%8F%AC%E5%BC%80",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738770",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 25,
+      "title": "张真源深v还在发力",
+      "heat": "7704136",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%BC%A0%E7%9C%9F%E6%BA%90%E6%B7%B1v%E8%BF%98%E5%9C%A8%E5%8F%91%E5%8A%9B",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738803",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 26,
+      "title": "全网都在挑战这个扇风舞",
+      "heat": "7704008",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E5%85%A8%E7%BD%91%E9%83%BD%E5%9C%A8%E6%8C%91%E6%88%98%E8%BF%99%E4%B8%AA%E6%89%87%E9%A3%8E%E8%88%9E",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738832",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 27,
+      "title": "看金靖访谈像是上了一课",
+      "heat": "7699635",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E7%9C%8B%E9%87%91%E9%9D%96%E8%AE%BF%E8%B0%88%E5%83%8F%E6%98%AF%E4%B8%8A%E4%BA%86%E4%B8%80%E8%AF%BE",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738858",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 28,
+      "title": "美丽明天开播倒计时的仪式感",
+      "heat": "7699522",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E7%BE%8E%E4%B8%BD%E6%98%8E%E5%A4%A9%E5%BC%80%E6%92%AD%E5%80%92%E8%AE%A1%E6%97%B6%E7%9A%84%E4%BB%AA%E5%BC%8F%E6%84%9F",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738885",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 29,
+      "title": "我想要个潇洒的以后",
+      "heat": "7698048",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E6%88%91%E6%83%B3%E8%A6%81%E4%B8%AA%E6%BD%87%E6%B4%92%E7%9A%84%E4%BB%A5%E5%90%8E",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738912",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "section": "热点榜",
+      "rank": 30,
+      "title": "柳柳周佑凌奶油风情侣大片",
+      "heat": "7696716",
+      "category": "",
+      "hot_type": "短视频热点",
+      "url": "https://www.douyin.com/search/%E6%9F%B3%E6%9F%B3%E5%91%A8%E4%BD%91%E5%87%8C%E5%A5%B6%E6%B2%B9%E9%A3%8E%E6%83%85%E4%BE%A3%E5%A4%A7%E7%89%87",
+      "content": "",
+      "top_comments": [],
+      "fetch_time": "2026-07-31T08:00:03.738938",
+      "story_analysis": {
+        "story_categories": [],
+        "matched_keywords": [],
+        "story_score": 0,
+        "emotion_density": 0.0,
+        "is_story_worthy": false,
+        "story_type": ""
+      },
+      "source_weight": 3,
+      "what_if_prompts": [
+        "如果反转的真相比表面更可怕呢？",
+        "如果主角就是那个'匪夷所思'的人呢？",
+        "如果这个小人物其实有大秘密呢？",
+        "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"
+      ]
+    }
+  ],
+  "抖音搜索": [],
+  "小红书": [],
+  "网易新闻": [],
+  "腾讯新闻": []
+}

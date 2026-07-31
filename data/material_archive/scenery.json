@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "name": "景色库",
+    "version": "1.0",
+    "total": 1,
+    "updated_at": "2026-07-31T09:12:20.112673"
+  },
+  "items": [
+    {
+      "code": "JS-2025-001",
+      "spacetime_coordinate": "赛博墓地-雨夜",
+      "optical_description": "全息墓碑闪烁故障波纹",
+      "acoustic_description": "义肢关节的金属摩擦声",
+      "olfactory_level": "锈蚀金属混合人造雨水剂",
+      "tactile_feedback": "指尖静电刺痛",
+      "dynamic_element": "AR弹幕如萤火虫飘散",
+      "data_layer": "神经链接延迟0.3秒",
+      "era_tag": "近未来",
+      "related_color_palette": "#5A7D9A",
+      "id": "448471c2-4e94-42cf-875e-bbc92b231c1e",
+      "created_at": "2026-07-31T09:12:20.112664",
+      "updated_at": "2026-07-31T09:12:20.112671"
+    }
+  ]
+}

@@ -132,6 +132,10 @@ const STORAGE_KEY_HOTSPOTS = 'lyz_hotspots';
 const STORAGE_KEY_MATERIALS = 'lyz_materials';
 const STORAGE_KEY_PROJECTS = 'lyz_projects';
 const INIT_KEY = 'lyz_initialized';
+const UPDATE_KEY = 'lyz_last_update';
+
+// GitHub Pages 数据地址（替换为你的仓库名）
+const DATA_BASE = '';
 
 function getHotspots() {
   let data = localStorage.getItem(STORAGE_KEY_HOTSPOTS);
@@ -141,6 +145,22 @@ function getHotspots() {
 
 function saveHotspots(data) {
   localStorage.setItem(STORAGE_KEY_HOTSPOTS, JSON.stringify(data));
+  localStorage.setItem(UPDATE_KEY, Date.now());
+}
+
+async function refreshHotspotsFromRemote() {
+  try {
+    let resp = await fetch(DATA_BASE + 'hotspots.json', {cache: 'no-cache'});
+    if (resp.ok) {
+      let data = await resp.json();
+      saveHotspots(data);
+      console.log('热点数据已从远程更新');
+      return data;
+    }
+  } catch(e) {
+    console.log('无法从远程获取热点数据，使用本地数据');
+  }
+  return getHotspots();
 }
 
 function getMaterials() {
@@ -151,6 +171,39 @@ function getMaterials() {
 
 function saveMaterials(data) {
   localStorage.setItem(STORAGE_KEY_MATERIALS, JSON.stringify(data));
+}
+
+async function refreshMaterialsFromRemote() {
+  let materials = {};
+  try {
+    let resp = await fetch(DATA_BASE + 'material_index.json', {cache: 'no-cache'});
+    if (resp.ok) {
+      let index = await resp.json();
+      for (let key of Object.keys(index)) {
+        try {
+          let mr = await fetch(DATA_BASE + 'material_archive/' + key + '.json', {cache: 'no-cache'});
+          if (mr.ok) {
+            materials[key] = await mr.json();
+          }
+        } catch(e) {}
+      }
+      if (Object.keys(materials).length > 0) {
+        saveMaterials(materials);
+        console.log('素材库数据已从远程更新');
+        return materials;
+      }
+    }
+  } catch(e) {
+    console.log('无法从远程获取素材库数据，使用本地数据');
+  }
+  return getMaterials();
+}
+
+async function initData() {
+  // 尝试从远程加载最新数据
+  let hotspots = await refreshHotspotsFromRemote();
+  let materials = await refreshMaterialsFromRemote();
+  return { hotspots, materials };
 }
 
 function getProjects() {
@@ -1082,7 +1135,12 @@ function renderDashboard() {
 }
 
 // ==================== Initial Render ====================
-renderHotspots();
+(async function() {
+  showToast('正在加载最新数据...');
+  await initData();
+  renderHotspots();
+  showToast('数据加载完成！');
+})();
 })();
 
 </script>

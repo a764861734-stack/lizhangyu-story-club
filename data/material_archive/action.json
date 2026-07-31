@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "name": "动作库",
+    "version": "1.0",
+    "total": 9,
+    "updated_at": "2026-07-31T09:12:20.114325"
+  },
+  "items": [
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "微博_21_你甚至可以看到植物打人",
+      "source_title": "你甚至可以看到植物打人",
+      "created_at": "2026-07-31T09:10:52.673744",
+      "updated_at": "2026-07-31T09:10:52.673746",
+      "main_action": "你甚至可以看到植物打",
+      "scene_type": "你甚至可以看到植物打人",
+      "chain_reaction": "你甚至可以看到植物打",
+      "rhythm_value": "3",
+      "id": "b74dc84b-07b9-4861-aaff-85bd781e6628",
+      "code": "DZ-2026-001"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "微博_38_婚外胚胎事件患癌妻子愤怒发声",
+      "source_title": "婚外胚胎事件患癌妻子愤怒发声",
+      "created_at": "2026-07-31T09:10:52.675416",
+      "updated_at": "2026-07-31T09:10:52.675418",
+      "main_action": "婚外胚胎事件患癌妻子愤怒",
+      "scene_type": "婚外胚胎事件患癌妻子愤怒发声",
+      "chain_reaction": "婚外胚胎事件患癌妻子愤怒",
+      "rhythm_value": "3",
+      "id": "6b1761ea-f9e6-465c-8f29-eb1a99e95277",
+      "code": "DZ-2026-002"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "微博_46_男子带猫打针暴打猫咪大闹医院",
+      "source_title": "男子带猫打针暴打猫咪大闹医院",
+      "created_at": "2026-07-31T09:10:52.676946",
+      "updated_at": "2026-07-31T09:10:52.676948",
+      "main_action": "男子带猫打针暴打",
+      "scene_type": "男子带猫打针暴打猫咪大闹医院",
+      "chain_reaction": "男子带猫打针暴打",
+      "rhythm_value": "3",
+      "id": "9513f5a3-c809-4924-a32b-4065aeb2b530",
+      "code": "DZ-2026-003"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_1_抵抗者2026实机演示",
+      "source_title": "抵抗者2026实机演示",
+      "created_at": "2026-07-31T09:10:52.678415",
+      "updated_at": "2026-07-31T09:10:52.678417",
+      "main_action": "我们是翻",
+      "scene_type": "抵抗者2026实机演示",
+      "chain_reaction": "我们是翻",
+      "rhythm_value": "3",
+      "id": "e10bd35e-3fb7-4f29-8242-0c050dc1cec9",
+      "code": "DZ-2026-004"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_2_小时候看不懂，长大后已是局中人",
+      "source_title": "小时候看不懂，长大后已是局中人",
+      "created_at": "2026-07-31T09:10:52.679955",
+      "updated_at": "2026-07-31T09:10:52.679957",
+      "main_action": "全都拿来珍藏",
+      "scene_type": "小时候看不懂，长大后已是局中人",
+      "chain_reaction": "全都拿来珍藏、不必去追",
+      "rhythm_value": "3",
+      "id": "cfe78408-7a80-4151-a07f-4d1fea598db5",
+      "code": "DZ-2026-005"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_12_【花小烙】游隼：地球上俯冲速度最快的“鸟",
+      "source_title": "【花小烙】游隼：地球上俯冲速度最快的“鸟中战斗机”是如何炼成的？",
+      "created_at": "2026-07-31T09:10:52.681524",
+      "updated_at": "2026-07-31T09:10:52.681526",
+      "main_action": "作为俯冲",
+      "scene_type": "【花小烙】游隼：地球上俯冲速度最快的“鸟中战斗机”是如何炼成的？",
+      "chain_reaction": "作为俯冲",
+      "rhythm_value": "3",
+      "id": "1a1d432a-0e62-46b9-be9f-373ecbb788aa",
+      "code": "DZ-2026-006"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_16_跨次元空间改造大作战！MC搭子闯关途中触",
+      "source_title": "跨次元空间改造大作战！MC搭子闯关途中触及盲区⚡能顺利通关吗？",
+      "created_at": "2026-07-31T09:10:52.683325",
+      "updated_at": "2026-07-31T09:10:52.683328",
+      "main_action": "速来一键解锁方块改造闯",
+      "scene_type": "跨次元空间改造大作战！MC搭子闯关途中触及盲区⚡能顺利通关吗？",
+      "chain_reaction": "速来一键解锁方块改造闯",
+      "rhythm_value": "3",
+      "id": "73f6ecb6-ddc4-44fc-ae81-463241ac71be",
+      "code": "DZ-2026-007"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_19_和解剖了4000具尸体的法医，一起看了影",
+      "source_title": "和解剖了4000具尸体的法医，一起看了影片中的尸体...",
+      "created_at": "2026-07-31T09:10:52.684240",
+      "updated_at": "2026-07-31T09:10:52.684241",
+      "main_action": "我们请到了法医刘良老师来和我们一起拉",
+      "scene_type": "和解剖了4000具尸体的法医，一起看了影片中的尸体...",
+      "chain_reaction": "我们请到了法医刘良老师来和我们一起拉",
+      "rhythm_value": "3",
+      "id": "ccad128c-a330-413a-b915-dbd85baf147f",
+      "code": "DZ-2026-008"
+    },
+    {
+      "code": "DZ-2025-001",
+      "scene_type": "紧张谈判",
+      "action_level": "爆发前兆",
+      "main_action": "钢笔戳穿便签纸",
+      "chain_reaction": "墨水渗入木纹如血管",
+      "metaphor_meaning": "压抑的攻击欲",
+      "rhythm_value": "4",
+      "taboo_combination": "不可同时出现微笑",
+      "classic_case": "《纸牌屋》S2E3",
+      "id": "3e14e1e2-3c43-4f3b-a921-072b6595cd89",
+      "created_at": "2026-07-31T09:12:20.114317",
+      "updated_at": "2026-07-31T09:12:20.114323"
+    }
+  ]
+}

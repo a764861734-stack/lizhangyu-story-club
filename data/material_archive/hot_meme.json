@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "name": "热梗素材库",
+    "version": "1.0",
+    "total": 2,
+    "updated_at": "2026-07-31T09:11:56.889776"
+  },
+  "items": [
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_15_21岁小伙60万彩礼娶00后女生，2个月",
+      "source_title": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！",
+      "created_at": "2026-07-31T09:10:52.597617",
+      "updated_at": "2026-07-31T09:10:52.597619",
+      "type_tag": "社会热梗",
+      "source_platform": "B站",
+      "core_conflict": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人",
+      "adaptation_direction": "现言, 婚恋, 家庭伦理, 悬疑, 幻言, 奇幻, 现言",
+      "sweet_angst_index": "3",
+      "multi_platform_heat": "播放767663",
+      "suitable_plot": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人",
+      "id": "37b9c8ea-cd33-4d0d-982d-874a8273cfde",
+      "code": "RG-2026-001"
+    },
+    {
+      "code": "RG-2025-001",
+      "type_tag": "#契约婚姻 #非遗传承",
+      "source_platform": "抖音/快手",
+      "core_conflict": "协议婚姻暴露引发继承危机",
+      "emotion_level": "荒诞→暧昧→危机→救赎",
+      "adaptation_direction": "女主为守护古琴工坊与传承人假结婚",
+      "sweet_angst_index": "甜60%虐40%",
+      "sweet_angst_balance": "1.5",
+      "suitable_relationship": "师徒+伪夫妻",
+      "prop_symbol": "祖传断弦/电子婚书",
+      "taboo_redline": "避用具体非遗名录",
+      "multi_platform_heat": "抖音🔥3.2亿",
+      "foreshadowing_need": "需提前5章铺垫工坊债务",
+      "reader_expectation": "先婚后爱期待值高",
+      "risk_warning": "避免直接引用现实政策",
+      "id": "b89d2a05-37f4-424e-8049-99ca7e851ada",
+      "created_at": "2026-07-31T09:11:56.889755",
+      "updated_at": "2026-07-31T09:11:56.889773"
+    }
+  ]
+}

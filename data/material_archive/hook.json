@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "name": "钩子素材库",
+    "version": "1.0",
+    "total": 5,
+    "updated_at": "2026-07-31T09:12:20.096884"
+  },
+  "items": [
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "微博_12_丈夫和第三者胚胎是婚姻耻辱",
+      "source_title": "丈夫和第三者胚胎是婚姻耻辱",
+      "created_at": "2026-07-31T09:10:52.598501",
+      "updated_at": "2026-07-31T09:10:52.598502",
+      "hook_type": "情绪",
+      "type_tag": "情感冲突",
+      "core_element": "丈夫和第三者胚胎是婚姻耻辱",
+      "emotion_orientation": "甜虐平衡",
+      "hook_density": "低",
+      "suitable_plot": "丈夫和第三者胚胎是婚姻耻辱",
+      "id": "8b5d78b7-4c94-499c-8326-0c1ae4a8011d",
+      "code": "GZ-2026-001"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_8_古罗马离谱习俗——两千年前的古罗马，开放",
+      "source_title": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。",
+      "created_at": "2026-07-31T09:10:52.599435",
+      "updated_at": "2026-07-31T09:10:52.599436",
+      "hook_type": "转折",
+      "type_tag": "猎奇与反转",
+      "core_element": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。",
+      "emotion_orientation": "甜虐平衡",
+      "hook_density": "低",
+      "suitable_plot": "",
+      "id": "bdd9d27d-75b9-4cad-92f6-48286a96182e",
+      "code": "GZ-2026-002"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_13_罕见龙卷风突袭，他3分钟内同时失去了父母",
+      "source_title": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当",
+      "created_at": "2026-07-31T09:10:52.600815",
+      "updated_at": "2026-07-31T09:10:52.600816",
+      "hook_type": "转折",
+      "type_tag": "社会冲突,猎奇与反转",
+      "core_element": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当",
+      "emotion_orientation": "甜虐平衡",
+      "hook_density": "中",
+      "suitable_plot": "罕见龙卷风突袭，今年营收有望过亿的公司被夷为平地……湖北老板3分钟内同时失去了父母和家当，在他感觉撑不下去时，公司2天内绝境重生。",
+      "id": "ca8bb5f9-0867-464b-b30e-1debd5e6a05a",
+      "code": "GZ-2026-003"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_15_21岁小伙60万彩礼娶00后女生，2个月",
+      "source_title": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！",
+      "created_at": "2026-07-31T09:10:52.602270",
+      "updated_at": "2026-07-31T09:10:52.602272",
+      "hook_type": "转折",
+      "type_tag": "情感冲突,猎奇与反转",
+      "core_element": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！",
+      "emotion_orientation": "虐",
+      "hook_density": "中",
+      "suitable_plot": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人",
+      "id": "3e7004ad-cac5-4a10-b4ef-c0f9a9cd54cc",
+      "code": "GZ-2026-004"
+    },
+    {
+      "code": "GZ-2025-001",
+      "hook_type": "身份悬念",
+      "placement_position": "第3章老照片闪回",
+      "type_tag": "#破镜重圆 #悬疑",
+      "trigger_chapter": "第18章",
+      "core_element": "童年合影中多出的模糊人影",
+      "placement_technique": "隐性",
+      "emotion_orientation": "虐80%+悬疑20%",
+      "recovery_cycle": "15章",
+      "related_reversal": "FZ-231015-01",
+      "hook_density": "低",
+      "foreshadowing_requirement": "第1章提及女主记忆缺失；第7章发现照片背面日期错误",
+      "risk_warning": "避免使用真实历史人物",
+      "id": "200a7160-4e47-4a32-8252-0d969c4cdd56",
+      "created_at": "2026-07-31T09:12:20.096876",
+      "updated_at": "2026-07-31T09:12:20.096881"
+    }
+  ]
+}

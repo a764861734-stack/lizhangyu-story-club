@@ -1,0 +1,107 @@
+name: 自动抓取热点并更新素材库
+
+on:
+  schedule:
+    # 北京时间 08:00 (UTC 00:00) 和 20:00 (UTC 12:00)
+    - cron: '0 0,12 * * *'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: 安装依赖
+        run: |
+          pip install requests beautifulsoup4 pandas openpyxl aiohttp httpx
+      
+      - name: 抓取热点
+        run: |
+          python3 << 'PYEOF'
+          import json, os, sys
+          sys.path.insert(0, '.')
+          
+          from scraper import fetch_all
+          from story_core import analyze_hotspot, get_source_weight, generate_what_if
+          
+          print("=" * 50)
+          print("里章屿的故事会 - 自动抓取开始")
+          print("=" * 50)
+          
+          try:
+              data = fetch_all()
+              print(f"抓取完成！共 {sum(len(v) for v in data.values())} 条热点")
+              
+              # 保存数据
+              os.makedirs('data', exist_ok=True)
+              with open('data/hotspots.json', 'w', encoding='utf-8') as f:
+                  json.dump(data, f, ensure_ascii=False, indent=2)
+              
+              print("热点数据已保存到 data/hotspots.json")
+          except Exception as e:
+              print(f"抓取出错: {e}")
+              import traceback
+              traceback.print_exc()
+          PYEOF
+      
+      - name: 自动填入素材库
+        run: |
+          python3 << 'PYEOF'
+          import json, os, sys
+          sys.path.insert(0, '.')
+          
+          from material_manager import init_all_libraries, load_library
+          from material_auto_fill import auto_fill_from_hotspots
+          
+          # 加载热点数据
+          hotspots_file = 'data/hotspots.json'
+          if not os.path.exists(hotspots_file):
+              print("热点数据不存在，跳过自动填入")
+              sys.exit(0)
+          
+          with open(hotspots_file, 'r', encoding='utf-8') as f:
+              hotspots_data = json.load(f)
+          
+          # 扁平化
+          all_hotspots = []
+          for items in hotspots_data.values():
+              all_hotspots.extend(items)
+          
+          print(f"开始自动填入，共 {len(all_hotspots)} 条热点")
+          results = auto_fill_from_hotspots(all_hotspots)
+          total = sum(results.values())
+          print(f"自动填入完成！共新增 {total} 条素材")
+          
+          for lib, count in results.items():
+              if count > 0:
+                  print(f"  {lib}: +{count} 条")
+          PYEOF
+      
+      - name: 提交更新
+        run: |
+          git config user.name "里章屿的故事会[Bot]"
+          git config user.email "bot@lizhangyu.story"
+          
+          # 添加数据文件
+          git add data/hotspots.json data/material_archive/ data/material_index.json 2>/dev/null || true
+          
+          # 检查是否有变更
+          if git diff --staged --quiet; then
+            echo "没有新的热点数据"
+          else
+            git commit -m "自动更新: 热点数据 $(date '+%Y-%m-%d %H:%M')"
+            git push
+            echo "数据已更新并推送！"
+          fi

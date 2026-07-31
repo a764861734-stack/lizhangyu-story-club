@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "name": "冲突素材库",
+    "version": "1.0",
+    "total": 1,
+    "updated_at": "2026-07-31T09:12:20.095886"
+  },
+  "items": [
+    {
+      "code": "CT-2025-001",
+      "conflict_type": "商业间谍",
+      "source_platform": "抖音/快手",
+      "core_contradiction": "竞品公司窃取核心技术",
+      "emotion_curve": "警惕(20%)→焦灼(30%)→反击(40%)→遗憾(10%)",
+      "suitable_relationship": "师徒+利益联姻",
+      "suitable_scene": "职场商战",
+      "risk_level": "★★",
+      "adaptation_direction": "姻缘复养危机",
+      "adaptation_case": "将芯片技术改为全息投影算法，增加AI反追踪剧情",
+      "id": "54d88512-6d7b-4fe1-a42e-96d9de4765ee",
+      "created_at": "2026-07-31T09:12:20.095865",
+      "updated_at": "2026-07-31T09:12:20.095882"
+    }
+  ]
+}

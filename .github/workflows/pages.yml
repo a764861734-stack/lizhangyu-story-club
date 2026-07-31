@@ -1,0 +1,81 @@
+name: 部署到 GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+      
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: 安装依赖
+        run: pip install pandas openpyxl
+      
+      - name: 生成站点数据
+        run: |
+          python3 << 'PYEOF'
+          import json, os
+          
+          # 创建站点目录
+          os.makedirs('_site', exist_ok=True)
+          
+          # 复制静态文件
+          import shutil
+          shutil.copy('static/offline.html', '_site/index.html')
+          
+          # 如果热点数据存在，生成JSON数据文件
+          hotspots_file = 'data/hotspots.json'
+          if os.path.exists(hotspots_file):
+              shutil.copy(hotspots_file, '_site/hotspots.json')
+          
+          # 如果素材库数据存在
+          material_dir = 'data/material_archive'
+          if os.path.exists(material_dir):
+              os.makedirs('_site/material_archive', exist_ok=True)
+              for f in os.listdir(material_dir):
+                  if f.endswith('.json'):
+                      shutil.copy(os.path.join(material_dir, f), os.path.join('_site/material_archive', f))
+          
+          # 索引文件
+          index_file = 'data/material_index.json'
+          if os.path.exists(index_file):
+              shutil.copy(index_file, '_site/material_index.json')
+          
+          print("站点文件准备完成")
+          for f in os.listdir('_site'):
+              size = os.path.getsize(os.path.join('_site', f))
+              print(f"  {f}: {size} bytes")
+          PYEOF
+      
+      - name: 设置 Pages
+        uses: actions/configure-pages@v4
+      
+      - name: 上传 artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+      
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

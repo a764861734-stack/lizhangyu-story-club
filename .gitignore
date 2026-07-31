@@ -3,7 +3,5 @@ __pycache__/
 cache/
 *.log
 exports/*.xlsx
-data/hotspots.json
-data/material_archive/
 data/deconstructions/
 data/collection.json

@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "name": "金句库",
+    "version": "1.0",
+    "total": 6,
+    "updated_at": "2026-07-31T09:12:20.117175"
+  },
+  "items": [
+    {
+      "quote_content": "测试金句",
+      "type_tag": "#测试",
+      "suitable_plot": "测试场景",
+      "id": "359c8900-98dd-415a-856c-8110422eaa7a",
+      "created_at": "2026-07-31T09:07:49.630811",
+      "updated_at": "2026-07-31T09:07:49.630823",
+      "code": "JJ-2026-001"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_1_抵抗者2026实机演示",
+      "source_title": "抵抗者2026实机演示",
+      "created_at": "2026-07-31T09:10:52.693944",
+      "updated_at": "2026-07-31T09:10:52.693945",
+      "quote_content": "游戏武器体验官冒头[OK]\n孩子们是的\n我负责监督枪械手感[脱单doge]",
+      "type_tag": "网友神评",
+      "cross_library_impact": "3",
+      "suitable_plot": "抵抗者2026实机演示",
+      "id": "6f02bd95-9b00-4838-9b77-be0590bf1764",
+      "code": "JJ-2026-002"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_2_小时候看不懂，长大后已是局中人",
+      "source_title": "小时候看不懂，长大后已是局中人",
+      "created_at": "2026-07-31T09:10:52.695258",
+      "updated_at": "2026-07-31T09:10:52.695259",
+      "quote_content": "本来以为你要狗熊岭顶级智斗，你给我来升华煽情，你这不是耍俺吗",
+      "type_tag": "网友神评",
+      "cross_library_impact": "3",
+      "suitable_plot": "小时候看不懂，长大后已是局中人",
+      "id": "3708c8ee-efa4-4030-ad59-6cea7d71d2eb",
+      "code": "JJ-2026-003"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_3_挑战从东北徒步到西藏( 十倍速1小时5分",
+      "source_title": "挑战从东北徒步到西藏( 十倍速1小时5分版）",
+      "created_at": "2026-07-31T09:10:52.696965",
+      "updated_at": "2026-07-31T09:10:52.696968",
+      "quote_content": "这就是互联网最初的样子，连角马都能上网发视频",
+      "type_tag": "网友神评",
+      "cross_library_impact": "3",
+      "suitable_plot": "挑战从东北徒步到西藏( 十倍速1小时5分版）",
+      "id": "c0c57a86-4693-4c40-9c2f-502a0a74ded0",
+      "code": "JJ-2026-004"
+    },
+    {
+      "source": "auto_from_hotspot",
+      "source_hotspot_id": "B站_4_【独家】《将夜》第16集 永字八法【4月",
+      "source_title": "【独家】《将夜》第16集 永字八法【4月国创】",
+      "created_at": "2026-07-31T09:10:52.698739",
+      "updated_at": "2026-07-31T09:10:52.698742",
+      "quote_content": "简大家打过招呼，待遇就是不一样啊[doge]",
+      "type_tag": "网友神评",
+      "cross_library_impact": "3",
+      "suitable_plot": "【独家】《将夜》第16集 永字八法【4月国创】",
+      "id": "590a0d79-e468-4e64-8c05-755d225b6536",
+      "code": "JJ-2026-005"
+    },
+    {
+      "code": "JJ-2025-001",
+      "quote_content": "你是我用尽公式也解不开的悖论",
+      "type_tag": "#学术虐恋",
+      "phonetic_structure": "仄平仄平仄仄仄平",
+      "metaphor_density": "★★★",
+      "cross_library_impact": "8.5/10",
+      "related_meme": "HG-003",
+      "suitable_plot": "实验室分手场景",
+      "id": "4c1b40b3-04cc-4bdf-91bb-081f2df64ebb",
+      "created_at": "2026-07-31T09:12:20.117166",
+      "updated_at": "2026-07-31T09:12:20.117173"
+    }
+  ]
+}
