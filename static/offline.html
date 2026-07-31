@@ -94,6 +94,58 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .material-table td{max-width:100px}
 .stats-grid{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ==================== 截图识别弹窗 ==================== */
+.snap-modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:200;display:none;align-items:center;justify-content:center;padding:12px}
+.snap-modal-overlay.active{display:flex}
+.snap-modal{background:var(--bg-card);border-radius:var(--radius-lg);width:100%;max-width:600px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-hover);display:flex;flex-direction:column}
+.snap-modal-header{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--bg-card);z-index:2;border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+.snap-modal-header h3{font-size:var(--font-lg);color:var(--text-primary)}
+.snap-modal-close{width:32px;height:32px;border:none;background:var(--bg-input);border-radius:50%;cursor:pointer;font-size:18px;color:var(--text-secondary);display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.snap-modal-close:hover{background:var(--danger);color:#fff}
+.snap-modal-body{padding:16px;flex:1;overflow-y:auto}
+.snap-modal-footer{padding:12px 16px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end;position:sticky;bottom:0;background:var(--bg-card);border-radius:0 0 var(--radius-lg) var(--radius-lg)}
+.snap-tabs{display:flex;gap:0;margin-bottom:16px;border-bottom:2px solid var(--border)}
+.snap-tab{flex:1;padding:10px 12px;text-align:center;cursor:pointer;font-size:var(--font-sm);color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s;font-weight:500}
+.snap-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.snap-upload-area{border:2px dashed var(--border);border-radius:var(--radius);padding:32px 16px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--bg-primary)}
+.snap-upload-area:hover,.snap-upload-area.dragover{border-color:var(--accent);background:var(--accent-dim)}
+.snap-upload-area .upload-icon{font-size:40px;margin-bottom:8px}
+.snap-upload-area .upload-text{font-size:var(--font-sm);color:var(--text-secondary)}
+.snap-upload-area .upload-hint{font-size:var(--font-xs);color:var(--text-muted);margin-top:4px}
+.snap-preview{position:relative;margin-top:12px;display:none}
+.snap-preview.active{display:block}
+.snap-preview img{max-width:100%;max-height:300px;border-radius:var(--radius);display:block;margin:0 auto;border:1px solid var(--border)}
+.snap-preview .preview-actions{display:flex;gap:8px;margin-top:8px;justify-content:center}
+.snap-ocr-progress{display:none;margin-top:12px;padding:12px;background:var(--bg-primary);border-radius:var(--radius)}
+.snap-ocr-progress.active{display:block}
+.snap-ocr-progress .progress-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-top:8px}
+.snap-ocr-progress .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent-blue),var(--accent));border-radius:3px;transition:width 0.3s;width:0}
+.snap-ocr-progress .progress-text{font-size:var(--font-xs);color:var(--text-secondary);margin-top:4px}
+.snap-ocr-result{display:none;margin-top:12px}
+.snap-ocr-result.active{display:block}
+.snap-ocr-result textarea{width:100%;min-height:120px;padding:10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm);resize:vertical;font-family:inherit;line-height:1.6}
+.snap-text-input-area textarea{width:100%;min-height:200px;padding:12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm);resize:vertical;font-family:inherit;line-height:1.6}
+.snap-text-input-area .input-hint{font-size:var(--font-xs);color:var(--text-muted);margin-top:4px}
+.snap-analysis-results{display:none;margin-top:16px}
+.snap-analysis-results.active{display:block}
+.snap-result-item{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;margin-bottom:8px;transition:all 0.2s}
+.snap-result-item:hover{border-color:var(--accent-blue)}
+.snap-result-item .result-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.snap-result-item .result-lib{font-size:var(--font-xs);background:var(--accent-dim);color:var(--accent);padding:2px 8px;border-radius:10px;font-weight:500}
+.snap-result-item .result-fields{font-size:var(--font-xs);color:var(--text-secondary)}
+.snap-result-item .result-field{margin:3px 0;display:flex;gap:6px}
+.snap-result-item .result-field .fkey{color:var(--text-muted);flex-shrink:0;min-width:60px}
+.snap-result-item .result-field .fval{color:var(--text-primary);word-break:break-all}
+.snap-result-item .result-actions{display:flex;gap:6px;margin-top:6px}
+.snap-empty-state{text-align:center;padding:40px 16px;color:var(--text-muted)}
+.snap-empty-state .empty-icon{font-size:48px;margin-bottom:8px}
+@media (max-width:480px){
+  .snap-modal{max-width:100%;max-height:100vh;border-radius:0}
+  .snap-modal-header{border-radius:0}
+  .snap-modal-footer{border-radius:0}
+  .snap-upload-area{padding:24px 12px}
+}
 </style>
 </head>
 <body>
@@ -422,6 +474,7 @@ function renderMaterials() {
           <input type="text" class="library-search" id="material-search" placeholder="搜索..." value="${materialSearch}">
           <button class="btn btn-sm btn-primary" onclick="addMaterial('${currentLibrary}')">+ 添加</button>
           <button class="btn btn-sm btn-success" onclick="autoFillMaterials()">一键填入</button>
+          <button class="btn btn-sm btn-accent" onclick="openSnapModal()" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border:none">📷 截图识别</button>
           <button class="btn btn-sm btn-secondary" onclick="exportLibraryCSV('${currentLibrary}')">导出CSV</button>
         </div>
         ${tableHtml}
@@ -1137,6 +1190,687 @@ function renderDashboard() {
   container.innerHTML = html;
 }
 
+// ==================== 截图识别功能 ====================
+let snapImageData = null;      // base64 图片数据
+let snapOcrText = '';          // OCR 识别结果
+let snapAnalysisResults = [];  // 分析结果 [{library, confidence, fields}]
+
+// 打开截图识别弹窗
+function openSnapModal() {
+  snapImageData = null;
+  snapOcrText = '';
+  snapAnalysisResults = [];
+  
+  const overlay = document.getElementById('snap-modal-overlay');
+  if (overlay) overlay.remove();
+  
+  const newOverlay = document.createElement('div');
+  newOverlay.className = 'snap-modal-overlay active';
+  newOverlay.id = 'snap-modal-overlay';
+  newOverlay.innerHTML = `
+    <div class="snap-modal">
+      <div class="snap-modal-header">
+        <h3>📷 截图识别素材</h3>
+        <button class="snap-modal-close" onclick="closeSnapModal()">×</button>
+      </div>
+      <div class="snap-modal-body">
+        <div class="snap-tabs">
+          <div class="snap-tab active" onclick="switchSnapTab('image')">📷 上传图片</div>
+          <div class="snap-tab" onclick="switchSnapTab('text')">📝 手动输入</div>
+        </div>
+        
+        <!-- 图片上传区 -->
+        <div id="snap-image-panel">
+          <div class="snap-upload-area" id="snap-upload-area" onclick="document.getElementById('snap-file-input').click()">
+            <div class="upload-icon">📷</div>
+            <div class="upload-text">点击上传截图 或 拖拽图片到此处</div>
+            <div class="upload-hint">支持 JPG / PNG / WebP，也可 Ctrl+V 粘贴</div>
+          </div>
+          <input type="file" id="snap-file-input" accept="image/*" style="display:none" onchange="handleSnapFile(this)">
+          
+          <div class="snap-preview" id="snap-preview">
+            <img id="snap-preview-img" src="" alt="预览">
+            <div class="preview-actions">
+              <button class="btn btn-sm btn-secondary" onclick="clearSnapImage()">重新选择</button>
+              <button class="btn btn-sm btn-primary" id="snap-ocr-btn" onclick="runOCR()">🔍 开始识别</button>
+            </div>
+          </div>
+          
+          <div class="snap-ocr-progress" id="snap-ocr-progress">
+            <div style="font-size:var(--font-sm);color:var(--text-secondary)">正在识别文字...</div>
+            <div class="progress-bar"><div class="progress-fill" id="snap-progress-fill"></div></div>
+            <div class="progress-text" id="snap-progress-text">初始化识别引擎...</div>
+          </div>
+          
+          <div class="snap-ocr-result" id="snap-ocr-result">
+            <div style="font-size:var(--font-sm);color:var(--text-secondary);margin-bottom:6px">识别结果（可手动修正）：</div>
+            <textarea id="snap-ocr-textarea" placeholder="OCR 识别结果将显示在这里..."></textarea>
+            <div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">
+              <button class="btn btn-sm btn-primary" onclick="analyzeSnapText()">🔍 分析素材</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 手动输入区 -->
+        <div id="snap-text-panel" style="display:none">
+          <div class="snap-text-input-area">
+            <textarea id="snap-manual-textarea" placeholder="粘贴或输入文字内容，系统将自动分析并推荐素材库分类..."></textarea>
+            <div class="input-hint">支持粘贴小说片段、社交媒体帖子、新闻内容等</div>
+          </div>
+          <div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">
+            <button class="btn btn-sm btn-primary" onclick="analyzeManualText()">🔍 分析素材</button>
+          </div>
+        </div>
+        
+        <!-- 分析结果区 -->
+        <div class="snap-analysis-results" id="snap-analysis-results">
+          <div style="font-size:var(--font-md);font-weight:600;margin-bottom:12px;color:var(--text-primary)">
+            分析结果 <span id="snap-result-count" style="color:var(--accent)"></span>
+          </div>
+          <div id="snap-results-list"></div>
+        </div>
+      </div>
+      <div class="snap-modal-footer" id="snap-modal-footer">
+        <button class="btn btn-secondary" onclick="closeSnapModal()">取消</button>
+        <button class="btn btn-primary" id="snap-confirm-btn" onclick="confirmSnapResults()" disabled>确认填入素材库</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(newOverlay);
+  
+  // 点击遮罩关闭
+  newOverlay.addEventListener('click', function(e) {
+    if (e.target === newOverlay) closeSnapModal();
+  });
+  
+  // 拖拽上传
+  const uploadArea = document.getElementById('snap-upload-area');
+  uploadArea.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    this.classList.add('dragover');
+  });
+  uploadArea.addEventListener('dragleave', function() {
+    this.classList.remove('dragover');
+  });
+  uploadArea.addEventListener('drop', function(e) {
+    e.preventDefault();
+    this.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (file && file.type.startsWith('image/')) {
+      processImageFile(file);
+    }
+  });
+  
+  // 粘贴图片
+  document.addEventListener('paste', handleSnapPaste);
+}
+
+function closeSnapModal() {
+  document.removeEventListener('paste', handleSnapPaste);
+  const overlay = document.getElementById('snap-modal-overlay');
+  if (overlay) overlay.remove();
+  snapImageData = null;
+  snapOcrText = '';
+  snapAnalysisResults = [];
+}
+
+function handleSnapPaste(e) {
+  const items = e.clipboardData && e.clipboardData.items;
+  if (!items) return;
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].type.startsWith('image/')) {
+      e.preventDefault();
+      const blob = items[i].getAsFile();
+      processImageFile(blob);
+      return;
+    }
+  }
+}
+
+function handleSnapFile(input) {
+  const file = input.files[0];
+  if (file) processImageFile(file);
+}
+
+function processImageFile(file) {
+  if (file.size > 20 * 1024 * 1024) {
+    showToast('图片大小不能超过 20MB');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    snapImageData = e.target.result;
+    document.getElementById('snap-preview-img').src = snapImageData;
+    document.getElementById('snap-preview').classList.add('active');
+    document.getElementById('snap-upload-area').style.display = 'none';
+    // 重置识别状态
+    document.getElementById('snap-ocr-progress').classList.remove('active');
+    document.getElementById('snap-ocr-result').classList.remove('active');
+    document.getElementById('snap-analysis-results').classList.remove('active');
+    snapOcrText = '';
+    snapAnalysisResults = [];
+    updateSnapConfirmBtn();
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearSnapImage() {
+  snapImageData = null;
+  snapOcrText = '';
+  snapAnalysisResults = [];
+  document.getElementById('snap-preview').classList.remove('active');
+  document.getElementById('snap-upload-area').style.display = '';
+  document.getElementById('snap-ocr-progress').classList.remove('active');
+  document.getElementById('snap-ocr-result').classList.remove('active');
+  document.getElementById('snap-analysis-results').classList.remove('active');
+  document.getElementById('snap-file-input').value = '';
+  updateSnapConfirmBtn();
+}
+
+function switchSnapTab(tab) {
+  document.querySelectorAll('.snap-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.snap-tab').forEach(t => {
+    if ((tab === 'image' && t.textContent.includes('上传图片')) || 
+        (tab === 'text' && t.textContent.includes('手动输入'))) {
+      t.classList.add('active');
+    }
+  });
+  document.getElementById('snap-image-panel').style.display = tab === 'image' ? '' : 'none';
+  document.getElementById('snap-text-panel').style.display = tab === 'text' ? '' : 'none';
+}
+
+// ==================== OCR 识别 ====================
+let tesseractWorker = null;
+
+function loadTesseract() {
+  return new Promise(function(resolve, reject) {
+    if (typeof Tesseract !== 'undefined') {
+      resolve(Tesseract);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';
+    script.onload = function() { resolve(Tesseract); };
+    script.onerror = function() { reject(new Error('加载 OCR 引擎失败，请检查网络连接')); };
+    document.head.appendChild(script);
+  });
+}
+
+async function runOCR() {
+  if (!snapImageData) {
+    showToast('请先上传图片');
+    return;
+  }
+  
+  const progressDiv = document.getElementById('snap-ocr-progress');
+  const progressFill = document.getElementById('snap-progress-fill');
+  const progressText = document.getElementById('snap-progress-text');
+  const resultDiv = document.getElementById('snap-ocr-result');
+  const textarea = document.getElementById('snap-ocr-textarea');
+  const ocrBtn = document.getElementById('snap-ocr-btn');
+  
+  progressDiv.classList.add('active');
+  resultDiv.classList.remove('active');
+  progressFill.style.width = '0%';
+  progressText.textContent = '正在加载 OCR 引擎...';
+  ocrBtn.disabled = true;
+  
+  try {
+    const T = await loadTesseract();
+    progressText.textContent = '正在下载中文语言包（首次约12MB，后续缓存）...';
+    progressFill.style.width = '20%';
+    
+    const worker = await T.createWorker('chi_sim+eng', 1, {
+      logger: function(m) {
+        if (m.status === 'recognizing text') {
+          const pct = 20 + Math.round(m.progress * 70);
+          progressFill.style.width = pct + '%';
+          progressText.textContent = '正在识别文字... ' + Math.round(m.progress * 100) + '%';
+        }
+      }
+    });
+    
+    progressText.textContent = '正在处理图片...';
+    progressFill.style.width = '90%';
+    
+    const { data } = await worker.recognize(snapImageData);
+    await worker.terminate();
+    
+    progressFill.style.width = '100%';
+    progressText.textContent = '识别完成！';
+    
+    snapOcrText = data.text.trim();
+    textarea.value = snapOcrText;
+    
+    setTimeout(function() {
+      progressDiv.classList.remove('active');
+      resultDiv.classList.add('active');
+      ocrBtn.disabled = false;
+    }, 500);
+    
+    if (!snapOcrText) {
+      showToast('未能识别到文字，请尝试更清晰的截图');
+    } else {
+      showToast('识别完成，共 ' + snapOcrText.length + ' 个字符');
+    }
+  } catch(err) {
+    progressDiv.classList.remove('active');
+    ocrBtn.disabled = false;
+    showToast('OCR 识别失败：' + err.message);
+    console.error('OCR error:', err);
+  }
+}
+
+// ==================== 文本分析引擎 ====================
+function analyzeSnapText() {
+  const textarea = document.getElementById('snap-ocr-textarea');
+  const text = textarea.value.trim();
+  if (!text) {
+    showToast('请先识别文字或手动输入');
+    return;
+  }
+  snapOcrText = text;
+  runAnalysis(text);
+}
+
+function analyzeManualText() {
+  const textarea = document.getElementById('snap-manual-textarea');
+  const text = textarea.value.trim();
+  if (!text) {
+    showToast('请输入文字内容');
+    return;
+  }
+  snapOcrText = text;
+  runAnalysis(text);
+}
+
+function runAnalysis(text) {
+  snapAnalysisResults = [];
+  
+  // 构造一个虚拟的热点对象用于复用 extractForLibrary 逻辑
+  const mockHotspot = {
+    platform: '截图识别',
+    rank: 0,
+    title: text.substring(0, 50).replace(/\n/g, ' '),
+    content: text,
+    hot_type: '用户上传',
+    heat: '',
+    top_comments: extractComments(text),
+    story_analysis: analyzeTextStory(text)
+  };
+  
+  const allLibs = ['hot_meme', 'conflict', 'hook', 'reversal', 'character', 'scene', 
+                   'legal_risk', 'vocabulary', 'emotion', 'scenery', 'action', 'dialogue', 'quote'];
+  
+  allLibs.forEach(function(libKey) {
+    const items = extractForLibrary(libKey, mockHotspot);
+    items.forEach(function(item) {
+      // 移除自动生成的 source 前缀 ID，用截图来源标记
+      item.source = 'screenshot';
+      item.source_hotspot_id = 'snap_' + Date.now();
+      item.source_title = mockHotspot.title;
+      
+      // 检查是否有实际内容
+      let hasContent = false;
+      const cfg = LIBRARY_CONFIG[libKey];
+      cfg.fields.forEach(function(f) {
+        if (!['id', 'source', 'created_at', 'updated_at', 'source_hotspot_id', 'source_title', 'code'].includes(f.key) && item[f.key]) {
+          hasContent = true;
+        }
+      });
+      
+      if (hasContent) {
+        snapAnalysisResults.push({
+          library: libKey,
+          libraryName: cfg.name,
+          libraryIcon: cfg.icon,
+          fields: item,
+          checked: true
+        });
+      }
+    });
+  });
+  
+  // 额外分析：从文本中直接提取对话
+  const dialogues = extractDialoguesFromText(text);
+  dialogues.forEach(function(d) {
+    snapAnalysisResults.push({
+      library: 'dialogue',
+      libraryName: '对话素材库',
+      libraryIcon: '💬',
+      fields: {
+        source: 'screenshot',
+        source_hotspot_id: 'snap_' + Date.now(),
+        source_title: mockHotspot.title,
+        character_a: d.speaker || '',
+        character_b: '',
+        content: d.content,
+        scene_context: text.substring(0, 100),
+        dialogue_function: '',
+        subtext_analysis: '',
+        emotion_tone: '',
+        rhythm_description: '',
+        suitable_genre: ''
+      },
+      checked: true
+    });
+  });
+  
+  // 额外分析：提取金句
+  const quotes = extractQuotesFromText(text);
+  quotes.forEach(function(q) {
+    snapAnalysisResults.push({
+      library: 'quote',
+      libraryName: '金句素材库',
+      libraryIcon: '✨',
+      fields: {
+        source: 'screenshot',
+        source_hotspot_id: 'snap_' + Date.now(),
+        source_title: mockHotspot.title,
+        quote_text: q,
+        author: '',
+        source_work: '',
+        category: '',
+        applicable_scene: '',
+        emotion_value: '',
+        style_tag: ''
+      },
+      checked: true
+    });
+  });
+  
+  // 渲染结果
+  renderSnapResults();
+}
+
+// 从文本中提取对话
+function extractDialoguesFromText(text) {
+  const results = [];
+  // 匹配引号对话
+  const quotePatterns = [
+    /[""]([^""]{10,200})[""]/g,
+    /「([^」]{10,200})」/g,
+    /『([^』]{10,200})』/g,
+    /"([^"]{10,200})"/g
+  ];
+  
+  quotePatterns.forEach(function(pattern) {
+    let match;
+    while ((match = pattern.exec(text)) !== null) {
+      const content = match[1].trim();
+      if (content.length >= 5 && !results.some(function(r) { return r.content === content; })) {
+        // 尝试找出说话者
+        const idx = match.index;
+        const before = text.substring(Math.max(0, idx - 30), idx);
+        const speakerMatch = before.match(/([\u4e00-\u9fa5]{2,4})(?:说|道|问|答|喊|叫|嚷|吼|骂|笑|哭)/);
+        results.push({
+          speaker: speakerMatch ? speakerMatch[1] : '',
+          content: content
+        });
+      }
+    }
+  });
+  
+  return results.slice(0, 5);
+}
+
+// 从文本中提取金句
+function extractQuotesFromText(text) {
+  const results = [];
+  const lines = text.split(/[\n。！？；]/);
+  
+  lines.forEach(function(line) {
+    line = line.trim();
+    // 有哲理感的句子（长度适中，含特定词汇）
+    if (line.length >= 10 && line.length <= 80) {
+      const wisdomWords = ['人生', '命运', '爱情', '幸福', '孤独', '自由', '梦想', '时间', '选择', 
+                          '世界', '生活', '灵魂', '希望', '勇气', '坚持', '放下', '成长', '改变',
+                          '永远', '曾经', '如果', '也许', '所谓', '真正', '最好', '最后'];
+      const matchCount = wisdomWords.filter(function(w) { return line.includes(w); }).length;
+      if (matchCount >= 1) {
+        results.push(line);
+      }
+    }
+  });
+  
+  return results.slice(0, 3);
+}
+
+// 分析文本的故事属性
+function analyzeTextStory(text) {
+  const categories = [];
+  const keywords = [];
+  
+  // 冲突检测
+  const conflictKws = ['冲突', '矛盾', '争吵', '打架', '对抗', '背叛', '欺骗', '隐瞒', '争夺', '复仇'];
+  conflictKws.forEach(function(kw) {
+    if (text.includes(kw)) {
+      categories.push({category: '社会冲突', story_type: '现实冲突', score: 60});
+      keywords.push(kw);
+    }
+  });
+  
+  // 情感检测
+  const emotionKws = ['爱', '恨', '哭', '泪', '痛', '悲', '喜', '怒', '怕', '悔', '怨', '念', '思'];
+  let emotionCount = 0;
+  emotionKws.forEach(function(kw) {
+    if (text.includes(kw)) {
+      emotionCount++;
+      keywords.push(kw);
+    }
+  });
+  if (emotionCount >= 2) {
+    categories.push({category: '情感冲突', story_type: '情感纠葛', score: 50 + emotionCount * 5});
+  }
+  
+  // 反转检测
+  const reversalKws = ['但是', '然而', '没想到', '竟然', '原来', '反转', '真相', '秘密', '其实'];
+  reversalKws.forEach(function(kw) {
+    if (text.includes(kw)) {
+      categories.push({category: '猎奇与反转', story_type: '情节反转', score: 55});
+      keywords.push(kw);
+      break;
+    }
+  });
+  
+  // 场景检测
+  const sceneKws = ['法庭', '医院', '婚礼', '葬礼', '办公室', '深夜', '餐厅', '学校', '地铁', '机场', '雨中', '海边', '咖啡', '酒吧'];
+  sceneKws.forEach(function(kw) {
+    if (text.includes(kw)) {
+      keywords.push(kw);
+    }
+  });
+  
+  return {
+    story_categories: categories,
+    matched_keywords: [...new Set(keywords)],
+    story_score: Math.min(85, categories.reduce(function(s, c) { return s + c.score; }, 0)),
+    emotion_density: Math.min(1, emotionCount / 20),
+    is_story_worthy: categories.length > 0,
+    story_type: categories.length > 0 ? categories[0].story_type : ''
+  };
+}
+
+// 从文本中提取评论（模拟）
+function extractComments(text) {
+  const comments = [];
+  const lines = text.split('\n');
+  lines.forEach(function(line) {
+    line = line.trim();
+    if (line.length >= 8 && line.length <= 100 && !line.startsWith('#')) {
+      comments.push(line);
+    }
+  });
+  return comments.slice(0, 10);
+}
+
+// 渲染分析结果
+function renderSnapResults() {
+  const container = document.getElementById('snap-analysis-results');
+  const listDiv = document.getElementById('snap-results-list');
+  const countSpan = document.getElementById('snap-result-count');
+  
+  if (snapAnalysisResults.length === 0) {
+    container.classList.remove('active');
+    showToast('未匹配到素材条目，请尝试输入更丰富的内容');
+    updateSnapConfirmBtn();
+    return;
+  }
+  
+  container.classList.add('active');
+  countSpan.textContent = '(' + snapAnalysisResults.length + ' 条匹配)';
+  
+  let html = '';
+  snapAnalysisResults.forEach(function(result, idx) {
+    const cfg = LIBRARY_CONFIG[result.library];
+    const displayFields = cfg.fields.filter(function(f) {
+      return !['id', 'source', 'created_at', 'updated_at', 'source_hotspot_id', 'source_title', 'code'].includes(f.key);
+    });
+    
+    // 只显示有值的字段
+    const filledFields = displayFields.filter(function(f) {
+      return result.fields[f.key];
+    });
+    
+    html += `
+      <div class="snap-result-item" style="${result.checked ? '' : 'opacity:0.5'}">
+        <div class="result-header">
+          <span class="result-lib">${result.libraryIcon} ${result.libraryName}</span>
+          <label style="cursor:pointer;display:flex;align-items:center;gap:4px;font-size:var(--font-xs);color:var(--text-secondary)">
+            <input type="checkbox" ${result.checked ? 'checked' : ''} onchange="toggleSnapResult(${idx}, this.checked)" style="accent-color:var(--accent)">
+            选择
+          </label>
+        </div>
+        <div class="result-fields">
+          ${filledFields.slice(0, 5).map(function(f) {
+            const val = String(result.fields[f.key] || '');
+            const displayVal = val.length > 60 ? val.substring(0, 60) + '...' : val;
+            return '<div class="result-field"><span class="fkey">' + f.label + '</span><span class="fval">' + displayVal + '</span></div>';
+          }).join('')}
+          ${filledFields.length > 5 ? '<div style="font-size:var(--font-xs);color:var(--text-muted)">... 还有 ' + (filledFields.length - 5) + ' 个字段</div>' : ''}
+        </div>
+        <div class="result-actions">
+          <button class="btn btn-sm btn-secondary" onclick="editSnapResult(${idx})" style="font-size:10px">✏ 编辑</button>
+          <button class="btn btn-sm btn-danger" onclick="removeSnapResult(${idx})" style="font-size:10px">× 移除</button>
+        </div>
+      </div>
+    `;
+  });
+  
+  listDiv.innerHTML = html;
+  updateSnapConfirmBtn();
+}
+
+function toggleSnapResult(idx, checked) {
+  if (snapAnalysisResults[idx]) {
+    snapAnalysisResults[idx].checked = checked;
+  }
+  updateSnapConfirmBtn();
+  // 更新视觉
+  const items = document.querySelectorAll('.snap-result-item');
+  if (items[idx]) {
+    items[idx].style.opacity = checked ? '' : '0.5';
+  }
+}
+
+function removeSnapResult(idx) {
+  snapAnalysisResults.splice(idx, 1);
+  renderSnapResults();
+}
+
+function editSnapResult(idx) {
+  const result = snapAnalysisResults[idx];
+  if (!result) return;
+  
+  const cfg = LIBRARY_CONFIG[result.library];
+  const editableFields = cfg.fields.filter(function(f) {
+    return !['id', 'source', 'created_at', 'updated_at', 'source_hotspot_id', 'source_title'].includes(f.key);
+  });
+  
+  let formHtml = editableFields.map(function(f) {
+    const val = result.fields[f.key] || '';
+    return '<div class="form-group"><label>' + f.label + '</label><input type="text" name="' + f.key + '" value="' + val.replace(/"/g, '&quot;') + '"></div>';
+  }).join('');
+  
+  const overlay = document.createElement('div');
+  overlay.className = 'snap-modal-overlay active';
+  overlay.style.zIndex = '210';
+  overlay.innerHTML = `
+    <div class="snap-modal" style="max-width:500px">
+      <div class="snap-modal-header">
+        <h3>编辑素材 - ${result.libraryIcon} ${result.libraryName}</h3>
+        <button class="snap-modal-close" onclick="this.closest('.snap-modal-overlay').remove()">×</button>
+      </div>
+      <div class="snap-modal-body">
+        <form id="snap-edit-form">${formHtml}</form>
+      </div>
+      <div class="snap-modal-footer">
+        <button class="btn btn-secondary" onclick="this.closest('.snap-modal-overlay').remove()">取消</button>
+        <button class="btn btn-primary" id="snap-edit-save-btn">保存</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(overlay);
+  
+  overlay.querySelector('#snap-edit-save-btn').addEventListener('click', function() {
+    const form = document.getElementById('snap-edit-form');
+    editableFields.forEach(function(f) {
+      const input = form.querySelector('[name="' + f.key + '"]');
+      if (input) result.fields[f.key] = input.value;
+    });
+    overlay.remove();
+    renderSnapResults();
+  });
+  
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) overlay.remove();
+  });
+}
+
+function updateSnapConfirmBtn() {
+  const btn = document.getElementById('snap-confirm-btn');
+  if (!btn) return;
+  const checkedCount = snapAnalysisResults.filter(function(r) { return r.checked; }).length;
+  btn.disabled = checkedCount === 0;
+  btn.textContent = checkedCount > 0 ? '确认填入素材库 (' + checkedCount + ' 条)' : '确认填入素材库';
+}
+
+function confirmSnapResults() {
+  const checked = snapAnalysisResults.filter(function(r) { return r.checked; });
+  if (checked.length === 0) {
+    showToast('请至少选择一条素材');
+    return;
+  }
+  
+  const materials = getMaterials();
+  let addedCount = 0;
+  
+  checked.forEach(function(result) {
+    const libKey = result.library;
+    if (!materials[libKey]) {
+      materials[libKey] = { meta: { name: LIBRARY_CONFIG[libKey].name, version: '1.0', total: 0 }, items: [] };
+    }
+    
+    const item = Object.assign({}, result.fields);
+    item.id = 'snap_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+    item.created_at = new Date().toISOString();
+    item.updated_at = new Date().toISOString();
+    
+    materials[libKey].items.push(item);
+    materials[libKey].meta = materials[libKey].meta || {};
+    materials[libKey].meta.total = materials[libKey].items.length;
+    materials[libKey].meta.updated_at = new Date().toISOString();
+    addedCount++;
+  });
+  
+  saveMaterials(materials);
+  closeSnapModal();
+  showToast('成功填入 ' + addedCount + ' 条素材！');
+  renderMaterials();
+}
+
 // ==================== Expose to Global Scope (for onclick handlers) ====================
 window.addMaterial = addMaterial;
 window.editMaterial = editMaterial;
@@ -1153,6 +1887,18 @@ window.updateChapter = updateChapter;
 window.analyzeProject = analyzeProject;
 window.exportProjectCSV = exportProjectCSV;
 window.renderWorkshop = renderWorkshop;
+window.openSnapModal = openSnapModal;
+window.closeSnapModal = closeSnapModal;
+window.switchSnapTab = switchSnapTab;
+window.handleSnapFile = handleSnapFile;
+window.clearSnapImage = clearSnapImage;
+window.runOCR = runOCR;
+window.analyzeSnapText = analyzeSnapText;
+window.analyzeManualText = analyzeManualText;
+window.toggleSnapResult = toggleSnapResult;
+window.removeSnapResult = removeSnapResult;
+window.editSnapResult = editSnapResult;
+window.confirmSnapResults = confirmSnapResults;
 // currentProject is a module-level variable that needs to be settable from onclick
 Object.defineProperty(window, 'currentProject', {
   get: function() { return currentProject; },
