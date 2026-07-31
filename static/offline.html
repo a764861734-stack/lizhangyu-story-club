@@ -1137,6 +1137,28 @@ function renderDashboard() {
   container.innerHTML = html;
 }
 
+// ==================== Expose to Global Scope (for onclick handlers) ====================
+window.addMaterial = addMaterial;
+window.editMaterial = editMaterial;
+window.deleteMaterial = deleteMaterial;
+window.autoFillMaterials = autoFillMaterials;
+window.changeMaterialPage = changeMaterialPage;
+window.exportLibraryCSV = exportLibraryCSV;
+window.createProject = createProject;
+window.openProject = openProject;
+window.deleteProject = deleteProject;
+window.addChapter = addChapter;
+window.deleteChapter = deleteChapter;
+window.updateChapter = updateChapter;
+window.analyzeProject = analyzeProject;
+window.exportProjectCSV = exportProjectCSV;
+window.renderWorkshop = renderWorkshop;
+// currentProject is a module-level variable that needs to be settable from onclick
+Object.defineProperty(window, 'currentProject', {
+  get: function() { return currentProject; },
+  set: function(v) { currentProject = v; }
+});
+
 // ==================== Initial Render ====================
 (async function() {
   showToast('正在加载最新数据...');
