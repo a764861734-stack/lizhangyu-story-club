@@ -3413,7 +3413,7 @@ function genHookPrompt() {
   prompt += '要求：\n1. 钩子必须让读者产生强烈的「然后呢？」冲动\n2. 钩子需要能在3章内回收或埋下5章以上的长线\n3. 结合以下关键词：' + (keyword || '自由发挥') + '\n';
   prompt += '4. 输出3个不同方案，每个方案包含：\n   - 钩子内容（2-3句话）\n   - 埋设位置（章节末3行）\n   - 回收方式（即时/长线）\n   - 情绪冲击力（1-10分）\n';
   prompt += '5. 参考' + genre + '题材的经典钩子模式\n6. 确保钩子符合晋江审核标准\n\n请直接输出3个方案，不要解释。';
-  var html = '<div class="hook-result">' + prompt + '<button class="btn btn-sm btn-secondary" style="position:absolute;top:8px;right:8px;font-size:10px" onclick="copyToClipboard(document.getElementById(\\'hook-prompt-text\\').textContent)">📋 复制</button><div id="hook-prompt-text" style="display:none">' + prompt + '</div></div>';
+  var html = '<div class="hook-result">' + prompt + '<button class="btn btn-sm btn-secondary" style="position:absolute;top:8px;right:8px;font-size:10px" onclick="copyToClipboard(document.getElementById(\'hook-prompt-text\').textContent)">📋 复制</button><div id="hook-prompt-text" style="display:none">' + prompt + '</div></div>';
   document.getElementById('hook-gen-result').innerHTML = html;
 }
 
@@ -3482,7 +3482,7 @@ function toggleOpStep(key, idx, el) {
 function genPiracyScript() {
   var book = document.getElementById('piracy-book').value.trim() || '我的作品';
   var script = '尊敬的平台管理员：\n\n您好！我是小说《' + book + '》的原创作者，该书在晋江文学城独家连载。现发现贵平台存在未经授权的转载内容，侵犯了本人的信息网络传播权。\n\n请贵平台在收到本通知后24小时内删除上述侵权内容，否则本人将保留追究法律责任的权利。\n\n作者笔名：[你的笔名]\n原创首发平台：晋江文学城\n侵权链接：[粘贴盗版链接]\n\n感谢配合！';
-  var html = '<div class="hook-result">' + script + '<button class="btn btn-sm btn-secondary" style="position:absolute;top:8px;right:8px;font-size:10px" onclick="copyToClipboard(document.getElementById(\\'piracy-text\\').textContent)">📋 复制</button><div id="piracy-text" style="display:none">' + script + '</div></div>';
+  var html = '<div class="hook-result">' + script + '<button class="btn btn-sm btn-secondary" style="position:absolute;top:8px;right:8px;font-size:10px" onclick="copyToClipboard(document.getElementById(\'piracy-text\').textContent)">📋 复制</button><div id="piracy-text" style="display:none">' + script + '</div></div>';
   document.getElementById('piracy-result').innerHTML = html;
 }
 
