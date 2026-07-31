@@ -327,10 +327,27 @@ async function refreshMaterialsFromRemote() {
 }
 
 async function initData() {
-  // 尝试从远程加载最新数据
-  let hotspots = await refreshHotspotsFromRemote();
-  let materials = await refreshMaterialsFromRemote();
-  return { hotspots, materials };
+  // 始终尝试从远程加载最新数据
+  // 检查上次更新时间，超过2小时则强制刷新
+  let lastUpdate = localStorage.getItem(UPDATE_KEY);
+  let shouldRefresh = true;
+  if (lastUpdate) {
+    let hoursSinceUpdate = (Date.now() - parseInt(lastUpdate)) / (1000 * 60 * 60);
+    if (hoursSinceUpdate < 2) shouldRefresh = false;
+  }
+  
+  if (shouldRefresh) {
+    let hotspots = await refreshHotspotsFromRemote();
+    let materials = await refreshMaterialsFromRemote();
+    // 即使远程加载失败，EMBEDDED 数据也是最新的（构建时注入）
+    if (!hotspots || Object.keys(hotspots).length === 0) {
+      hotspots = EMBEDDED_HOTSPOTS;
+      saveHotspots(hotspots);
+    }
+    return { hotspots, materials };
+  }
+  
+  return { hotspots: getHotspots(), materials: getMaterials() };
 }
 
 function getProjects() {
