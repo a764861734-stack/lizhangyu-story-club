@@ -1724,7 +1724,12 @@ const MANUAL_DATA = {
 function scrollToSection(key) {
   var el = document.getElementById('manual-sect-' + key);
   if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // 获取元素相对于文档顶部的位置
+    var rect = el.getBoundingClientRect();
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    // sticky 导航高度约 100px，再多留 20px 间距
+    var targetY = rect.top + scrollTop - 120;
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
   }
   document.querySelectorAll('.manual-nav-btn').forEach(function(b) { b.classList.remove('active'); });
   var btn = document.querySelector('.manual-nav-btn[data-key="' + key + '"]');
@@ -1765,7 +1770,7 @@ function renderManual() {
   // 遍历所有分类，一次性渲染
   for (var mkey in MANUAL_DATA) {
     var data = MANUAL_DATA[mkey];
-    contentHtml += '<div id="manual-sect-' + mkey + '" class="manual-section">';
+    contentHtml += '<div id="manual-sect-' + mkey + '" class="manual-section" style="scroll-margin-top:120px">';
     contentHtml += '<div class="manual-section-title">' + data.name + '</div>';
 
     // ====== 核心目标：可编辑 ======
