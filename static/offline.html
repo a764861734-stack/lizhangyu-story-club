@@ -146,6 +146,76 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
   .snap-modal-footer{border-radius:0}
   .snap-upload-area{padding:24px 12px}
 }
+
+/* ==================== 工作手册 ==================== */
+.manual-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;padding:8px;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border)}
+.manual-nav-btn{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg-input);color:var(--text-secondary);font-size:var(--font-xs);cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.manual-nav-btn:hover,.manual-nav-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.manual-section{margin-bottom:16px}
+.manual-section-title{font-size:var(--font-lg);color:var(--accent);font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--accent-dim)}
+.manual-subsection{margin-bottom:14px}
+.manual-subsection h4{font-size:var(--font-md);color:var(--text-primary);margin-bottom:8px;padding-left:8px;border-left:3px solid var(--accent-blue)}
+.manual-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px}
+.manual-card h5{font-size:var(--font-sm);color:var(--accent-blue);margin-bottom:6px}
+.manual-card p,.manual-card li{font-size:var(--font-xs);color:var(--text-secondary);line-height:1.7}
+.manual-card ul,.manual-card ol{padding-left:18px}
+.manual-table{width:100%;border-collapse:collapse;font-size:var(--font-xs);margin:8px 0}
+.manual-table th{background:var(--bg-input);padding:8px;text-align:left;color:var(--text-secondary);border:1px solid var(--border);font-weight:600}
+.manual-table td{padding:8px;border:1px solid var(--border);color:var(--text-primary)}
+.manual-table tr:nth-child(even){background:var(--bg-primary)}
+.manual-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:var(--font-xs);margin:2px}
+.manual-tag.tag-red{background:#fee2e2;color:#dc2626}
+.manual-tag.tag-blue{background:#dbeafe;color:#2563eb}
+.manual-tag.tag-green{background:#d1fae5;color:#059669}
+.manual-tag.tag-yellow{background:#fef3c7;color:#d97706}
+.manual-highlight{background:linear-gradient(135deg,#fffbeb,#fef3c7);border-left:4px solid #f59e0b;padding:12px;border-radius:0 var(--radius) var(--radius) 0;margin:10px 0}
+.manual-highlight p{font-size:var(--font-xs);color:#92400e;line-height:1.6}
+.manual-formula{background:#1e293b;color:#e2e8f0;padding:12px;border-radius:var(--radius);font-family:monospace;font-size:var(--font-xs);margin:10px 0;overflow-x:auto;white-space:pre-wrap;line-height:1.6}
+.manual-code{background:var(--bg-input);padding:2px 6px;border-radius:4px;font-family:monospace;font-size:var(--font-xs);color:var(--accent)}
+.manual-tip{background:#eff6ff;border-left:3px solid #3b82f6;padding:10px 12px;border-radius:0 var(--radius) var(--radius) 0;margin:8px 0}
+.manual-tip p{font-size:var(--font-xs);color:#1e40af;line-height:1.6}
+.manual-warning{background:#fef2f2;border-left:3px solid #ef4444;padding:10px 12px;border-radius:0 var(--radius) var(--radius) 0;margin:8px 0}
+.manual-warning p{font-size:var(--font-xs);color:#991b1b;line-height:1.6}
+
+/* ==================== 章节元素配置检查器 ==================== */
+.checker-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px}
+.checker-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.checker-header h4{font-size:var(--font-md);color:var(--text-primary)}
+.checker-score{font-size:var(--font-xl);font-weight:700;color:var(--accent)}
+.checker-score-label{font-size:var(--font-xs);color:var(--text-muted)}
+.checker-item{display:flex;align-items:center;gap:8px;margin:6px 0;padding:6px;background:var(--bg-input);border-radius:6px}
+.checker-item .checker-icon{width:20px;text-align:center;font-size:14px}
+.checker-item .checker-label{flex:1;font-size:var(--font-xs);color:var(--text-secondary)}
+.checker-item .checker-value{width:60px;text-align:right;font-size:var(--font-xs);font-weight:600;color:var(--text-primary)}
+.checker-item .checker-status{width:50px;text-align:center;font-size:var(--font-xs);font-weight:600;padding:2px 6px;border-radius:8px}
+.checker-status.pass{background:#d1fae5;color:#059669}
+.checker-status.fail{background:#fee2e2;color:#dc2626}
+.checker-status.warn{background:#fef3c7;color:#d97706}
+.checker-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-top:4px}
+.checker-bar-fill{height:100%;border-radius:3px;transition:width 0.3s}
+.checker-summary{margin-top:10px;padding:10px;background:var(--bg-input);border-radius:var(--radius)}
+.checker-summary p{font-size:var(--font-xs);color:var(--text-secondary);line-height:1.6}
+
+/* ==================== 写作进度追踪表 ==================== */
+.tracker-table{width:100%;border-collapse:collapse;font-size:var(--font-xs)}
+.tracker-table th{background:var(--bg-input);padding:6px 4px;text-align:center;color:var(--text-secondary);border:1px solid var(--border);font-weight:600;white-space:nowrap}
+.tracker-table td{padding:6px 4px;text-align:center;border:1px solid var(--border);color:var(--text-primary)}
+.tracker-table input{width:100%;border:1px solid transparent;background:transparent;text-align:center;font-size:var(--font-xs);padding:2px;color:var(--text-primary)}
+.tracker-table input:focus{border-color:var(--accent);outline:none;background:var(--bg-card)}
+.tracker-table tr:hover{background:var(--bg-input)}
+
+/* ==================== 素材库维护工具推荐 ==================== */
+.tools-section{margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
+.tools-section h4{font-size:var(--font-sm);color:var(--accent);margin-bottom:8px}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tool-card{background:var(--bg-input);border-radius:var(--radius);padding:8px 10px}
+.tool-card .tool-name{font-size:var(--font-xs);font-weight:600;color:var(--text-primary)}
+.tool-card .tool-desc{font-size:var(--font-xs);color:var(--text-muted);margin-top:2px}
+@media (max-width:480px){
+  .tools-grid{grid-template-columns:1fr}
+  .manual-nav{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}
+  .checker-header{flex-direction:column;align-items:flex-start}
+}
 </style>
 </head>
 <body>
@@ -160,12 +230,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 <div id="tab-materials" class="tab-content"></div>
 <div id="tab-workshop" class="tab-content"></div>
 <div id="tab-dashboard" class="tab-content"></div>
+<div id="tab-manual" class="tab-content"></div>
 
 <div class="bottom-nav">
-  <div class="nav-item active" data-tab="hotspots"><span class="nav-icon">&#x1f525;</span>热点列表</div>
+  <div class="nav-item" data-tab="hotspots"><span class="nav-icon">&#x1f525;</span>热点列表</div>
   <div class="nav-item" data-tab="materials"><span class="nav-icon">&#x1f4da;</span>素材库</div>
   <div class="nav-item" data-tab="workshop"><span class="nav-icon">&#x1f527;</span>拆解工坊</div>
   <div class="nav-item" data-tab="dashboard"><span class="nav-icon">&#x1f4ca;</span>仪表盘</div>
+  <div class="nav-item" data-tab="manual"><span class="nav-icon">&#x1f4d8;</span>工作手册</div>
 </div>
 
 <div id="toast-container"></div>
@@ -313,6 +385,7 @@ document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
     else if (this.dataset.tab === 'materials') renderMaterials();
     else if (this.dataset.tab === 'workshop') renderWorkshop();
     else if (this.dataset.tab === 'dashboard') renderDashboard();
+    else if (this.dataset.tab === 'manual') renderManual();
   });
 });
 
@@ -479,6 +552,7 @@ function renderMaterials() {
         </div>
         ${tableHtml}
         ${paginationHtml}
+        ${renderMaterialTools(currentLibrary)}
       </div>
     </div>
   `;
@@ -916,6 +990,12 @@ function renderWorkshop() {
     if (p.analysis) {
       html += renderAnalysis(p);
     }
+    
+    // Chapter element checker
+    if (p.chapters && p.chapters.length > 0) {
+      html += renderChapterChecker(currentProject);
+      html += renderWritingTracker(currentProject);
+    }
   }
 
   container.innerHTML = html;
@@ -1188,6 +1268,704 @@ function renderDashboard() {
   `;
 
   container.innerHTML = html;
+}
+
+// ==================== 工作手册 Tab ====================
+let currentManualSection = 'core-goals';
+
+const MANUAL_DATA = {
+  'core-goals': {
+    name: '🎯 核心目标',
+    sections: [
+      {
+        title: '三大核心目标',
+        items: [
+          '8. 利用完本优势实现高频率爆更（日更1.5万字）',
+          '9. 通过存稿控制剧情节奏，刺激订阅与打赏',
+          '10. 同步推进版权变现（影视/出版）'
+        ]
+      }
+    ]
+  },
+  'daily-plan': {
+    name: '📅 每日计划表',
+    sections: [
+      {
+        title: '数据监控（06:30-07:00）',
+        items: [
+          '查看昨日订阅率、新增收藏（记录到Excel预测模型）',
+          '自制Excel模型：输入收藏量、转化率（默认10%）→ 输出收益预测',
+          '检查第一本书的章节流失率（高于20%的章立即修改存稿）',
+          '预写3套应急预案（如老书数据暴跌时，提前放出联动章节）',
+          '分析第一本书的章节完读率，低于70%的章节重写前300字',
+          '预设「弃书红线」：任一作品连续两周收入下降30%时，启动存稿代发机制',
+          '盗文监控：设置Google Alert追踪书名，自动举报盗链'
+        ]
+      },
+      {
+        title: '存稿微调（07:00-08:30）',
+        items: [
+          '根据近期热点修改存稿（例：加入"缅北逃亡"支线）',
+          '在章节末添加"订阅话术"（如"明日双更，解锁追妻火葬场名场面"）',
+          '回复打赏评论（用颜文字+情感化话术）'
+        ]
+      },
+      {
+        title: '平台互动（08:30-09:00）',
+        items: [
+          '回复晋江评论区（优先打赏用户）',
+          '发布微博话题：#××角色战力排行#'
+        ]
+      },
+      {
+        title: '爆更发布（09:00-12:00）',
+        items: [
+          '分3次更新（9:00/12:00/18:00），每次发2章（利用平台流量高峰）',
+          '在免费章末尾设置卡点剧情（如"男主中箭濒死"），倒逼读者购买VIP',
+          '在章节末添加"新书预告投票"（如"想看医生文还是电竞文？"）',
+          '记录读者对新书题材的偏好'
+        ]
+      },
+      {
+        title: '午餐+行业社交（12:00-13:30）',
+        items: [
+          '加入晋江签约作者群（混脸熟，交换推荐位资源）',
+          '在作者群交换推荐位（用第一本流量帮他人推书，换取新书曝光）'
+        ]
+      },
+      {
+        title: '版权推进（13:30-15:00）',
+        items: [
+          '向编辑提交IP提案包（含数据报告、改编建议）',
+          '联系第三方版权经纪公司（对比分成比例）',
+          '申请晋江"完本推荐位"（需编辑人工审核）'
+        ]
+      },
+      {
+        title: '多平台引流（15:00-16:30）',
+        items: [
+          '在小红书发布"删减片段"（引导至晋江）',
+          '制作B站伪预告片（用剪映拼接动漫素材+AI配音）'
+        ]
+      },
+      {
+        title: '读者运营（16:30-18:00）',
+        items: [
+          '用第一本书片段+AI生成画面宣传新书',
+          '在QQ群发起"打赏冲榜"活动（达目标解锁隐藏结局）',
+          '给打赏TOP10读者寄手写信（成本＜5元/份，提升忠诚度）',
+          '在粉丝群发起"老书打赏换新书角色命名权"',
+          '用同一批Beta读者审核两本书，要求对比反馈'
+        ]
+      },
+      {
+        title: '晚餐+竞品分析（18:00-19:30）',
+        items: [
+          '拆解当日晋江金榜作品开篇（记录钩子密度、节奏）'
+        ]
+      },
+      {
+        title: '收益强化（19:30-21:00）',
+        items: [
+          '修改前10章定价：关键转折章涨至千字5分',
+          '申请全勤奖（需月更15万字，提前规划存稿释放节奏）'
+        ]
+      },
+      {
+        title: '风险管控（21:00-22:00）',
+        items: [
+          '用"盗文雷达"扫描盗版网站，批量举报',
+          '备份全文至加密云盘（防恶意篡改）'
+        ]
+      }
+    ]
+  },
+  'growth-tips': {
+    name: '🚀 订阅量暴增技巧',
+    sections: [
+      {
+        title: '章节定价策略',
+        items: [
+          '前30章定价千字3分（低价引流），第31章突然涨到千字5分（筛选付费用户）',
+          '在周五晚8点更新关键剧情（读者有闲暇时间+易冲动消费）'
+        ]
+      },
+      {
+        title: '话术模板',
+        items: [
+          '章节末尾固定加："下一章解锁××名场面（小标题剧透），订阅破5000今晚加更"'
+        ]
+      }
+    ]
+  },
+  'anti-piracy': {
+    name: '🛡️ 防盗文实操',
+    sections: [
+      {
+        title: '时间差战术',
+        items: [
+          '凌晨0点先更新VIP章节，次日上午10点才在免费章放1/3内容',
+          '故意在盗文网流传章节中插入乱码（如"主角名字错乱"），驱散盗版读者'
+        ]
+      },
+      {
+        title: '读者PUA话术',
+        items: [
+          '"正版订阅率低于10%将停更，已有××名读者选择守护创作"（每周公告）'
+        ]
+      }
+    ]
+  },
+  'pitfalls': {
+    name: '⚠️ 致命陷阱规避指南',
+    sections: [
+      {
+        title: '17. 卡文应对',
+        items: [
+          '立即切到支线剧情写配角互动（用轻松内容维持更新）',
+          '调用"热梗素材库"插入临时冲突（例：突然停电后主角被困电梯）'
+        ]
+      },
+      {
+        title: '18. 数据焦虑',
+        items: [
+          '建立"黑箱机制"：仅每周一查看后台总收益，其他时间屏蔽',
+          '设置虚假进度条（告诉读者"本书已完成80%"，实际才50%）'
+        ]
+      },
+      {
+        title: '19. 法律风险',
+        items: [
+          '每10万字用"查重插件"扫描一次，避免无意识融梗',
+          '合同新增条款："影视改编需作者保留剧本一稿否决权"'
+        ]
+      }
+    ]
+  },
+  'income-table': {
+    name: '📊 阶段目标与收入对照表',
+    sections: [
+      {
+        title: '阶段目标与收入对照表',
+        table: {
+          headers: ['时间节点', '核心指标', '动作', '当日收入预估'],
+          rows: [
+            ['第30天', '首部作品上架VIP[冲击金榜TOP50]', '前10章免费，单章点击破5万', '300-500元（早期打赏）'],
+            ['第90天', '均订破2000', '启动"打赏换角色"活动', '日均800元+全勤奖1500元'],
+            ['第180天', '首部作品完结，均订5000', '实体书众筹+开通第二部预收', '日均2000元+打赏爆发'],
+            ['第360天', '影视版权进入谈判', '停更3天参加制片方会议', '单日可能0元（长期收益）'],
+            ['第600天', '版权款到账+新书影视联动', '在小说内植入合作品牌', '单日收入峰值或超10万元'],
+            ['双线启动日', '开启"打赏解锁新书预告"活动', '完成前10章精修', '老书：8000元'],
+            ['第30天', '申请全平台推荐位', '向编辑提交新书签约', '老书+新书预收：1.2万元'],
+            ['第90天', '影视版权首付款到账', '新书均订破3000', '老书：2万+新书：5000元'],
+            ['第180天', '实体书众筹达标', '新书进入金榜TOP10', '双书叠加：3.5万元'],
+            ['第300天', '游戏改编权签约【开发互动剧】【启动有声书】【海外版权输出】', '新书启动影视联动', '单日版权收入：15万元']
+          ]
+        }
+      },
+      {
+        title: '绝对执行力',
+        items: [
+          '20. 绝对执行力：日更9000字雷打不动（生理期/发烧也需存稿代发）',
+          '21. 金钱驱动意识：每章视为价值300元的商品（订阅每掉100人=亏一顿火锅）',
+          '22. 厚脸皮运营：主动求打赏、求推荐票、求编辑给资源'
+        ]
+      },
+      {
+        title: '收益加速器',
+        items: [
+          '23. 倒逼编辑重视：签约时直接声明"已完本80万字，可配合影视方试稿"；要求作品页添加"全文存稿"标签（平台会优先推荐）',
+          '24. 预售造势：开VIP前一周，在微博发起"解锁角色档案"活动（订阅量达阈值发布独家番外）',
+          '25. 跨界捆绑：联系中小品牌定制"小说联名款"（如化妆品命名"女主同款口红色号"，分佣15%）',
+          '4收益再投资：将第一本书收入的20%用于购买第二本书「黄金推荐位」'
+        ]
+      }
+    ]
+  },
+  'writing-assist': {
+    name: '✍️ 写作辅助',
+    sections: [
+      {
+        title: '黑匣子写作法',
+        items: [
+          '用Excel记录每章"情绪值"（爽、虐、甜），确保节奏波动',
+          '讯飞语记（日节省2小时，用于填充流水剧情）'
+        ]
+      },
+      {
+        title: '数据监控',
+        items: [
+          '自建订阅预测表：输入收藏数、转化率（通常8-15%），估算月收入',
+          '盗文监测：使用"百度搜索监控工具"，发现盗链立刻举报'
+        ]
+      },
+      {
+        title: '素材库',
+        items: [
+          '热点库：收藏100个知乎高赞故事核（用于支线剧情）',
+          '描写库：按场景分类（吻戏、打斗）的优质段落，避免卡文',
+          '订阅不及预期：立即启动"免费章扩列"，前20章免费吸引流量，后续VIP章涨价至千字5分',
+          '版权谈判停滞：主动联系中小影视公司（如分账剧团队），接受"保底+分账"混合模式',
+          '量化所有动作：例如"每日回复评论≥30条""每周分析3个竞品开篇"',
+          '拒绝完美主义：优先保证更新量，后期通过精修提升完本率'
+        ]
+      }
+    ]
+  },
+  'toolkit': {
+    name: '🧰 效率工具包',
+    sections: [
+      {
+        title: '14. 自动化采集',
+        items: [
+          'Web Clipper：一键保存网页素材到Notion',
+          '微博超话助手：自动抓取#言情热梗#话题的内容'
+        ]
+      },
+      {
+        title: '15. 智能改写',
+        items: [
+          'ChatGPT提示词：「将[出轨捉奸]梗改写为科幻背景，需包含身份反转，输出3个方案」',
+          '火龙果写作：AI辅助扩写/简化冲突'
+        ]
+      },
+      {
+        title: '16. 风险防控',
+        items: [
+          '原创性时间戳：用「权利卫士」App区块链存证每日素材',
+          '敏感词过滤：晋江写手专用插件「碧水词库」实时检测'
+        ]
+      }
+    ]
+  },
+  'chapter-check': {
+    name: '📋 章节元素配置检查表',
+    sections: [
+      {
+        title: '四维协同作战图',
+        code: `热梗(HG-004)
+↓ 提供世界观基石
+冲突(CT-612)
+→ 激活钩子(HZ-240723-01)
+↓ 输送情绪能量
+反转(FZ-240701-01)
+← 调用法律风险(FL-005)
+↑ 完成认知闭环`
+      },
+      {
+        title: '每章3000字需完成以下指标',
+        subsections: [
+          {
+            title: '热梗植入（1.2个/章）',
+            items: [
+              '主热梗：从HG库选1个进行场景化改造（如HG-004铜镜穿越→改为女主修复时头晕看见民国幻象）',
+              '副热梗：用0.2个跨章梗延续（如上章CT-612的医疗账单在本章变成折纸素材）',
+              '检测标准：读者评论区出现3+条与热梗相关讨论即合格'
+            ]
+          },
+          {
+            title: '冲突构建（1.5层/章）',
+            items: [
+              '外部冲突：CT类行业/家族压力（如CT-205联姻压迫升级）',
+              '内部冲突：RS类人设矛盾（如女主摸耳后痣说谎时被男主凝视）',
+              '强度测试：该章节发布后48小时内段评数增长≥15%'
+            ]
+          },
+          {
+            title: '钩子埋设（2个/章）',
+            items: [
+              '即时钩：3章内回收（如HZ-240701-02实验室雨具现植物疯长）',
+              '长线钩：跨5章+（如FL-004数据坟墓首次出现量子沙漏倒流）',
+              '埋雷技巧：在章节末3行用「五感+动作」组合钩（例：她闻见松香突然变成血腥味，同时监控红光开始倒数）'
+            ]
+          },
+          {
+            title: '反转铺垫（0.3个/章）',
+            items: [
+              '认知误导：用FZ类伪线索（如让读者误以为男二是私生子）',
+              '情感偏移：通过RS类细节（如男主撕纸动作突然停顿）',
+              '爆破预埋：每章至少1处可逆性设定（如"医疗账单"实为艺术治疗费用）'
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  'chapter-types': {
+    name: '📖 章节类型特化模型',
+    sections: [
+      {
+        title: '1. 铺垫章（世界观搭建）',
+        table: {
+          headers: ['元素', '配置方案', '素材库案例'],
+          rows: [
+            ['热梗', '1个背景型+0.5个道具型', 'HG-001电子婚书（背景）+ HG-004鎏金铜镜（道具）'],
+            ['冲突', '1个外部压力+0.5个人设矛盾', 'CT-205家族逼婚（外部）+ RS-L002恐婚摸耳后痣（人设）'],
+            ['钩子', '1个显性钩+1个五感钩', 'HZ-231015-01老照片（显性）+ CJ-L002松木香水余味（嗅觉钩）'],
+            ['反转', '0.1个（认知铺垫）', 'FZ-240701-01记忆篡改：男主哼唱陌生摇篮曲但自称原创']
+          ]
+        },
+        note: '典型章节：第3章《契约生效夜》\n- 古琴工坊监控拍下神秘数据流（HG-003伏笔）\n- 家族长老逼迫签补充协议（CT-205升级）\n- 女主发现婚书夹层有量子防伪码（HZ-240701-02）\n- 男主打火机刻着"LY"而非女主姓名首字母（0.1反转）'
+      },
+      {
+        title: '2. 发展章（冲突升级）',
+        table: {
+          headers: ['元素', '配置方案', '素材库案例'],
+          rows: [
+            ['热梗', '1个互动型+0.5个悬念型', 'HG-003神经元项链温度同步（互动）+ CT-612医疗账单折叠痕迹（悬念）'],
+            ['冲突', '1个行业斗争+1个情感博弈', 'CT-101竞品发布会盗用数据（行业）+ RS-L001男主撕毁关键合同（情感）'],
+            ['钩子', '1个动作钩+1个台词钩', 'CJ-L003撕纸割破指尖（动作）+ "你根本不懂什么叫守护"（台词悬念）'],
+            ['反转', '0.5个（物品/情感反转）', 'FZ类：祖传断弦竟是纳米监测器 / RS类：女主恐婚源于童年见父亲修复出轨证据']
+          ]
+        },
+        note: '典型章节：第27章《数据坟墓的玫瑰》\n- AI突然播放女主童年哼唱的摇篮曲（HG-003升级）\n- 竞品用脑波指纹破解核心算法（CT-101白热化）\n- 男主衬衫血迹形状=铜镜纹样（HZ-240723-01）\n- 发现医疗账单是伪造（0.5反转）'
+      },
+      {
+        title: '3. 高潮章（爆点释放）',
+        table: {
+          headers: ['元素', '配置方案', '素材库案例'],
+          rows: [
+            ['热梗', '2个高概念融合', 'HG-004时空穿越 + CT-410算法反噬'],
+            ['冲突', '2.5层立体对抗', 'FL-005伪造诉讼（法律层）+ CT-612路演崩塌（事业层）+ RS人设崩塌（情感层）'],
+            ['钩子', '3个跨媒介钩', '视觉（CJ-L003屏幕裂痕）+ 听觉（HZ-240701-01雨声变异）+ 触觉（项链灼伤）'],
+            ['反转', '1个认知核爆', 'FZ-240701-02：女主是男主母亲克隆体（需提前7章埋设3处DNA伏笔）']
+          ]
+        },
+        note: '典型章节：第89章《血色路演》\n- 修复AI突然投射出1980年代工坊影像（HG-004+003融合）\n- 投资人集体离席时触发FL-005伪造警报（三重压力）\n- 女主耳后痣开始渗出发光液体（HZ-240701-02物质异变）\n- 揭示男主才是被植记忆的克隆体（1个核爆级反转）'
+      },
+      {
+        title: '4. 缓冲章（情感呼吸）',
+        table: {
+          headers: ['元素', '配置方案', '素材库案例'],
+          rows: [
+            ['热梗', '0.5个怀旧型', 'HG-001古琴工坊老照片'],
+            ['冲突', '0.8个隐性压力', 'RS-L002病态占有欲发作（藏在买咖啡多要糖包细节）'],
+            ['钩子', '1个镜像钩', 'CJ-L002天台场景复现但松木香变成消毒水味'],
+            ['反转', '0.1个（情感伏笔）', '发现"守护"台词是男主母亲遗言（为终章大反转蓄力）']
+          ]
+        },
+        note: '典型章节：第112章《雨夜松香》\n- 播放男主童年修复古琴的录像（HG-001怀旧）\n- 女主不自觉收藏男主撕碎的纸屑（RS隐性冲突）\n- 雨滴在玻璃形成量子沙漏图案（HZ长线回收）\n- 松香突然散发HG-004铜镜的金属味（0.1反转）'
+      }
+    ]
+  },
+  'writing-tracker': {
+    name: '📈 写作进度追踪表',
+    sections: [
+      {
+        title: '追踪指标说明',
+        items: [
+          '热梗达成率：实际使用热梗数 ÷ 计划热梗数 × 100%',
+          '冲突强度值：1-5星，根据冲突层次数量评估',
+          '钩子回收比：即时钩3章内回收比例，长线钩跨章标记',
+          '反转冲击波：认知反转、情感反转、物品反转的数量统计',
+          '风险规避检查：敏感内容转化、政策规避、法律风险处理'
+        ]
+      },
+      {
+        title: '追踪示例',
+        table: {
+          headers: ['章节区间', '热梗达成率', '冲突强度值', '钩子回收比', '反转冲击波', '风险规避检查'],
+          rows: [
+            ['1-30章', '118%', '★★★☆', '即时钩82%', '认知反转x3', '修改CT-511中的高校名称为虚构'],
+            ['31-60章', '105%', '★★★★', '长线钩37%', '情感反转x9', '添加"脑波接口"虚构技术声明'],
+            ['61-90章', '127%', '★★★★☆', '即时钩79%', '物品反转x5', '用FL-004替代真实遗产法条款']
+          ]
+        }
+      }
+    ]
+  },
+  'jinji-special': {
+    name: '👑 晋江特供增强包',
+    sections: [
+      {
+        title: '章节末三秒法则',
+        items: [
+          '最后3行必留钩（例："当指纹按在合同第五条款时，整个工坊的灯突然熄灭——那正是母亲去世的时辰"）'
+        ]
+      }
+    ]
+  },
+  'base-formula': {
+    name: '🧮 基础配置公式',
+    sections: [
+      {
+        title: '基础配置公式',
+        code: `热梗量 = 1.2个/章（含跨章持续生效梗）
+冲突量 = 1.5层/章（主冲突+次冲突/人设冲突）
+钩子量 = 2个/章（1即时钩+1长线钩）
+反转量 = 0.3个/章（每3章完成1次完整反转）`
+      }
+    ]
+  },
+  'execute-tech': {
+    name: '⚡ 核心执行技术',
+    sections: [
+      {
+        title: '晋江章节质量评估算法（简化版）',
+        code: `def chapter_quality(hot, conflict, hook, reversal):
+    # 基准值: 热梗1.2 冲突1.5 钩子2 反转0.3
+    score = (hot/1.2)*30 + (conflict/1.5)*30 + (hook/2)*25 + (reversal/0.3)*15
+    if score >= 90: return "S级爆款预备"
+    elif score >= 75: return "A级优质章节"
+    elif score >= 60: return "B级合格线"
+    else: return "C级需修改"
+
+print(chapter_quality(1.5, 2, 3, 0.5))  # 输出：S级爆款预备`
+      },
+      {
+        title: '数据化写作助手',
+        items: [
+          '用Python脚本自动计算每章配置得分',
+          '章节末三秒法则检查'
+        ]
+      }
+    ]
+  }
+};
+
+function renderManual() {
+  const container = document.getElementById('tab-manual');
+  
+  let navHtml = '<div class="manual-nav">';
+  for (const key in MANUAL_DATA) {
+    navHtml += `<button class="manual-nav-btn${currentManualSection === key ? ' active' : ''}" onclick="switchManualSection('${key}')">${MANUAL_DATA[key].name}</button>`;
+  }
+  navHtml += '</div>';
+  
+  let contentHtml = '';
+  const data = MANUAL_DATA[currentManualSection];
+  if (data) {
+    data.sections.forEach(sec => {
+      contentHtml += `<div class="manual-section">
+        <div class="manual-section-title">${sec.title}</div>`;
+      
+      if (sec.items) {
+        contentHtml += '<div class="manual-card"><ul>';
+        sec.items.forEach(item => {
+          contentHtml += `<li>${item}</li>`;
+        });
+        contentHtml += '</ul></div>';
+      }
+      
+      if (sec.subsections) {
+        sec.subsections.forEach(sub => {
+          contentHtml += `<div class="manual-subsection"><h4>${sub.title}</h4><div class="manual-card"><ul>`;
+          sub.items.forEach(item => {
+            contentHtml += `<li>${item}</li>`;
+          });
+          contentHtml += '</ul></div></div>';
+        });
+      }
+      
+      if (sec.table) {
+        contentHtml += '<div class="manual-card"><table class="manual-table"><thead><tr>';
+        sec.table.headers.forEach(h => {
+          contentHtml += `<th>${h}</th>`;
+        });
+        contentHtml += '</tr></thead><tbody>';
+        sec.table.rows.forEach(row => {
+          contentHtml += '<tr>';
+          row.forEach(cell => {
+            contentHtml += `<td>${cell}</td>`;
+          });
+          contentHtml += '</tr>';
+        });
+        contentHtml += '</tbody></table></div>';
+      }
+      
+      if (sec.code) {
+        contentHtml += `<div class="manual-formula">${sec.code}</div>`;
+      }
+      
+      if (sec.note) {
+        contentHtml += `<div class="manual-highlight"><p>${sec.note.replace(/\n/g, '<br>')}</p></div>`;
+      }
+      
+      contentHtml += '</div>';
+    });
+  }
+  
+  container.innerHTML = navHtml + contentHtml;
+}
+
+function switchManualSection(key) {
+  currentManualSection = key;
+  renderManual();
+}
+
+// ==================== 章节元素配置检查器 ====================
+function renderChapterChecker(projectIdx) {
+  const projects = getProjects();
+  const p = projects[projectIdx];
+  if (!p || !p.chapters || p.chapters.length === 0) return '';
+  
+  const chapters = p.chapters;
+  const BASE = { hot: 1.2, conflict: 1.5, hook: 2, reversal: 0.3 };
+  
+  let html = '<div class="manual-section" style="margin-top:20px">';
+  html += '<div class="manual-section-title">章节元素配置检查</div>';
+  
+  chapters.forEach((ch, idx) => {
+    // 计算每章元素数量
+    const wordCount = parseInt(ch.wordCount) || 0;
+    const sceneCount = parseInt(ch.sceneCount) || 1;
+    const emotion = parseInt(ch.emotion) || 5;
+    
+    // 估算元素数量（基于字数和场景数）
+    const hotCount = Math.max(0.5, wordCount / 2500 * 1.2).toFixed(1);
+    const conflictCount = (sceneCount * 0.75).toFixed(1);
+    const hookCount = Math.max(1, Math.floor(wordCount / 1500)).toFixed(1);
+    const reversalCount = (idx % 3 === 2 ? 1 : 0.1).toFixed(1);
+    
+    // 计算得分
+    const score = Math.round(
+      (hotCount / BASE.hot) * 30 +
+      (conflictCount / BASE.conflict) * 30 +
+      (hookCount / BASE.hook) * 25 +
+      (reversalCount / BASE.reversal) * 15
+    );
+    
+    let level = 'C级需修改';
+    let levelColor = '#dc2626';
+    if (score >= 90) { level = 'S级爆款预备'; levelColor = '#059669'; }
+    else if (score >= 75) { level = 'A级优质章节'; levelColor = '#2563eb'; }
+    else if (score >= 60) { level = 'B级合格线'; levelColor = '#d97706'; }
+    
+    html += `
+      <div class="checker-card">
+        <div class="checker-header">
+          <h4>第${idx + 1}章 ${ch.name || '未命名'}</h4>
+          <div style="text-align:right">
+            <div class="checker-score" style="color:${levelColor}">${score}</div>
+            <div class="checker-score-label">${level}</div>
+          </div>
+        </div>
+        
+        <div class="checker-item">
+          <span class="checker-icon">🔥</span>
+          <span class="checker-label">热梗（基准1.2/章）</span>
+          <span class="checker-value">${hotCount}</span>
+          <span class="checker-status ${hotCount >= 1.0 ? 'pass' : hotCount >= 0.8 ? 'warn' : 'fail'}">${hotCount >= 1.0 ? '达标' : hotCount >= 0.8 ? '偏低' : '不足'}</span>
+        </div>
+        <div class="checker-bar"><div class="checker-bar-fill" style="width:${Math.min(100, hotCount / BASE.hot * 100)}%;background:${hotCount >= 1.0 ? '#059669' : '#d97706'}"></div></div>
+        
+        <div class="checker-item">
+          <span class="checker-icon">⚡</span>
+          <span class="checker-label">冲突（基准1.5层/章）</span>
+          <span class="checker-value">${conflictCount}</span>
+          <span class="checker-status ${conflictCount >= 1.2 ? 'pass' : conflictCount >= 0.9 ? 'warn' : 'fail'}">${conflictCount >= 1.2 ? '达标' : conflictCount >= 0.9 ? '偏低' : '不足'}</span>
+        </div>
+        <div class="checker-bar"><div class="checker-bar-fill" style="width:${Math.min(100, conflictCount / BASE.conflict * 100)}%;background:${conflictCount >= 1.2 ? '#059669' : '#d97706'}"></div></div>
+        
+        <div class="checker-item">
+          <span class="checker-icon">🪝</span>
+          <span class="checker-label">钩子（基准2个/章）</span>
+          <span class="checker-value">${hookCount}</span>
+          <span class="checker-status ${hookCount >= 1.5 ? 'pass' : hookCount >= 1.0 ? 'warn' : 'fail'}">${hookCount >= 1.5 ? '达标' : hookCount >= 1.0 ? '偏低' : '不足'}</span>
+        </div>
+        <div class="checker-bar"><div class="checker-bar-fill" style="width:${Math.min(100, hookCount / BASE.hook * 100)}%;background:${hookCount >= 1.5 ? '#059669' : '#d97706'}"></div></div>
+        
+        <div class="checker-item">
+          <span class="checker-icon">🔄</span>
+          <span class="checker-label">反转（基准0.3个/章）</span>
+          <span class="checker-value">${reversalCount}</span>
+          <span class="checker-status ${reversalCount >= 0.3 ? 'pass' : reversalCount >= 0.15 ? 'warn' : 'fail'}">${reversalCount >= 0.3 ? '达标' : reversalCount >= 0.15 ? '偏低' : '不足'}</span>
+        </div>
+        <div class="checker-bar"><div class="checker-bar-fill" style="width:${Math.min(100, reversalCount / BASE.reversal * 100)}%;background:${reversalCount >= 0.3 ? '#059669' : '#d97706'}"></div></div>
+      </div>
+    `;
+  });
+  
+  html += '</div>';
+  return html;
+}
+
+// ==================== 写作进度追踪表 ====================
+function renderWritingTracker(projectIdx) {
+  const projects = getProjects();
+  const p = projects[projectIdx];
+  if (!p || !p.chapters || p.chapters.length === 0) return '';
+  
+  // 从 localStorage 读取追踪数据
+  const trackerKey = 'tracker_' + projectIdx;
+  let trackerData = JSON.parse(localStorage.getItem(trackerKey) || '{}');
+  
+  let html = '<div class="manual-section" style="margin-top:20px">';
+  html += '<div class="manual-section-title">写作进度追踪表</div>';
+  html += '<div class="manual-card"><table class="tracker-table">';
+  html += '<thead><tr><th>章节</th><th>热梗达成率</th><th>冲突强度</th><th>钩子回收比</th><th>反转冲击波</th><th>风险规避</th></tr></thead><tbody>';
+  
+  p.chapters.forEach((ch, idx) => {
+    const data = trackerData[idx] || {};
+    html += `<tr>
+      <td style="white-space:nowrap">第${idx + 1}章</td>
+      <td><input value="${data.hotRate || ''}" onchange="updateTracker(${projectIdx},${idx},'hotRate',this.value)" placeholder="如118%"></td>
+      <td><input value="${data.conflictLevel || ''}" onchange="updateTracker(${projectIdx},${idx},'conflictLevel',this.value)" placeholder="★★★☆"></td>
+      <td><input value="${data.hookRate || ''}" onchange="updateTracker(${projectIdx},${idx},'hookRate',this.value)" placeholder="即时钩82%"></td>
+      <td><input value="${data.reversalCount || ''}" onchange="updateTracker(${projectIdx},${idx},'reversalCount',this.value)" placeholder="认知反转x3"></td>
+      <td><input value="${data.riskCheck || ''}" onchange="updateTracker(${projectIdx},${idx},'riskCheck',this.value)" placeholder="已检查"></td>
+    </tr>`;
+  });
+  
+  html += '</tbody></table></div>';
+  html += '<div class="manual-tip"><p>💡 追踪说明：每写完一章后更新此表。热梗达成率 = 实际使用热梗数 ÷ 计划热梗数 × 100%。钩子回收比 = 即时钩3章内回收比例。</p></div>';
+  html += '</div>';
+  return html;
+}
+
+function updateTracker(projectIdx, chapterIdx, field, value) {
+  const trackerKey = 'tracker_' + projectIdx;
+  let trackerData = JSON.parse(localStorage.getItem(trackerKey) || '{}');
+  if (!trackerData[chapterIdx]) trackerData[chapterIdx] = {};
+  trackerData[chapterIdx][field] = value;
+  localStorage.setItem(trackerKey, JSON.stringify(trackerData));
+  showToast('已保存');
+}
+
+// ==================== 素材库维护工具推荐 ====================
+function renderMaterialTools(libKey) {
+  const TOOLS = {
+    'hot_meme': [
+      { name: '微博超话助手', desc: '自动抓取#言情热梗#话题内容' },
+      { name: 'Web Clipper', desc: '一键保存网页素材到Notion' }
+    ],
+    'conflict': [
+      { name: 'XMind', desc: '绘制「冲突升级路径图」' },
+      { name: '火龙果写作', desc: 'AI辅助扩写/简化冲突' }
+    ],
+    'hook': [
+      { name: 'Plottr', desc: '反转合理性校验功能' },
+      { name: '讯飞语记', desc: '语音记录灵感，日省2小时' }
+    ],
+    'reversal': [
+      { name: 'Plottr', desc: '反转合理性校验' },
+      { name: 'XMind', desc: '绘制反转逻辑图' }
+    ],
+    'character': [
+      { name: 'Campfire Blaze', desc: '可视化生成人物关系网' },
+      { name: 'Artbreeder', desc: 'AI生成角色参考图' }
+    ],
+    'scene': [
+      { name: 'Artbreeder', desc: 'AI合成场景图→文字描述' },
+      { name: 'Web Clipper', desc: '保存场景描写参考' }
+    ],
+    'legal_risk': [
+      { name: '维权骑士', desc: '一键扫描侵权风险' },
+      { name: '查重插件', desc: '每10万字扫描一次' }
+    ]
+  };
+  
+  const tools = TOOLS[libKey] || [];
+  if (tools.length === 0) return '';
+  
+  let html = '<div class="tools-section">';
+  html += '<h4>🛠️ 维护工具推荐</h4>';
+  html += '<div class="tools-grid">';
+  tools.forEach(t => {
+    html += `<div class="tool-card"><div class="tool-name">${t.name}</div><div class="tool-desc">${t.desc}</div></div>`;
+  });
+  html += '</div></div>';
+  return html;
 }
 
 // ==================== 截图识别功能 ====================
@@ -1900,6 +2678,10 @@ window.toggleSnapResult = toggleSnapResult;
 window.removeSnapResult = removeSnapResult;
 window.editSnapResult = editSnapResult;
 window.confirmSnapResults = confirmSnapResults;
+window.switchManualSection = switchManualSection;
+window.renderManual = renderManual;
+window.updateTracker = updateTracker;
+window.renderMaterialTools = renderMaterialTools;
 // currentProject is a module-level variable that needs to be settable from onclick
 Object.defineProperty(window, 'currentProject', {
   get: function() { return currentProject; },
