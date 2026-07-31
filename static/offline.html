@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>里章屿的故事会</title>
+<style>
+:root{--bg-primary:#1a1a2e;--bg-secondary:#16213e;--bg-card:#1f2940;--bg-input:#252d3f;--text-primary:#e0e0e0;--text-secondary:#a0a0b0;--text-muted:#6a6a7a;--accent:#e94560;--accent-hover:#ff6b81;--accent-dim:rgba(233,69,96,0.15);--border:#2a3350;--success:#4ecca3;--warning:#ffc107;--danger:#e94560;--nav-bg:#0f1629;--shadow:0 2px 8px rgba(0,0,0,0.3);--radius:8px;--radius-lg:12px;--font-xs:11px;--font-sm:12px;--font-md:14px;--font-lg:16px;--font-xl:20px;--font-xxl:24px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.5;max-width:100vw;overflow-x:hidden;padding-bottom:70px;-webkit-tap-highlight-color:transparent}
+.app-header{background:var(--bg-secondary);padding:12px 16px;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.app-header h1{font-size:var(--font-lg);color:var(--accent);font-weight:700}
+.app-header .subtitle{font-size:var(--font-xs);color:var(--text-muted)}
+.tab-content{display:none;padding:12px;max-width:800px;margin:0 auto}
+.tab-content.active{display:block}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--nav-bg);display:flex;border-top:1px solid var(--border);z-index:100}
+.bottom-nav .nav-item{flex:1;text-align:center;padding:8px 4px;cursor:pointer;color:var(--text-muted);font-size:var(--font-xs);transition:all 0.2s;-webkit-tap-highlight-color:transparent;user-select:none}
+.bottom-nav .nav-item.active{color:var(--accent)}
+.bottom-nav .nav-item .nav-icon{font-size:20px;display:block;margin-bottom:2px}
+.card{background:var(--bg-card);border-radius:var(--radius-lg);padding:14px;margin-bottom:10px;border:1px solid var(--border);cursor:pointer;transition:border-color 0.2s}
+.card:hover{border-color:var(--accent)}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.card-title{font-size:var(--font-md);font-weight:600;flex:1}
+.card-badge{font-size:var(--font-xs);padding:2px 8px;border-radius:10px;background:var(--accent-dim);color:var(--accent);white-space:nowrap;margin-left:8px}
+.card-meta{font-size:var(--font-xs);color:var(--text-muted);display:flex;gap:10px;flex-wrap:wrap}
+.card-expand{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:var(--font-sm);color:var(--text-secondary)}
+.card.expanded .card-expand{display:block}
+.tag{display:inline-block;font-size:var(--font-xs);padding:2px 6px;border-radius:4px;background:var(--bg-input);color:var(--text-secondary);margin:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:8px 16px;border-radius:var(--radius);font-size:var(--font-sm);font-weight:600;border:none;cursor:pointer;transition:all 0.2s;min-height:36px;-webkit-tap-highlight-color:transparent}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-secondary{background:var(--bg-input);color:var(--text-primary);border:1px solid var(--border)}
+.btn-success{background:var(--success);color:#000}
+.btn-sm{padding:4px 10px;font-size:var(--font-xs);min-height:28px}
+.btn-danger{background:var(--danger);color:#fff}
+.search-bar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.search-bar input,.search-bar select{padding:8px 12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm);flex:1;min-width:100px}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.stat-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:14px;text-align:center;border:1px solid var(--border)}
+.stat-card .stat-value{font-size:var(--font-xxl);font-weight:700;color:var(--accent)}
+.stat-card .stat-label{font-size:var(--font-xs);color:var(--text-muted);margin-top:4px}
+.library-layout{display:flex;gap:10px;min-height:60vh}
+.library-sidebar{width:160px;min-width:140px;flex-shrink:0;overflow-y:auto}
+.library-main{flex:1;min-width:0}
+.library-group{margin-bottom:8px}
+.library-group-header{padding:8px 10px;font-size:var(--font-xs);color:var(--text-muted);font-weight:700;cursor:pointer;background:var(--bg-secondary);border-radius:var(--radius);display:flex;align-items:center;gap:4px}
+.library-group-items{display:none;padding:4px 0 4px 8px}
+.library-group.open .library-group-items{display:block}
+.library-item{padding:8px 10px;font-size:var(--font-sm);cursor:pointer;border-radius:var(--radius);color:var(--text-secondary);margin:2px 0;transition:all 0.2s}
+.library-item:hover{background:var(--bg-input)}
+.library-item.active{background:var(--accent-dim);color:var(--accent);font-weight:600}
+.library-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+.library-search{padding:6px 10px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm);min-width:150px}
+.material-table{width:100%;border-collapse:collapse;font-size:var(--font-xs)}
+.material-table th{background:var(--bg-secondary);padding:8px 6px;text-align:left;border-bottom:2px solid var(--border);color:var(--text-secondary);white-space:nowrap}
+.material-table td{padding:6px;border-bottom:1px solid var(--border);vertical-align:top;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.material-table tr:hover{background:var(--bg-input)}
+.pagination{display:flex;gap:6px;justify-content:center;margin-top:12px;align-items:center}
+.pagination span{font-size:var(--font-sm);color:var(--text-muted)}
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:200;justify-content:center;align-items:center;padding:20px}
+.modal-overlay.active{display:flex}
+.modal{background:var(--bg-secondary);border-radius:var(--radius-lg);padding:20px;max-width:600px;width:100%;max-height:80vh;overflow-y:auto;border:1px solid var(--border)}
+.modal h3{margin-bottom:12px;font-size:var(--font-lg)}
+.modal .form-group{margin-bottom:10px}
+.modal .form-group label{display:block;font-size:var(--font-xs);color:var(--text-muted);margin-bottom:4px}
+.modal .form-group input,.modal .form-group textarea,.modal .form-group select{width:100%;padding:8px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm)}
+.modal .form-group textarea{min-height:60px;resize:vertical}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+.project-form{margin-bottom:16px}
+.project-form .form-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.project-form input,.project-form select{padding:8px 12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-input);color:var(--text-primary);font-size:var(--font-sm);flex:1;min-width:100px}
+.project-table{width:100%;border-collapse:collapse;font-size:var(--font-xs);margin-bottom:12px}
+.project-table th{background:var(--bg-secondary);padding:6px 4px;text-align:left;border-bottom:2px solid var(--border);color:var(--text-secondary)}
+.project-table td{padding:4px;border-bottom:1px solid var(--border)}
+.project-table input{width:100%;padding:4px 6px;background:var(--bg-input);border:1px solid transparent;color:var(--text-primary);font-size:var(--font-xs);border-radius:4px}
+.project-table input:focus{border-color:var(--accent);outline:none}
+.chart-container{background:var(--bg-card);border-radius:var(--radius-lg);padding:14px;margin-bottom:12px;border:1px solid var(--border)}
+.chart-container canvas{width:100%;max-width:100%}
+.analysis-results{margin-top:12px}
+.analysis-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:12px;margin-bottom:8px;border:1px solid var(--border)}
+.analysis-card h4{font-size:var(--font-sm);color:var(--accent);margin-bottom:6px}
+.toast{position:fixed;top:60px;right:16px;background:var(--success);color:#000;padding:10px 16px;border-radius:var(--radius);font-size:var(--font-sm);z-index:300;animation:fadeInOut 2s forwards}
+@keyframes fadeInOut{0%{opacity:0;transform:translateY(-10px)}15%{opacity:1;transform:translateY(0)}85%{opacity:1}100%{opacity:0}}
+@media(max-width:600px){
+.library-layout{flex-direction:column}
+.library-sidebar{width:100%;display:flex;gap:6px;overflow-x:auto;flex-wrap:wrap}
+.library-group{margin-bottom:0}
+.library-group-header{font-size:10px;padding:6px 8px}
+.material-table{font-size:10px}
+.material-table td{max-width:100px}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="app-header">
+  <div>
+    <h1>里章屿的故事会</h1>
+    <div class="subtitle">热点追踪 · 素材管理 · 小说拆解</div>
+  </div>
+</div>
+
+<div id="tab-hotspots" class="tab-content active"></div>
+<div id="tab-materials" class="tab-content"></div>
+<div id="tab-workshop" class="tab-content"></div>
+<div id="tab-dashboard" class="tab-content"></div>
+
+<div class="bottom-nav">
+  <div class="nav-item active" data-tab="hotspots"><span class="nav-icon">&#x1f525;</span>热点列表</div>
+  <div class="nav-item" data-tab="materials"><span class="nav-icon">&#x1f4da;</span>素材库</div>
+  <div class="nav-item" data-tab="workshop"><span class="nav-icon">&#x1f527;</span>拆解工坊</div>
+  <div class="nav-item" data-tab="dashboard"><span class="nav-icon">&#x1f4ca;</span>仪表盘</div>
+</div>
+
+<div id="toast-container"></div>
+
+<script>
+const EMBEDDED_HOTSPOTS = {"微博": [{"platform": "微博", "section": "热搜榜", "rank": 0, "title": "欧足联决定抵制世界杯", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E6%AC%A7%E8%B6%B3%E8%81%94%E5%86%B3%E5%AE%9A%E6%8A%B5%E5%88%B6%E4%B8%96%E7%95%8C%E6%9D%AF", "content": "欧足联决定抵制世界杯", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.200737", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 1, "title": "凤囚凰 古偶烂片史上难以逾越的高峰", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%87%A4%E5%9B%9A%E5%87%B0%20%E5%8F%A4%E5%81%B6%E7%83%82%E7%89%87%E5%8F%B2%E4%B8%8A%E9%9A%BE%E4%BB%A5%E9%80%BE%E8%B6%8A%E7%9A%84%E9%AB%98%E5%B3%B0", "content": "凤囚凰 古偶烂片史上难以逾越的高峰", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.200801", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 2, "title": "长江十年行", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E9%95%BF%E6%B1%9F%E5%8D%81%E5%B9%B4%E8%A1%8C", "content": "长江十年行", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.200826", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 3, "title": "马斯克最新预言来了", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E9%A9%AC%E6%96%AF%E5%85%8B%E6%9C%80%E6%96%B0%E9%A2%84%E8%A8%80%E6%9D%A5%E4%BA%86", "content": "马斯克最新预言来了", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.200847", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 4, "title": "女子做检查时身亡丈夫称麻醉师玩手机", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%A5%B3%E5%AD%90%E5%81%9A%E6%A3%80%E6%9F%A5%E6%97%B6%E8%BA%AB%E4%BA%A1%E4%B8%88%E5%A4%AB%E7%A7%B0%E9%BA%BB%E9%86%89%E5%B8%88%E7%8E%A9%E6%89%8B%E6%9C%BA", "content": "女子做检查时身亡丈夫称麻醉师玩手机", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.200870", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 5, "title": "豆包究竟见过多少人的糗事", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E8%B1%86%E5%8C%85%E7%A9%B6%E7%AB%9F%E8%A7%81%E8%BF%87%E5%A4%9A%E5%B0%91%E4%BA%BA%E7%9A%84%E7%B3%97%E4%BA%8B", "content": "豆包究竟见过多少人的糗事", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.200895", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 6, "title": "医生称多囊卵巢综合征名字害惨女性", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%8C%BB%E7%94%9F%E7%A7%B0%E5%A4%9A%E5%9B%8A%E5%8D%B5%E5%B7%A2%E7%BB%BC%E5%90%88%E5%BE%81%E5%90%8D%E5%AD%97%E5%AE%B3%E6%83%A8%E5%A5%B3%E6%80%A7", "content": "医生称多囊卵巢综合征名字害惨女性", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.200920", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 7, "title": "莲子切开里面有个小娃娃", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E8%8E%B2%E5%AD%90%E5%88%87%E5%BC%80%E9%87%8C%E9%9D%A2%E6%9C%89%E4%B8%AA%E5%B0%8F%E5%A8%83%E5%A8%83", "content": "莲子切开里面有个小娃娃", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.200944", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 8, "title": "陈伟霆九门老九门出场对比", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E9%99%88%E4%BC%9F%E9%9C%86%E4%B9%9D%E9%97%A8%E8%80%81%E4%B9%9D%E9%97%A8%E5%87%BA%E5%9C%BA%E5%AF%B9%E6%AF%94", "content": "陈伟霆九门老九门出场对比", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.200965", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 9, "title": "吴宜泽6比5墨菲", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%90%B4%E5%AE%9C%E6%B3%BD6%E6%AF%945%E5%A2%A8%E8%8F%B2", "content": "吴宜泽6比5墨菲", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.200995", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 10, "title": "女子被公公强奸丈夫称父亲喝醉了", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%A5%B3%E5%AD%90%E8%A2%AB%E5%85%AC%E5%85%AC%E5%BC%BA%E5%A5%B8%E4%B8%88%E5%A4%AB%E7%A7%B0%E7%88%B6%E4%BA%B2%E5%96%9D%E9%86%89%E4%BA%86", "content": "女子被公公强奸丈夫称父亲喝醉了", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201016", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 11, "title": "连云港火灾母女坠楼", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E8%BF%9E%E4%BA%91%E6%B8%AF%E7%81%AB%E7%81%BE%E6%AF%8D%E5%A5%B3%E5%9D%A0%E6%A5%BC", "content": "连云港火灾母女坠楼", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201039", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 12, "title": "丈夫和第三者胚胎是婚姻耻辱", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E4%B8%88%E5%A4%AB%E5%92%8C%E7%AC%AC%E4%B8%89%E8%80%85%E8%83%9A%E8%83%8E%E6%98%AF%E5%A9%9A%E5%A7%BB%E8%80%BB%E8%BE%B1", "content": "丈夫和第三者胚胎是婚姻耻辱", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201060", "story_analysis": {"story_categories": [{"category": "情感冲突", "description": "婆媳、彩礼、出轨、扶弟魔、原生家庭之痛", "matched_keywords": ["婚姻"], "story_type": "现言, 婚恋, 家庭伦理", "weight": 3}], "matched_keywords": ["婚姻"], "story_score": 35, "emotion_density": 0.0, "is_story_worthy": true, "story_type": "现言, 婚恋, 家庭伦理"}, "source_weight": 4, "what_if_prompts": ["如果主角是受害者，TA会怎样反击？", "如果主角是施害者，TA的动机是什么？", "如果这场冲突发生在大结局前夜呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 13, "title": "迪丽热巴张碧晨的妆都是金鹤龙化的", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4%E5%BC%A0%E7%A2%A7%E6%99%A8%E7%9A%84%E5%A6%86%E9%83%BD%E6%98%AF%E9%87%91%E9%B9%A4%E9%BE%99%E5%8C%96%E7%9A%84", "content": "迪丽热巴张碧晨的妆都是金鹤龙化的", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201082", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 14, "title": "刘耀文瘦成这样", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%88%98%E8%80%80%E6%96%87%E7%98%A6%E6%88%90%E8%BF%99%E6%A0%B7", "content": "刘耀文瘦成这样", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201104", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 15, "title": "小米澎程N90价格", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%B0%8F%E7%B1%B3%E6%BE%8E%E7%A8%8BN90%E4%BB%B7%E6%A0%BC", "content": "小米澎程N90价格", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201123", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 16, "title": "显卡全面封仓", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E6%98%BE%E5%8D%A1%E5%85%A8%E9%9D%A2%E5%B0%81%E4%BB%93", "content": "显卡全面封仓", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201142", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 17, "title": "中际旭创股东减持公告", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E4%B8%AD%E9%99%85%E6%97%AD%E5%88%9B%E8%82%A1%E4%B8%9C%E5%87%8F%E6%8C%81%E5%85%AC%E5%91%8A", "content": "中际旭创股东减持公告", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201161", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 18, "title": "九门爆开", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E4%B9%9D%E9%97%A8%E7%88%86%E5%BC%80", "content": "九门爆开", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201181", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 19, "title": "宋威龙 热巴姐你好像提前放扇子了", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%AE%8B%E5%A8%81%E9%BE%99%20%E7%83%AD%E5%B7%B4%E5%A7%90%E4%BD%A0%E5%A5%BD%E5%83%8F%E6%8F%90%E5%89%8D%E6%94%BE%E6%89%87%E5%AD%90%E4%BA%86", "content": "宋威龙 热巴姐你好像提前放扇子了", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201200", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 20, "title": "建议大家不要活在朋友圈", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%BB%BA%E8%AE%AE%E5%A4%A7%E5%AE%B6%E4%B8%8D%E8%A6%81%E6%B4%BB%E5%9C%A8%E6%9C%8B%E5%8F%8B%E5%9C%88", "content": "建议大家不要活在朋友圈", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201222", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 21, "title": "你甚至可以看到植物打人", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E4%BD%A0%E7%94%9A%E8%87%B3%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%A4%8D%E7%89%A9%E6%89%93%E4%BA%BA", "content": "你甚至可以看到植物打人", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201243", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 22, "title": "腾讯因为没有文档文化无法蒸馏", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E8%85%BE%E8%AE%AF%E5%9B%A0%E4%B8%BA%E6%B2%A1%E6%9C%89%E6%96%87%E6%A1%A3%E6%96%87%E5%8C%96%E6%97%A0%E6%B3%95%E8%92%B8%E9%A6%8F", "content": "腾讯因为没有文档文化无法蒸馏", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201263", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 23, "title": "吵架后从18楼跳下女子称很后悔", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%90%B5%E6%9E%B6%E5%90%8E%E4%BB%8E18%E6%A5%BC%E8%B7%B3%E4%B8%8B%E5%A5%B3%E5%AD%90%E7%A7%B0%E5%BE%88%E5%90%8E%E6%82%94", "content": "吵架后从18楼跳下女子称很后悔", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201285", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 24, "title": "迪丽热巴嘉人CEO合照", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4%E5%98%89%E4%BA%BACEO%E5%90%88%E7%85%A7", "content": "迪丽热巴嘉人CEO合照", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201313", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 25, "title": "白玉兰自己也在回味", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E7%99%BD%E7%8E%89%E5%85%B0%E8%87%AA%E5%B7%B1%E4%B9%9F%E5%9C%A8%E5%9B%9E%E5%91%B3", "content": "白玉兰自己也在回味", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201333", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 26, "title": "泰国部长称不欢迎给他人造成损害的游客", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E6%B3%B0%E5%9B%BD%E9%83%A8%E9%95%BF%E7%A7%B0%E4%B8%8D%E6%AC%A2%E8%BF%8E%E7%BB%99%E4%BB%96%E4%BA%BA%E9%80%A0%E6%88%90%E6%8D%9F%E5%AE%B3%E7%9A%84%E6%B8%B8%E5%AE%A2", "content": "泰国部长称不欢迎给他人造成损害的游客", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201355", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 27, "title": "王橹杰杀了一颗苹果", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E7%8E%8B%E6%A9%B9%E6%9D%B0%E6%9D%80%E4%BA%86%E4%B8%80%E9%A2%97%E8%8B%B9%E6%9E%9C", "content": "王橹杰杀了一颗苹果", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201379", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 28, "title": "披荆斩棘阵容", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E6%8A%AB%E8%8D%86%E6%96%A9%E6%A3%98%E9%98%B5%E5%AE%B9", "content": "披荆斩棘阵容", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201398", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 29, "title": "宇树科技股票发行安排", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%AE%87%E6%A0%91%E7%A7%91%E6%8A%80%E8%82%A1%E7%A5%A8%E5%8F%91%E8%A1%8C%E5%AE%89%E6%8E%92", "content": "宇树科技股票发行安排", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201416", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 30, "title": "美国吸毒女子像虫子一样在地上蠕动", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E7%BE%8E%E5%9B%BD%E5%90%B8%E6%AF%92%E5%A5%B3%E5%AD%90%E5%83%8F%E8%99%AB%E5%AD%90%E4%B8%80%E6%A0%B7%E5%9C%A8%E5%9C%B0%E4%B8%8A%E8%A0%95%E5%8A%A8", "content": "美国吸毒女子像虫子一样在地上蠕动", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201437", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 31, "title": "男生每天躺玩手机超5小时无法走路", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E7%94%B7%E7%94%9F%E6%AF%8F%E5%A4%A9%E8%BA%BA%E7%8E%A9%E6%89%8B%E6%9C%BA%E8%B6%855%E5%B0%8F%E6%97%B6%E6%97%A0%E6%B3%95%E8%B5%B0%E8%B7%AF", "content": "男生每天躺玩手机超5小时无法走路", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201460", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 32, "title": "曝BLG联系不到Bin", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E6%9B%9DBLG%E8%81%94%E7%B3%BB%E4%B8%8D%E5%88%B0Bin", "content": "曝BLG联系不到Bin", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201482", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 33, "title": "吴雅婷 我没有蹭王栎鑫热度", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%90%B4%E9%9B%85%E5%A9%B7%20%E6%88%91%E6%B2%A1%E6%9C%89%E8%B9%AD%E7%8E%8B%E6%A0%8E%E9%91%AB%E7%83%AD%E5%BA%A6", "content": "吴雅婷 我没有蹭王栎鑫热度", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201501", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 34, "title": "6旬老人坚持地中海饮食3个月瘦37斤", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=6%E6%97%AC%E8%80%81%E4%BA%BA%E5%9D%9A%E6%8C%81%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A5%AE%E9%A3%9F3%E4%B8%AA%E6%9C%88%E7%98%A637%E6%96%A4", "content": "6旬老人坚持地中海饮食3个月瘦37斤", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201523", "story_analysis": {"story_categories": [{"category": "猎奇与反转", "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转", "matched_keywords": ["老人"], "story_type": "悬疑, 幻言, 奇幻, 现言", "weight": 2}], "matched_keywords": ["老人"], "story_score": 25, "emotion_density": 0.0, "is_story_worthy": true, "story_type": "悬疑, 幻言, 奇幻, 现言"}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 35, "title": "小米澎程N70", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%B0%8F%E7%B1%B3%E6%BE%8E%E7%A8%8BN70", "content": "小米澎程N70", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201541", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 36, "title": "日元全线飙升", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E6%97%A5%E5%85%83%E5%85%A8%E7%BA%BF%E9%A3%99%E5%8D%87", "content": "日元全线飙升", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201560", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 37, "title": "尹新月 赵丽颖", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%B0%B9%E6%96%B0%E6%9C%88%20%E8%B5%B5%E4%B8%BD%E9%A2%96", "content": "尹新月 赵丽颖", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201579", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 38, "title": "婚外胚胎事件患癌妻子愤怒发声", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%A9%9A%E5%A4%96%E8%83%9A%E8%83%8E%E4%BA%8B%E4%BB%B6%E6%82%A3%E7%99%8C%E5%A6%BB%E5%AD%90%E6%84%A4%E6%80%92%E5%8F%91%E5%A3%B0", "content": "婚外胚胎事件患癌妻子愤怒发声", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201597", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 20, "emotion_density": 2.0, "is_story_worthy": true, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 39, "title": "日元", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E6%97%A5%E5%85%83", "content": "日元", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201620", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 40, "title": "吴谨言曾说墨雨云间是自己的救命稻草", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%90%B4%E8%B0%A8%E8%A8%80%E6%9B%BE%E8%AF%B4%E5%A2%A8%E9%9B%A8%E4%BA%91%E9%97%B4%E6%98%AF%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%91%E5%91%BD%E7%A8%BB%E8%8D%89", "content": "吴谨言曾说墨雨云间是自己的救命稻草", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201799", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 41, "title": "超强台风白海豚最新路径公布", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E8%B6%85%E5%BC%BA%E5%8F%B0%E9%A3%8E%E7%99%BD%E6%B5%B7%E8%B1%9A%E6%9C%80%E6%96%B0%E8%B7%AF%E5%BE%84%E5%85%AC%E5%B8%83", "content": "超强台风白海豚最新路径公布", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201824", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 42, "title": "多囊卵巢综合征为什么要更名", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%A4%9A%E5%9B%8A%E5%8D%B5%E5%B7%A2%E7%BB%BC%E5%90%88%E5%BE%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9B%B4%E5%90%8D", "content": "多囊卵巢综合征为什么要更名", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201845", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 43, "title": "BLG经理否认Bin失联", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=BLG%E7%BB%8F%E7%90%86%E5%90%A6%E8%AE%A4Bin%E5%A4%B1%E8%81%94", "content": "BLG经理否认Bin失联", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201867", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 44, "title": "Meta大跌9%", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=Meta%E5%A4%A7%E8%B7%8C9%25", "content": "Meta大跌9%", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201892", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 45, "title": "八仙", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E5%85%AB%E4%BB%99", "content": "八仙", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201911", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 46, "title": "男子带猫打针暴打猫咪大闹医院", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E7%94%B7%E5%AD%90%E5%B8%A6%E7%8C%AB%E6%89%93%E9%92%88%E6%9A%B4%E6%89%93%E7%8C%AB%E5%92%AA%E5%A4%A7%E9%97%B9%E5%8C%BB%E9%99%A2", "content": "男子带猫打针暴打猫咪大闹医院", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201928", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 47, "title": "肖战在钦天监有人啊", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E8%82%96%E6%88%98%E5%9C%A8%E9%92%A6%E5%A4%A9%E7%9B%91%E6%9C%89%E4%BA%BA%E5%95%8A", "content": "肖战在钦天监有人啊", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201949", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 48, "title": "王腾买了小米N90Max", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E7%8E%8B%E8%85%BE%E4%B9%B0%E4%BA%86%E5%B0%8F%E7%B1%B3N90Max", "content": "王腾买了小米N90Max", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.201969", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "微博", "section": "热搜榜", "rank": 49, "title": "曝刑警荣誉是宋威龙的首部正剧", "heat": "", "category": "", "hot_type": "日常热点", "url": "https://s.weibo.com/weibo?q=%E6%9B%9D%E5%88%91%E8%AD%A6%E8%8D%A3%E8%AA%89%E6%98%AF%E5%AE%8B%E5%A8%81%E9%BE%99%E7%9A%84%E9%A6%96%E9%83%A8%E6%AD%A3%E5%89%A7", "content": "曝刑警荣誉是宋威龙的首部正剧", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.202008", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 4, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}], "知乎热榜": [], "知乎日报": [{"platform": "知乎日报", "section": "知乎日报", "rank": 1, "title": "一直拍打蚊子不让蚊子落地，让它只能一直飞，蚊子会累死吗？", "heat": "", "category": "", "hot_type": "深度报道", "url": "https://daily.zhihu.com/story/9791570", "content": "艾比斯 · 1 分钟阅读", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.667505", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 7, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "知乎日报", "section": "知乎日报", "rank": 2, "title": "如果塔里木河最终流入大海的话长度将会如何？", "heat": "", "category": "", "hot_type": "深度报道", "url": "https://daily.zhihu.com/story/9791575", "content": "宁南左侯 · 3 分钟阅读", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.667563", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 7, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "知乎日报", "section": "知乎日报", "rank": 3, "title": "黄鳝泥鳅这种在国内被视为滋补佳肴的淡水生物，为啥在西方餐桌上几乎绝迹？是文化不同还是口味差异？", "heat": "", "category": "", "hot_type": "深度报道", "url": "https://daily.zhihu.com/story/9791576", "content": "执戟郎 · 3 分钟阅读", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.667588", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 7, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "知乎日报", "section": "知乎日报", "rank": 4, "title": "瞎扯 · 如何正确地吐槽", "heat": "", "category": "", "hot_type": "深度报道", "url": "https://daily.zhihu.com/story/9791583", "content": "VOL.3957", "top_comments": [], "fetch_time": "2026-07-31T08:00:00.667630", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 7, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}], "B站": [{"platform": "B站", "section": "热门", "rank": 1, "title": "抵抗者2026实机演示", "heat": "播放7198697", "category": "单机游戏", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1rW326hEKe", "content": "在那黑暗岁月，我们早已习惯生离死别。\n侵略者的铁蹄踏碎山河，每一寸土地燃烧。\n我们是驰骋在林海雪原，不屈的抗联；\n我们是隐谧在绝境的孤岛，永不消逝的电波；\n我们是翻腾在运河的波涛，快意恩仇的尖刀；\n我们是屹立在太行之巅，血肉筑起的长城。\n拿起武器，我们是抵抗者！", "top_comments": ["[7745赞] 游戏武器体验官冒头[OK]\n孩子们是的\n我负责监督枪械手感[脱单doge]", "[3629赞] 老使命召唤的剧情模式是值得借鉴的，我觉得像使命召唤没什么丢人的，大大方方做。游戏性和叙事最优先，不犯错误的红线保证就行了。为了思想表达而放弃游戏性才是舍本逐末，希望制作组可以保持良好的心态，不被外界声音影响。", "[1818赞] 游戏发售后，使用风灵月影的玩家：", "[1509赞] 视频结尾枪上的标志应该是日本菊花纹章\n\n绝大多数为日本陆军生产的制式枪械上都有菊花纹章。这枚十六瓣八重表菊纹是天皇的个人徽记，出现在枪上代表该枪属于天皇本人，是士兵被“神赐”的武器。\n\n伪满洲国的兵工厂为日军生产的武器也可能有这样的标志。", "[1559赞] 建议不要听评论区有些一眼没玩过游戏的建议[汤圆]我不想一个优品游戏改成四不像"], "aid": "117002660480326", "fetch_time": "2026-07-31T08:00:00.852722", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 2, "title": "小时候看不懂，长大后已是局中人", "heat": "播放1124669", "category": "影视剪辑", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1qh3W6bEqf", "content": "二十万粉庆贺！正巧用上了二十年这个意向，这几个月一直都在碰壁，还好一直有人私信鼓励我，获益良多也重新振作了精神，所以用这个视频表达感谢，素材也是应粉丝要求而做，希望二十年后，我还在大家身旁。观众朋友们看得开心哦！\n\n写一封信 将我的想法都记下\n等老了慢慢看\n简单的日子 正要感受好时光\n全都拿来珍藏\n人生的阶段 所有口味都品尝\n是快乐或遗憾\n不必去追赶 正在奔跑的时光\n心安便是寻常", "top_comments": ["[89赞] 本来以为你要狗熊岭顶级智斗，你给我来升华煽情，你这不是耍俺吗", "[26赞] 拍拍拍拍你妹 打开评论区全是合影 远方传来风笛", "[88赞] 依旧高质视频配低质评论[微笑]", "[77赞] 20年后估计蹦蹦 涂涂还有萝卜头已经似了[doge]", "[128赞] 知道这张图的应该都老了吧[doge]"], "aid": "117006015662986", "fetch_time": "2026-07-31T08:00:01.358509", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 3, "title": "挑战从东北徒步到西藏( 十倍速1小时5分版）", "heat": "播放3372854", "category": "出行", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1c4326hEkj", "content": "", "top_comments": ["[919赞] 挑战从床上到门口拿外卖，不得不做，这件事情足以危及我的生命👍", "[235赞] 这就是互联网最初的样子，连角马都能上网发视频", "[2657赞] be like：", "[4427赞] 你去护送文成公主和亲", "[2772赞] 挑战下楼扔掉偷偷点的外卖盒"], "aid": "117002559558901", "fetch_time": "2026-07-31T08:00:01.809168", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 4, "title": "【独家】《将夜》第16集 永字八法【4月国创】", "heat": "播放948385", "category": "国产动画", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1fn3J6SEWw", "content": "每周四中午11:00，bilibili独家呈现。", "top_comments": ["[104赞] 简大家打过招呼，待遇就是不一样啊[doge]", "[11赞] 这么精彩，精良的国漫，希望有续作", "[69赞] 我好像也看懂了，就是脑子晕乎乎的，先午睡一会再说～[吃瓜]", "[29赞] 现在大家都知道练好字的重要性了吧", "[23赞] 在这我提一嘴，桑桑真可爱捏"], "aid": "117004388337351", "fetch_time": "2026-07-31T08:00:02.301806", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 5, "title": "【世界杯终局之战 续集】复仇者，冲锋！", "heat": "播放1637001", "category": "鬼畜剧场", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1Dc3H63EUh", "content": "感谢观众姥爷们对上一期视频的喜爱\n本期视频秉持着观众们的期待，耗时7天打磨终于完成，希望各位观众姥爷看个开心！\n对了，不要忘记给Up一键三连哦，让up回回血，感谢支持！\n\nPS.其实up是意大利球迷，看世界杯纯属隔岸观火。\n视频内容仅是根据up看世界杯上发生的趣事和个人感受进行的胡乱改编，并没有针对谁或谁家粉丝，如果您看视频感到冒犯，您可以...下单购买一个up的道歉视频~~~\n\n世界杯鬼畜系列到此结束，咱们四年后有缘再更新这个系列啦！", "top_comments": ["[41赞] 奶奶滴！为什么不说！？[生气][生气][生气]", "[17赞] 虽然对梅西无感，但也不喜欢 C罗，你这夹带私货太明显", "[104赞] 提议把阿根廷阵容里面放一些中国球迷", "[183赞] [藏狐][藏狐][藏狐]", "[6赞] 蓝白眼里是不是就只有两类球迷，一边是蓝白粉丝，一边是C罗粉丝？"], "aid": "117005445242123", "fetch_time": "2026-07-31T08:00:02.773443", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 4, "emotion_density": 0.42, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 6, "title": "奇怪的玩具工厂 第五章 Part2，结局", "heat": "播放1509749", "category": "单机游戏", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1DT3x6XEYv", "content": "奇怪的玩具工厂 第五章 Part2 结局\n⛔请勿相信其他任何自称是我（鲤鱼Ace）的言论或求助\n⛔我不会在任何社交平台上创建官方社群或添加好友\n⛔请勿相信由人为模仿或人工智能生成关于我（鲤鱼Ace）的任何内容\n⛔内容仅供娱乐，与现实中任何事件无关，请勿代入并联想，请勿模仿\n⛔未经授权，禁止转载", "top_comments": [], "aid": "117007106180437", "fetch_time": "2026-07-31T08:00:03.238717", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 7, "title": "《灰境行者》全新预告丨PC测试定档9月", "heat": "播放2181199", "category": "GMV", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1kx326wErM", "content": "去年首曝时，我们展示了《灰境行者》的PvP玩法——猎杀发育，夺宝对决。\n今天新预告片中，大家会看到“微恐宇宙”中一套独立的玩法模式——三人合作PvE。\n此外，大家最关心的——《灰境行者》首次PC测试将于今年9月正式开启，测试报名通道也会在8月下旬开放。欢迎各位行者来到灰境，享受战斗。\n* 游戏处于研发阶段，展示内容不代表游戏最终品质。", "top_comments": [], "aid": "117002576466119", "fetch_time": "2026-07-31T08:00:03.238839", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 8, "title": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。", "heat": "播放1506780", "category": "出行", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1iAKb6xEEV", "content": "", "top_comments": [], "aid": "116957160546174", "fetch_time": "2026-07-31T08:00:03.238891", "story_analysis": {"story_categories": [{"category": "猎奇与反转", "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转", "matched_keywords": ["离谱"], "story_type": "悬疑, 幻言, 奇幻, 现言", "weight": 2}], "matched_keywords": ["离谱"], "story_score": 35, "emotion_density": 1.0, "is_story_worthy": true, "story_type": "悬疑, 幻言, 奇幻, 现言"}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 9, "title": "孩子们，出了社会可没人惯着你", "heat": "播放2115455", "category": "鬼畜调教", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1gL3z6dEAQ", "content": "出了社会可没人惯着你！牢大说他要惯着你！", "top_comments": [], "aid": "116998415720051", "fetch_time": "2026-07-31T08:00:03.238917", "story_analysis": {"story_categories": [{"category": "猎奇与反转", "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转", "matched_keywords": ["孩子"], "story_type": "悬疑, 幻言, 奇幻, 现言", "weight": 2}], "matched_keywords": ["孩子"], "story_score": 25, "emotion_density": 0.0, "is_story_worthy": true, "story_type": "悬疑, 幻言, 奇幻, 现言"}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 10, "title": "手绘469张！还原EVA主题曲", "heat": "播放1536385", "category": "绘画", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1aP326jEi8", "content": "感谢观看~o(〃'▽'〃)o\n手绘469张\n耗时20天\nBgm 残酷な天使のテーゼ", "top_comments": [], "aid": "117002878394204", "fetch_time": "2026-07-31T08:00:03.238935", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 11, "title": "当所有人随机获得英雄联盟的一个技能...【AI全民制作人】", "heat": "播放591381", "category": "影视杂谈", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1rw316ZEmM", "content": "燃起来了！", "top_comments": [], "aid": "117003280981615", "fetch_time": "2026-07-31T08:00:03.238963", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 12, "title": "【花小烙】游隼：地球上俯冲速度最快的“鸟中战斗机”是如何炼成的？", "heat": "播放640045", "category": "科学科普", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1UFge6qEty", "content": "作为俯冲时速可达389公里的地球“速度之王”，游隼是如何做到的？", "top_comments": [], "aid": "116973635771902", "fetch_time": "2026-07-31T08:00:03.238997", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 13, "title": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当", "heat": "播放573715", "category": "社会", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1mu3W6CEZz", "content": "罕见龙卷风突袭，今年营收有望过亿的公司被夷为平地……湖北老板3分钟内同时失去了父母和家当，在他感觉撑不下去时，公司2天内绝境重生。", "top_comments": [], "aid": "117006183434197", "fetch_time": "2026-07-31T08:00:03.239026", "story_analysis": {"story_categories": [{"category": "社会冲突", "description": "职场不公、法律判决、行业潜规则、阶层差异", "matched_keywords": ["老板"], "story_type": "现言, 职场, 商战, 悬疑", "weight": 3}, {"category": "猎奇与反转", "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转", "matched_keywords": ["罕见"], "story_type": "悬疑, 幻言, 奇幻, 现言", "weight": 2}], "matched_keywords": ["罕见", "老板"], "story_score": 60, "emotion_density": 0.0, "is_story_worthy": true, "story_type": "现言, 职场, 商战, 悬疑, 悬疑, 幻言, 奇幻, 现言"}, "source_weight": 3, "what_if_prompts": ["如果主角是那个被不公对待的人，TA会怎么反抗？", "如果主角是施压方，TA的弱点在哪里？", "如果主角掌握了关键证据，TA会用还是不用？", "如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？"]}, {"platform": "B站", "section": "热门", "rank": 14, "title": "在课堂上搞笑被抓了", "heat": "播放808372", "category": "搞笑", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1aj3n6GEyE", "content": "真是一条荆棘之路啊", "top_comments": [], "aid": "117003784355863", "fetch_time": "2026-07-31T08:00:03.239056", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 15, "title": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！", "heat": "播放767663", "category": "社科·法律·心理", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1fS3p64EhA", "content": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人", "top_comments": [], "aid": "117006669977144", "fetch_time": "2026-07-31T08:00:03.239077", "story_analysis": {"story_categories": [{"category": "情感冲突", "description": "婆媳、彩礼、出轨、扶弟魔、原生家庭之痛", "matched_keywords": ["彩礼"], "story_type": "现言, 婚恋, 家庭伦理", "weight": 3}, {"category": "猎奇与反转", "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转", "matched_keywords": ["没想到", "凶手"], "story_type": "悬疑, 幻言, 奇幻, 现言", "weight": 2}], "matched_keywords": ["没想到", "彩礼", "凶手"], "story_score": 65, "emotion_density": 0.0, "is_story_worthy": true, "story_type": "现言, 婚恋, 家庭伦理, 悬疑, 幻言, 奇幻, 现言"}, "source_weight": 3, "what_if_prompts": ["如果主角是受害者，TA会怎样反击？", "如果主角是施害者，TA的动机是什么？", "如果这场冲突发生在大结局前夜呢？", "如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？"]}, {"platform": "B站", "section": "热门", "rank": 16, "title": "跨次元空间改造大作战！MC搭子闯关途中触及盲区⚡能顺利通关吗？", "heat": "播放2686968", "category": "单机游戏", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1kpgQ6yEhB", "content": "乐高®夏日玩乐挑战综艺《暑假玩成时》MC篇正片上线！\n@史蒂猪 StevenPig、芊芊老猫的日常 联手改造方块世界~\n开局遇上地狱级方块谜题，资深老玩家当场一脸懵题？\n玩乐搭子默契配合，交换脑洞拆解层层趣味关卡，稳步通关！\n爆笑懵圈、协作解谜、创意改造名场面接连上演……\n速来一键解锁方块改造闯关全过程~\n你最喜欢本期节目中的哪个改造物？在评论区分享吧~", "top_comments": [], "aid": "116968401143254", "fetch_time": "2026-07-31T08:00:03.239109", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 4, "emotion_density": 0.48, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 17, "title": "化身Superman！摩托老哥解锁新技能", "heat": "播放5603325", "category": "汽车生活", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1XU3z6AEQi", "content": "", "top_comments": [], "aid": "116998331828432", "fetch_time": "2026-07-31T08:00:03.239164", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 18, "title": "《非霸凌不可吗》", "heat": "播放2557631", "category": "搞笑", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1G93r6qEbU", "content": "-", "top_comments": [], "aid": "117001318041228", "fetch_time": "2026-07-31T08:00:03.239185", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 19, "title": "和解剖了4000具尸体的法医，一起看了影片中的尸体...", "heat": "播放7824529", "category": "影视杂谈", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1QEgZ6rEGj", "content": "在各种影视作品中，我们经常会看到各种各样的凶杀案和尸体，但影片中对于“死亡”的呈现，和现实中的情况真的一样吗？这一次，我们请到了法医刘良老师来和我们一起拉片，看看这些影视作品中的“尸体”……如果你对这期节目感兴趣，请多多支持我们，并把视频分享给你的朋友们一起看看！\n*本期内容涉及法医专业知识，部分画面及讲述内容可能导致不适，请谨慎观看。", "top_comments": [], "aid": "116990547072747", "fetch_time": "2026-07-31T08:00:03.239202", "story_analysis": {"story_categories": [{"category": "猎奇与反转", "description": "匪夷所思的真实事件、感人的小人物故事、惊天大反转", "matched_keywords": ["死亡"], "story_type": "悬疑, 幻言, 奇幻, 现言", "weight": 2}], "matched_keywords": ["死亡"], "story_score": 25, "emotion_density": 0.0, "is_story_worthy": true, "story_type": "悬疑, 幻言, 奇幻, 现言"}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "B站", "section": "热门", "rank": 20, "title": "这扳机纪律你就学吧", "heat": "播放762405", "category": "单机游戏", "hot_type": "视频热点", "url": "https://www.bilibili.com/video/BV1RK3t6wEH1", "content": "", "top_comments": [], "aid": "117008230257897", "fetch_time": "2026-07-31T08:00:03.239246", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}], "抖音": [{"platform": "抖音", "section": "热点榜", "rank": 1, "title": "解放军两次警告日方不能自称海军", "heat": "11854272", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E8%A7%A3%E6%94%BE%E5%86%9B%E4%B8%A4%E6%AC%A1%E8%AD%A6%E5%91%8A%E6%97%A5%E6%96%B9%E4%B8%8D%E8%83%BD%E8%87%AA%E7%A7%B0%E6%B5%B7%E5%86%9B", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738030", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 2, "title": "吴宜泽6:5战胜墨菲", "heat": "11706367", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%90%B4%E5%AE%9C%E6%B3%BD6%3A5%E6%88%98%E8%83%9C%E5%A2%A8%E8%8F%B2", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738118", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 3, "title": "规模以上文化企业营收同比增长", "heat": "11503590", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E8%A7%84%E6%A8%A1%E4%BB%A5%E4%B8%8A%E6%96%87%E5%8C%96%E4%BC%81%E4%B8%9A%E8%90%A5%E6%94%B6%E5%90%8C%E6%AF%94%E5%A2%9E%E9%95%BF", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738153", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 4, "title": "我的暑期限定solotrip", "heat": "11098441", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E6%88%91%E7%9A%84%E6%9A%91%E6%9C%9F%E9%99%90%E5%AE%9Asolotrip", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738187", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 5, "title": "洛阳的大盘鸡把我香迷糊了", "heat": "10522667", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E6%B4%9B%E9%98%B3%E7%9A%84%E5%A4%A7%E7%9B%98%E9%B8%A1%E6%8A%8A%E6%88%91%E9%A6%99%E8%BF%B7%E7%B3%8A%E4%BA%86", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738217", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 6, "title": "当彝族元素走进日常穿搭", "heat": "10443292", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%BD%93%E5%BD%9D%E6%97%8F%E5%85%83%E7%B4%A0%E8%B5%B0%E8%BF%9B%E6%97%A5%E5%B8%B8%E7%A9%BF%E6%90%AD", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738247", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 7, "title": "赵心童淘汰罗伯逊晋级半决赛", "heat": "9293069", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E8%B5%B5%E5%BF%83%E7%AB%A5%E6%B7%98%E6%B1%B0%E7%BD%97%E4%BC%AF%E9%80%8A%E6%99%8B%E7%BA%A7%E5%8D%8A%E5%86%B3%E8%B5%9B", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738277", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 8, "title": "韩国股市上演极端行情", "heat": "9187986", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E9%9F%A9%E5%9B%BD%E8%82%A1%E5%B8%82%E4%B8%8A%E6%BC%94%E6%9E%81%E7%AB%AF%E8%A1%8C%E6%83%85", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738306", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 9, "title": "九江文旅主打一个听劝", "heat": "9185169", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E4%B9%9D%E6%B1%9F%E6%96%87%E6%97%85%E4%B8%BB%E6%89%93%E4%B8%80%E4%B8%AA%E5%90%AC%E5%8A%9D", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738337", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 10, "title": "Hyrox成都站我来啦", "heat": "9181374", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/Hyrox%E6%88%90%E9%83%BD%E7%AB%99%E6%88%91%E6%9D%A5%E5%95%A6", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738369", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 11, "title": "柯洁回应再夺王中王争霸赛冠军", "heat": "9144660", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E6%9F%AF%E6%B4%81%E5%9B%9E%E5%BA%94%E5%86%8D%E5%A4%BA%E7%8E%8B%E4%B8%AD%E7%8E%8B%E4%BA%89%E9%9C%B8%E8%B5%9B%E5%86%A0%E5%86%9B", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738399", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 12, "title": "宇树科技8月10日开启申购", "heat": "9044017", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%AE%87%E6%A0%91%E7%A7%91%E6%8A%808%E6%9C%8810%E6%97%A5%E5%BC%80%E5%90%AF%E7%94%B3%E8%B4%AD", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738430", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 13, "title": "多方回应智驾小蓝灯被禁用", "heat": "9039109", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%A4%9A%E6%96%B9%E5%9B%9E%E5%BA%94%E6%99%BA%E9%A9%BE%E5%B0%8F%E8%93%9D%E7%81%AF%E8%A2%AB%E7%A6%81%E7%94%A8", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738461", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 14, "title": "俄宣布恰索夫亚尔战役终结", "heat": "9008972", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E4%BF%84%E5%AE%A3%E5%B8%83%E6%81%B0%E7%B4%A2%E5%A4%AB%E4%BA%9A%E5%B0%94%E6%88%98%E5%BD%B9%E7%BB%88%E7%BB%93", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738491", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 15, "title": "小米澎程发布会", "heat": "8975716", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%B0%8F%E7%B1%B3%E6%BE%8E%E7%A8%8B%E5%8F%91%E5%B8%83%E4%BC%9A", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738520", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 16, "title": "八月要走上坡路了", "heat": "8169665", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%85%AB%E6%9C%88%E8%A6%81%E8%B5%B0%E4%B8%8A%E5%9D%A1%E8%B7%AF%E4%BA%86", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738547", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 17, "title": "天才女友定档0802", "heat": "7924051", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%A4%A9%E6%89%8D%E5%A5%B3%E5%8F%8B%E5%AE%9A%E6%A1%A30802", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738574", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 18, "title": "九门三寸钉小狗探险", "heat": "7805669", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E4%B9%9D%E9%97%A8%E4%B8%89%E5%AF%B8%E9%92%89%E5%B0%8F%E7%8B%97%E6%8E%A2%E9%99%A9", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738602", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 19, "title": "台风白海豚或直奔浙江沿海", "heat": "7786695", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%8F%B0%E9%A3%8E%E7%99%BD%E6%B5%B7%E8%B1%9A%E6%88%96%E7%9B%B4%E5%A5%94%E6%B5%99%E6%B1%9F%E6%B2%BF%E6%B5%B7", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738629", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 20, "title": "我在等紧身裤时代回归", "heat": "7752409", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E6%88%91%E5%9C%A8%E7%AD%89%E7%B4%A7%E8%BA%AB%E8%A3%A4%E6%97%B6%E4%BB%A3%E5%9B%9E%E5%BD%92", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738659", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 21, "title": "人生几何能够得到知己", "heat": "7743010", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E4%BA%BA%E7%94%9F%E5%87%A0%E4%BD%95%E8%83%BD%E5%A4%9F%E5%BE%97%E5%88%B0%E7%9F%A5%E5%B7%B1", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738685", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 22, "title": "小苹果阿姨的家迎来大改造", "heat": "7718199", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%B0%8F%E8%8B%B9%E6%9E%9C%E9%98%BF%E5%A7%A8%E7%9A%84%E5%AE%B6%E8%BF%8E%E6%9D%A5%E5%A4%A7%E6%94%B9%E9%80%A0", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738713", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 23, "title": "蜘蛛侠崭新之日皮影海报", "heat": "7715315", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E8%9C%98%E8%9B%9B%E4%BE%A0%E5%B4%AD%E6%96%B0%E4%B9%8B%E6%97%A5%E7%9A%AE%E5%BD%B1%E6%B5%B7%E6%8A%A5", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738741", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 24, "title": "二十届五中全会10月召开", "heat": "7706179", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E4%BA%8C%E5%8D%81%E5%B1%8A%E4%BA%94%E4%B8%AD%E5%85%A8%E4%BC%9A10%E6%9C%88%E5%8F%AC%E5%BC%80", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738770", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 25, "title": "张真源深v还在发力", "heat": "7704136", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%BC%A0%E7%9C%9F%E6%BA%90%E6%B7%B1v%E8%BF%98%E5%9C%A8%E5%8F%91%E5%8A%9B", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738803", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 26, "title": "全网都在挑战这个扇风舞", "heat": "7704008", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E5%85%A8%E7%BD%91%E9%83%BD%E5%9C%A8%E6%8C%91%E6%88%98%E8%BF%99%E4%B8%AA%E6%89%87%E9%A3%8E%E8%88%9E", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738832", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 27, "title": "看金靖访谈像是上了一课", "heat": "7699635", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E7%9C%8B%E9%87%91%E9%9D%96%E8%AE%BF%E8%B0%88%E5%83%8F%E6%98%AF%E4%B8%8A%E4%BA%86%E4%B8%80%E8%AF%BE", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738858", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 28, "title": "美丽明天开播倒计时的仪式感", "heat": "7699522", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E7%BE%8E%E4%B8%BD%E6%98%8E%E5%A4%A9%E5%BC%80%E6%92%AD%E5%80%92%E8%AE%A1%E6%97%B6%E7%9A%84%E4%BB%AA%E5%BC%8F%E6%84%9F", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738885", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 29, "title": "我想要个潇洒的以后", "heat": "7698048", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E6%88%91%E6%83%B3%E8%A6%81%E4%B8%AA%E6%BD%87%E6%B4%92%E7%9A%84%E4%BB%A5%E5%90%8E", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738912", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}, {"platform": "抖音", "section": "热点榜", "rank": 30, "title": "柳柳周佑凌奶油风情侣大片", "heat": "7696716", "category": "", "hot_type": "短视频热点", "url": "https://www.douyin.com/search/%E6%9F%B3%E6%9F%B3%E5%91%A8%E4%BD%91%E5%87%8C%E5%A5%B6%E6%B2%B9%E9%A3%8E%E6%83%85%E4%BE%A3%E5%A4%A7%E7%89%87", "content": "", "top_comments": [], "fetch_time": "2026-07-31T08:00:03.738938", "story_analysis": {"story_categories": [], "matched_keywords": [], "story_score": 0, "emotion_density": 0.0, "is_story_worthy": false, "story_type": ""}, "source_weight": 3, "what_if_prompts": ["如果反转的真相比表面更可怕呢？", "如果主角就是那个'匪夷所思'的人呢？", "如果这个小人物其实有大秘密呢？", "如果这是我的小说开头，主角是谁？TA想要什么？什么阻止了TA？"]}], "抖音搜索": [], "小红书": [], "网易新闻": [], "腾讯新闻": []};
+const EMBEDDED_MATERIALS = {"action": {"meta": {"name": "动作库", "version": "1.0", "total": 9, "updated_at": "2026-07-31T09:12:20.114325"}, "items": [{"source": "auto_from_hotspot", "source_hotspot_id": "微博_21_你甚至可以看到植物打人", "source_title": "你甚至可以看到植物打人", "created_at": "2026-07-31T09:10:52.673744", "updated_at": "2026-07-31T09:10:52.673746", "main_action": "你甚至可以看到植物打", "scene_type": "你甚至可以看到植物打人", "chain_reaction": "你甚至可以看到植物打", "rhythm_value": "3", "id": "b74dc84b-07b9-4861-aaff-85bd781e6628", "code": "DZ-2026-001"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_38_婚外胚胎事件患癌妻子愤怒发声", "source_title": "婚外胚胎事件患癌妻子愤怒发声", "created_at": "2026-07-31T09:10:52.675416", "updated_at": "2026-07-31T09:10:52.675418", "main_action": "婚外胚胎事件患癌妻子愤怒", "scene_type": "婚外胚胎事件患癌妻子愤怒发声", "chain_reaction": "婚外胚胎事件患癌妻子愤怒", "rhythm_value": "3", "id": "6b1761ea-f9e6-465c-8f29-eb1a99e95277", "code": "DZ-2026-002"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_46_男子带猫打针暴打猫咪大闹医院", "source_title": "男子带猫打针暴打猫咪大闹医院", "created_at": "2026-07-31T09:10:52.676946", "updated_at": "2026-07-31T09:10:52.676948", "main_action": "男子带猫打针暴打", "scene_type": "男子带猫打针暴打猫咪大闹医院", "chain_reaction": "男子带猫打针暴打", "rhythm_value": "3", "id": "9513f5a3-c809-4924-a32b-4065aeb2b530", "code": "DZ-2026-003"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_1_抵抗者2026实机演示", "source_title": "抵抗者2026实机演示", "created_at": "2026-07-31T09:10:52.678415", "updated_at": "2026-07-31T09:10:52.678417", "main_action": "我们是翻", "scene_type": "抵抗者2026实机演示", "chain_reaction": "我们是翻", "rhythm_value": "3", "id": "e10bd35e-3fb7-4f29-8242-0c050dc1cec9", "code": "DZ-2026-004"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_2_小时候看不懂，长大后已是局中人", "source_title": "小时候看不懂，长大后已是局中人", "created_at": "2026-07-31T09:10:52.679955", "updated_at": "2026-07-31T09:10:52.679957", "main_action": "全都拿来珍藏", "scene_type": "小时候看不懂，长大后已是局中人", "chain_reaction": "全都拿来珍藏、不必去追", "rhythm_value": "3", "id": "cfe78408-7a80-4151-a07f-4d1fea598db5", "code": "DZ-2026-005"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_12_【花小烙】游隼：地球上俯冲速度最快的“鸟", "source_title": "【花小烙】游隼：地球上俯冲速度最快的“鸟中战斗机”是如何炼成的？", "created_at": "2026-07-31T09:10:52.681524", "updated_at": "2026-07-31T09:10:52.681526", "main_action": "作为俯冲", "scene_type": "【花小烙】游隼：地球上俯冲速度最快的“鸟中战斗机”是如何炼成的？", "chain_reaction": "作为俯冲", "rhythm_value": "3", "id": "1a1d432a-0e62-46b9-be9f-373ecbb788aa", "code": "DZ-2026-006"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_16_跨次元空间改造大作战！MC搭子闯关途中触", "source_title": "跨次元空间改造大作战！MC搭子闯关途中触及盲区⚡能顺利通关吗？", "created_at": "2026-07-31T09:10:52.683325", "updated_at": "2026-07-31T09:10:52.683328", "main_action": "速来一键解锁方块改造闯", "scene_type": "跨次元空间改造大作战！MC搭子闯关途中触及盲区⚡能顺利通关吗？", "chain_reaction": "速来一键解锁方块改造闯", "rhythm_value": "3", "id": "73f6ecb6-ddc4-44fc-ae81-463241ac71be", "code": "DZ-2026-007"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_19_和解剖了4000具尸体的法医，一起看了影", "source_title": "和解剖了4000具尸体的法医，一起看了影片中的尸体...", "created_at": "2026-07-31T09:10:52.684240", "updated_at": "2026-07-31T09:10:52.684241", "main_action": "我们请到了法医刘良老师来和我们一起拉", "scene_type": "和解剖了4000具尸体的法医，一起看了影片中的尸体...", "chain_reaction": "我们请到了法医刘良老师来和我们一起拉", "rhythm_value": "3", "id": "ccad128c-a330-413a-b915-dbd85baf147f", "code": "DZ-2026-008"}, {"code": "DZ-2025-001", "scene_type": "紧张谈判", "action_level": "爆发前兆", "main_action": "钢笔戳穿便签纸", "chain_reaction": "墨水渗入木纹如血管", "metaphor_meaning": "压抑的攻击欲", "rhythm_value": "4", "taboo_combination": "不可同时出现微笑", "classic_case": "《纸牌屋》S2E3", "id": "3e14e1e2-3c43-4f3b-a921-072b6595cd89", "created_at": "2026-07-31T09:12:20.114317", "updated_at": "2026-07-31T09:12:20.114323"}]}, "character": {"meta": {"name": "人设基因库", "version": "1.0", "total": 27, "updated_at": "2026-07-31T09:12:20.103630"}, "items": [{"source": "auto_from_hotspot", "source_hotspot_id": "微博_4_女子做检查时身亡丈夫称麻醉师玩手机", "source_title": "女子做检查时身亡丈夫称麻醉师玩手机", "created_at": "2026-07-31T09:10:52.613918", "updated_at": "2026-07-31T09:10:52.613919", "role_positioning": "称麻醉师、时身亡丈夫", "surface_traits": "女子做检查时身亡丈夫称麻醉师玩手机", "occupation_identity": "称麻醉师", "suitable_plot": "女子做检查时身亡丈夫称麻醉师玩手机", "id": "4062e738-bbc9-4271-af33-b95376c4786b", "code": "RS-2026-001"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_5_豆包究竟见过多少人的糗事", "source_title": "豆包究竟见过多少人的糗事", "created_at": "2026-07-31T09:10:52.615464", "updated_at": "2026-07-31T09:10:52.615465", "role_positioning": "见过多少人", "surface_traits": "豆包究竟见过多少人的糗事", "occupation_identity": "见过多少人", "suitable_plot": "豆包究竟见过多少人的糗事", "id": "3bafa6f1-f3e4-4248-abac-9f043b54848b", "code": "RS-2026-002"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_6_医生称多囊卵巢综合征名字害惨女性", "source_title": "医生称多囊卵巢综合征名字害惨女性", "created_at": "2026-07-31T09:10:52.616876", "updated_at": "2026-07-31T09:10:52.616878", "role_positioning": "名字害惨女", "surface_traits": "医生称多囊卵巢综合征名字害惨女性", "occupation_identity": "名字害惨女", "suitable_plot": "医生称多囊卵巢综合征名字害惨女性", "id": "f8c6ea2c-c7b9-472b-80c9-f845953c39ba", "code": "RS-2026-003"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_10_女子被公公强奸丈夫称父亲喝醉了", "source_title": "女子被公公强奸丈夫称父亲喝醉了", "created_at": "2026-07-31T09:10:52.618688", "updated_at": "2026-07-31T09:10:52.618693", "role_positioning": "公强奸丈夫", "surface_traits": "女子被公公强奸丈夫称父亲喝醉了", "occupation_identity": "公强奸丈夫", "suitable_plot": "女子被公公强奸丈夫称父亲喝醉了", "id": "c10f8a4b-e2f2-4e18-bdf2-a13b95eaab4c", "code": "RS-2026-004"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_11_连云港火灾母女坠楼", "source_title": "连云港火灾母女坠楼", "created_at": "2026-07-31T09:10:52.619612", "updated_at": "2026-07-31T09:10:52.619614", "role_positioning": "云港火灾母", "surface_traits": "连云港火灾母女坠楼", "occupation_identity": "云港火灾母", "suitable_plot": "连云港火灾母女坠楼", "id": "caaf4807-a151-4d45-8093-1b70a7558eac", "code": "RS-2026-005"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_12_丈夫和第三者胚胎是婚姻耻辱", "source_title": "丈夫和第三者胚胎是婚姻耻辱", "created_at": "2026-07-31T09:10:52.621254", "updated_at": "2026-07-31T09:10:52.621256", "role_positioning": "夫和第三者", "surface_traits": "丈夫和第三者胚胎是婚姻耻辱", "occupation_identity": "夫和第三者", "suitable_plot": "丈夫和第三者胚胎是婚姻耻辱", "id": "bfefdad7-4b3a-47f1-a5ad-9340c914b0e5", "code": "RS-2026-006"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_19_宋威龙 热巴姐你好像提前放扇子了", "source_title": "宋威龙 热巴姐你好像提前放扇子了", "created_at": "2026-07-31T09:10:52.622867", "updated_at": "2026-07-31T09:10:52.622869", "role_positioning": "提前放扇子", "surface_traits": "宋威龙 热巴姐你好像提前放扇子了", "occupation_identity": "提前放扇子", "suitable_plot": "宋威龙 热巴姐你好像提前放扇子了", "id": "8b017763-3bdc-47c1-ab54-c3d908a3b834", "code": "RS-2026-007"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_21_你甚至可以看到植物打人", "source_title": "你甚至可以看到植物打人", "created_at": "2026-07-31T09:10:52.624707", "updated_at": "2026-07-31T09:10:52.624710", "role_positioning": "到植物打人", "surface_traits": "你甚至可以看到植物打人", "occupation_identity": "到植物打人", "suitable_plot": "你甚至可以看到植物打人", "id": "5aea4f23-2017-4653-b200-029fa43f1dfd", "code": "RS-2026-008"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_23_吵架后从18楼跳下女子称很后悔", "source_title": "吵架后从18楼跳下女子称很后悔", "created_at": "2026-07-31T09:10:52.626133", "updated_at": "2026-07-31T09:10:52.626135", "role_positioning": "楼跳下女子", "surface_traits": "吵架后从18楼跳下女子称很后悔", "occupation_identity": "楼跳下女子", "suitable_plot": "吵架后从18楼跳下女子称很后悔", "id": "275d5137-61f3-4241-9e75-420cf1e42f40", "code": "RS-2026-009"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_24_迪丽热巴嘉人CEO合照", "source_title": "迪丽热巴嘉人CEO合照", "created_at": "2026-07-31T09:10:52.627687", "updated_at": "2026-07-31T09:10:52.627689", "role_positioning": "丽热巴嘉人", "surface_traits": "迪丽热巴嘉人CEO合照", "occupation_identity": "丽热巴嘉人", "suitable_plot": "迪丽热巴嘉人CEO合照", "id": "79378feb-f366-404a-8438-3f2ec3a67cf9", "code": "RS-2026-010"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_26_泰国部长称不欢迎给他人造成损害的游客", "source_title": "泰国部长称不欢迎给他人造成损害的游客", "created_at": "2026-07-31T09:10:52.629552", "updated_at": "2026-07-31T09:10:52.629555", "role_positioning": "泰国部长、欢迎给他人", "surface_traits": "泰国部长称不欢迎给他人造成损害的游客", "occupation_identity": "泰国部长", "suitable_plot": "泰国部长称不欢迎给他人造成损害的游客", "id": "631773b1-d223-48d6-b1b7-a398ed34c010", "code": "RS-2026-011"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_30_美国吸毒女子像虫子一样在地上蠕动", "source_title": "美国吸毒女子像虫子一样在地上蠕动", "created_at": "2026-07-31T09:10:52.630860", "updated_at": "2026-07-31T09:10:52.630862", "role_positioning": "美国吸毒女、子像虫子", "surface_traits": "美国吸毒女子像虫子一样在地上蠕动", "occupation_identity": "美国吸毒女", "suitable_plot": "美国吸毒女子像虫子一样在地上蠕动", "id": "0e14e1e9-4f0d-4849-9325-962d6a287c5e", "code": "RS-2026-012"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_31_男生每天躺玩手机超5小时无法走路", "source_title": "男生每天躺玩手机超5小时无法走路", "created_at": "2026-07-31T09:10:52.632188", "updated_at": "2026-07-31T09:10:52.632190", "role_positioning": "每天躺玩手", "surface_traits": "男生每天躺玩手机超5小时无法走路", "occupation_identity": "每天躺玩手", "suitable_plot": "男生每天躺玩手机超5小时无法走路", "id": "ebd24a35-8e1d-4cb6-aafd-55913c59a99d", "code": "RS-2026-013"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_34_6旬老人坚持地中海饮食3个月瘦37斤", "source_title": "6旬老人坚持地中海饮食3个月瘦37斤", "created_at": "2026-07-31T09:10:52.633936", "updated_at": "2026-07-31T09:10:52.633937", "role_positioning": "旬老人", "surface_traits": "6旬老人坚持地中海饮食3个月瘦37斤", "occupation_identity": "旬老人", "suitable_plot": "6旬老人坚持地中海饮食3个月瘦37斤", "id": "0d36b801-2de1-45e4-8f0b-24a8da820fd8", "code": "RS-2026-014"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_38_婚外胚胎事件患癌妻子愤怒发声", "source_title": "婚外胚胎事件患癌妻子愤怒发声", "created_at": "2026-07-31T09:10:52.635290", "updated_at": "2026-07-31T09:10:52.635291", "role_positioning": "事件患癌妻", "surface_traits": "婚外胚胎事件患癌妻子愤怒发声", "occupation_identity": "事件患癌妻", "suitable_plot": "婚外胚胎事件患癌妻子愤怒发声", "id": "5601ad04-ac3d-47be-b50b-1c4ba21ff61c", "code": "RS-2026-015"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_47_肖战在钦天监有人啊", "source_title": "肖战在钦天监有人啊", "created_at": "2026-07-31T09:10:52.636464", "updated_at": "2026-07-31T09:10:52.636466", "role_positioning": "钦天监有人", "surface_traits": "肖战在钦天监有人啊", "occupation_identity": "钦天监有人", "suitable_plot": "肖战在钦天监有人啊", "id": "876a2ef6-8ba2-4b4e-8aa4-e4837bfe3ac9", "code": "RS-2026-016"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_1_抵抗者2026实机演示", "source_title": "抵抗者2026实机演示", "created_at": "2026-07-31T09:10:52.637882", "updated_at": "2026-07-31T09:10:52.637883", "role_positioning": "侵略者、们是抵抗者、肉筑起的长", "surface_traits": "抵抗者2026实机演示", "occupation_identity": "侵略者", "suitable_plot": "在那黑暗岁月，我们早已习惯生离死别。\n侵略者的铁蹄踏碎山河，每一寸土地燃烧。\n我们是驰骋在林海雪原，不屈的抗联；\n我们是隐谧在绝境的孤岛，永不消逝的电波；\n我们是翻腾在运河的波涛，快意恩仇的尖刀；\n我们是屹立在太行之巅，血肉筑起的长城。\n拿起武器，我们是抵抗者！", "id": "678de48d-8712-46fe-a783-cd9a634d6746", "code": "RS-2026-017"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_2_小时候看不懂，长大后已是局中人", "source_title": "小时候看不懂，长大后已是局中人", "created_at": "2026-07-31T09:10:52.639307", "updated_at": "2026-07-31T09:10:52.639308", "role_positioning": "好一直有人、简单的日子", "surface_traits": "小时候看不懂，长大后已是局中人", "occupation_identity": "好一直有人", "suitable_plot": "二十万粉庆贺！正巧用上了二十年这个意向，这几个月一直都在碰壁，还好一直有人私信鼓励我，获益良多也重新振作了精神，所以用这个视频表达感谢，素材也是应粉丝要求而做，希望二十年后，我还在大家身旁。观众朋友们看得开心哦！\n\n写一封信 将我的想法都记下\n等老了慢慢看\n简单的日子 正要感受好时光\n全都拿来珍藏\n人生的阶段 所有口味都品尝\n是快乐或遗憾\n不必去追赶 正在奔跑的时光\n心安便是寻常", "id": "cd92409f-5a82-4dd9-8830-e8424f87dd37", "code": "RS-2026-018"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_5_【世界杯终局之战 续集】复仇者，冲锋！", "source_title": "【世界杯终局之战 续集】复仇者，冲锋！", "created_at": "2026-07-31T09:10:52.641153", "updated_at": "2026-07-31T09:10:52.641155", "role_positioning": "界杯上发生、趣事和个人", "surface_traits": "【世界杯终局之战 续集】复仇者，冲锋！", "occupation_identity": "界杯上发生", "suitable_plot": "感谢观众姥爷们对上一期视频的喜爱\n本期视频秉持着观众们的期待，耗时7天打磨终于完成，希望各位观众姥爷看个开心！\n对了，不要忘记给Up一键三连哦，让up回回血，感谢支持！\n\nPS.其实up是意大利球迷，看世界杯纯属隔岸观火。\n视频内容仅是根据up看世界杯上发生的趣事和个人感受进行的胡乱改编，并没有针对谁或谁家粉丝，如果您看视频感到冒犯，您可以...下单购买一个up的道歉视频~~~\n\n世界杯鬼畜系列到", "id": "d128b010-1d8e-4231-9e18-62bbfa1e4f5a", "code": "RS-2026-019"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_6_奇怪的玩具工厂 第五章 Part2，结局", "source_title": "奇怪的玩具工厂 第五章 Part2，结局", "created_at": "2026-07-31T09:10:52.642951", "updated_at": "2026-07-31T09:10:52.642953", "role_positioning": "工智能生、为模仿或人、上创建官方", "surface_traits": "奇怪的玩具工厂 第五章 Part2，结局", "occupation_identity": "工智能生", "suitable_plot": "奇怪的玩具工厂 第五章 Part2 结局\n⛔请勿相信其他任何自称是我（鲤鱼Ace）的言论或求助\n⛔我不会在任何社交平台上创建官方社群或添加好友\n⛔请勿相信由人为模仿或人工智能生成关于我（鲤鱼Ace）的任何内容\n⛔内容仅供娱乐，与现实中任何事件无关，请勿代入并联想，请勿模仿\n⛔未经授权，禁止转载", "id": "7c9afa18-0200-44b1-aaa7-a29dabf2e52f", "code": "RS-2026-020"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_7_《灰境行者》全新预告丨PC测试定档9月", "source_title": "《灰境行者》全新预告丨PC测试定档9月", "created_at": "2026-07-31T09:10:52.644719", "updated_at": "2026-07-31T09:10:52.644721", "role_positioning": "灰境行者、迎各位行者", "surface_traits": "《灰境行者》全新预告丨PC测试定档9月", "occupation_identity": "灰境行者", "suitable_plot": "去年首曝时，我们展示了《灰境行者》的PvP玩法——猎杀发育，夺宝对决。\n今天新预告片中，大家会看到“微恐宇宙”中一套独立的玩法模式——三人合作PvE。\n此外，大家最关心的——《灰境行者》首次PC测试将于今年9月正式开启，测试报名通道也会在8月下旬开放。欢迎各位行者来到灰境，享受战斗。\n* 游戏处于研发阶段，展示内容不代表游戏最终品质。", "id": "8a5e9416-c711-4060-ba30-25a9cdd31e47", "code": "RS-2026-021"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_9_孩子们，出了社会可没人惯着你", "source_title": "孩子们，出了社会可没人惯着你", "created_at": "2026-07-31T09:10:52.646952", "updated_at": "2026-07-31T09:10:52.646955", "role_positioning": "社会可没人", "surface_traits": "孩子们，出了社会可没人惯着你", "occupation_identity": "社会可没人", "suitable_plot": "出了社会可没人惯着你！牢大说他要惯着你！", "id": "0526ee6d-73a6-4476-a5ce-0f9755ca6227", "code": "RS-2026-022"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_13_罕见龙卷风突袭，他3分钟内同时失去了父母", "source_title": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当", "created_at": "2026-07-31T09:10:52.649179", "updated_at": "2026-07-31T09:10:52.649183", "role_positioning": "内绝境重生、时失去了父", "surface_traits": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当", "occupation_identity": "内绝境重生", "suitable_plot": "罕见龙卷风突袭，今年营收有望过亿的公司被夷为平地……湖北老板3分钟内同时失去了父母和家当，在他感觉撑不下去时，公司2天内绝境重生。", "id": "933082ea-6204-4bb0-a9df-3f91083c79dc", "code": "RS-2026-023"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_15_21岁小伙60万彩礼娶00后女生，2个月", "source_title": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！", "created_at": "2026-07-31T09:10:52.651499", "updated_at": "2026-07-31T09:10:52.651502", "role_positioning": "而凶手、后女生、就被这位女", "surface_traits": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！", "occupation_identity": "而凶手", "suitable_plot": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人", "id": "51e375fc-2ced-4f45-bb4e-216b6189c9d8", "code": "RS-2026-024"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_16_跨次元空间改造大作战！MC搭子闯关途中触", "source_title": "跨次元空间改造大作战！MC搭子闯关途中触及盲区⚡能顺利通关吗？", "created_at": "2026-07-31T09:10:52.652719", "updated_at": "2026-07-31T09:10:52.652721", "role_positioning": "上地狱级方、一键解锁方、玩乐搭子", "surface_traits": "跨次元空间改造大作战！MC搭子闯关途中触及盲区⚡能顺利通关吗？", "occupation_identity": "上地狱级方", "suitable_plot": "乐高®夏日玩乐挑战综艺《暑假玩成时》MC篇正片上线！\n@史蒂猪 StevenPig、芊芊老猫的日常 联手改造方块世界~\n开局遇上地狱级方块谜题，资深老玩家当场一脸懵题？\n玩乐搭子默契配合，交换脑洞拆解层层趣味关卡，稳步通关！\n爆笑懵圈、协作解谜、创意改造名场面接连上演……\n速来一键解锁方块改造闯关全过程~\n你最喜欢本期节目中的哪个改造物？在评论区分享吧~", "id": "ff486d30-5d61-4bf3-8fc8-28ae38a19584", "code": "RS-2026-025"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_19_和解剖了4000具尸体的法医，一起看了影", "source_title": "和解剖了4000具尸体的法医，一起看了影片中的尸体...", "created_at": "2026-07-31T09:10:52.654942", "updated_at": "2026-07-31T09:10:52.654945", "role_positioning": "医刘良老师", "surface_traits": "和解剖了4000具尸体的法医，一起看了影片中的尸体...", "occupation_identity": "医刘良老师", "suitable_plot": "在各种影视作品中，我们经常会看到各种各样的凶杀案和尸体，但影片中对于“死亡”的呈现，和现实中的情况真的一样吗？这一次，我们请到了法医刘良老师来和我们一起拉片，看看这些影视作品中的“尸体”……如果你对这期节目感兴趣，请多多支持我们，并把视频分享给你的朋友们一起看看！\n*本期内容涉及法医专业知识，部分画面及讲述内容可能导致不适，请谨慎观看。", "id": "7d360bd7-6b5b-47fb-b3af-07754c6d0ecb", "code": "RS-2026-026"}, {"code": "RS-2025-001", "role_positioning": "嘴硬心软男主", "hidden_traits": "隐性社恐", "tag": "INTJ", "occupation_identity": "风投公司合伙人", "emotional_obstacle": "目睹母亲为爱情放弃事业", "exclusive_item": "银质打火机（刻前女友缩写）", "signature_action": "烦躁时撕便签纸边缘", "romance_foreshadow": "曾匿名资助女主创业项目", "hidden_connection": "女主导师是其商业对手", "hormone_trigger": "衬衫卷袖时小臂青筋", "fatal_flaw": "过度自我牺牲倾向", "redemption_switch": "被坚定选择的眼神", "taboo_boundary": "绝不接受肢体控制", "id": "b64b09a1-fd03-44ed-a304-d3564f8aada6", "created_at": "2026-07-31T09:12:20.103624", "updated_at": "2026-07-31T09:12:20.103628"}]}, "conflict": {"meta": {"name": "冲突素材库", "version": "1.0", "total": 1, "updated_at": "2026-07-31T09:12:20.095886"}, "items": [{"code": "CT-2025-001", "conflict_type": "商业间谍", "source_platform": "抖音/快手", "core_contradiction": "竞品公司窃取核心技术", "emotion_curve": "警惕(20%)→焦灼(30%)→反击(40%)→遗憾(10%)", "suitable_relationship": "师徒+利益联姻", "suitable_scene": "职场商战", "risk_level": "★★", "adaptation_direction": "姻缘复养危机", "adaptation_case": "将芯片技术改为全息投影算法，增加AI反追踪剧情", "id": "54d88512-6d7b-4fe1-a42e-96d9de4765ee", "created_at": "2026-07-31T09:12:20.095865", "updated_at": "2026-07-31T09:12:20.095882"}]}, "dialogue": {"meta": {"name": "对话库", "version": "1.0", "total": 6, "updated_at": "2026-07-31T09:12:20.116142"}, "items": [{"source": "auto_from_hotspot", "source_hotspot_id": "B站_1_抵抗者2026实机演示", "source_title": "抵抗者2026实机演示", "created_at": "2026-07-31T09:10:52.685901", "updated_at": "2026-07-31T09:10:52.685902", "surface_dialogue": "游戏武器体验官冒头[OK]\n孩子们是的\n我负责监督枪械手感[脱单doge]", "conflict_type": "社会讨论", "information_density": "高", "source_chapter": "抵抗者2026实机演示", "id": "5843ddff-8bf6-4c22-8f1f-a100f11c4600", "code": "DH-2026-001"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_2_小时候看不懂，长大后已是局中人", "source_title": "小时候看不懂，长大后已是局中人", "created_at": "2026-07-31T09:10:52.687409", "updated_at": "2026-07-31T09:10:52.687410", "surface_dialogue": "本来以为你要狗熊岭顶级智斗，你给我来升华煽情，你这不是耍俺吗", "conflict_type": "社会讨论", "information_density": "中", "source_chapter": "小时候看不懂，长大后已是局中人", "id": "40d27171-6952-490b-b6a2-4d1498f77d95", "code": "DH-2026-002"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_3_挑战从东北徒步到西藏( 十倍速1小时5分", "source_title": "挑战从东北徒步到西藏( 十倍速1小时5分版）", "created_at": "2026-07-31T09:10:52.688918", "updated_at": "2026-07-31T09:10:52.688919", "surface_dialogue": "挑战从床上到门口拿外卖，不得不做，这件事情足以危及我的生命👍", "conflict_type": "社会讨论", "information_density": "中", "source_chapter": "挑战从东北徒步到西藏( 十倍速1小时5分版）", "id": "de4fcff4-bbf4-4f30-b326-bf6603bc7f40", "code": "DH-2026-003"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_4_【独家】《将夜》第16集 永字八法【4月", "source_title": "【独家】《将夜》第16集 永字八法【4月国创】", "created_at": "2026-07-31T09:10:52.690561", "updated_at": "2026-07-31T09:10:52.690564", "surface_dialogue": "简大家打过招呼，待遇就是不一样啊[doge]", "conflict_type": "社会讨论", "information_density": "中", "source_chapter": "【独家】《将夜》第16集 永字八法【4月国创】", "id": "10f6cb78-d354-45d8-9f30-8dc357483c38", "code": "DH-2026-004"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_5_【世界杯终局之战 续集】复仇者，冲锋！", "source_title": "【世界杯终局之战 续集】复仇者，冲锋！", "created_at": "2026-07-31T09:10:52.692298", "updated_at": "2026-07-31T09:10:52.692300", "surface_dialogue": "奶奶滴！为什么不说！？[生气][生气][生气]", "conflict_type": "社会讨论", "information_density": "中", "source_chapter": "【世界杯终局之战 续集】复仇者，冲锋！", "id": "4dbb2ebf-1fef-4cf1-8ea6-b84ccb349117", "code": "DH-2026-005"}, {"code": "DH-2025-001", "conflict_type": "职场PUA", "surface_dialogue": "你的潜力还没完全释放", "subtext": "你不配要求加薪/我需要廉价劳动力", "action_anchor": "指尖规律敲击桌沿", "tone_mark": "句尾升调32%", "information_density": "高密度否定词", "power_relation": "支配→服从", "source_chapter": "《未生》Vol.4", "id": "b0cbad0d-c604-4c12-918a-5c3e4ef95ce7", "created_at": "2026-07-31T09:12:20.116133", "updated_at": "2026-07-31T09:12:20.116139"}]}, "emotion": {"meta": {"name": "情绪库", "version": "1.0", "total": 3, "updated_at": "2026-07-31T09:12:20.110889"}, "items": [{"source": "auto_from_hotspot", "source_hotspot_id": "微博_38_婚外胚胎事件患癌妻子愤怒发声", "source_title": "婚外胚胎事件患癌妻子愤怒发声", "created_at": "2026-07-31T09:10:52.669137", "updated_at": "2026-07-31T09:10:52.669139", "core_emotion": "复杂情绪", "intensity_level": "20.0", "suitable_scene": "婚外胚胎事件患癌妻子愤怒发声", "case_source": "微博", "id": "b61aea75-f4dd-47ec-8d5a-2fed62755a7f", "code": "QX-2026-001"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_8_古罗马离谱习俗——两千年前的古罗马，开放", "source_title": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。", "created_at": "2026-07-31T09:10:52.671004", "updated_at": "2026-07-31T09:10:52.671006", "core_emotion": "震惊/好奇", "intensity_level": "10.0", "suitable_scene": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。", "case_source": "B站", "id": "2b53b8e8-9d41-4d37-8a44-ae3c93257778", "code": "QX-2026-002"}, {"code": "QX-2025-001", "core_emotion": "幸存者愧疚", "intensity_level": "7.2", "physiological_reaction": "无意识啃指甲至渗血/胃部钝痛", "micro_expression_code": "ME-203", "behavior_mapping": "反复擦拭餐具", "dialogue_feature": "每句话尾音下沉", "suitable_scene": "灾难后重逢", "taboo_misuse": "避免用于职场场景", "case_source": "《追风筝的人》", "id": "cb0b6327-5cb3-4c0b-9bb4-eb6726337a2c", "created_at": "2026-07-31T09:12:20.110878", "updated_at": "2026-07-31T09:12:20.110886"}]}, "hook": {"meta": {"name": "钩子素材库", "version": "1.0", "total": 5, "updated_at": "2026-07-31T09:12:20.096884"}, "items": [{"source": "auto_from_hotspot", "source_hotspot_id": "微博_12_丈夫和第三者胚胎是婚姻耻辱", "source_title": "丈夫和第三者胚胎是婚姻耻辱", "created_at": "2026-07-31T09:10:52.598501", "updated_at": "2026-07-31T09:10:52.598502", "hook_type": "情绪", "type_tag": "情感冲突", "core_element": "丈夫和第三者胚胎是婚姻耻辱", "emotion_orientation": "甜虐平衡", "hook_density": "低", "suitable_plot": "丈夫和第三者胚胎是婚姻耻辱", "id": "8b5d78b7-4c94-499c-8326-0c1ae4a8011d", "code": "GZ-2026-001"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_8_古罗马离谱习俗——两千年前的古罗马，开放", "source_title": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。", "created_at": "2026-07-31T09:10:52.599435", "updated_at": "2026-07-31T09:10:52.599436", "hook_type": "转折", "type_tag": "猎奇与反转", "core_element": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。", "emotion_orientation": "甜虐平衡", "hook_density": "低", "suitable_plot": "", "id": "bdd9d27d-75b9-4cad-92f6-48286a96182e", "code": "GZ-2026-002"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_13_罕见龙卷风突袭，他3分钟内同时失去了父母", "source_title": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当", "created_at": "2026-07-31T09:10:52.600815", "updated_at": "2026-07-31T09:10:52.600816", "hook_type": "转折", "type_tag": "社会冲突,猎奇与反转", "core_element": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当", "emotion_orientation": "甜虐平衡", "hook_density": "中", "suitable_plot": "罕见龙卷风突袭，今年营收有望过亿的公司被夷为平地……湖北老板3分钟内同时失去了父母和家当，在他感觉撑不下去时，公司2天内绝境重生。", "id": "ca8bb5f9-0867-464b-b30e-1debd5e6a05a", "code": "GZ-2026-003"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_15_21岁小伙60万彩礼娶00后女生，2个月", "source_title": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！", "created_at": "2026-07-31T09:10:52.602270", "updated_at": "2026-07-31T09:10:52.602272", "hook_type": "转折", "type_tag": "情感冲突,猎奇与反转", "core_element": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！", "emotion_orientation": "虐", "hook_density": "中", "suitable_plot": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人", "id": "3e7004ad-cac5-4a10-b4ef-c0f9a9cd54cc", "code": "GZ-2026-004"}, {"code": "GZ-2025-001", "hook_type": "身份悬念", "placement_position": "第3章老照片闪回", "type_tag": "#破镜重圆 #悬疑", "trigger_chapter": "第18章", "core_element": "童年合影中多出的模糊人影", "placement_technique": "隐性", "emotion_orientation": "虐80%+悬疑20%", "recovery_cycle": "15章", "related_reversal": "FZ-231015-01", "hook_density": "低", "foreshadowing_requirement": "第1章提及女主记忆缺失；第7章发现照片背面日期错误", "risk_warning": "避免使用真实历史人物", "id": "200a7160-4e47-4a32-8252-0d969c4cdd56", "created_at": "2026-07-31T09:12:20.096876", "updated_at": "2026-07-31T09:12:20.096881"}]}, "hot_meme": {"meta": {"name": "热梗素材库", "version": "1.0", "total": 2, "updated_at": "2026-07-31T09:11:56.889776"}, "items": [{"source": "auto_from_hotspot", "source_hotspot_id": "B站_15_21岁小伙60万彩礼娶00后女生，2个月", "source_title": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！", "created_at": "2026-07-31T09:10:52.597617", "updated_at": "2026-07-31T09:10:52.597619", "type_tag": "社会热梗", "source_platform": "B站", "core_conflict": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人", "adaptation_direction": "现言, 婚恋, 家庭伦理, 悬疑, 幻言, 奇幻, 现言", "sweet_angst_index": "3", "multi_platform_heat": "播放767663", "suitable_plot": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人", "id": "37b9c8ea-cd33-4d0d-982d-874a8273cfde", "code": "RG-2026-001"}, {"code": "RG-2025-001", "type_tag": "#契约婚姻 #非遗传承", "source_platform": "抖音/快手", "core_conflict": "协议婚姻暴露引发继承危机", "emotion_level": "荒诞→暧昧→危机→救赎", "adaptation_direction": "女主为守护古琴工坊与传承人假结婚", "sweet_angst_index": "甜60%虐40%", "sweet_angst_balance": "1.5", "suitable_relationship": "师徒+伪夫妻", "prop_symbol": "祖传断弦/电子婚书", "taboo_redline": "避用具体非遗名录", "multi_platform_heat": "抖音🔥3.2亿", "foreshadowing_need": "需提前5章铺垫工坊债务", "reader_expectation": "先婚后爱期待值高", "risk_warning": "避免直接引用现实政策", "id": "b89d2a05-37f4-424e-8049-99ca7e851ada", "created_at": "2026-07-31T09:11:56.889755", "updated_at": "2026-07-31T09:11:56.889773"}]}, "legal_risk": {"meta": {"name": "法律风险库", "version": "1.0", "total": 2, "updated_at": "2026-07-31T09:12:20.106916"}, "items": [{"source": "auto_from_hotspot", "source_hotspot_id": "微博_12_丈夫和第三者胚胎是婚姻耻辱", "source_title": "丈夫和第三者胚胎是婚姻耻辱", "created_at": "2026-07-31T09:10:52.657129", "updated_at": "2026-07-31T09:10:52.657131", "risk_type": "婚姻纠纷", "legal_basis": "民法典相关", "trigger_condition": "丈夫和第三者胚胎是婚姻耻辱", "reality_prototype": "丈夫和第三者胚胎是婚姻耻辱", "adaptation_plan": "建议将具体法律细节模糊化处理", "suitable_plot": "丈夫和第三者胚胎是婚姻耻辱", "id": "3dadd033-16cf-461a-8da1-9f9377e894ad", "code": "FL-2026-001"}, {"code": "FL-2025-001", "risk_type": "隐婚协议", "legal_basis": "民法典第1042条", "trigger_condition": "被第三方获取公证文件", "consequence_severity": "★★★★☆", "reality_prototype": "某顶流离婚财产冻结案", "adaptation_plan": "改为「元宇宙战略合作」", "prevention_measure": "用虚拟货币结算补偿金", "dramatic_technique": "添加「违约触发AI伴侣觉醒」条款", "id": "6e1ed0af-c288-4fb3-bff1-292ff116ef32", "created_at": "2026-07-31T09:12:20.106908", "updated_at": "2026-07-31T09:12:20.106913"}]}, "quote": {"meta": {"name": "金句库", "version": "1.0", "total": 6, "updated_at": "2026-07-31T09:12:20.117175"}, "items": [{"quote_content": "测试金句", "type_tag": "#测试", "suitable_plot": "测试场景", "id": "359c8900-98dd-415a-856c-8110422eaa7a", "created_at": "2026-07-31T09:07:49.630811", "updated_at": "2026-07-31T09:07:49.630823", "code": "JJ-2026-001"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_1_抵抗者2026实机演示", "source_title": "抵抗者2026实机演示", "created_at": "2026-07-31T09:10:52.693944", "updated_at": "2026-07-31T09:10:52.693945", "quote_content": "游戏武器体验官冒头[OK]\n孩子们是的\n我负责监督枪械手感[脱单doge]", "type_tag": "网友神评", "cross_library_impact": "3", "suitable_plot": "抵抗者2026实机演示", "id": "6f02bd95-9b00-4838-9b77-be0590bf1764", "code": "JJ-2026-002"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_2_小时候看不懂，长大后已是局中人", "source_title": "小时候看不懂，长大后已是局中人", "created_at": "2026-07-31T09:10:52.695258", "updated_at": "2026-07-31T09:10:52.695259", "quote_content": "本来以为你要狗熊岭顶级智斗，你给我来升华煽情，你这不是耍俺吗", "type_tag": "网友神评", "cross_library_impact": "3", "suitable_plot": "小时候看不懂，长大后已是局中人", "id": "3708c8ee-efa4-4030-ad59-6cea7d71d2eb", "code": "JJ-2026-003"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_3_挑战从东北徒步到西藏( 十倍速1小时5分", "source_title": "挑战从东北徒步到西藏( 十倍速1小时5分版）", "created_at": "2026-07-31T09:10:52.696965", "updated_at": "2026-07-31T09:10:52.696968", "quote_content": "这就是互联网最初的样子，连角马都能上网发视频", "type_tag": "网友神评", "cross_library_impact": "3", "suitable_plot": "挑战从东北徒步到西藏( 十倍速1小时5分版）", "id": "c0c57a86-4693-4c40-9c2f-502a0a74ded0", "code": "JJ-2026-004"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_4_【独家】《将夜》第16集 永字八法【4月", "source_title": "【独家】《将夜》第16集 永字八法【4月国创】", "created_at": "2026-07-31T09:10:52.698739", "updated_at": "2026-07-31T09:10:52.698742", "quote_content": "简大家打过招呼，待遇就是不一样啊[doge]", "type_tag": "网友神评", "cross_library_impact": "3", "suitable_plot": "【独家】《将夜》第16集 永字八法【4月国创】", "id": "590a0d79-e468-4e64-8c05-755d225b6536", "code": "JJ-2026-005"}, {"code": "JJ-2025-001", "quote_content": "你是我用尽公式也解不开的悖论", "type_tag": "#学术虐恋", "phonetic_structure": "仄平仄平仄仄仄平", "metaphor_density": "★★★", "cross_library_impact": "8.5/10", "related_meme": "HG-003", "suitable_plot": "实验室分手场景", "id": "4c1b40b3-04cc-4bdf-91bb-081f2df64ebb", "created_at": "2026-07-31T09:12:20.117166", "updated_at": "2026-07-31T09:12:20.117173"}]}, "reversal": {"meta": {"name": "反转素材库", "version": "1.0", "total": 9, "updated_at": "2026-07-31T09:12:20.102015"}, "items": [{"source": "auto_from_hotspot", "source_hotspot_id": "微博_34_6旬老人坚持地中海饮食3个月瘦37斤", "source_title": "6旬老人坚持地中海饮食3个月瘦37斤", "created_at": "2026-07-31T09:10:52.603721", "updated_at": "2026-07-31T09:10:52.603723", "reversal_type": "猎奇反转", "surface_presentation": "6旬老人坚持地中海饮食3个月瘦37斤", "truth_reveal": "6旬老人坚持地中海饮食3个月瘦37斤", "emotion_impact": "★★★", "suitable_genre": "悬疑, 幻言, 奇幻, 现言", "suitable_plot": "6旬老人坚持地中海饮食3个月瘦37斤", "id": "14bc5d5e-bcc9-408e-8e0a-ab4bf2345584", "code": "FZ-2026-001"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_8_古罗马离谱习俗——两千年前的古罗马，开放", "source_title": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。", "created_at": "2026-07-31T09:10:52.605239", "updated_at": "2026-07-31T09:10:52.605240", "reversal_type": "猎奇反转", "surface_presentation": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。", "truth_reveal": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。", "emotion_impact": "★★★", "suitable_genre": "悬疑, 幻言, 奇幻, 现言", "suitable_plot": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。", "id": "7e8df83e-685c-4ccb-ac20-26d8ed130efb", "code": "FZ-2026-002"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_9_孩子们，出了社会可没人惯着你", "source_title": "孩子们，出了社会可没人惯着你", "created_at": "2026-07-31T09:10:52.606606", "updated_at": "2026-07-31T09:10:52.606607", "reversal_type": "猎奇反转", "surface_presentation": "孩子们，出了社会可没人惯着你", "truth_reveal": "出了社会可没人惯着你！牢大说他要惯着你！", "emotion_impact": "★★★", "suitable_genre": "悬疑, 幻言, 奇幻, 现言", "suitable_plot": "出了社会可没人惯着你！牢大说他要惯着你！", "id": "3faa6f65-eb35-411f-aca9-503864f924fc", "code": "FZ-2026-003"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_13_罕见龙卷风突袭，他3分钟内同时失去了父母", "source_title": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当", "created_at": "2026-07-31T09:10:52.607966", "updated_at": "2026-07-31T09:10:52.607967", "reversal_type": "猎奇反转", "surface_presentation": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当", "truth_reveal": "罕见龙卷风突袭，今年营收有望过亿的公司被夷为平地……湖北老板3分钟内同时失去了父母和家当，在他感觉撑不下去时，公司2天内绝境重生。", "emotion_impact": "★★★★", "suitable_genre": "悬疑, 幻言, 奇幻, 现言", "suitable_plot": "罕见龙卷风突袭，今年营收有望过亿的公司被夷为平地……湖北老板3分钟内同时失去了父母和家当，在他感觉撑不下去时，公司2天内绝境重生。", "id": "1eefe503-931e-4190-ba20-6d9e32b38c9a", "code": "FZ-2026-004"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_15_21岁小伙60万彩礼娶00后女生，2个月", "source_title": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！", "created_at": "2026-07-31T09:10:52.609367", "updated_at": "2026-07-31T09:10:52.609370", "reversal_type": "猎奇反转", "surface_presentation": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！", "truth_reveal": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人", "emotion_impact": "★★★★", "suitable_genre": "悬疑, 幻言, 奇幻, 现言", "suitable_plot": "花60万彩礼，娶一个00后女生，没想到，刚结婚没几天，就被这位女生，先喂安眠药，再骗进机井之中！活活憋死！\n而凶手，也成了00后第一批被判死刑的人", "id": "40027a39-bec1-4e93-8bab-630192f92701", "code": "FZ-2026-005"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_19_和解剖了4000具尸体的法医，一起看了影", "source_title": "和解剖了4000具尸体的法医，一起看了影片中的尸体...", "created_at": "2026-07-31T09:10:52.610885", "updated_at": "2026-07-31T09:10:52.610888", "reversal_type": "猎奇反转", "surface_presentation": "和解剖了4000具尸体的法医，一起看了影片中的尸体...", "truth_reveal": "在各种影视作品中，我们经常会看到各种各样的凶杀案和尸体，但影片中对于“死亡”的呈现，和现实中的情况真的一样吗？这一次，我们请到了法医刘良老师来和我们一起拉片，看看这些影视作品中的“尸体”……如果你对这期节目感兴趣，请多多支持我们，并把视频分享给你的朋友们一起看看！\n*本期内容涉及法医专业知识，部分画面及讲述内容可能导致不适，请谨慎观看。", "emotion_impact": "★★★", "suitable_genre": "悬疑, 幻言, 奇幻, 现言", "suitable_plot": "在各种影视作品中，我们经常会看到各种各样的凶杀案和尸体，但影片中对于“死亡”的呈现，和现实中的情况真的一样吗？这一次，我们请到了法医刘良老师来和我们一起拉片，看看这些影视作品中的“尸体”……如果你对这期节目感兴趣，请多多支持我们，并把视频分享给你的朋友们一起看看！\n*本期内容涉及法医专业知识，部分画面及讲述内容可能导致不适，请谨慎观看。", "id": "e0e8d913-7aad-4776-a2a8-5e9dfe445af6", "code": "FZ-2026-006"}, {"code": "FZ-2025-001", "reversal_type": "假戏真做", "foreshadowing_clue": "第8章深夜送药", "eruption_chapter": "第25章", "emotion_impact": "★★★★☆", "logic_check": "[√]伏笔自然", "foreshadow_design": "白玫瑰军用标签；遗物手表错误；加密短信", "adaptation_case": "《替身档案》DNA匹配间谍案", "reality_prototype": "美国证人保护计划", "suitable_genre": "都市悬疑/政治惊悚", "risk_barrier": "禁用真实部门代号", "id": "0fb37671-67f6-478c-8ae2-72ebb9d9349f", "created_at": "2026-07-31T09:12:20.098642", "updated_at": "2026-07-31T09:12:20.098647"}, {"code": "FZ-2025-002", "reversal_type": "身份反转、动机反转、阵营反转、预言反转、物品反转、时间线反转、情感反转、生死反转、胜负反转和认知反转", "logic_check": "[√]动机合理", "id": "99e9f6b3-2cce-4a09-8ca1-2aec8f34d1ee", "created_at": "2026-07-31T09:12:20.100392", "updated_at": "2026-07-31T09:12:20.100397"}, {"code": "FZ-2025-003", "logic_check": "[√]设置伪线索", "id": "e20f8547-64c3-43c1-ab71-82479f1b4310", "created_at": "2026-07-31T09:12:20.102008", "updated_at": "2026-07-31T09:12:20.102013"}]}, "scene": {"meta": {"name": "场景库", "version": "1.0", "total": 1, "updated_at": "2026-07-31T09:12:20.105428"}, "items": [{"code": "CJ-2025-001", "scene_type": "办公室对峙", "visual_focus": "钢笔尖戳破文件页", "auditory_detail": "中央空调低频嗡鸣", "tactile_image": "真皮座椅的冷涩感", "olfactory_memory": "苦橙香水后调", "taste_metaphor": "铁锈味", "emotion_curve": "愤怒70%→悔意30%", "conflict_trigger": "抖出财务报表漏洞", "foreshadow_recovery": "第三章咖啡渍文件", "suitable_plot": "身份揭穿/利益交锋", "data_reference": "《密会》财务室争吵戏", "taboo_tip": "避免直接肢体暴力", "emotion_intensity": "=(初始情绪值+转折情绪值)*10", "id": "cb836b45-3c9d-4347-9eee-431a2739746e", "created_at": "2026-07-31T09:12:20.105421", "updated_at": "2026-07-31T09:12:20.105426"}]}, "scenery": {"meta": {"name": "景色库", "version": "1.0", "total": 1, "updated_at": "2026-07-31T09:12:20.112673"}, "items": [{"code": "JS-2025-001", "spacetime_coordinate": "赛博墓地-雨夜", "optical_description": "全息墓碑闪烁故障波纹", "acoustic_description": "义肢关节的金属摩擦声", "olfactory_level": "锈蚀金属混合人造雨水剂", "tactile_feedback": "指尖静电刺痛", "dynamic_element": "AR弹幕如萤火虫飘散", "data_layer": "神经链接延迟0.3秒", "era_tag": "近未来", "related_color_palette": "#5A7D9A", "id": "448471c2-4e94-42cf-875e-bbc92b231c1e", "created_at": "2026-07-31T09:12:20.112664", "updated_at": "2026-07-31T09:12:20.112671"}]}, "vocabulary": {"meta": {"name": "词汇库", "version": "1.0", "total": 8, "updated_at": "2026-07-31T09:12:20.108907"}, "items": [{"source": "auto_from_hotspot", "source_hotspot_id": "微博_12_丈夫和第三者胚胎是婚姻耻辱", "source_title": "丈夫和第三者胚胎是婚姻耻辱", "created_at": "2026-07-31T09:10:52.659052", "updated_at": "2026-07-31T09:10:52.659054", "core_word": "婚姻", "category": "情感冲突", "suitable_genre": "现言, 婚恋, 家庭伦理", "id": "3f756037-4e7f-4ed9-9a36-5d662ccec433", "code": "CH-2026-001"}, {"source": "auto_from_hotspot", "source_hotspot_id": "微博_34_6旬老人坚持地中海饮食3个月瘦37斤", "source_title": "6旬老人坚持地中海饮食3个月瘦37斤", "created_at": "2026-07-31T09:10:52.660708", "updated_at": "2026-07-31T09:10:52.660709", "core_word": "老人", "category": "猎奇与反转", "suitable_genre": "悬疑, 幻言, 奇幻, 现言", "id": "2f454816-b011-4755-8912-979716d639c1", "code": "CH-2026-002"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_8_古罗马离谱习俗——两千年前的古罗马，开放", "source_title": "古罗马离谱习俗——两千年前的古罗马，开放程度与市井智慧，完全颠覆现代人的认知。", "created_at": "2026-07-31T09:10:52.662402", "updated_at": "2026-07-31T09:10:52.662403", "core_word": "离谱", "category": "猎奇与反转", "suitable_genre": "悬疑, 幻言, 奇幻, 现言", "id": "debfee8e-db11-4b9d-9d8c-6e8dedd432c2", "code": "CH-2026-003"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_9_孩子们，出了社会可没人惯着你", "source_title": "孩子们，出了社会可没人惯着你", "created_at": "2026-07-31T09:10:52.663547", "updated_at": "2026-07-31T09:10:52.663548", "core_word": "孩子", "category": "猎奇与反转", "suitable_genre": "悬疑, 幻言, 奇幻, 现言", "id": "09ed7202-f1c4-46e6-8583-9f3aac7c7c2e", "code": "CH-2026-004"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_13_罕见龙卷风突袭，他3分钟内同时失去了父母", "source_title": "罕见龙卷风突袭，他3分钟内同时失去了父母和家当", "created_at": "2026-07-31T09:10:52.665112", "updated_at": "2026-07-31T09:10:52.665113", "core_word": "罕见", "category": "社会冲突", "suitable_genre": "现言, 职场, 商战, 悬疑, 悬疑, 幻言, 奇幻, 现言", "id": "80d52e49-4182-46cf-ab8f-54cb9d1a6861", "code": "CH-2026-005"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_15_21岁小伙60万彩礼娶00后女生，2个月", "source_title": "21岁小伙60万彩礼娶00后女生，2个月后就被女生杀害，死因竟是小伙太过讨好！", "created_at": "2026-07-31T09:10:52.666106", "updated_at": "2026-07-31T09:10:52.666107", "core_word": "没想到", "category": "情感冲突", "suitable_genre": "现言, 婚恋, 家庭伦理, 悬疑, 幻言, 奇幻, 现言", "id": "f36d1af7-362d-4804-b261-9bab76325d18", "code": "CH-2026-006"}, {"source": "auto_from_hotspot", "source_hotspot_id": "B站_19_和解剖了4000具尸体的法医，一起看了影", "source_title": "和解剖了4000具尸体的法医，一起看了影片中的尸体...", "created_at": "2026-07-31T09:10:52.667247", "updated_at": "2026-07-31T09:10:52.667248", "core_word": "死亡", "category": "猎奇与反转", "suitable_genre": "悬疑, 幻言, 奇幻, 现言", "id": "21cbcfa2-08bf-4b43-a008-00ce39ce5b4f", "code": "CH-2026-007"}, {"code": "CH-2025-001", "category": "感官词汇", "sub_category": "视觉", "core_word": "彩绘玻璃窗", "intensity": "5", "synesthesia_example": "阳光在彩绘玻璃上碎裂成圣痕", "suitable_genre": "现实主义", "related_emotion": "疏离感", "source_reference": "《沙丘》", "id": "f1322a8b-15fa-4021-aa32-6ca676c76d5f", "created_at": "2026-07-31T09:12:20.108882", "updated_at": "2026-07-31T09:12:20.108902"}]}};
+const LIBRARY_CONFIG = {"hot_meme": {"name": "热梗素材库", "group": "story_core", "icon": "🔥", "fields": [{"key": "code", "label": "编号"}, {"key": "type_tag", "label": "类型标签"}, {"key": "source_platform", "label": "来源平台"}, {"key": "core_conflict", "label": "核心冲突点"}, {"key": "emotion_level", "label": "情感层次"}, {"key": "adaptation_direction", "label": "改编方向"}, {"key": "sweet_angst_index", "label": "甜虐指数"}, {"key": "sweet_angst_balance", "label": "甜虐平衡指数"}, {"key": "suitable_relationship", "label": "适配角色关系"}, {"key": "suitable_chapter", "label": "适用章节"}, {"key": "prop_symbol", "label": "道具符号"}, {"key": "taboo_redline", "label": "禁忌红线"}, {"key": "multi_platform_heat", "label": "多平台热度"}, {"key": "foreshadowing_need", "label": "伏笔需求"}, {"key": "reader_expectation", "label": "读者预期"}, {"key": "risk_warning", "label": "风险提示"}, {"key": "suitable_plot", "label": "适用情节"}]}, "conflict": {"name": "冲突素材库", "group": "story_core", "icon": "⚡", "fields": [{"key": "code", "label": "编号"}, {"key": "conflict_type", "label": "冲突类型"}, {"key": "source_platform", "label": "来源平台"}, {"key": "reality_prototype", "label": "现实原型"}, {"key": "core_contradiction", "label": "核心矛盾"}, {"key": "emotion_curve", "label": "情绪曲线"}, {"key": "suitable_relationship", "label": "适配角色关系"}, {"key": "suitable_scene", "label": "适用场景"}, {"key": "risk_level", "label": "风险等级"}, {"key": "adaptation_direction", "label": "改编方向"}, {"key": "adaptation_case", "label": "改编案例"}, {"key": "eruption_scene", "label": "爆发场景"}, {"key": "resolution_method", "label": "解决方式"}, {"key": "emotion_value", "label": "情绪价值"}, {"key": "foreshadowing_need", "label": "伏笔需求"}, {"key": "suitable_plot", "label": "适用情节"}]}, "hook": {"name": "钩子素材库", "group": "story_core", "icon": "🪝", "fields": [{"key": "code", "label": "编号"}, {"key": "hook_type", "label": "钩子类型"}, {"key": "placement_position", "label": "埋设位置"}, {"key": "type_tag", "label": "类型标签"}, {"key": "trigger_chapter", "label": "引爆章节"}, {"key": "core_element", "label": "核心元素"}, {"key": "placement_technique", "label": "埋设手法"}, {"key": "emotion_orientation", "label": "情感导向"}, {"key": "recovery_cycle", "label": "回收周期"}, {"key": "related_reversal", "label": "关联反转"}, {"key": "hook_density", "label": "钩子密度"}, {"key": "foreshadowing_requirement", "label": "伏笔要求"}, {"key": "modification_direction", "label": "修改方向"}, {"key": "risk_warning", "label": "风险提示"}, {"key": "suitable_plot", "label": "适用情节"}]}, "reversal": {"name": "反转素材库", "group": "story_core", "icon": "🔄", "fields": [{"key": "code", "label": "编号"}, {"key": "reversal_type", "label": "反转类型"}, {"key": "foreshadowing_clue", "label": "铺垫线索"}, {"key": "eruption_chapter", "label": "爆发章节"}, {"key": "emotion_impact", "label": "情感冲击"}, {"key": "logic_check", "label": "逻辑校验"}, {"key": "surface_presentation", "label": "表面呈现"}, {"key": "truth_reveal", "label": "真相揭露"}, {"key": "foreshadow_design", "label": "伏笔设计"}, {"key": "adaptation_case", "label": "改编案例"}, {"key": "reality_prototype", "label": "现实原型"}, {"key": "suitable_genre", "label": "适用题材"}, {"key": "risk_barrier", "label": "风险屏障"}, {"key": "suitable_plot", "label": "适用情节"}]}, "character": {"name": "人设基因库", "group": "character_scene", "icon": "👤", "fields": [{"key": "code", "label": "编号"}, {"key": "role_positioning", "label": "角色定位"}, {"key": "surface_traits", "label": "表面属性"}, {"key": "hidden_traits", "label": "隐藏属性"}, {"key": "tag", "label": "标签"}, {"key": "occupation_identity", "label": "职业/身份"}, {"key": "emotional_obstacle", "label": "情感障碍"}, {"key": "exclusive_item", "label": "专属物品"}, {"key": "signature_action", "label": "标志动作"}, {"key": "romance_foreshadow", "label": "感情线伏笔"}, {"key": "hidden_connection", "label": "隐秘关联"}, {"key": "hormone_trigger", "label": "荷尔蒙触发点"}, {"key": "fatal_flaw", "label": "致命性缺点"}, {"key": "redemption_switch", "label": "救赎开关"}, {"key": "taboo_boundary", "label": "禁忌边界"}, {"key": "suitable_plot", "label": "适用情节"}]}, "scene": {"name": "场景库", "group": "character_scene", "icon": "🎬", "fields": [{"key": "code", "label": "编号"}, {"key": "scene_type", "label": "场景类型"}, {"key": "visual_focus", "label": "视觉焦点"}, {"key": "auditory_detail", "label": "听觉细节"}, {"key": "tactile_image", "label": "触觉意象"}, {"key": "olfactory_memory", "label": "嗅觉记忆"}, {"key": "taste_metaphor", "label": "味觉隐喻"}, {"key": "emotion_curve", "label": "情感曲线"}, {"key": "conflict_trigger", "label": "冲突触发点"}, {"key": "foreshadow_recovery", "label": "伏笔回收点"}, {"key": "suitable_plot", "label": "适用情节"}, {"key": "data_reference", "label": "数据参考"}, {"key": "taboo_tip", "label": "禁忌提示"}, {"key": "emotion_intensity", "label": "情感强度"}]}, "legal_risk": {"name": "法律风险库", "group": "writing_technique", "icon": "⚖️", "fields": [{"key": "code", "label": "编号"}, {"key": "risk_type", "label": "风险类型"}, {"key": "legal_basis", "label": "法律依据"}, {"key": "trigger_condition", "label": "触发条件"}, {"key": "consequence_severity", "label": "后果严重性"}, {"key": "reality_prototype", "label": "现实原型"}, {"key": "adaptation_plan", "label": "改编方案"}, {"key": "prevention_measure", "label": "预防措施"}, {"key": "dramatic_technique", "label": "戏剧化技巧"}, {"key": "suitable_plot", "label": "适用情节"}]}, "vocabulary": {"name": "词汇库", "group": "writing_technique", "icon": "📝", "fields": [{"key": "code", "label": "序号"}, {"key": "category", "label": "分类"}, {"key": "sub_category", "label": "子类"}, {"key": "core_word", "label": "核心词汇"}, {"key": "intensity", "label": "强度"}, {"key": "synesthesia_example", "label": "通感示例"}, {"key": "suitable_genre", "label": "适用题材"}, {"key": "related_emotion", "label": "关联情绪"}, {"key": "source_reference", "label": "出处"}]}, "emotion": {"name": "情绪库", "group": "writing_technique", "icon": "💭", "fields": [{"key": "code", "label": "序号"}, {"key": "core_emotion", "label": "核心情绪"}, {"key": "intensity_level", "label": "强度等级"}, {"key": "physiological_reaction", "label": "生理反应"}, {"key": "micro_expression_code", "label": "微表情编码"}, {"key": "behavior_mapping", "label": "行为映射"}, {"key": "dialogue_feature", "label": "对话特征"}, {"key": "suitable_scene", "label": "适用场景"}, {"key": "taboo_misuse", "label": "禁忌误用"}, {"key": "case_source", "label": "案例来源"}]}, "scenery": {"name": "景色库", "group": "writing_technique", "icon": "🏞️", "fields": [{"key": "code", "label": "序号"}, {"key": "spacetime_coordinate", "label": "时空坐标"}, {"key": "optical_description", "label": "光学描写"}, {"key": "acoustic_description", "label": "声学描写"}, {"key": "olfactory_level", "label": "嗅觉层次"}, {"key": "tactile_feedback", "label": "触觉反馈"}, {"key": "dynamic_element", "label": "动态元素"}, {"key": "data_layer", "label": "数据层"}, {"key": "era_tag", "label": "时代标签"}, {"key": "related_color_palette", "label": "关联色卡"}]}, "action": {"name": "动作库", "group": "writing_technique", "icon": "🏃", "fields": [{"key": "code", "label": "序号"}, {"key": "scene_type", "label": "场景类型"}, {"key": "action_level", "label": "动作分级"}, {"key": "main_action", "label": "主体动作"}, {"key": "chain_reaction", "label": "连带反应"}, {"key": "metaphor_meaning", "label": "隐喻意义"}, {"key": "rhythm_value", "label": "节奏值"}, {"key": "taboo_combination", "label": "禁忌组合"}, {"key": "classic_case", "label": "经典案例"}]}, "dialogue": {"name": "对话库", "group": "writing_technique", "icon": "💬", "fields": [{"key": "code", "label": "序号"}, {"key": "conflict_type", "label": "冲突类型"}, {"key": "surface_dialogue", "label": "表层对话"}, {"key": "subtext", "label": "潜台词"}, {"key": "action_anchor", "label": "动作锚点"}, {"key": "tone_mark", "label": "声调标记"}, {"key": "information_density", "label": "信息密度"}, {"key": "power_relation", "label": "权力关系"}, {"key": "source_chapter", "label": "出处章节"}]}, "quote": {"name": "金句库", "group": "writing_technique", "icon": "💎", "fields": [{"key": "code", "label": "编号"}, {"key": "quote_content", "label": "金句内容"}, {"key": "type_tag", "label": "类型标签"}, {"key": "phonetic_structure", "label": "声韵结构"}, {"key": "metaphor_density", "label": "隐喻密度"}, {"key": "cross_library_impact", "label": "跨库冲击力"}, {"key": "related_meme", "label": "关联热梗"}, {"key": "suitable_plot", "label": "适用情节"}]}};
+const LIBRARY_GROUPS = [{"key": "story_core", "name": "故事内核素材库", "libraries": ["hot_meme", "conflict", "hook", "reversal"]}, {"key": "character_scene", "name": "人物与场景", "libraries": ["character", "scene"]}, {"key": "writing_technique", "name": "写作技法库", "libraries": ["legal_risk", "vocabulary", "emotion", "scenery", "action", "dialogue", "quote"]}];
+
+</script>
+<script>
+// ==================== Application Logic ====================
+(function() {
+'use strict';
+
+// ==================== Data Layer ====================
+const STORAGE_KEY_HOTSPOTS = 'lyz_hotspots';
+const STORAGE_KEY_MATERIALS = 'lyz_materials';
+const STORAGE_KEY_PROJECTS = 'lyz_projects';
+const INIT_KEY = 'lyz_initialized';
+
+function getHotspots() {
+  let data = localStorage.getItem(STORAGE_KEY_HOTSPOTS);
+  if (data) return JSON.parse(data);
+  return EMBEDDED_HOTSPOTS;
+}
+
+function saveHotspots(data) {
+  localStorage.setItem(STORAGE_KEY_HOTSPOTS, JSON.stringify(data));
+}
+
+function getMaterials() {
+  let data = localStorage.getItem(STORAGE_KEY_MATERIALS);
+  if (data) return JSON.parse(data);
+  return EMBEDDED_MATERIALS;
+}
+
+function saveMaterials(data) {
+  localStorage.setItem(STORAGE_KEY_MATERIALS, JSON.stringify(data));
+}
+
+function getProjects() {
+  let data = localStorage.getItem(STORAGE_KEY_PROJECTS);
+  return data ? JSON.parse(data) : [];
+}
+
+function saveProjects(data) {
+  localStorage.setItem(STORAGE_KEY_PROJECTS, JSON.stringify(data));
+}
+
+// Initialize data on first load
+if (!localStorage.getItem(INIT_KEY)) {
+  localStorage.setItem(STORAGE_KEY_HOTSPOTS, JSON.stringify(EMBEDDED_HOTSPOTS));
+  localStorage.setItem(STORAGE_KEY_MATERIALS, JSON.stringify(EMBEDDED_MATERIALS));
+  localStorage.setItem(STORAGE_KEY_PROJECTS, JSON.stringify([]));
+  localStorage.setItem(INIT_KEY, '1');
+}
+
+// Flatten hotspots for easy access
+function getFlatHotspots() {
+  const data = getHotspots();
+  const flat = [];
+  for (const platform in data) {
+    const items = data[platform];
+    if (Array.isArray(items)) {
+      items.forEach(item => flat.push(item));
+    }
+  }
+  return flat;
+}
+
+// ==================== Toast ====================
+function showToast(msg) {
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = msg;
+  container.appendChild(toast);
+  setTimeout(() => toast.remove(), 2200);
+}
+
+// ==================== Tab Navigation ====================
+document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
+  item.addEventListener('click', function() {
+    document.querySelectorAll('.bottom-nav .nav-item').forEach(n => n.classList.remove('active'));
+    this.classList.add('active');
+    const tabId = 'tab-' + this.dataset.tab;
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    if (this.dataset.tab === 'hotspots') renderHotspots();
+    else if (this.dataset.tab === 'materials') renderMaterials();
+    else if (this.dataset.tab === 'workshop') renderWorkshop();
+    else if (this.dataset.tab === 'dashboard') renderDashboard();
+  });
+});
+
+// ==================== Hotspots Tab ====================
+let hotspotFilter = { platform: 'all', keyword: '' };
+
+function renderHotspots() {
+  const container = document.getElementById('tab-hotspots');
+  const flat = getFlatHotspots();
+  const platforms = ['all', ...new Set(flat.map(h => h.platform).filter(Boolean))];
+
+  let filtered = flat;
+  if (hotspotFilter.platform !== 'all') {
+    filtered = filtered.filter(h => h.platform === hotspotFilter.platform);
+  }
+  if (hotspotFilter.keyword) {
+    const kw = hotspotFilter.keyword.toLowerCase();
+    filtered = filtered.filter(h => h.title.toLowerCase().includes(kw) || (h.content && h.content.toLowerCase().includes(kw)));
+  }
+
+  let html = `
+    <div class="search-bar">
+      <select id="hs-platform-filter" style="flex:0 0 auto;min-width:100px">
+        ${platforms.map(p => `<option value="${p}" ${p === hotspotFilter.platform ? 'selected' : ''}>${p === 'all' ? '全部平台' : p}</option>`).join('')}
+      </select>
+      <input type="text" id="hs-keyword" placeholder="搜索关键词..." value="${hotspotFilter.keyword}">
+    </div>
+    <div style="margin-bottom:12px;color:var(--text-muted);font-size:var(--font-xs)">
+      共 ${filtered.length} 条热点
+    </div>
+  `;
+
+  filtered.slice(0, 100).forEach(h => {
+    const analysis = h.story_analysis || {};
+    const score = analysis.story_score || 0;
+    const categories = analysis.story_categories || [];
+    const keywords = analysis.matched_keywords || [];
+    const content = h.content || '';
+    const comments = h.top_comments || [];
+
+    html += `
+      <div class="card" onclick="this.classList.toggle('expanded')">
+        <div class="card-header">
+          <div class="card-title">${h.title}</div>
+          <div class="card-badge">${h.platform || ''}</div>
+        </div>
+        <div class="card-meta">
+          <span>#${h.rank != null ? h.rank + 1 : '-'}</span>
+          ${h.heat ? `<span>${h.heat}</span>` : ''}
+          ${score > 0 ? `<span style="color:var(--accent)">故事感: ${score}</span>` : ''}
+        </div>
+        <div style="margin-top:6px">
+          ${keywords.map(k => `<span class="tag">${k}</span>`).join('')}
+          ${categories.map(c => `<span class="tag" style="background:var(--accent-dim);color:var(--accent)">${c.category}</span>`).join('')}
+        </div>
+        <div class="card-expand">
+          ${content ? `<div style="margin-bottom:8px"><strong>内容摘要:</strong> ${content.substring(0, 300)}</div>` : ''}
+          ${comments.length > 0 ? `<div><strong>高赞评论:</strong><br>${comments.slice(0, 3).map(c => `<div style="margin:4px 0;padding:6px;background:var(--bg-input);border-radius:4px;font-size:var(--font-xs)">${c}</div>`).join('')}</div>` : ''}
+          ${h.url ? `<div style="margin-top:8px"><a href="${h.url}" target="_blank" style="color:var(--accent);font-size:var(--font-xs)">查看原文</a></div>` : ''}
+        </div>
+      </div>
+    `;
+  });
+
+  if (filtered.length > 100) {
+    html += `<div style="text-align:center;color:var(--text-muted);padding:10px">仅显示前100条，请使用筛选缩小范围</div>`;
+  }
+
+  container.innerHTML = html;
+
+  // Bind filters
+  const pf = document.getElementById('hs-platform-filter');
+  const kw = document.getElementById('hs-keyword');
+  if (pf) pf.addEventListener('change', function() { hotspotFilter.platform = this.value; renderHotspots(); });
+  if (kw) kw.addEventListener('input', function() { hotspotFilter.keyword = this.value; renderHotspots(); });
+}
+
+// ==================== Materials Tab ====================
+let currentLibrary = 'hot_meme';
+let materialSearch = '';
+let materialPage = 1;
+const PAGE_SIZE = 10;
+
+function renderMaterials() {
+  const container = document.getElementById('tab-materials');
+  const materials = getMaterials();
+
+  // Sidebar
+  let sidebarHtml = '';
+  LIBRARY_GROUPS.forEach(group => {
+    sidebarHtml += `<div class="library-group open">
+      <div class="library-group-header" onclick="this.parentElement.classList.toggle('open')">${group.name}</div>
+      <div class="library-group-items">`;
+    group.libraries.forEach(lib => {
+      const cfg = LIBRARY_CONFIG[lib];
+      const count = materials[lib] ? (materials[lib].items || []).length : 0;
+      sidebarHtml += `<div class="library-item${currentLibrary === lib ? ' active' : ''}" data-lib="${lib}">${cfg.icon} ${cfg.name} <span style="font-size:10px;color:var(--text-muted)">(${count})</span></div>`;
+    });
+    sidebarHtml += `</div></div>`;
+  });
+
+  // Main content
+  const cfg = LIBRARY_CONFIG[currentLibrary];
+  const libData = materials[currentLibrary] || { items: [] };
+  let items = libData.items || [];
+
+  // Search
+  if (materialSearch) {
+    const kw = materialSearch.toLowerCase();
+    items = items.filter(item => {
+      return Object.values(item).some(v => String(v).toLowerCase().includes(kw));
+    });
+  }
+
+  // Pagination
+  const totalPages = Math.ceil(items.length / PAGE_SIZE) || 1;
+  if (materialPage > totalPages) materialPage = totalPages;
+  const start = (materialPage - 1) * PAGE_SIZE;
+  const pageItems = items.slice(start, start + PAGE_SIZE);
+
+  // Table
+  let tableHtml = `<table class="material-table"><thead><tr>`;
+  cfg.fields.slice(0, 5).forEach(f => {
+    tableHtml += `<th>${f.label}</th>`;
+  });
+  tableHtml += `<th style="width:60px">操作</th></tr></thead><tbody>`;
+
+  pageItems.forEach((item, idx) => {
+    tableHtml += `<tr>`;
+    cfg.fields.slice(0, 5).forEach(f => {
+      const val = item[f.key] || '';
+      tableHtml += `<td title="${val}">${val.length > 30 ? val.substring(0, 30) + '...' : val}</td>`;
+    });
+    tableHtml += `<td>
+      <button class="btn btn-sm btn-secondary" onclick="editMaterial('${currentLibrary}', ${start + idx})" title="编辑">✏</button>
+      <button class="btn btn-sm btn-danger" onclick="deleteMaterial('${currentLibrary}', ${start + idx})" title="删除">×</button>
+    </td></tr>`;
+  });
+
+  if (pageItems.length === 0) {
+    tableHtml += `<tr><td colspan="${cfg.fields.length + 1}" style="text-align:center;padding:20px;color:var(--text-muted)">暂无数据</td></tr>`;
+  }
+
+  tableHtml += `</tbody></table>`;
+
+  // Pagination controls
+  let paginationHtml = `<div class="pagination">
+    <button class="btn btn-sm btn-secondary" onclick="changeMaterialPage(${materialPage - 1})" ${materialPage <= 1 ? 'disabled' : ''}>上一页</button>
+    <span>${materialPage} / ${totalPages}</span>
+    <button class="btn btn-sm btn-secondary" onclick="changeMaterialPage(${materialPage + 1})" ${materialPage >= totalPages ? 'disabled' : ''}>下一页</button>
+  </div>`;
+
+  container.innerHTML = `
+    <div class="library-layout">
+      <div class="library-sidebar">${sidebarHtml}</div>
+      <div class="library-main">
+        <div class="library-toolbar">
+          <strong style="font-size:var(--font-md)">${cfg.icon} ${cfg.name}</strong>
+          <input type="text" class="library-search" id="material-search" placeholder="搜索..." value="${materialSearch}">
+          <button class="btn btn-sm btn-primary" onclick="addMaterial('${currentLibrary}')">+ 添加</button>
+          <button class="btn btn-sm btn-success" onclick="autoFillMaterials()">一键填入</button>
+          <button class="btn btn-sm btn-secondary" onclick="exportLibraryCSV('${currentLibrary}')">导出CSV</button>
+        </div>
+        ${tableHtml}
+        ${paginationHtml}
+      </div>
+    </div>
+  `;
+
+  // Bind sidebar clicks
+  container.querySelectorAll('.library-item').forEach(el => {
+    el.addEventListener('click', function() {
+      currentLibrary = this.dataset.lib;
+      materialPage = 1;
+      materialSearch = '';
+      renderMaterials();
+    });
+  });
+
+  // Bind search
+  const searchInput = document.getElementById('material-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      materialSearch = this.value;
+      materialPage = 1;
+      renderMaterials();
+    });
+  }
+}
+
+function changeMaterialPage(page) {
+  materialPage = page;
+  renderMaterials();
+}
+
+function addMaterial(libKey) {
+  showMaterialModal(libKey, null, -1);
+}
+
+function editMaterial(libKey, idx) {
+  showMaterialModal(libKey, idx, idx);
+}
+
+function deleteMaterial(libKey, idx) {
+  if (!confirm('确定要删除这条素材吗？')) return;
+  const materials = getMaterials();
+  const libData = materials[libKey] || { items: [] };
+  libData.items.splice(idx, 1);
+  libData.meta = libData.meta || {};
+  libData.meta.total = libData.items.length;
+  saveMaterials(materials);
+  showToast('已删除');
+  renderMaterials();
+}
+
+function showMaterialModal(libKey, idx, originalIdx) {
+  const materials = getMaterials();
+  const libData = materials[libKey] || { items: [] };
+  const cfg = LIBRARY_CONFIG[libKey];
+  const isEdit = idx >= 0;
+  const item = isEdit ? (libData.items[idx] || {}) : {};
+
+  let formHtml = cfg.fields.map(f => {
+    const val = item[f.key] || '';
+    const input = f.key === 'id' || f.key === 'created_at' || f.key === 'updated_at' || f.key === 'source' || f.key === 'source_hotspot_id' || f.key === 'source_title'
+      ? `<input type="text" name="${f.key}" value="${val}" readonly style="opacity:0.5">`
+      : `<input type="text" name="${f.key}" value="${val}">`;
+    return `<div class="form-group"><label>${f.label}</label>${input}</div>`;
+  }).join('');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay active';
+  overlay.innerHTML = `
+    <div class="modal">
+      <h3>${isEdit ? '编辑' : '添加'}素材 - ${cfg.name}</h3>
+      <form id="material-form">${formHtml}</form>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">取消</button>
+        <button class="btn btn-primary" id="save-material-btn">保存</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  overlay.querySelector('#save-material-btn').addEventListener('click', function() {
+    const form = document.getElementById('material-form');
+    const data = {};
+    cfg.fields.forEach(f => {
+      const input = form.querySelector(`[name="${f.key}"]`);
+      if (input) data[f.key] = input.value;
+    });
+
+    if (isEdit) {
+      Object.assign(libData.items[originalIdx], data);
+    } else {
+      data.id = 'mat_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+      data.created_at = new Date().toISOString();
+      data.updated_at = new Date().toISOString();
+      data.source = 'manual';
+      libData.items.push(data);
+    }
+
+    libData.meta = libData.meta || {};
+    libData.meta.total = libData.items.length;
+    libData.meta.updated_at = new Date().toISOString();
+    saveMaterials(materials);
+    overlay.remove();
+    showToast(isEdit ? '已更新' : '已添加');
+    renderMaterials();
+  });
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) overlay.remove();
+  });
+}
+
+function autoFillMaterials() {
+  if (!confirm('将使用嵌入的热点数据自动填入素材库。这会跳过已存在的条目。确定继续？')) return;
+
+  const hotspots = getFlatHotspots();
+  const materials = getMaterials();
+  const results = {};
+
+  const allLibs = ['hot_meme', 'conflict', 'hook', 'reversal', 'character', 'scene', 'legal_risk', 'vocabulary', 'emotion', 'scenery', 'action', 'dialogue', 'quote'];
+
+  allLibs.forEach(libKey => {
+    const libData = materials[libKey] || { items: [], meta: { name: LIBRARY_CONFIG[libKey].name } };
+    const existingIds = new Set((libData.items || []).map(i => i.source_hotspot_id).filter(Boolean));
+    let count = 0;
+
+    hotspots.forEach(h => {
+      const items = extractForLibrary(libKey, h);
+      items.forEach(item => {
+        if (item.source_hotspot_id && existingIds.has(item.source_hotspot_id)) return;
+        // Check content
+        let hasContent = false;
+        for (const k in item) {
+          if (!['id', 'source', 'created_at', 'updated_at', 'source_hotspot_id', 'source_title'].includes(k) && item[k]) {
+            hasContent = true;
+            break;
+          }
+        }
+        if (!hasContent) return;
+
+        item.id = 'auto_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+        item.created_at = new Date().toISOString();
+        item.updated_at = new Date().toISOString();
+        libData.items.push(item);
+        if (item.source_hotspot_id) existingIds.add(item.source_hotspot_id);
+        count++;
+      });
+    });
+
+    libData.meta = libData.meta || {};
+    libData.meta.total = libData.items.length;
+    libData.meta.updated_at = new Date().toISOString();
+    materials[libKey] = libData;
+    results[libKey] = count;
+  });
+
+  saveMaterials(materials);
+  const total = Object.values(results).reduce((a, b) => a + b, 0);
+  showToast(`一键填入完成，共新增 ${total} 条素材`);
+  renderMaterials();
+}
+
+function extractForLibrary(libKey, hotspot) {
+  const title = hotspot.title || '';
+  const content = hotspot.content || '';
+  const hotType = hotspot.hot_type || '';
+  const analysis = hotspot.story_analysis || {};
+  const storyType = analysis.story_type || '';
+  const emotionDensity = analysis.emotion_density || 0;
+  const score = analysis.story_score || 0;
+  const categories = analysis.story_categories || [];
+  const keywords = analysis.matched_keywords || [];
+  const platform = hotspot.platform || '';
+  const heat = hotspot.heat || '';
+  const comments = hotspot.top_comments || [];
+  const hotspotId = `${platform}_${hotspot.rank}_${title.substring(0, 20)}`;
+
+  const base = {
+    source: 'auto_from_hotspot',
+    source_hotspot_id: hotspotId,
+    source_title: title
+  };
+
+  switch (libKey) {
+    case 'hot_meme': {
+      const items = [];
+      if (hotType === '脑洞词条' || title.includes('梗') || title.includes('热梗')) {
+        items.push({ ...base, type_tag: hotType, source_platform: platform, core_conflict: (content || title).substring(0, 200), adaptation_direction: storyType, multi_platform_heat: heat, suitable_plot: (content || title).substring(0, 200) });
+      }
+      const memeKws = ['彩礼', '出轨', '离婚', '相亲', '渣', '翻车', '塌房', '反转', '逆袭', '替身'];
+      if (memeKws.some(kw => title.includes(kw))) {
+        items.push({ ...base, type_tag: '社会热梗', source_platform: platform, core_conflict: (content || title).substring(0, 200), adaptation_direction: storyType, sweet_angst_index: emotionDensity > 0.5 ? '5' : '3', multi_platform_heat: heat, suitable_plot: (content || title).substring(0, 200) });
+      }
+      return items;
+    }
+    case 'conflict': {
+      for (const cat of categories) {
+        if (['情感冲突', '社会冲突'].includes(cat.category) && emotionDensity > 0) {
+          return [{ ...base, conflict_type: cat.category, source_platform: platform, core_contradiction: (content || title).substring(0, 200), emotion_curve: '峰值' + emotionDensity, suitable_relationship: cat.story_type, risk_level: emotionDensity > 0.3 ? '★★' : '★', adaptation_direction: cat.story_type, suitable_plot: (content || title).substring(0, 200) }];
+        }
+      }
+      return [];
+    }
+    case 'hook': {
+      if (score >= 30) {
+        let hookType = '悬念';
+        const catNames = categories.map(c => c.category);
+        if (catNames.includes('猎奇与反转')) hookType = '转折';
+        else if (catNames.includes('情感冲突')) hookType = '情绪';
+        else if (catNames.includes('社会冲突')) hookType = '信息';
+        return [{ ...base, hook_type: hookType, type_tag: categories.slice(0, 2).map(c => c.category).join(','), core_element: title, emotion_orientation: score > 60 ? '虐' : '甜虐平衡', hook_density: score > 50 ? '中' : '低', suitable_plot: content.substring(0, 200) }];
+      }
+      return [];
+    }
+    case 'reversal': {
+      for (const cat of categories) {
+        if (cat.category === '猎奇与反转') {
+          return [{ ...base, reversal_type: '猎奇反转', surface_presentation: title, truth_reveal: (content || title).substring(0, 300), emotion_impact: score > 50 ? '★★★★' : '★★★', suitable_genre: cat.story_type, suitable_plot: (content || title).substring(0, 200) }];
+        }
+      }
+      return [];
+    }
+    case 'character': {
+      if (!content) return [];
+      const patterns = [/([\u4e00-\u9fa5]{2,4}(?:女|男|人|者|主|角|手|方|夫|妻|母|父|儿|子|女|孩|生|师|长|员))/g];
+      const found = new Set();
+      patterns.forEach(p => {
+        const matches = content.match(p) || [];
+        matches.forEach(m => { if (m.length >= 2) found.add(m); });
+      });
+      if (found.size > 0) {
+        const arr = [...found];
+        return [{ ...base, role_positioning: arr.slice(0, 3).join('、'), surface_traits: title, occupation_identity: arr[0] || '', suitable_plot: content.substring(0, 200) }];
+      }
+      return [];
+    }
+    case 'scene': {
+      if (!content || score < 20) return [];
+      const sceneKws = { '法庭': '法庭对峙', '医院': '医院场景', '婚礼': '婚礼场景', '葬礼': '葬礼场景', '办公室': '办公室场景', '深夜': '深夜独处', '餐厅': '餐厅场景', '学校': '校园场景', '地铁': '公共交通', '机场': '机场离别', '雨中': '雨中场景', '海边': '海边场景' };
+      for (const [kw, st] of Object.entries(sceneKws)) {
+        if (content.includes(kw) || title.includes(kw)) {
+          return [{ ...base, scene_type: st, visual_focus: content.substring(0, 200), suitable_plot: content.substring(0, 200), emotion_intensity: String(score) }];
+        }
+      }
+      return [];
+    }
+    case 'legal_risk': {
+      const legalKws = ['判决', '法院', '离婚', '合同', '协议', '继承', '赔偿', '诈骗', '侵权', '婚姻', '财产', '抚养'];
+      if (platform === '裁判文书网' || legalKws.some(kw => (title + content).includes(kw))) {
+        const isMarriage = ['婚姻', '离婚', '继承'].some(kw => title.includes(kw));
+        return [{ ...base, risk_type: isMarriage ? '婚姻纠纷' : '民事纠纷', legal_basis: '民法典相关', trigger_condition: (content || title).substring(0, 200), reality_prototype: title, adaptation_plan: '建议将具体法律细节模糊化处理', suitable_plot: (content || title).substring(0, 200) }];
+      }
+      return [];
+    }
+    case 'vocabulary': {
+      return keywords.slice(0, 5).map(kw => ({
+        ...base, core_word: kw, category: categories[0] ? categories[0].category : '', suitable_genre: storyType
+      }));
+    }
+    case 'emotion': {
+      if (emotionDensity > 0.5) {
+        const emap = { '情感冲突': '愤怒/悲伤', '社会冲突': '焦虑/无力感', '猎奇与反转': '震惊/好奇' };
+        let etype = '复杂情绪';
+        for (const cat of categories) { etype = emap[cat.category] || etype; break; }
+        return [{ ...base, core_emotion: etype, intensity_level: String(Math.round(emotionDensity * 10 * 10) / 10), suitable_scene: title, case_source: platform }];
+      }
+      return [];
+    }
+    case 'scenery': {
+      if (!content) return [];
+      const timeP = ['深夜', '清晨', '黄昏', '傍晚', '黎明', '午夜', '午后', '凌晨'];
+      const placeP = ['城市', '乡村', '山间', '海边', '小镇', '都市', '废墟', '花园', '城堡'];
+      const tf = timeP.filter(t => content.includes(t) || title.includes(t));
+      const pf = placeP.filter(p => content.includes(p) || title.includes(p));
+      if (tf.length > 0 || pf.length > 0) {
+        const sp = pf.length > 0 ? `${tf.slice(0, 2).join(',')}的${pf.slice(0, 2).join(',')}` : tf.slice(0, 2).join(',');
+        return [{ ...base, spacetime_coordinate: sp, optical_description: content.substring(0, 200), dynamic_element: title, era_tag: '当代' }];
+      }
+      return [];
+    }
+    case 'action': {
+      if (!content) return [];
+      const matches = content.match(/([\u4e00-\u9fa5]+(?:推|拉|打|摔|冲|闯|撕|砸|拍|踢|夺|追|逃|躲|藏|翻|跳|爬|钻|扔|丢|扯|拽|拖|抱|搂|吻|咬|哭|笑|怒|吼))/g);
+      const actions = matches ? [...new Set(matches.filter(a => a.length >= 3))] : [];
+      if (actions.length > 0) {
+        return [{ ...base, main_action: actions[0], scene_type: title, chain_reaction: actions.slice(0, 3).join('、'), rhythm_value: '3' }];
+      }
+      return [];
+    }
+    case 'dialogue': {
+      return comments.slice(0, 3).map(c => {
+        const clean = c.replace(/^\[\d+赞\]\s*/, '').trim();
+        if (!clean) return null;
+        return { ...base, surface_dialogue: clean, conflict_type: '社会讨论', information_density: clean.length > 30 ? '高' : '中', source_chapter: title };
+      }).filter(Boolean);
+    }
+    case 'quote': {
+      return comments.slice(0, 3).map(c => {
+        const clean = c.replace(/^\[\d+赞\]\s*/, '').trim();
+        if (!clean || clean.length < 10) return null;
+        return { ...base, quote_content: clean, type_tag: '网友神评', cross_library_impact: String(Math.min(10, Math.round(emotionDensity * 10 + 3))), suitable_plot: title };
+      }).filter(Boolean);
+    }
+    default:
+      return [];
+  }
+}
+
+function exportLibraryCSV(libKey) {
+  const materials = getMaterials();
+  const libData = materials[libKey] || { items: [] };
+  const cfg = LIBRARY_CONFIG[libKey];
+  const items = libData.items || [];
+
+  if (items.length === 0) {
+    showToast('没有数据可导出');
+    return;
+  }
+
+  const headers = cfg.fields.map(f => f.label);
+  const keys = cfg.fields.map(f => f.key);
+  const rows = items.map(item => keys.map(k => {
+    const v = item[k] || '';
+    return v.includes(',') || v.includes('"') || v.includes('\n') ? '"' + v.replace(/"/g, '""') + '"' : v;
+  }));
+
+  const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${cfg.name}_${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('CSV已导出');
+}
+
+// ==================== Workshop Tab ====================
+let currentProject = null;
+let currentChapterIdx = -1;
+
+function renderWorkshop() {
+  const container = document.getElementById('tab-workshop');
+  const projects = getProjects();
+
+  let html = `
+    <div class="project-form">
+      <h3 style="margin-bottom:10px;font-size:var(--font-md)">新建拆解项目</h3>
+      <div class="form-row">
+        <input type="text" id="proj-name" placeholder="书名">
+        <input type="text" id="proj-author" placeholder="作者">
+        <select id="proj-type">
+          <option value="">选择类型</option>
+          <option>现言</option><option>古言</option><option>悬疑</option><option>奇幻</option><option>科幻</option><option>职场</option><option>婚恋</option>
+        </select>
+        <button class="btn btn-primary" onclick="createProject()">创建项目</button>
+      </div>
+    </div>
+    <h3 style="margin-bottom:10px;font-size:var(--font-md)">项目列表</h3>
+  `;
+
+  if (projects.length === 0) {
+    html += `<div style="text-align:center;color:var(--text-muted);padding:20px">暂无项目，请创建</div>`;
+  }
+
+  projects.forEach((p, pi) => {
+    html += `
+      <div class="card" style="cursor:default">
+        <div class="card-header">
+          <div class="card-title">${p.name}</div>
+          <div style="display:flex;gap:4px">
+            <button class="btn btn-sm btn-primary" onclick="openProject(${pi})">打开</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteProject(${pi})">删除</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>作者: ${p.author || '-'}</span>
+          <span>类型: ${p.type || '-'}</span>
+          <span>章节: ${(p.chapters || []).length}</span>
+        </div>
+      </div>
+    `;
+  });
+
+  // If a project is open, show chapters
+  if (currentProject !== null && projects[currentProject]) {
+    const p = projects[currentProject];
+    html = `<div style="margin-bottom:12px">
+      <button class="btn btn-sm btn-secondary" onclick="currentProject=null;renderWorkshop()">← 返回列表</button>
+      <span style="margin-left:12px;font-size:var(--font-md);font-weight:600">${p.name}</span>
+    </div>`;
+
+    html += `
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+        <button class="btn btn-sm btn-primary" onclick="addChapter()">+ 添加章节</button>
+        <button class="btn btn-sm btn-success" onclick="analyzeProject()">分析</button>
+        <button class="btn btn-sm btn-secondary" onclick="exportProjectCSV()">导出CSV</button>
+      </div>
+      <div style="overflow-x:auto">
+      <table class="project-table">
+        <thead><tr>
+          <th style="width:30px">#</th>
+          <th>章节名</th>
+          <th>事件</th>
+          <th style="width:60px">字数</th>
+          <th style="width:60px">场景数</th>
+          <th style="width:80px">钩子类型</th>
+          <th style="width:60px">情绪值</th>
+          <th style="width:60px">操作</th>
+        </tr></thead>
+        <tbody>`;
+
+    (p.chapters || []).forEach((ch, ci) => {
+      html += `<tr>
+        <td>${ci + 1}</td>
+        <td><input value="${ch.name || ''}" onchange="updateChapter(${ci},'name',this.value)"></td>
+        <td><input value="${ch.event || ''}" onchange="updateChapter(${ci},'event',this.value)"></td>
+        <td><input type="number" value="${ch.wordCount || ''}" onchange="updateChapter(${ci},'wordCount',this.value)"></td>
+        <td><input type="number" value="${ch.sceneCount || ''}" onchange="updateChapter(${ci},'sceneCount',this.value)"></td>
+        <td><select onchange="updateChapter(${ci},'hookType',this.value)" style="width:100%;background:var(--bg-input);color:var(--text-primary);border:1px solid transparent;font-size:var(--font-xs)">
+          <option value="">-</option>
+          <option ${ch.hookType==='悬念'?'selected':''}>悬念</option>
+          <option ${ch.hookType==='转折'?'selected':''}>转折</option>
+          <option ${ch.hookType==='情绪'?'selected':''}>情绪</option>
+          <option ${ch.hookType==='信息'?'selected':''}>信息</option>
+        </select></td>
+        <td><input type="number" min="0" max="10" value="${ch.emotion || ''}" onchange="updateChapter(${ci},'emotion',this.value)"></td>
+        <td><button class="btn btn-sm btn-danger" onclick="deleteChapter(${ci})">×</button></td>
+      </tr>`;
+    });
+
+    html += `</tbody></table></div>`;
+
+    // Analysis results
+    if (p.analysis) {
+      html += renderAnalysis(p);
+    }
+  }
+
+  container.innerHTML = html;
+}
+
+function createProject() {
+  const name = document.getElementById('proj-name').value.trim();
+  const author = document.getElementById('proj-author').value.trim();
+  const type = document.getElementById('proj-type').value;
+  if (!name) { showToast('请输入书名'); return; }
+
+  const projects = getProjects();
+  projects.push({ id: 'proj_' + Date.now(), name, author, type, chapters: [], analysis: null, createdAt: new Date().toISOString() });
+  saveProjects(projects);
+  showToast('项目已创建');
+  renderWorkshop();
+}
+
+function openProject(idx) {
+  currentProject = idx;
+  renderWorkshop();
+}
+
+function deleteProject(idx) {
+  if (!confirm('确定删除此项目？')) return;
+  const projects = getProjects();
+  projects.splice(idx, 1);
+  saveProjects(projects);
+  if (currentProject === idx) currentProject = null;
+  showToast('已删除');
+  renderWorkshop();
+}
+
+function addChapter() {
+  const projects = getProjects();
+  const p = projects[currentProject];
+  p.chapters = p.chapters || [];
+  p.chapters.push({ name: '', event: '', wordCount: '', sceneCount: '', hookType: '', emotion: '' });
+  saveProjects(projects);
+  renderWorkshop();
+}
+
+function deleteChapter(ci) {
+  const projects = getProjects();
+  projects[currentProject].chapters.splice(ci, 1);
+  saveProjects(projects);
+  renderWorkshop();
+}
+
+function updateChapter(ci, field, value) {
+  const projects = getProjects();
+  projects[currentProject].chapters[ci][field] = value;
+  saveProjects(projects);
+}
+
+function analyzeProject() {
+  const projects = getProjects();
+  const p = projects[currentProject];
+  const chapters = p.chapters || [];
+
+  if (chapters.length === 0) { showToast('请先添加章节'); return; }
+
+  const analysis = {
+    totalChapters: chapters.length,
+    totalWords: chapters.reduce((s, c) => s + (parseInt(c.wordCount) || 0), 0),
+    totalScenes: chapters.reduce((s, c) => s + (parseInt(c.sceneCount) || 0), 0),
+    emotions: chapters.map(c => parseFloat(c.emotion) || 0),
+    hookTypes: {},
+    avgWordsPerChapter: 0,
+    emotionPeaks: [],
+    rhythmIssues: []
+  };
+
+  // Hook distribution
+  chapters.forEach(c => {
+    if (c.hookType) analysis.hookTypes[c.hookType] = (analysis.hookTypes[c.hookType] || 0) + 1;
+  });
+
+  // Average words
+  analysis.avgWordsPerChapter = chapters.length > 0 ? Math.round(analysis.totalWords / chapters.length) : 0;
+
+  // Emotion peaks
+  const emotions = analysis.emotions;
+  let maxE = Math.max(...emotions, 0);
+  let minE = Math.min(...emotions, 10);
+  emotions.forEach((e, i) => {
+    if (e === maxE) analysis.emotionPeaks.push(i + 1);
+  });
+
+  // Rhythm diagnosis
+  if (analysis.avgWordsPerChapter > 5000) analysis.rhythmIssues.push('章节平均字数偏高，建议控制在3000-5000字');
+  if (analysis.avgWordsPerChapter < 1500 && analysis.avgWordsPerChapter > 0) analysis.rhythmIssues.push('章节平均字数偏低，可能节奏过快');
+  const hookCount = Object.values(analysis.hookTypes).reduce((a, b) => a + b, 0);
+  if (hookCount < chapters.length * 0.5) analysis.rhythmIssues.push('钩子密度不足，建议每章至少1个钩子');
+  if (maxE - minE < 3 && chapters.length > 3) analysis.rhythmIssues.push('情绪波动不足，建议制造更大起伏');
+  if (!analysis.rhythmIssues.length) analysis.rhythmIssues.push('节奏整体良好');
+
+  p.analysis = analysis;
+  saveProjects(projects);
+  renderWorkshop();
+}
+
+function renderAnalysis(p) {
+  const a = p.analysis;
+  let html = '<div class="analysis-results"><h3 style="font-size:var(--font-md);margin-bottom:10px">分析结果</h3>';
+
+  html += `<div class="analysis-card">
+    <h4>基本统计</h4>
+    <div style="font-size:var(--font-sm)">总章节: ${a.totalChapters} | 总字数: ${a.totalWords} | 平均字数/章: ${a.avgWordsPerChapter} | 总场景数: ${a.totalScenes}</div>
+  </div>`;
+
+  html += `<div class="analysis-card">
+    <h4>钩子分布</h4>
+    <div style="font-size:var(--font-sm)">${Object.entries(a.hookTypes).map(([k, v]) => `<span class="tag" style="background:var(--accent-dim);color:var(--accent)">${k}: ${v}次</span>`).join(' ') || '无数据'}</div>
+  </div>`;
+
+  html += `<div class="analysis-card">
+    <h4>情绪峰值章节</h4>
+    <div style="font-size:var(--font-sm)">${a.emotionPeaks.length > 0 ? a.emotionPeaks.join(', ') : '无'}</div>
+  </div>`;
+
+  html += `<div class="analysis-card">
+    <h4>节奏诊断</h4>
+    <div style="font-size:var(--font-sm)">${a.rhythmIssues.map(i => `<div style="margin:4px 0;padding:4px 8px;background:var(--bg-input);border-radius:4px">${i}</div>`).join('')}</div>
+  </div>`;
+
+  // Emotion curve chart
+  html += `<div class="chart-container">
+    <h4 style="font-size:var(--font-sm);color:var(--accent);margin-bottom:8px">情绪曲线</h4>
+    <canvas id="emotion-chart" width="600" height="250"></canvas>
+  </div>`;
+
+  // Render chart after DOM update
+  setTimeout(() => {
+    const canvas = document.getElementById('emotion-chart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width;
+    const H = canvas.height;
+    const padding = 40;
+    const pw = W - padding * 2;
+    const ph = H - padding * 2;
+    const emotions = a.emotions;
+
+    // Background
+    ctx.fillStyle = '#1f2940';
+    ctx.fillRect(0, 0, W, H);
+
+    // Grid
+    ctx.strokeStyle = '#2a3350';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 10; i++) {
+      const y = padding + (ph * i / 10);
+      ctx.beginPath();
+      ctx.moveTo(padding, y);
+      ctx.lineTo(W - padding, y);
+      ctx.stroke();
+      ctx.fillStyle = '#6a6a7a';
+      ctx.font = '10px sans-serif';
+      ctx.fillText(String(10 - i), 5, y + 3);
+    }
+
+    // Data line
+    if (emotions.length > 1) {
+      ctx.strokeStyle = '#e94560';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      const stepX = pw / (emotions.length - 1 || 1);
+      emotions.forEach((e, i) => {
+        const x = padding + stepX * i;
+        const y = padding + ph - (ph * Math.min(e, 10) / 10);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+
+      // Points
+      ctx.fillStyle = '#e94560';
+      emotions.forEach((e, i) => {
+        const x = padding + stepX * i;
+        const y = padding + ph - (ph * Math.min(e, 10) / 10);
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fill();
+        // Chapter label
+        ctx.fillStyle = '#a0a0b0';
+        ctx.font = '9px sans-serif';
+        ctx.fillText(`C${i + 1}`, x - 8, y - 10);
+        ctx.fillStyle = '#e94560';
+      });
+    }
+
+    // X axis label
+    ctx.fillStyle = '#6a6a7a';
+    ctx.font = '10px sans-serif';
+    ctx.fillText('章节', W / 2 - 15, H - 5);
+  }, 100);
+
+  html += '</div>';
+  return html;
+}
+
+function exportProjectCSV() {
+  const projects = getProjects();
+  const p = projects[currentProject];
+  const chapters = p.chapters || [];
+  if (chapters.length === 0) { showToast('无数据'); return; }
+
+  const headers = ['序号', '章节名', '事件', '字数', '场景数', '钩子类型', '情绪值'];
+  const rows = chapters.map((c, i) => [
+    i + 1, c.name || '', c.event || '', c.wordCount || '', c.sceneCount || '', c.hookType || '', c.emotion || ''
+  ]);
+
+  const csv = ['\uFEFF' + headers.join(','), ...rows.map(r => r.map(v => String(v).includes(',') ? '"' + v + '"' : v).join(','))].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${p.name}_拆解_${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('CSV已导出');
+}
+
+// ==================== Dashboard Tab ====================
+function renderDashboard() {
+  const container = document.getElementById('tab-dashboard');
+  const hotspots = getFlatHotspots();
+  const materials = getMaterials();
+  const projects = getProjects();
+
+  let totalMaterials = 0;
+  const libCounts = {};
+  for (const key in materials) {
+    const count = (materials[key].items || []).length;
+    totalMaterials += count;
+    libCounts[LIBRARY_CONFIG[key] ? LIBRARY_CONFIG[key].name : key] = count;
+  }
+
+  // Story category distribution
+  const catDist = {};
+  hotspots.forEach(h => {
+    const cats = (h.story_analysis && h.story_analysis.story_categories) || [];
+    cats.forEach(c => {
+      catDist[c.category] = (catDist[c.category] || 0) + 1;
+    });
+  });
+
+  let html = `
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-value">${hotspots.length}</div><div class="stat-label">热点总数</div></div>
+      <div class="stat-card"><div class="stat-value">${totalMaterials}</div><div class="stat-label">素材总数</div></div>
+      <div class="stat-card"><div class="stat-value">${projects.length}</div><div class="stat-label">拆解项目数</div></div>
+      <div class="stat-card"><div class="stat-value">${Object.keys(catDist).length}</div><div class="stat-label">故事核分类</div></div>
+    </div>
+
+    <div class="analysis-card">
+      <h4>故事核分类分布</h4>
+      <div style="font-size:var(--font-sm);margin-top:6px">
+        ${Object.entries(catDist).map(([k, v]) => `<span class="tag" style="background:var(--accent-dim);color:var(--accent);margin:3px">${k}: ${v}</span>`).join('') || '无数据'}
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <h4>素材库各分类条目数</h4>
+      <div style="font-size:var(--font-sm);margin-top:6px">
+        ${Object.entries(libCounts).map(([k, v]) => `<span class="tag" style="margin:3px">${k}: ${v}</span>`).join('')}
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = html;
+}
+
+// ==================== Initial Render ====================
+renderHotspots();
+})();
+
+</script>
+</body>
+</html>

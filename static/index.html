@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>里章屿的故事会 - 创作加工车间</title>
+    <style>
+        :root {
+            --bg: #0a0a14;
+            --card: #141428;
+            --card-hover: #1c1c3a;
+            --text: #e8e8f0;
+            --text-dim: #6a6a8a;
+            --accent: #ff5e7e;
+            --accent2: #4ecdc4;
+            --accent3: #ffd93d;
+            --accent4: #a78bfa;
+            --border: #2a2a48;
+            --success: #4ade80;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        /* === 导航 === */
+        .nav {
+            background: linear-gradient(135deg, #141428 0%, #1a1a3a 100%);
+            padding: 14px 30px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+        .nav h1 {
+            font-size: 20px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+        .nav-tabs { display: flex; gap: 4px; }
+        .nav-tab {
+            color: var(--text-dim);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .nav-tab:hover { background: var(--card-hover); color: var(--text); }
+        .nav-tab.active { background: var(--accent); color: white; }
+        .nav-actions { margin-left: auto; display: flex; gap: 8px; }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--accent), #e04868);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,94,126,0.3); }
+        .btn.secondary { background: linear-gradient(135deg, var(--accent2), #3dbdb5); }
+        .btn.ghost { background: var(--card); border: 1px solid var(--border); color: var(--text); }
+        
+        /* === 控制栏 === */
+        .controls {
+            display: flex;
+            gap: 10px;
+            padding: 14px 30px;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .controls input, .controls select {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            outline: none;
+        }
+        .controls input:focus, .controls select:focus { border-color: var(--accent2); }
+        .checkbox-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-dim);
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .checkbox-label input { accent-color: var(--accent); }
+        
+        /* === 仪表盘 === */
+        .dashboard { padding: 20px 30px; max-width: 1400px; margin: 0 auto; }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card .num {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-card .label { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
+        
+        .dashboard-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .panel h3 { font-size: 15px; margin-bottom: 14px; color: var(--accent2); }
+        
+        .category-bar { margin-bottom: 10px; }
+        .category-bar .header { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+        .category-bar .bar { height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+        .category-bar .fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
+        
+        .top-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .top-item:hover { padding-left: 6px; }
+        .top-item .score {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent3);
+            min-width: 40px;
+        }
+        .top-item .info { flex: 1; }
+        .top-item .title { font-size: 13px; }
+        .top-item .meta { font-size: 11px; color: var(--text-dim); }
+        .top-item .cats { display: flex; gap: 4px; }
+        .top-item .cat-tag {
+            font-size: 10px;
+            padding: 1px 6px;
+            border-radius: 4px;
+            background: rgba(255,94,126,0.15);
+            color: var(--accent);
+        }
+        
+        /* === 热点卡片 === */
+        .platform-tabs {
+            display: flex;
+            gap: 6px;
+            padding: 0 30px 16px;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .platform-tab {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 6px 14px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .platform-tab:hover { background: var(--card-hover); }
+        .platform-tab.active { background: var(--accent); color: white; border-color: transparent; }
+        .platform-tab .count { opacity: 0.7; margin-left: 3px; }
+        
+        .hotspot-list { padding: 0 30px 40px; max-width: 1400px; margin: 0 auto; }
+        
+        .hotspot-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .hotspot-card:hover { border-color: var(--accent2); }
+        .hotspot-card.expanded { border-color: var(--accent4); }
+        
+        .hotspot-header { display: flex; align-items: flex-start; gap: 14px; cursor: pointer; }
+        .rank-num {
+            font-size: 22px;
+            font-weight: 700;
+            min-width: 38px;
+            text-align: center;
+            color: var(--text-dim);
+        }
+        .rank-num.top3 { color: var(--accent3); }
+        .rank-num.high { color: var(--accent); }
+        
+        .hotspot-body { flex: 1; }
+        .hotspot-title {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .hotspot-title a { color: var(--text); text-decoration: none; }
+        .hotspot-title a:hover { color: var(--accent2); }
+        
+        .hotspot-meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+        .tag {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .tag.platform { background: rgba(78,205,196,0.15); color: var(--accent2); }
+        .tag.type { background: rgba(167,139,250,0.15); color: var(--accent4); }
+        .tag.heat { background: rgba(255,217,61,0.15); color: var(--accent3); }
+        .tag.story-core { background: rgba(255,94,126,0.15); color: var(--accent); }
+        .tag.score {
+            background: linear-gradient(135deg, var(--accent), var(--accent3));
+            color: var(--bg);
+            font-weight: 600;
+        }
+        .tag.source-w { background: rgba(74,222,128,0.15); color: var(--success); }
+        
+        .matched-keywords {
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        .matched-keywords span { color: var(--accent3); }
+        
+        .content-preview {
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.6;
+            max-height: 60px;
+            overflow: hidden;
+        }
+        
+        /* 评论 */
+        .comments-section {
+            margin-top: 12px;
+            padding: 12px;
+            background: var(--bg);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent3);
+        }
+        .comments-section h4 { font-size: 12px; color: var(--accent3); margin-bottom: 8px; }
+        .comment-item {
+            font-size: 13px;
+            color: var(--text);
+            padding: 4px 0;
+            line-height: 1.5;
+            border-bottom: 1px solid var(--border);
+        }
+        .comment-item:last-child { border: none; }
+        .comment-item .like { color: var(--accent); font-weight: 600; font-size: 11px; }
+        
+        /* 展开区 */
+        .expand-section {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border);
+            display: none;
+        }
+        .hotspot-card.expanded .expand-section { display: block; }
+        
+        .what-if-box {
+            background: rgba(167,139,250,0.08);
+            border: 1px solid rgba(167,139,250,0.2);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+        .what-if-box label { font-size: 13px; font-weight: 600; color: var(--accent4); display: block; margin-bottom: 8px; }
+        .what-if-prompts { margin-bottom: 8px; }
+        .what-if-prompt {
+            font-size: 12px;
+            color: var(--text-dim);
+            padding: 4px 8px;
+            background: var(--card);
+            border-radius: 4px;
+            margin-bottom: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .what-if-prompt:hover { background: var(--card-hover); color: var(--accent4); }
+        .what-if-input {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            resize: vertical;
+            min-height: 60px;
+            outline: none;
+        }
+        .what-if-input:focus { border-color: var(--accent4); }
+        
+        .parts-box {
+            background: rgba(78,205,196,0.08);
+            border: 1px solid rgba(78,205,196,0.2);
+            border-radius: 8px;
+            padding: 14px;
+        }
+        .parts-box label { font-size: 13px; font-weight: 600; color: var(--accent2); display: block; margin-bottom: 8px; }
+        .part-input-group { margin-bottom: 8px; }
+        .part-input-group .part-label { font-size: 11px; color: var(--accent2); margin-bottom: 3px; }
+        .part-input {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 7px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            outline: none;
+        }
+        .part-input:focus { border-color: var(--accent2); }
+        
+        .action-row { display: flex; gap: 8px; margin-top: 10px; }
+        
+        /* 关联推荐 */
+        .related-box {
+            background: rgba(255,217,61,0.08);
+            border: 1px solid rgba(255,217,61,0.2);
+            border-radius: 8px;
+            padding: 14px;
+            margin-top: 12px;
+        }
+        .related-box h4 { font-size: 13px; color: var(--accent3); margin-bottom: 8px; }
+        .related-item {
+            font-size: 12px;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+        }
+        .related-item:hover { color: var(--accent3); }
+        .related-item .plat { color: var(--accent2); font-size: 11px; }
+        
+        /* 收藏页 */
+        .collection-list { padding: 20px 30px 40px; max-width: 1400px; margin: 0 auto; }
+        .collection-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+        }
+        .collection-card .title { font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+        .collection-card .what-if-text {
+            background: rgba(167,139,250,0.08);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: var(--accent4);
+        }
+        .collection-card .parts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .collection-card .part-cell {
+            background: var(--bg);
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+        .collection-card .part-cell .ph { color: var(--accent2); font-size: 11px; }
+        
+        /* 素材包 */
+        .starter-pack-modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 300;
+        }
+        .starter-pack-modal.show { display: flex; }
+        .modal-content {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-content h2 { margin-bottom: 16px; color: var(--accent); }
+        .modal-content select, .modal-content input {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .empty-state { text-align: center; padding: 60px 20px; color: var(--text-dim); }
+        .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+        
+        .toast {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            background: var(--card);
+            border: 1px solid var(--accent2);
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            z-index: 400;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            font-size: 13px;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        
+        .footer { text-align: center; padding: 24px; color: var(--text-dim); font-size: 12px; border-top: 1px solid var(--border); }
+
+        /* === 素材库视图 === */
+        .material-sidebar {
+            width: 240px;
+            min-width: 240px;
+            background: var(--card);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+        .sidebar-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sidebar-header h3 { font-size: 14px; color: var(--accent2); }
+        .sidebar-tree { flex: 1; overflow-y: auto; padding: 8px 0; }
+        .sidebar-group { margin-bottom: 4px; }
+        .sidebar-group-header {
+            padding: 8px 16px;
+            font-size: 12px;
+            color: var(--text-dim);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+        }
+        .sidebar-group-header:hover { color: var(--text); }
+        .sidebar-group-header .arrow { font-size: 10px; transition: transform 0.2s; }
+        .sidebar-group-header.collapsed .arrow { transform: rotate(-90deg); }
+        .sidebar-group-items { padding: 2px 0; }
+        .sidebar-group.collapsed .sidebar-group-items { display: none; }
+        .sidebar-item {
+            padding: 8px 16px 8px 32px;
+            font-size: 13px;
+            color: var(--text-dim);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.15s;
+        }
+        .sidebar-item:hover { background: var(--card-hover); color: var(--text); }
+        .sidebar-item.active { background: rgba(78,205,196,0.12); color: var(--accent2); border-right: 2px solid var(--accent2); }
+        .sidebar-item .count { margin-left: auto; font-size: 11px; opacity: 0.7; }
+        .sidebar-footer { padding: 12px 16px; border-top: 1px solid var(--border); }
+
+        .material-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .material-toolbar {
+            padding: 16px 24px;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .material-toolbar h2 { font-size: 17px; color: var(--accent2); white-space: nowrap; }
+        .material-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .material-actions input, .material-actions select {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 7px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            outline: none;
+        }
+        .material-actions input { width: 180px; }
+        .material-stats {
+            padding: 8px 24px;
+            font-size: 12px;
+            color: var(--text-dim);
+            background: rgba(0,0,0,0.2);
+        }
+        .material-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 24px;
+        }
+        .material-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            transition: all 0.15s;
+        }
+        .material-card:hover { border-color: var(--accent2); }
+        .material-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        .material-card .card-code {
+            font-size: 11px;
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .material-card .card-actions {
+            display: flex;
+            gap: 6px;
+        }
+        .material-card .card-actions button {
+            font-size: 11px;
+            padding: 3px 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .material-card .card-actions button:hover { color: var(--text); border-color: var(--accent2); }
+        .material-card .card-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            font-size: 12px;
+        }
+        .material-card .card-fields.single-col { grid-template-columns: 1fr; }
+        .material-card .field-row {
+            display: flex;
+            gap: 6px;
+            align-items: baseline;
+        }
+        .material-card .field-label {
+            color: var(--accent2);
+            white-space: nowrap;
+            font-size: 11px;
+            min-width: 70px;
+        }
+        .material-card .field-value {
+            color: var(--text);
+            word-break: break-all;
+        }
+        .material-card .field-value.empty { color: var(--text-dim); font-style: italic; }
+
+        .material-pagination {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+        }
+        .material-pagination button {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 5px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .material-pagination button:hover { color: var(--text); }
+        .material-pagination button.active { background: var(--accent); color: white; border-color: transparent; }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 500;
+        }
+        .modal-overlay .modal-content h2 { margin-bottom: 12px; color: var(--accent); }
+
+        .edit-field {
+            margin-bottom: 10px;
+        }
+        .edit-field label {
+            font-size: 12px;
+            color: var(--accent2);
+            display: block;
+            margin-bottom: 3px;
+        }
+        .edit-field input, .edit-field textarea, .edit-field select {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            outline: none;
+        }
+        .edit-field textarea { resize: vertical; min-height: 60px; }
+        .edit-field input:focus, .edit-field textarea:focus { border-color: var(--accent2); }
+
+        @media (max-width: 768px) {
+            .dashboard-grid { grid-template-columns: 1fr 1fr; }
+            .dashboard-row { grid-template-columns: 1fr; }
+            .collection-card .parts-grid { grid-template-columns: 1fr; }
+            .nav { flex-wrap: wrap; }
+            .nav-actions { width: 100%; }
+            .material-sidebar { width: 100%; min-width: auto; max-height: 200px; }
+            .material-card .card-fields { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <h1>里章屿的故事会</h1>
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="switchView('dashboard')">仪表盘</div>
+            <div class="nav-tab" onclick="switchView('hotspots')">热点列表</div>
+            <div class="nav-tab" onclick="switchView('collection')">我的素材库</div>
+            <div class="nav-tab" onclick="switchView('deconstruction')">小说拆解工坊</div>
+        </div>
+        <div class="nav-actions">
+            <button class="btn ghost" onclick="openStarterPack()">生成素材包</button>
+            <button class="btn ghost" onclick="triggerFetch()">刷新数据</button>
+            <button class="btn secondary" onclick="exportExcel()">导出热点</button>
+            <button class="btn" onclick="exportCollection()">导出素材</button>
+        </div>
+    </nav>
+
+    <!-- 控制栏（仅热点列表视图显示） -->
+    <div class="controls" id="controlsBar" style="display:none">
+        <input type="text" id="searchInput" placeholder="搜索关键词..." oninput="loadHotspots()">
+        <select id="platformFilter" onchange="loadHotspots()">
+            <option value="">全部平台</option>
+        </select>
+        <select id="sortBy" onchange="loadHotspots()">
+            <option value="story">按故事感排序</option>
+            <option value="source">按来源权重排序</option>
+            <option value="time">按时间排序</option>
+        </select>
+        <label class="checkbox-label">
+            <input type="checkbox" id="storyOnly" onchange="loadHotspots()">
+            只看故事感强
+        </label>
+        <label class="checkbox-label">
+            最低评分 <input type="number" id="minScore" value="0" min="0" max="100" style="width:50px" onchange="loadHotspots()">
+        </label>
+    </div>
+
+    <!-- 仪表盘视图 -->
+    <div id="dashboardView" class="dashboard">
+        <div class="dashboard-grid" id="statCards"></div>
+        <div class="dashboard-row">
+            <div class="panel">
+                <h3>故事核分布</h3>
+                <div id="categoryChart"></div>
+            </div>
+            <div class="panel">
+                <h3>故事感评分分布</h3>
+                <div id="scoreChart"></div>
+            </div>
+        </div>
+        <div class="panel">
+            <h3>故事感 TOP 20 热点</h3>
+            <div id="topItems"></div>
+        </div>
+    </div>
+
+    <!-- 热点列表视图 -->
+    <div id="hotspotsView" style="display:none">
+        <div class="platform-tabs" id="platformTabs"></div>
+        <div class="hotspot-list" id="hotspotList"></div>
+    </div>
+
+    <!-- 素材库视图（改造后的收藏视图） -->
+    <div id="collectionView" style="display:none">
+        <div style="display:flex;height:calc(100vh - 160px);overflow:hidden">
+            <!-- 左侧分类树 -->
+            <div class="material-sidebar">
+                <div class="sidebar-header">
+                    <h3>素材库分类</h3>
+                    <button class="btn" style="font-size:11px;padding:5px 10px" onclick="autoFillAllMaterials()">一键填入</button>
+                </div>
+                <div class="sidebar-tree" id="materialSidebarTree"></div>
+                <div class="sidebar-footer">
+                    <button class="btn ghost" style="font-size:11px;padding:6px;width:100%" onclick="exportAllMaterials()">导出全部素材</button>
+                </div>
+            </div>
+
+            <!-- 右侧内容区 -->
+            <div class="material-content" id="materialContentArea">
+                <div class="material-toolbar">
+                    <h2 id="materialTitle">热梗素材库</h2>
+                    <div class="material-actions">
+                        <input type="text" id="materialSearch" placeholder="搜索..." oninput="onMaterialSearch()">
+                        <select id="materialSort" onchange="loadMaterialItems()">
+                            <option value="created_at">按创建时间</option>
+                            <option value="updated_at">按更新时间</option>
+                            <option value="code">按编号</option>
+                        </select>
+                        <button class="btn" onclick="openAddMaterialDialog()">+ 添加</button>
+                        <button class="btn secondary" onclick="autoFillCurrentLibrary()">自动填入</button>
+                        <button class="btn ghost" onclick="exportCurrentLibrary()">导出</button>
+                    </div>
+                </div>
+                <div class="material-stats">
+                    <span>共 <strong id="materialCount">0</strong> 条</span>
+                    <span style="margin-left:16px">更新于 <span id="materialUpdated">-</span></span>
+                </div>
+                <div class="material-list" id="materialList"></div>
+                <div class="material-pagination" id="materialPagination"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 素材编辑弹窗 -->
+    <div class="modal-overlay" id="materialEditModal" style="display:none" onclick="if(event.target===this)closeMaterialEdit()">
+        <div class="modal-content" style="max-width:700px;max-height:85vh;overflow-y:auto" id="materialEditContent"></div>
+    </div>
+
+    <!-- 自动填入结果弹窗 -->
+    <div class="modal-overlay" id="autoFillModal" style="display:none" onclick="if(event.target===this)closeAutoFillModal()">
+        <div class="modal-content" style="max-width:500px">
+            <h2>自动填入结果</h2>
+            <div id="autoFillResult" style="margin-top:12px"></div>
+            <button class="btn ghost" style="width:100%;margin-top:12px" onclick="closeAutoFillModal()">关闭</button>
+        </div>
+    </div>
+
+    <!-- 小说拆解工坊视图 -->
+    <div id="deconView" style="display:none">
+        <!-- 项目列表页 -->
+        <div id="deconListPage" class="collection-list">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+                <h2 style="font-size:18px;color:var(--accent2)">小说拆解项目</h2>
+                <button class="btn" onclick="createNewDecon()">+ 新建拆解项目</button>
+            </div>
+            <div id="deconProjectList"></div>
+        </div>
+
+        <!-- 拆解编辑页 -->
+        <div id="deconEditPage" style="display:none" class="collection-list">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <button class="btn ghost" onclick="backToDeconList()">返回列表</button>
+                <div style="display:flex;gap:8px">
+                    <button class="btn secondary" onclick="analyzeDecon()">运行分析</button>
+                    <button class="btn" onclick="saveDeconProject()">保存项目</button>
+                    <button class="btn ghost" onclick="exportDecon()">导出Excel</button>
+                </div>
+            </div>
+
+            <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px">
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px">
+                    <div>
+                        <label style="font-size:12px;color:var(--text-dim);display:block;margin-bottom:4px">书名</label>
+                        <input type="text" id="deconTitle" placeholder="输入书名..." style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-size:14px">
+                    </div>
+                    <div>
+                        <label style="font-size:12px;color:var(--text-dim);display:block;margin-bottom:4px">作者</label>
+                        <input type="text" id="deconAuthor" placeholder="输入作者..." style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-size:14px">
+                    </div>
+                    <div>
+                        <label style="font-size:12px;color:var(--text-dim);display:block;margin-bottom:4px">类型</label>
+                        <input type="text" id="deconGenre" placeholder="如：现言、古言、悬疑..." style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-size:14px">
+                    </div>
+                </div>
+                <div>
+                    <label style="font-size:12px;color:var(--text-dim);display:block;margin-bottom:4px">备注</label>
+                    <input type="text" id="deconNotes" placeholder="可选备注..." style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-size:14px">
+                </div>
+            </div>
+
+            <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px;overflow-x:auto">
+                <table style="width:100%;border-collapse:collapse;font-size:13px" id="deconTable">
+                    <thead>
+                        <tr style="border-bottom:2px solid var(--border)">
+                            <th style="text-align:left;padding:10px 8px;color:var(--accent2);font-size:12px;width:80px">章节</th>
+                            <th style="text-align:left;padding:10px 8px;color:var(--accent2);font-size:12px;min-width:200px">主要事件</th>
+                            <th style="text-align:left;padding:10px 8px;color:var(--accent2);font-size:12px;width:80px">字数</th>
+                            <th style="text-align:left;padding:10px 8px;color:var(--accent2);font-size:12px;width:70px">场景数</th>
+                            <th style="text-align:left;padding:10px 8px;color:var(--accent2);font-size:12px;width:100px">章末钩子</th>
+                            <th style="text-align:left;padding:10px 8px;color:var(--accent2);font-size:12px;min-width:120px">钩子详情</th>
+                            <th style="text-align:left;padding:10px 8px;color:var(--accent2);font-size:12px;width:90px">情绪值</th>
+                            <th style="text-align:left;padding:10px 8px;color:var(--accent2);font-size:12px;min-width:100px">备注</th>
+                            <th style="text-align:center;padding:10px 8px;color:var(--accent2);font-size:12px;width:50px">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="deconTableBody"></tbody>
+                </table>
+                <button class="btn ghost" style="margin-top:12px;width:100%" onclick="addDeconRow()">+ 添加章节</button>
+            </div>
+        </div>
+
+        <!-- 分析结果页 -->
+        <div id="deconAnalysisPage" style="display:none" class="collection-list">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <button class="btn ghost" onclick="backToDeconEdit()">返回编辑</button>
+                <h2 style="font-size:18px;color:var(--accent)">拆解分析报告</h2>
+                <button class="btn ghost" onclick="exportDecon()">导出Excel</button>
+            </div>
+            <div id="deconAnalysisContent"></div>
+        </div>
+    </div>
+
+    <!-- 素材包弹窗 -->
+    <div class="starter-pack-modal" id="starterPackModal">
+        <div class="modal-content">
+            <h2>生成开文素材包</h2>
+            <p style="color:var(--text-dim);font-size:13px;margin-bottom:16px">
+                选择你要写的题材，系统会从你收藏的素材中自动打包相关的人物、情节、对白、场景零件。
+            </p>
+            <select id="packGenre">
+                <option value="">选择题材...</option>
+                <option value="现言">现言</option>
+                <option value="古言">古言</option>
+                <option value="幻言">幻言</option>
+                <option value="悬疑">悬疑</option>
+                <option value="职场">职场</option>
+                <option value="婚恋">婚恋</option>
+                <option value="家庭">家庭伦理</option>
+                <option value="商战">商战</option>
+            </select>
+            <button class="btn" style="width:100%" onclick="generateStarterPack()">生成素材包</button>
+            <div id="packResult" style="margin-top:16px"></div>
+            <button class="btn ghost" style="width:100%;margin-top:12px" onclick="closeStarterPack()">关闭</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        里章屿的故事会 · 创作加工车间 · 每天08:00 & 20:00自动更新 · 24字故事核：情感冲突 / 社会冲突 / 猎奇与反转
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        let allData = {};
+        let currentView = 'dashboard';
+        let currentPlatform = '';
+
+        // === 视图切换 ===
+        function switchView(view) {
+            currentView = view;
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.getElementById('dashboardView').style.display = view === 'dashboard' ? 'block' : 'none';
+            document.getElementById('hotspotsView').style.display = view === 'hotspots' ? 'block' : 'none';
+            document.getElementById('collectionView').style.display = view === 'collection' ? 'block' : 'none';
+            document.getElementById('deconView').style.display = view === 'deconstruction' ? 'block' : 'none';
+            document.getElementById('controlsBar').style.display = view === 'hotspots' ? 'flex' : 'none';
+
+            if (view === 'dashboard') loadDashboard();
+            if (view === 'hotspots') loadHotspots();
+            if (view === 'collection') { loadMaterialIndex(); loadMaterialItems(); }
+            if (view === 'deconstruction') loadDeconList();
+        }
+
+        // === 仪表盘 ===
+        async function loadDashboard() {
+            try {
+                const res = await fetch('/api/dashboard');
+                const data = await res.json();
+                if (data.status === 'empty') {
+                    document.getElementById('dashboardView').innerHTML = '<div class="empty-state"><div class="icon">📊</div><p>暂无数据，请先刷新</p></div>';
+                    return;
+                }
+                
+                // 统计卡片
+                document.getElementById('statCards').innerHTML = `
+                    <div class="stat-card"><div class="num">${data.total_items}</div><div class="label">热点总数</div></div>
+                    <div class="stat-card"><div class="num">${data.story_worthy}</div><div class="label">故事感强</div></div>
+                    <div class="stat-card"><div class="num">${data.collected}</div><div class="label">已收藏素材</div></div>
+                    <div class="stat-card"><div class="num">${data.platforms.length}</div><div class="label">平台数</div></div>
+                `;
+                
+                // 故事核分布
+                const catColors = {'情感冲突': '#ff5e7e', '社会冲突': '#4ecdc4', '猎奇与反转': '#ffd93d'};
+                let catHtml = '';
+                const maxCat = Math.max(...Object.values(data.category_stats).map(c => c.count), 1);
+                for (const [cat, info] of Object.entries(data.category_stats)) {
+                    const pct = (info.count / maxCat * 100).toFixed(0);
+                    catHtml += `
+                        <div class="category-bar">
+                            <div class="header"><span>${cat}</span><span>${info.count}条</span></div>
+                            <div class="bar"><div class="fill" style="width:${pct}%;background:${catColors[cat]||'#888'}"></div></div>
+                            <div style="font-size:11px;color:var(--text-dim);margin-top:2px">${info.keywords.join(' · ')}</div>
+                        </div>
+                    `;
+                }
+                document.getElementById('categoryChart').innerHTML = catHtml || '<p style="color:var(--text-dim);font-size:13px">暂无分类数据</p>';
+                
+                // 评分分布
+                const sd = data.score_distribution;
+                const maxSd = Math.max(...Object.values(sd), 1);
+                let sdHtml = '';
+                const sdColors = {'0-20':'#444','20-40':'#6a6a8a','40-60':'#4ecdc4','60-80':'#ffd93d','80-100':'#ff5e7e'};
+                for (const [range, count] of Object.entries(sd)) {
+                    const pct = (count / maxSd * 100).toFixed(0);
+                    sdHtml += `
+                        <div class="category-bar">
+                            <div class="header"><span>${range}分</span><span>${count}条</span></div>
+                            <div class="bar"><div class="fill" style="width:${pct}%;background:${sdColors[range]}"></div></div>
+                        </div>
+                    `;
+                }
+                document.getElementById('scoreChart').innerHTML = sdHtml;
+                
+                // TOP 20
+                let topHtml = '';
+                data.top_items.forEach((item, i) => {
+                    const cats = item.categories.map(c => `<span class="cat-tag">${c}</span>`).join('');
+                    topHtml += `
+                        <div class="top-item" onclick="window.open('${item.url}','_blank')">
+                            <div class="score">${item.score}</div>
+                            <div class="info">
+                                <div class="title">${item.title}</div>
+                                <div class="meta">${item.platform} · <span class="cats">${cats}</span></div>
+                            </div>
+                        </div>
+                    `;
+                });
+                document.getElementById('topItems').innerHTML = topHtml || '<p style="color:var(--text-dim)">暂无高分热点</p>';
+                
+            } catch(e) {
+                console.error(e);
+            }
+        }
+
+        // === 热点列表 ===
+        async function loadHotspots() {
+            const search = document.getElementById('searchInput').value;
+            const platform = document.getElementById('platformFilter').value;
+            const storyOnly = document.getElementById('storyOnly').checked;
+            const minScore = document.getElementById('minScore').value;
+            const sortBy = document.getElementById('sortBy').value;
+            
+            let url = `/api/hotspots?story_only=${storyOnly}&min_score=${minScore}&sort_by=${sortBy}`;
+            if (search) url += `&keyword=${encodeURIComponent(search)}`;
+            if (platform) url += `&platform=${encodeURIComponent(platform)}`;
+            
+            try {
+                const res = await fetch(url);
+                const result = await res.json();
+                if (result.status !== 'ok') {
+                    document.getElementById('hotspotList').innerHTML = `<div class="empty-state"><div class="icon">📭</div><p>${result.message||'暂无数据'}</p><button class="btn" onclick="triggerFetch()" style="margin-top:12px">立即抓取</button></div>`;
+                    return;
+                }
+                
+                allData = result.data;
+                renderPlatformTabs(result.data);
+                renderHotspots(result.data);
+            } catch(e) {
+                document.getElementById('hotspotList').innerHTML = `<div class="empty-state"><div class="icon">⚠️</div><p>加载失败</p></div>`;
+            }
+        }
+
+        function renderPlatformTabs(data) {
+            const tabs = document.getElementById('platformTabs');
+            const platforms = Object.keys(data);
+            const total = Object.values(data).flat().length;
+            
+            // 更新下拉框
+            const select = document.getElementById('platformFilter');
+            const currentVal = select.value;
+            select.innerHTML = '<option value="">全部平台</option>';
+            platforms.forEach(p => {
+                select.innerHTML += `<option value="${p}" ${p===currentVal?'selected':''}>${p}</option>`;
+            });
+            
+            let html = `<div class="platform-tab ${!currentPlatform?'active':''}" onclick="filterPlatform('')">全部 (${total})</div>`;
+            platforms.forEach(p => {
+                const count = data[p].length;
+                html += `<div class="platform-tab ${currentPlatform===p?'active':''}" onclick="filterPlatform('${p}')">${p} <span class="count">${count}</span></div>`;
+            });
+            tabs.innerHTML = html;
+        }
+
+        function filterPlatform(p) {
+            currentPlatform = p;
+            renderPlatformTabs(allData);
+            renderHotspots(allData);
+        }
+
+        function renderHotspots(data) {
+            const list = document.getElementById('hotspotList');
+            const platforms = currentPlatform ? [currentPlatform] : Object.keys(data);
+            
+            let html = '';
+            for (const platform of platforms) {
+                if (!data[platform]) continue;
+                
+                data[platform].forEach((item, idx) => {
+                    const analysis = item.story_analysis || {};
+                    const score = analysis.story_score || 0;
+                    const rankClass = item.rank <= 3 ? 'top3' : (score >= 60 ? 'high' : '');
+                    const cats = (analysis.story_categories || []).map(c => 
+                        `<span class="tag story-core">${c.category}</span>`
+                    ).join('');
+                    const matchedKw = (analysis.matched_keywords || []).slice(0, 8).map(k => 
+                        `<span>${k}</span>`
+                    ).join(' · ');
+                    
+                    const heatTag = item.heat ? `<span class="tag heat">🔥 ${item.heat}</span>` : '';
+                    const scoreTag = score > 0 ? `<span class="tag score">${score}分</span>` : '';
+                    const sourceTag = item.source_weight >= 7 ? `<span class="tag source-w">★高权重来源</span>` : '';
+                    
+                    let commentsHtml = '';
+                    if (item.top_comments && item.top_comments.length > 0) {
+                        commentsHtml = `
+                            <div class="comments-section">
+                                <h4>💬 高赞评论 TOP${item.top_comments.length}</h4>
+                                ${item.top_comments.map(c => `<div class="comment-item">${c}</div>`).join('')}
+                            </div>
+                        `;
+                    }
+                    
+                    const contentPreview = item.content ? `<div class="content-preview">${item.content}</div>` : '';
+                    const itemId = `${platform}_${idx}`;
+                    
+                    html += `
+                        <div class="hotspot-card" id="card_${itemId}">
+                            <div class="hotspot-header" onclick="toggleExpand('${itemId}')">
+                                <div class="rank-num ${rankClass}">#${item.rank}</div>
+                                <div class="hotspot-body">
+                                    <div class="hotspot-title">
+                                        <a href="${item.url}" target="_blank" onclick="event.stopPropagation()">${item.title}</a>
+                                    </div>
+                                    <div class="hotspot-meta">
+                                        <span class="tag platform">${platform}</span>
+                                        <span class="tag type">${item.hot_type||''}</span>
+                                        ${heatTag}
+                                        ${scoreTag}
+                                        ${sourceTag}
+                                        ${cats}
+                                    </div>
+                                    ${matchedKw ? `<div class="matched-keywords">关键词: ${matchedKw}</div>` : ''}
+                                    ${contentPreview}
+                                    ${commentsHtml}
+                                </div>
+                            </div>
+                            <div class="expand-section">
+                                <div class="what-if-box">
+                                    <label>如果这是我的小说开头/核心梗：</label>
+                                    <div class="what-if-prompts" id="prompts_${itemId}"></div>
+                                    <textarea class="what-if-input" id="whatif_${itemId}" placeholder="写下你的脑洞..."></textarea>
+                                    <div class="action-row">
+                                        <button class="btn" onclick="saveWhatIf('${itemId}', '${item.title}', '${platform}', '${item.url}')">保存脑洞</button>
+                                    </div>
+                                </div>
+                                <div class="parts-box">
+                                    <label>情节零件拆解工坊：</label>
+                                    <div class="part-input-group">
+                                        <div class="part-label">【人设零件】</div>
+                                        <input class="part-input" id="part_char_${itemId}" placeholder="冷静到可怕的主角 / 诡辩技巧一流的伪君子...">
+                                    </div>
+                                    <div class="part-input-group">
+                                        <div class="part-label">【场景零件】</div>
+                                        <input class="part-input" id="part_scene_${itemId}" placeholder="庄严肃穆的法庭 / 深夜空荡的房间...">
+                                    </div>
+                                    <div class="part-input-group">
+                                        <div class="part-label">【对白零件】</div>
+                                        <input class="part-input" id="part_dialogue_${itemId}" placeholder="这份协议，是你亲手签的。现在，它就是你的墓碑。">
+                                    </div>
+                                    <div class="part-input-group">
+                                        <div class="part-label">【情节结构零件】</div>
+                                        <input class="part-input" id="part_plot_${itemId}" placeholder="主角在收拾旧物时，无意中发现一张被藏起来的单据...">
+                                    </div>
+                                    <div class="action-row">
+                                        <button class="btn secondary" onclick="saveParts('${itemId}', '${item.title}', '${platform}', '${item.url}')">保存零件</button>
+                                        <button class="btn ghost" onclick="loadRelated('${itemId}', '${platform}', ${idx})">查看关联推荐</button>
+                                    </div>
+                                    <div id="related_${itemId}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            list.innerHTML = html || '<div class="empty-state"><div class="icon">🔍</div><p>没有匹配的热点</p></div>';
+        }
+
+        async function toggleExpand(itemId) {
+            const card = document.getElementById(`card_${itemId}`);
+            card.classList.toggle('expanded');
+            
+            if (card.classList.contains('expanded')) {
+                // 加载"如果"提示
+                const title = card.querySelector('.hotspot-title a').textContent;
+                try {
+                    const res = await fetch(`/api/what-if?title=${encodeURIComponent(title)}`);
+                    const data = await res.json();
+                    const promptsDiv = document.getElementById(`prompts_${itemId}`);
+                    promptsDiv.innerHTML = data.prompts.map(p => 
+                        `<div class="what-if-prompt" onclick="document.getElementById('whatif_${itemId}').value='${p.replace(/'/g,"\\'")}'">💡 ${p}</div>`
+                    ).join('');
+                } catch(e) {}
+            }
+        }
+
+        async function saveWhatIf(itemId, title, platform, url) {
+            const text = document.getElementById(`whatif_${itemId}`).value.trim();
+            if (!text) { showToast('请先写脑洞'); return; }
+            
+            try {
+                const res = await fetch('/api/collect/what-if', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({item_id: itemId, title, what_if: text, platform, url})
+                });
+                const result = await res.json();
+                showToast(result.message);
+            } catch(e) {
+                showToast('保存失败');
+            }
+        }
+
+        async function saveParts(itemId, title, platform, url) {
+            const parts = {
+                '人设零件': document.getElementById(`part_char_${itemId}`).value,
+                '场景零件': document.getElementById(`part_scene_${itemId}`).value,
+                '对白零件': document.getElementById(`part_dialogue_${itemId}`).value,
+                '情节结构零件': document.getElementById(`part_plot_${itemId}`).value,
+            };
+            
+            const hasContent = Object.values(parts).some(v => v.trim());
+            if (!hasContent) { showToast('请至少填写一个零件'); return; }
+            
+            try {
+                const res = await fetch('/api/collect/parts', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({item_id: itemId, title, selected_text: title, parts, platform, url})
+                });
+                const result = await res.json();
+                showToast(result.message);
+            } catch(e) {
+                showToast('保存失败');
+            }
+        }
+
+        async function loadRelated(itemId, platform, idx) {
+            try {
+                const res = await fetch(`/api/related/${idx}?platform=${encodeURIComponent(platform)}`);
+                const data = await res.json();
+                const div = document.getElementById(`related_${itemId}`);
+                
+                if (data.related && data.related.length > 0) {
+                    div.innerHTML = `
+                        <div class="related-box">
+                            <h4>🔗 跨源关联推荐</h4>
+                            ${data.related.map(r => `
+                                <div class="related-item" onclick="window.open('${r.url}','_blank')">
+                                    <span class="plat">[${r.platform}]</span> ${r.title}
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                } else {
+                    div.innerHTML = '<div class="related-box"><h4>🔗 跨源关联推荐</h4><p style="font-size:12px;color:var(--text-dim)">暂无关联内容</p></div>';
+                }
+            } catch(e) {
+                showToast('加载关联失败');
+            }
+        }
+
+        // ============================================================
+        // 素材库视图（替代旧版收藏视图）
+        // ============================================================
+        let currentMaterialLib = 'hot_meme';
+        let currentMaterialPage = 1;
+        let currentMaterialTotalPages = 1;
+        let materialSearchTimer = null;
+
+        // 素材库分组配置（前端同步）
+        const MATERIAL_GROUPS = [
+            { key: 'story_core', name: '故事内核素材库', libraries: ['hot_meme','conflict','hook','reversal'] },
+            { key: 'character_scene', name: '人物与场景', libraries: ['character','scene'] },
+            { key: 'writing_technique', name: '写作技法库', libraries: ['legal_risk','vocabulary','emotion','scenery','action','dialogue','quote'] },
+        ];
+
+        async function loadMaterialIndex() {
+            try {
+                const res = await fetch('/api/materials/index');
+                const data = await res.json();
+                renderMaterialSidebar(data);
+            } catch(e) {
+                console.error('加载素材库索引失败', e);
+            }
+        }
+
+        function renderMaterialSidebar(data) {
+            const tree = document.getElementById('materialSidebarTree');
+            const libraries = data.libraries || {};
+            const groups = data.groups || MATERIAL_GROUPS;
+
+            let html = '';
+            for (const group of groups) {
+                html += `<div class="sidebar-group" id="group_${group.key}">
+                    <div class="sidebar-group-header" onclick="toggleGroup('${group.key}')">
+                        <span class="arrow">▼</span> ${group.name}
+                    </div>
+                    <div class="sidebar-group-items">`;
+
+                for (const libKey of group.libraries) {
+                    const libInfo = libraries[libKey] || {};
+                    const name = libInfo.name || libKey;
+                    const icon = libInfo.icon || '📦';
+                    const count = libInfo.total || 0;
+                    const active = libKey === currentMaterialLib ? ' active' : '';
+                    html += `<div class="sidebar-item${active}" onclick="switchMaterialLib('${libKey}')">
+                        <span>${icon}</span> <span>${name}</span>
+                        <span class="count">${count}</span>
+                    </div>`;
+                }
+
+                html += `</div></div>`;
+            }
+            tree.innerHTML = html;
+        }
+
+        function toggleGroup(key) {
+            const group = document.getElementById(`group_${key}`);
+            group.classList.toggle('collapsed');
+        }
+
+        function switchMaterialLib(libKey) {
+            currentMaterialLib = libKey;
+            currentMaterialPage = 1;
+            document.getElementById('materialSearch').value = '';
+            loadMaterialItems();
+            loadMaterialIndex(); // 刷新侧边栏高亮
+        }
+
+        async function loadMaterialItems() {
+            const search = document.getElementById('materialSearch').value;
+            const sortBy = document.getElementById('materialSort').value;
+
+            let url = `/api/materials/${currentMaterialLib}?page=${currentMaterialPage}&sort_by=${sortBy}&page_size=20`;
+            if (search) url += `&search=${encodeURIComponent(search)}`;
+
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                if (data.status !== 'ok') {
+                    document.getElementById('materialList').innerHTML = '<div class="empty-state"><p>加载失败</p></div>';
+                    return;
+                }
+
+                currentMaterialTotalPages = data.total_pages || 1;
+                document.getElementById('materialCount').textContent = data.total || 0;
+                document.getElementById('materialUpdated').textContent = (data.meta && data.meta.updated_at) ? new Date(data.meta.updated_at).toLocaleString('zh-CN') : '-';
+
+                // 更新标题
+                const libConfig = getLibConfig(currentMaterialLib);
+                document.getElementById('materialTitle').textContent = libConfig.name;
+
+                renderMaterialItems(data.items || []);
+                renderMaterialPagination();
+            } catch(e) {
+                console.error('加载素材失败', e);
+            }
+        }
+
+        function getLibConfig(libKey) {
+            for (const group of MATERIAL_GROUPS) {
+                if (group.libraries.includes(libKey)) {
+                    return { key: libKey, group: group.key, name: libKey };
+                }
+            }
+            return { key: libKey, group: '', name: libKey };
+        }
+
+        function renderMaterialItems(items) {
+            const list = document.getElementById('materialList');
+
+            if (items.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">📦</div><p>暂无素材</p><p style="font-size:13px;margin-top:8px">点击"添加"手动录入，或点击"一键填入"从热点中自动提取</p></div>';
+                return;
+            }
+
+            // 每个库展示2-3个关键字段
+            const displayFields = getDisplayFields(currentMaterialLib);
+
+            list.innerHTML = items.map(item => {
+                const fieldsHtml = displayFields.map(f => {
+                    const val = item[f.key] || '';
+                    return `<div class="field-row">
+                        <span class="field-label">${f.label}:</span>
+                        <span class="field-value${val ? '' : ' empty'}">${val || '(空)'}</span>
+                    </div>`;
+                }).join('');
+
+                return `
+                    <div class="material-card">
+                        <div class="card-header">
+                            <span class="card-code">${item.code || ''}</span>
+                            <div class="card-actions">
+                                <button onclick="editMaterialItem('${item.id}')">编辑</button>
+                                <button onclick="deleteMaterialItem('${item.id}')">删除</button>
+                            </div>
+                        </div>
+                        <div class="card-fields ${displayFields.length <= 3 ? 'single-col' : ''}">
+                            ${fieldsHtml}
+                        </div>
+                        ${item.source_title ? `<div style="font-size:11px;color:var(--text-dim);margin-top:6px">来源热点: ${item.source_title}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function getDisplayFields(libKey) {
+            // 每个库的关键展示字段（2-4个）
+            const fieldMaps = {
+                'hot_meme': [
+                    {key:'type_tag', label:'类型标签'}, {key:'source_platform', label:'来源'},
+                    {key:'core_conflict', label:'核心冲突'}, {key:'adaptation_direction', label:'改编方向'}
+                ],
+                'conflict': [
+                    {key:'conflict_type', label:'冲突类型'}, {key:'core_contradiction', label:'核心矛盾'},
+                    {key:'suitable_scene', label:'适用场景'}, {key:'risk_level', label:'风险等级'}
+                ],
+                'hook': [
+                    {key:'hook_type', label:'钩子类型'}, {key:'placement_position', label:'埋设位置'},
+                    {key:'core_element', label:'核心元素'}, {key:'emotion_orientation', label:'情感导向'}
+                ],
+                'reversal': [
+                    {key:'reversal_type', label:'反转类型'}, {key:'eruption_chapter', label:'爆发章节'},
+                    {key:'surface_presentation', label:'表面呈现'}, {key:'suitable_genre', label:'适用题材'}
+                ],
+                'character': [
+                    {key:'role_positioning', label:'角色定位'}, {key:'surface_traits', label:'表面属性'},
+                    {key:'occupation_identity', label:'职业/身份'}, {key:'fatal_flaw', label:'致命缺点'}
+                ],
+                'scene': [
+                    {key:'scene_type', label:'场景类型'}, {key:'visual_focus', label:'视觉焦点'},
+                    {key:'emotion_curve', label:'情感曲线'}, {key:'emotion_intensity', label:'情感强度'}
+                ],
+                'legal_risk': [
+                    {key:'risk_type', label:'风险类型'}, {key:'legal_basis', label:'法律依据'},
+                    {key:'consequence_severity', label:'严重性'}
+                ],
+                'vocabulary': [
+                    {key:'core_word', label:'核心词汇'}, {key:'category', label:'分类'},
+                    {key:'intensity', label:'强度'}, {key:'suitable_genre', label:'适用题材'}
+                ],
+                'emotion': [
+                    {key:'core_emotion', label:'核心情绪'}, {key:'intensity_level', label:'强度等级'},
+                    {key:'physiological_reaction', label:'生理反应'}, {key:'suitable_scene', label:'适用场景'}
+                ],
+                'scenery': [
+                    {key:'spacetime_coordinate', label:'时空坐标'}, {key:'optical_description', label:'光学描写'},
+                    {key:'era_tag', label:'时代标签'}, {key:'related_color_palette', label:'色卡'}
+                ],
+                'action': [
+                    {key:'main_action', label:'主体动作'}, {key:'scene_type', label:'场景类型'},
+                    {key:'action_level', label:'动作分级'}, {key:'rhythm_value', label:'节奏值'}
+                ],
+                'dialogue': [
+                    {key:'surface_dialogue', label:'表层对话'}, {key:'subtext', label:'潜台词'},
+                    {key:'conflict_type', label:'冲突类型'}, {key:'power_relation', label:'权力关系'}
+                ],
+                'quote': [
+                    {key:'quote_content', label:'金句内容'}, {key:'type_tag', label:'类型标签'},
+                    {key:'cross_library_impact', label:'冲击力'}, {key:'suitable_plot', label:'适用情节'}
+                ],
+            };
+            return fieldMaps[libKey] || [{key:'code', label:'编号'}];
+        }
+
+        function renderMaterialPagination() {
+            const pag = document.getElementById('materialPagination');
+            if (currentMaterialTotalPages <= 1) {
+                pag.innerHTML = '';
+                return;
+            }
+
+            let html = '';
+            html += `<button ${currentMaterialPage===1?'disabled':''} onclick="goMaterialPage(${currentMaterialPage-1})">上一页</button>`;
+            for (let i = 1; i <= currentMaterialTotalPages; i++) {
+                html += `<button class="${i===currentMaterialPage?'active':''}" onclick="goMaterialPage(${i})">${i}</button>`;
+            }
+            html += `<button ${currentMaterialPage===currentMaterialTotalPages?'disabled':''} onclick="goMaterialPage(${currentMaterialPage+1})">下一页</button>`;
+            pag.innerHTML = html;
+        }
+
+        function goMaterialPage(page) {
+            currentMaterialPage = page;
+            loadMaterialItems();
+        }
+
+        function onMaterialSearch() {
+            clearTimeout(materialSearchTimer);
+            materialSearchTimer = setTimeout(() => {
+                currentMaterialPage = 1;
+                loadMaterialItems();
+            }, 400);
+        }
+
+        // === 素材编辑弹窗 ===
+        function openAddMaterialDialog() {
+            renderMaterialEditForm(null);
+            document.getElementById('materialEditModal').style.display = 'flex';
+        }
+
+        async function editMaterialItem(itemId) {
+            try {
+                const res = await fetch(`/api/materials/${currentMaterialLib}?page=1&page_size=200`);
+                const data = await res.json();
+                const item = (data.items || []).find(i => i.id === itemId);
+                if (item) {
+                    renderMaterialEditForm(item);
+                    document.getElementById('materialEditModal').style.display = 'flex';
+                }
+            } catch(e) {
+                showToast('加载失败');
+            }
+        }
+
+        function renderMaterialEditForm(item) {
+            const isEdit = !!item;
+            const content = document.getElementById('materialEditContent');
+            const fields = getEditFields(currentMaterialLib);
+
+            let html = `<h2>${isEdit ? '编辑' : '添加'}素材 - ${getLibConfig(currentMaterialLib).name}</h2>`;
+
+            for (const field of fields) {
+                const val = item ? (item[field.key] || '') : '';
+                if (field.type === 'textarea') {
+                    html += `<div class="edit-field">
+                        <label>${field.label}</label>
+                        <textarea id="ef_${field.key}" rows="3">${val}</textarea>
+                    </div>`;
+                } else {
+                    html += `<div class="edit-field">
+                        <label>${field.label}</label>
+                        <input type="text" id="ef_${field.key}" value="${val.replace(/"/g,'&quot;')}">
+                    </div>`;
+                }
+            }
+
+            html += `
+                <div style="display:flex;gap:8px;margin-top:16px">
+                    <button class="btn" style="flex:1" onclick="saveMaterialItem('${isEdit ? item.id : ''}')">${isEdit ? '保存修改' : '添加'}</button>
+                    <button class="btn ghost" style="flex:1" onclick="closeMaterialEdit()">取消</button>
+                </div>
+            `;
+            content.innerHTML = html;
+        }
+
+        function getEditFields(libKey) {
+            // 每个库编辑时显示所有字段（但精简版，去掉一些冗余字段）
+            const allFields = {
+                'hot_meme': [
+                    {key:'code', label:'编号', type:'text'}, {key:'type_tag', label:'类型标签', type:'text'},
+                    {key:'source_platform', label:'来源平台', type:'text'}, {key:'core_conflict', label:'核心冲突点', type:'textarea'},
+                    {key:'emotion_level', label:'情感层次', type:'text'}, {key:'adaptation_direction', label:'改编方向', type:'textarea'},
+                    {key:'sweet_angst_index', label:'甜虐指数', type:'text'}, {key:'sweet_angst_balance', label:'甜虐平衡指数', type:'text'},
+                    {key:'suitable_relationship', label:'适配角色关系', type:'text'}, {key:'suitable_chapter', label:'适用章节', type:'text'},
+                    {key:'prop_symbol', label:'道具符号', type:'text'}, {key:'taboo_redline', label:'禁忌红线', type:'text'},
+                    {key:'multi_platform_heat', label:'多平台热度', type:'text'}, {key:'foreshadowing_need', label:'伏笔需求', type:'text'},
+                    {key:'reader_expectation', label:'读者预期', type:'text'}, {key:'risk_warning', label:'风险提示', type:'text'},
+                    {key:'suitable_plot', label:'适用情节', type:'textarea'},
+                ],
+                'conflict': [
+                    {key:'code', label:'编号', type:'text'}, {key:'conflict_type', label:'冲突类型', type:'text'},
+                    {key:'source_platform', label:'来源平台', type:'text'}, {key:'reality_prototype', label:'现实原型', type:'text'},
+                    {key:'core_contradiction', label:'核心矛盾', type:'textarea'}, {key:'emotion_curve', label:'情绪曲线', type:'text'},
+                    {key:'suitable_relationship', label:'适配角色关系', type:'text'}, {key:'suitable_scene', label:'适用场景', type:'text'},
+                    {key:'risk_level', label:'风险等级', type:'text'}, {key:'adaptation_direction', label:'改编方向', type:'textarea'},
+                    {key:'adaptation_case', label:'改编案例', type:'textarea'}, {key:'eruption_scene', label:'爆发场景', type:'text'},
+                    {key:'resolution_method', label:'解决方式', type:'text'}, {key:'emotion_value', label:'情绪价值', type:'text'},
+                    {key:'foreshadowing_need', label:'伏笔需求', type:'text'}, {key:'suitable_plot', label:'适用情节', type:'textarea'},
+                ],
+                'hook': [
+                    {key:'code', label:'编号', type:'text'}, {key:'hook_type', label:'钩子类型', type:'text'},
+                    {key:'placement_position', label:'埋设位置', type:'text'}, {key:'type_tag', label:'类型标签', type:'text'},
+                    {key:'trigger_chapter', label:'引爆章节', type:'text'}, {key:'core_element', label:'核心元素', type:'text'},
+                    {key:'placement_technique', label:'埋设手法', type:'text'}, {key:'emotion_orientation', label:'情感导向', type:'text'},
+                    {key:'recovery_cycle', label:'回收周期', type:'text'}, {key:'related_reversal', label:'关联反转', type:'text'},
+                    {key:'hook_density', label:'钩子密度', type:'text'}, {key:'foreshadowing_requirement', label:'伏笔要求', type:'text'},
+                    {key:'modification_direction', label:'修改方向', type:'text'}, {key:'risk_warning', label:'风险提示', type:'text'},
+                    {key:'suitable_plot', label:'适用情节', type:'textarea'},
+                ],
+                'reversal': [
+                    {key:'code', label:'编号', type:'text'}, {key:'reversal_type', label:'反转类型', type:'text'},
+                    {key:'foreshadowing_clue', label:'铺垫线索', type:'textarea'}, {key:'eruption_chapter', label:'爆发章节', type:'text'},
+                    {key:'emotion_impact', label:'情感冲击', type:'text'}, {key:'logic_check', label:'逻辑校验', type:'text'},
+                    {key:'surface_presentation', label:'表面呈现', type:'textarea'}, {key:'truth_reveal', label:'真相揭露', type:'textarea'},
+                    {key:'foreshadow_design', label:'伏笔设计', type:'textarea'}, {key:'adaptation_case', label:'改编案例', type:'text'},
+                    {key:'reality_prototype', label:'现实原型', type:'text'}, {key:'suitable_genre', label:'适用题材', type:'text'},
+                    {key:'risk_barrier', label:'风险屏障', type:'text'}, {key:'suitable_plot', label:'适用情节', type:'textarea'},
+                ],
+                'character': [
+                    {key:'code', label:'编号', type:'text'}, {key:'role_positioning', label:'角色定位', type:'text'},
+                    {key:'surface_traits', label:'表面属性', type:'text'}, {key:'hidden_traits', label:'隐藏属性', type:'text'},
+                    {key:'tag', label:'标签(MBTI等)', type:'text'}, {key:'occupation_identity', label:'职业/身份', type:'text'},
+                    {key:'emotional_obstacle', label:'情感障碍', type:'text'}, {key:'exclusive_item', label:'专属物品', type:'text'},
+                    {key:'signature_action', label:'标志动作/微习惯', type:'text'}, {key:'romance_foreshadow', label:'感情线伏笔', type:'text'},
+                    {key:'hidden_connection', label:'隐秘关联', type:'text'}, {key:'hormone_trigger', label:'荷尔蒙触发点', type:'text'},
+                    {key:'fatal_flaw', label:'致命性缺点', type:'text'}, {key:'redemption_switch', label:'救赎开关', type:'text'},
+                    {key:'taboo_boundary', label:'禁忌边界', type:'text'}, {key:'suitable_plot', label:'适用情节', type:'textarea'},
+                ],
+                'scene': [
+                    {key:'code', label:'编号', type:'text'}, {key:'scene_type', label:'场景类型', type:'text'},
+                    {key:'visual_focus', label:'视觉焦点', type:'text'}, {key:'auditory_detail', label:'听觉细节', type:'text'},
+                    {key:'tactile_image', label:'触觉意象', type:'text'}, {key:'olfactory_memory', label:'嗅觉记忆', type:'text'},
+                    {key:'taste_metaphor', label:'味觉隐喻', type:'text'}, {key:'emotion_curve', label:'情感曲线', type:'text'},
+                    {key:'conflict_trigger', label:'冲突触发点', type:'text'}, {key:'foreshadow_recovery', label:'伏笔回收点', type:'text'},
+                    {key:'suitable_plot', label:'适用情节', type:'textarea'}, {key:'data_reference', label:'数据参考', type:'text'},
+                    {key:'taboo_tip', label:'禁忌提示', type:'text'}, {key:'emotion_intensity', label:'情感强度', type:'text'},
+                ],
+                'legal_risk': [
+                    {key:'code', label:'编号', type:'text'}, {key:'risk_type', label:'风险类型', type:'text'},
+                    {key:'legal_basis', label:'法律依据', type:'text'}, {key:'trigger_condition', label:'触发条件', type:'text'},
+                    {key:'consequence_severity', label:'后果严重性', type:'text'}, {key:'reality_prototype', label:'现实原型', type:'text'},
+                    {key:'adaptation_plan', label:'改编方案', type:'textarea'}, {key:'prevention_measure', label:'预防措施', type:'text'},
+                    {key:'dramatic_technique', label:'戏剧化技巧', type:'text'}, {key:'suitable_plot', label:'适用情节', type:'textarea'},
+                ],
+                'vocabulary': [
+                    {key:'code', label:'序号', type:'text'}, {key:'category', label:'分类', type:'text'},
+                    {key:'sub_category', label:'子类', type:'text'}, {key:'core_word', label:'核心词汇', type:'text'},
+                    {key:'intensity', label:'强度', type:'text'}, {key:'synesthesia_example', label:'通感转化示例', type:'textarea'},
+                    {key:'suitable_genre', label:'适用题材', type:'text'}, {key:'related_emotion', label:'关联情绪', type:'text'},
+                    {key:'source_reference', label:'出处', type:'text'},
+                ],
+                'emotion': [
+                    {key:'code', label:'序号', type:'text'}, {key:'core_emotion', label:'核心情绪', type:'text'},
+                    {key:'intensity_level', label:'强度等级', type:'text'}, {key:'physiological_reaction', label:'生理反应', type:'textarea'},
+                    {key:'micro_expression_code', label:'微表情编码', type:'text'}, {key:'behavior_mapping', label:'行为映射', type:'text'},
+                    {key:'dialogue_feature', label:'对话特征', type:'text'}, {key:'suitable_scene', label:'适用场景', type:'text'},
+                    {key:'taboo_misuse', label:'禁忌误用', type:'text'}, {key:'case_source', label:'案例来源', type:'text'},
+                ],
+                'scenery': [
+                    {key:'code', label:'序号', type:'text'}, {key:'spacetime_coordinate', label:'时空坐标', type:'text'},
+                    {key:'optical_description', label:'光学描写', type:'textarea'}, {key:'acoustic_description', label:'声学描写', type:'textarea'},
+                    {key:'olfactory_level', label:'嗅觉层次', type:'text'}, {key:'tactile_feedback', label:'触觉反馈', type:'text'},
+                    {key:'dynamic_element', label:'动态元素', type:'text'}, {key:'data_layer', label:'数据层', type:'text'},
+                    {key:'era_tag', label:'时代标签', type:'text'}, {key:'related_color_palette', label:'关联色卡', type:'text'},
+                ],
+                'action': [
+                    {key:'code', label:'序号', type:'text'}, {key:'scene_type', label:'场景类型', type:'text'},
+                    {key:'action_level', label:'动作分级', type:'text'}, {key:'main_action', label:'主体动作', type:'textarea'},
+                    {key:'chain_reaction', label:'连带反应', type:'text'}, {key:'metaphor_meaning', label:'隐喻意义', type:'text'},
+                    {key:'rhythm_value', label:'节奏值(1-5)', type:'text'}, {key:'taboo_combination', label:'禁忌组合', type:'text'},
+                    {key:'classic_case', label:'经典案例', type:'text'},
+                ],
+                'dialogue': [
+                    {key:'code', label:'序号', type:'text'}, {key:'conflict_type', label:'冲突类型', type:'text'},
+                    {key:'surface_dialogue', label:'表层对话', type:'textarea'}, {key:'subtext', label:'潜台词', type:'textarea'},
+                    {key:'action_anchor', label:'动作锚点', type:'text'}, {key:'tone_mark', label:'声调标记', type:'text'},
+                    {key:'information_density', label:'信息密度', type:'text'}, {key:'power_relation', label:'权力关系', type:'text'},
+                    {key:'source_chapter', label:'出处章节', type:'text'},
+                ],
+                'quote': [
+                    {key:'code', label:'编号', type:'text'}, {key:'quote_content', label:'金句内容', type:'textarea'},
+                    {key:'type_tag', label:'类型标签', type:'text'}, {key:'phonetic_structure', label:'声韵结构', type:'text'},
+                    {key:'metaphor_density', label:'隐喻密度', type:'text'}, {key:'cross_library_impact', label:'跨库冲击力', type:'text'},
+                    {key:'related_meme', label:'关联热梗', type:'text'}, {key:'suitable_plot', label:'适用情节', type:'textarea'},
+                ],
+            };
+            return allFields[libKey] || [{key:'code', label:'编号', type:'text'}];
+        }
+
+        async function saveMaterialItem(itemId) {
+            const fields = getEditFields(currentMaterialLib);
+            const itemData = {};
+
+            for (const field of fields) {
+                const el = document.getElementById(`ef_${field.key}`);
+                if (el) {
+                    itemData[field.key] = el.value;
+                }
+            }
+
+            try {
+                let res;
+                if (itemId) {
+                    res = await fetch(`/api/materials/${currentMaterialLib}/${itemId}`, {
+                        method: 'PUT',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(itemData),
+                    });
+                } else {
+                    res = await fetch(`/api/materials/${currentMaterialLib}`, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(itemData),
+                    });
+                }
+                const result = await res.json();
+                if (result.status === 'ok') {
+                    closeMaterialEdit();
+                    loadMaterialItems();
+                    loadMaterialIndex();
+                    showToast(itemId ? '已更新' : '已添加');
+                }
+            } catch(e) {
+                showToast('保存失败');
+            }
+        }
+
+        function closeMaterialEdit() {
+            document.getElementById('materialEditModal').style.display = 'none';
+        }
+
+        async function deleteMaterialItem(itemId) {
+            if (!confirm('确定删除此素材？')) return;
+            try {
+                await fetch(`/api/materials/${currentMaterialLib}/${itemId}`, {method:'DELETE'});
+                loadMaterialItems();
+                loadMaterialIndex();
+                showToast('已删除');
+            } catch(e) {}
+        }
+
+        // === 自动填入 ===
+        async function autoFillAllMaterials() {
+            document.getElementById('autoFillModal').style.display = 'flex';
+            document.getElementById('autoFillResult').innerHTML = '<p style="color:var(--text-dim)">正在分析热点数据并填入素材库...</p>';
+
+            try {
+                const res = await fetch('/api/materials/auto-fill', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({library_names: ['all']}),
+                });
+                const data = await res.json();
+
+                let html = `<p style="color:var(--success);font-size:15px;margin-bottom:12px">${data.message}</p>`;
+                if (data.results) {
+                    for (const [lib, count] of Object.entries(data.results)) {
+                        if (count > 0) {
+                            const libConfig = getLibConfig(lib);
+                            html += `<div style="font-size:13px;padding:4px 0">${libConfig.name}: <strong style="color:var(--accent)">+${count}</strong> 条</div>`;
+                        }
+                    }
+                }
+                document.getElementById('autoFillResult').innerHTML = html;
+
+                // 刷新当前视图
+                loadMaterialItems();
+                loadMaterialIndex();
+            } catch(e) {
+                document.getElementById('autoFillResult').innerHTML = '<p style="color:var(--accent)">填入失败，请重试</p>';
+            }
+        }
+
+        async function autoFillCurrentLibrary() {
+            document.getElementById('autoFillModal').style.display = 'flex';
+            document.getElementById('autoFillResult').innerHTML = '<p style="color:var(--text-dim)">正在分析并填入当前素材库...</p>';
+
+            try {
+                const res = await fetch('/api/materials/auto-fill', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({library_names: [currentMaterialLib]}),
+                });
+                const data = await res.json();
+
+                let html = `<p style="color:var(--success);font-size:15px;margin-bottom:12px">${data.message}</p>`;
+                if (data.results) {
+                    for (const [lib, count] of Object.entries(data.results)) {
+                        html += `<div style="font-size:13px">${getLibConfig(lib).name}: <strong style="color:var(--accent)">+${count}</strong> 条</div>`;
+                    }
+                }
+                document.getElementById('autoFillResult').innerHTML = html;
+                loadMaterialItems();
+                loadMaterialIndex();
+            } catch(e) {
+                document.getElementById('autoFillResult').innerHTML = '<p style="color:var(--accent)">填入失败</p>';
+            }
+        }
+
+        function closeAutoFillModal() {
+            document.getElementById('autoFillModal').style.display = 'none';
+        }
+
+        // === 导出 ===
+        async function exportCurrentLibrary() {
+            showToast('正在导出...');
+            try {
+                const res = await fetch(`/api/materials/${currentMaterialLib}/export`);
+                if (res.ok) {
+                    const blob = await res.blob();
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = `素材_${currentMaterialLib}_${new Date().toISOString().slice(0,10)}.xlsx`;
+                    a.click();
+                    showToast('导出成功');
+                } else {
+                    showToast('暂无数据可导出');
+                }
+            } catch(e) { showToast('导出失败'); }
+        }
+
+        async function exportAllMaterials() {
+            showToast('正在导出全部素材...');
+            try {
+                const res = await fetch('/api/materials/export-all');
+                if (res.ok) {
+                    const blob = await res.blob();
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = `全部素材库_${new Date().toISOString().slice(0,10)}.xlsx`;
+                    a.click();
+                    showToast('导出成功');
+                } else {
+                    showToast('暂无数据可导出');
+                }
+            } catch(e) { showToast('导出失败'); }
+        }
+
+        // === 素材包 ===
+        function openStarterPack() {
+            document.getElementById('starterPackModal').classList.add('show');
+        }
+        function closeStarterPack() {
+            document.getElementById('starterPackModal').classList.remove('show');
+        }
+
+        async function generateStarterPack() {
+            const genre = document.getElementById('packGenre').value;
+            if (!genre) { showToast('请选择题材'); return; }
+            
+            try {
+                const res = await fetch('/api/starter-pack', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({genre})
+                });
+                const result = await res.json();
+                const pack = result.pack;
+                
+                document.getElementById('packResult').innerHTML = `
+                    <div style="background:var(--bg);padding:16px;border-radius:8px;font-size:13px">
+                        <p style="color:var(--accent);font-weight:600;margin-bottom:8px">《开文素材大纲 - ${genre}》</p>
+                        <p>👤 人设零件: ${pack.characters.length} 个</p>
+                        <p>🎬 场景零件: ${pack.scenes.length} 个</p>
+                        <p>💬 对白零件: ${pack.dialogues.length} 个</p>
+                        <p>📖 情节零件: ${pack.plots.length} 个</p>
+                        <p>💡 脑洞灵感: ${pack.hotspots.length} 个</p>
+                        <hr style="border-color:var(--border);margin:10px 0">
+                        ${pack.characters.map(c=>`<p>👤 ${c.content}</p>`).join('')}
+                        ${pack.dialogues.map(c=>`<p>💬 ${c.content}</p>`).join('')}
+                        ${pack.plots.map(c=>`<p>📖 ${c.content}</p>`).join('')}
+                    </div>
+                `;
+                showToast('素材包已生成！');
+            } catch(e) {
+                showToast('生成失败');
+            }
+        }
+
+        // === 通用 ===
+        async function triggerFetch() {
+            showToast('抓取任务已启动...');
+            try {
+                await fetch('/api/fetch', {method:'POST'});
+                setTimeout(() => {
+                    if (currentView === 'dashboard') loadDashboard();
+                    if (currentView === 'hotspots') loadHotspots();
+                }, 8000);
+            } catch(e) {}
+        }
+
+        async function exportExcel() {
+            showToast('正在导出...');
+            try {
+                const res = await fetch('/api/export');
+                if (res.ok) {
+                    const blob = await res.blob();
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = `热点_${new Date().toISOString().slice(0,10)}.xlsx`;
+                    a.click();
+                    showToast('导出成功！');
+                }
+            } catch(e) { showToast('导出失败'); }
+        }
+
+        async function exportCollection() {
+            showToast('正在导出素材...');
+            try {
+                const res = await fetch('/api/export-collection');
+                if (res.ok) {
+                    const blob = await res.blob();
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = `素材库_${new Date().toISOString().slice(0,10)}.xlsx`;
+                    a.click();
+                    showToast('导出成功！');
+                } else {
+                    showToast('暂无收藏可导出');
+                }
+            } catch(e) { showToast('导出失败'); }
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        // ============================================================
+        // 小说拆解工坊
+        // ============================================================
+        let currentDeconId = null;
+        let deconChapters = [];
+
+        async function loadDeconList() {
+            try {
+                const res = await fetch('/api/deconstructions');
+                const data = await res.json();
+                const list = document.getElementById('deconProjectList');
+
+                if (data.projects.length === 0) {
+                    list.innerHTML = '<div class="empty-state"><div class="icon">📚</div><p>还没有拆解项目</p><p style="font-size:13px;margin-top:8px">点击上方按钮创建第一个项目</p></div>';
+                    return;
+                }
+
+                list.innerHTML = data.projects.map(p => `
+                    <div class="collection-card" style="cursor:pointer" onclick="openDeconProject('${p.id}')">
+                        <div class="title">${p.title}</div>
+                        <div style="font-size:12px;color:var(--text-dim);margin-top:4px">
+                            ${p.author ? '作者：' + p.author + ' · ' : ''}
+                            ${p.genre ? '类型：' + p.genre + ' · ' : ''}
+                            共 ${p.chapter_count} 章
+                        </div>
+                        <div style="font-size:11px;color:var(--text-dim);margin-top:4px">
+                            更新于 ${new Date(p.updated_at).toLocaleString('zh-CN')}
+                        </div>
+                        <div style="margin-top:8px;display:flex;gap:8px">
+                            <button class="btn ghost" style="font-size:12px;padding:4px 10px" onclick="event.stopPropagation();openDeconProject('${p.id}')">编辑</button>
+                            <button class="btn ghost" style="font-size:12px;padding:4px 10px" onclick="event.stopPropagation();analyzeDeconProject('${p.id}')">分析</button>
+                            <button class="btn ghost" style="font-size:12px;padding:4px 10px" onclick="event.stopPropagation();deleteDeconProject('${p.id}')">删除</button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch(e) {
+                console.error(e);
+            }
+        }
+
+        function createNewDecon() {
+            currentDeconId = null;
+            deconChapters = [];
+            document.getElementById('deconTitle').value = '';
+            document.getElementById('deconAuthor').value = '';
+            document.getElementById('deconGenre').value = '';
+            document.getElementById('deconNotes').value = '';
+            renderDeconTable();
+            document.getElementById('deconListPage').style.display = 'none';
+            document.getElementById('deconEditPage').style.display = 'block';
+            document.getElementById('deconAnalysisPage').style.display = 'none';
+        }
+
+        function backToDeconList() {
+            document.getElementById('deconListPage').style.display = 'block';
+            document.getElementById('deconEditPage').style.display = 'none';
+            document.getElementById('deconAnalysisPage').style.display = 'none';
+            loadDeconList();
+        }
+
+        function backToDeconEdit() {
+            document.getElementById('deconListPage').style.display = 'none';
+            document.getElementById('deconEditPage').style.display = 'block';
+            document.getElementById('deconAnalysisPage').style.display = 'none';
+        }
+
+        async function openDeconProject(id) {
+            try {
+                const res = await fetch(`/api/deconstructions/${id}`);
+                const data = await res.json();
+                if (data.status !== 'ok') return;
+
+                const p = data.project;
+                currentDeconId = p.id;
+                document.getElementById('deconTitle').value = p.title || '';
+                document.getElementById('deconAuthor').value = p.author || '';
+                document.getElementById('deconGenre').value = p.genre || '';
+                document.getElementById('deconNotes').value = p.notes || '';
+                deconChapters = p.chapters || [];
+                renderDeconTable();
+
+                document.getElementById('deconListPage').style.display = 'none';
+                document.getElementById('deconEditPage').style.display = 'block';
+                document.getElementById('deconAnalysisPage').style.display = 'none';
+            } catch(e) {
+                showToast('加载失败');
+            }
+        }
+
+        function renderDeconTable() {
+            const tbody = document.getElementById('deconTableBody');
+            const hookOptions = ['悬念', '情绪', '信息', '转折', '无'];
+
+            if (deconChapters.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:30px;color:var(--text-dim)">点击下方按钮添加章节</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = deconChapters.map((ch, idx) => `
+                <tr style="border-bottom:1px solid var(--border)" data-idx="${idx}">
+                    <td style="padding:8px"><input type="text" value="${ch.chapter || ''}" placeholder="第X章" style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:6px;border-radius:4px;font-size:13px" onchange="updateDeconCell(${idx}, 'chapter', this.value)"></td>
+                    <td style="padding:8px"><input type="text" value="${ch.event || ''}" placeholder="一句话概括..." style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:6px;border-radius:4px;font-size:13px" onchange="updateDeconCell(${idx}, 'event', this.value)"></td>
+                    <td style="padding:8px"><input type="number" value="${ch.word_count || ''}" placeholder="0" style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:6px;border-radius:4px;font-size:13px" onchange="updateDeconCell(${idx}, 'word_count', parseInt(this.value)||0)"></td>
+                    <td style="padding:8px"><input type="number" value="${ch.scene_count || ''}" placeholder="0" style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:6px;border-radius:4px;font-size:13px" onchange="updateDeconCell(${idx}, 'scene_count', parseInt(this.value)||0)"></td>
+                    <td style="padding:8px">
+                        <select style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:6px;border-radius:4px;font-size:13px" onchange="updateDeconCell(${idx}, 'hook_type', this.value)">
+                            ${hookOptions.map(o => `<option value="${o}" ${ch.hook_type === o ? 'selected' : ''}>${o}</option>`).join('')}
+                        </select>
+                    </td>
+                    <td style="padding:8px"><input type="text" value="${ch.hook_detail || ''}" placeholder="钩子具体内容..." style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:6px;border-radius:4px;font-size:13px" onchange="updateDeconCell(${idx}, 'hook_detail', this.value)"></td>
+                    <td style="padding:8px">
+                        <div style="display:flex;align-items:center;gap:6px">
+                            <input type="range" min="-5" max="5" value="${ch.emotion || 0}" style="flex:1" oninput="this.nextElementSibling.textContent=this.value;updateDeconCell(${idx}, 'emotion', parseInt(this.value))">
+                            <span style="min-width:24px;text-align:center;font-size:13px;font-weight:600;color:${(ch.emotion||0)>0?'var(--accent)':((ch.emotion||0)<0?'var(--accent3)':'var(--text-dim)')}">${ch.emotion || 0}</span>
+                        </div>
+                    </td>
+                    <td style="padding:8px"><input type="text" value="${ch.notes || ''}" placeholder="备注..." style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:6px;border-radius:4px;font-size:13px" onchange="updateDeconCell(${idx}, 'notes', this.value)"></td>
+                    <td style="padding:8px;text-align:center"><button class="btn ghost" style="font-size:11px;padding:4px 8px" onclick="removeDeconRow(${idx})">删除</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function addDeconRow() {
+            deconChapters.push({
+                chapter: `第${deconChapters.length + 1}章`,
+                event: '',
+                word_count: 0,
+                scene_count: 0,
+                hook_type: '无',
+                hook_detail: '',
+                emotion: 0,
+                notes: '',
+            });
+            renderDeconTable();
+        }
+
+        function removeDeconRow(idx) {
+            deconChapters.splice(idx, 1);
+            renderDeconTable();
+        }
+
+        function updateDeconCell(idx, field, value) {
+            deconChapters[idx][field] = value;
+        }
+
+        async function saveDeconProject() {
+            const project = {
+                title: document.getElementById('deconTitle').value || '未命名',
+                author: document.getElementById('deconAuthor').value,
+                genre: document.getElementById('deconGenre').value,
+                notes: document.getElementById('deconNotes').value,
+                chapters: deconChapters,
+            };
+
+            try {
+                let res;
+                if (currentDeconId) {
+                    res = await fetch(`/api/deconstructions/${currentDeconId}`, {
+                        method: 'PUT',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(project),
+                    });
+                } else {
+                    res = await fetch('/api/deconstructions', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(project),
+                    });
+                }
+                const result = await res.json();
+                if (result.status === 'ok') {
+                    currentDeconId = result.project.id;
+                    showToast('保存成功！');
+                }
+            } catch(e) {
+                showToast('保存失败');
+            }
+        }
+
+        async function deleteDeconProject(id) {
+            if (!confirm('确定删除此项目？')) return;
+            try {
+                await fetch(`/api/deconstructions/${id}`, {method: 'DELETE'});
+                loadDeconList();
+                showToast('已删除');
+            } catch(e) {}
+        }
+
+        async function analyzeDecon() {
+            if (!currentDeconId) {
+                showToast('请先保存项目');
+                return;
+            }
+            await saveDeconProject();
+            await analyzeDeconProject(currentDeconId);
+        }
+
+        async function analyzeDeconProject(id) {
+            showToast('正在分析...');
+            try {
+                const res = await fetch(`/api/deconstructions/${id}/analyze`, {method: 'POST'});
+                const data = await res.json();
+                if (data.status === 'ok') {
+                    renderDeconAnalysis(data.analysis);
+                    document.getElementById('deconListPage').style.display = 'none';
+                    document.getElementById('deconEditPage').style.display = 'none';
+                    document.getElementById('deconAnalysisPage').style.display = 'block';
+                }
+            } catch(e) {
+                showToast('分析失败');
+            }
+        }
+
+        function renderDeconAnalysis(analysis) {
+            const container = document.getElementById('deconAnalysisContent');
+
+            // 情绪曲线图（用CSS绘制简单折线）
+            const emotionCurve = analysis.emotion_curve || [];
+            let curveHtml = '';
+            if (emotionCurve.length > 0) {
+                const emotions = emotionCurve.map(d => d.emotion);
+                const minE = Math.min(...emotions, -5);
+                const maxE = Math.max(...emotions, 5);
+                const range = maxE - minE || 1;
+                const width = 100 / (emotions.length - 1 || 1);
+
+                let points = '';
+                emotions.forEach((e, i) => {
+                    const x = i * width;
+                    const y = 100 - ((e - minE) / range * 80 + 10);
+                    points += `${x},${y} `;
+                });
+
+                let bars = '';
+                emotionCurve.forEach((d, i) => {
+                    const color = d.emotion > 0 ? '#ff5e7e' : (d.emotion < 0 ? '#ffd93d' : '#6a6a8a');
+                    bars += `<div style="flex:1;text-align:center;font-size:10px;color:var(--text-dim)"><div style="width:8px;height:8px;border-radius:50%;background:${color};margin:0 auto 4px"></div>${d.chapter}</div>`;
+                });
+
+                curveHtml = `
+                    <div class="panel" style="margin-bottom:16px">
+                        <h3>情绪曲线</h3>
+                        <div style="position:relative;height:160px;background:var(--bg);border-radius:8px;padding:16px;margin-bottom:8px">
+                            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;top:0;left:0">
+                                <polyline points="${points}" fill="none" stroke="#4ecdc4" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                ${emotions.map((e, i) => {
+                                    const x = i * width;
+                                    const y = 100 - ((e - minE) / range * 80 + 10);
+                                    const color = e > 0 ? '#ff5e7e' : (e < 0 ? '#ffd93d' : '#6a6a8a');
+                                    return `<circle cx="${x}" cy="${y}" r="1.5" fill="${color}"/>`;
+                                }).join('')}
+                            </svg>
+                        </div>
+                        <div style="display:flex;gap:4px">${bars}</div>
+                        <div style="display:flex;justify-content:center;gap:16px;margin-top:8px;font-size:12px">
+                            <span style="color:#ff5e7e">● 正向情绪</span>
+                            <span style="color:#ffd93d">● 负向情绪</span>
+                            <span style="color:#6a6a8a">● 平淡</span>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // 钩子分布
+            const hookStats = analysis.hook_stats || {};
+            const hookDist = hookStats.distribution || {};
+            const totalHooks = Object.values(hookDist).reduce((a, b) => a + b, 0) || 1;
+            const hookColors = {'悬念': '#ff5e7e', '情绪': '#4ecdc4', '信息': '#ffd93d', '转折': '#a78bfa', '无': '#444'};
+            let hookHtml = '';
+            for (const [type, count] of Object.entries(hookDist)) {
+                const pct = (count / totalHooks * 100).toFixed(0);
+                hookHtml += `
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <div style="width:12px;height:12px;border-radius:3px;background:${hookColors[type]||'#888'}"></div>
+                        <span style="font-size:13px;flex:1">${type}</span>
+                        <span style="font-size:13px;font-weight:600">${count}章 (${pct}%)</span>
+                    </div>
+                `;
+            }
+
+            // 字数柱状图
+            const wordStats = analysis.word_stats || {};
+            const wordOutliers = wordStats.outliers || [];
+            const avgWords = wordStats.avg || 0;
+
+            // 节奏诊断
+            const diagnosis = analysis.rhythm_diagnosis || [];
+            const diagHtml = diagnosis.map(d => `
+                <div style="padding:10px 12px;background:var(--bg);border-radius:6px;margin-bottom:6px;font-size:13px;border-left:3px solid ${d.includes('良好') ? 'var(--success)' : 'var(--accent3)'}">
+                    ${d}
+                </div>
+            `).join('');
+
+            // 高潮章节
+            const topClimax = analysis.top_climax || [];
+            const climaxHtml = topClimax.map(c => `
+                <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)">
+                    <span style="font-size:16px;font-weight:700;color:var(--accent);min-width:50px">${c.score}分</span>
+                    <div style="flex:1">
+                        <div style="font-size:13px">${c.chapter}</div>
+                        <div style="font-size:11px;color:var(--text-dim)">情绪${c.emotion} · 字数${c.word_count} · 钩子${c.hook_type}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            // 前3章分析
+            const first3 = analysis.first3_analysis || {};
+
+            container.innerHTML = `
+                <div class="dashboard-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin-bottom:16px">
+                    <div class="stat-card"><div class="num">${analysis.total_chapters}</div><div class="label">总章节</div></div>
+                    <div class="stat-card"><div class="num">${analysis.total_words}</div><div class="label">总字数</div></div>
+                    <div class="stat-card"><div class="num">${hookStats.rate || 0}%</div><div class="label">钩子覆盖率</div></div>
+                    <div class="stat-card"><div class="num">${analysis.avg_emotion}</div><div class="label">平均情绪</div></div>
+                </div>
+
+                ${curveHtml}
+
+                <div class="dashboard-row">
+                    <div class="panel">
+                        <h3>钩子类型分布</h3>
+                        <div style="margin-bottom:8px;font-size:12px;color:var(--text-dim)">覆盖率: ${hookStats.rate || 0}%</div>
+                        ${hookHtml}
+                    </div>
+                    <div class="panel">
+                        <h3>字数统计</h3>
+                        <div style="font-size:13px;margin-bottom:8px">
+                            <div style="display:flex;justify-content:space-between;padding:4px 0"><span>平均</span><span>${avgWords}字</span></div>
+                            <div style="display:flex;justify-content:space-between;padding:4px 0"><span>最多</span><span>${wordStats.max}字</span></div>
+                            <div style="display:flex;justify-content:space-between;padding:4px 0"><span>最少</span><span>${wordStats.min}字</span></div>
+                        </div>
+                        ${wordOutliers.length > 0 ? `<div style="margin-top:8px;font-size:12px;color:var(--accent3)">⚠️ 字数异常章节: ${wordOutliers.map(o => o.chapter).join(', ')}</div>` : ''}
+                    </div>
+                </div>
+
+                <div class="dashboard-row">
+                    <div class="panel">
+                        <h3>高潮章节 TOP5</h3>
+                        ${climaxHtml || '<p style="color:var(--text-dim);font-size:13px">暂无数据</p>'}
+                    </div>
+                    <div class="panel">
+                        <h3>前3章分析</h3>
+                        <div style="font-size:13px">
+                            <div style="padding:6px 0"><span style="color:var(--text-dim)">强开场:</span> ${first3.has_strong_opening ? '<span style="color:var(--success)">是 ✓</span>' : '<span style="color:var(--accent3)">否，建议加强</span>'}</div>
+                            <div style="padding:6px 0"><span style="color:var(--text-dim)">钩子类型:</span> ${first3.hook_types.length > 0 ? first3.hook_types.join('、') : '无'}</div>
+                            <div style="padding:6px 0"><span style="color:var(--text-dim)">平均情绪:</span> ${first3.avg_emotion}</div>
+                            <div style="padding:6px 0"><span style="color:var(--text-dim)">总字数:</span> ${first3.total_words}字</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel" style="margin-bottom:16px">
+                    <h3>节奏诊断</h3>
+                    ${diagHtml}
+                </div>
+
+                ${analysis.peaks && analysis.peaks.length > 0 ? `
+                <div class="panel" style="margin-bottom:16px">
+                    <h3>情绪波峰</h3>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        ${analysis.peaks.map(p => `<span class="tag" style="background:rgba(255,94,126,0.15);color:var(--accent)">${p.chapter}: ${p.emotion}</span>`).join('')}
+                    </div>
+                </div>
+                ` : ''}
+
+                ${analysis.valleys && analysis.valleys.length > 0 ? `
+                <div class="panel" style="margin-bottom:16px">
+                    <h3>情绪波谷</h3>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        ${analysis.valleys.map(v => `<span class="tag" style="background:rgba(255,217,61,0.15);color:var(--accent3)">${v.chapter}: ${v.emotion}</span>`).join('')}
+                    </div>
+                </div>
+                ` : ''}
+            `;
+        }
+
+        async function exportDecon() {
+            if (!currentDeconId) {
+                showToast('请先保存项目');
+                return;
+            }
+            showToast('正在导出...');
+            try {
+                const res = await fetch(`/api/deconstructions/${currentDeconId}/export`);
+                if (res.ok) {
+                    const blob = await res.blob();
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = `小说拆解_${new Date().toISOString().slice(0,10)}.xlsx`;
+                    a.click();
+                    showToast('导出成功！');
+                }
+            } catch(e) {
+                showToast('导出失败');
+            }
+        }
+
+        // 初始化
+        loadDashboard();
+    </script>
+</body>
+</html>
