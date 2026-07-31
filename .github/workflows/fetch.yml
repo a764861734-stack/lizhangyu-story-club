@@ -25,7 +25,7 @@ jobs:
       
       - name: 安装依赖
         run: |
-          pip install requests beautifulsoup4 pandas openpyxl aiohttp httpx
+          pip install requests beautifulsoup4 pandas openpyxl aiohttp httpx pydantic
       
       - name: 抓取热点
         run: |
